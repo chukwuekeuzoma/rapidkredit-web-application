@@ -1,5 +1,8 @@
 // import logo from './logo.svg';
 // import './App.css';
+import React from 'react';
+import Navigation from "./Components/Navigation/Navigation"
+import BodyOne from "./Components/BodyOne/BodyOne"
 
 function App() {
   return (
@@ -20,8 +23,9 @@ function App() {
     //   </header>
     // </div>
    <>
-     
-     
+      <Navigation/>
+      <BodyOne/>
+
    </>
 
   );

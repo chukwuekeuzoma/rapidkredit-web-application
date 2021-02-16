@@ -1,0 +1,86 @@
+@import "../../scssMixin/mixin.scss";
+
+.container_one{
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+
+    .R_em_ep,.Com_Fa_Lo_Re{
+        @include flex_center
+    }
+
+    .RapidOne{
+       margin-top: 30px;
+       margin-left: 30px;
+    }
+    
+    .Employee{
+        margin-top: 50px;
+        margin-left: 60px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: rgb(17, 17, 66);
+        cursor: pointer;
+    }
+
+    .Employer{
+        margin-top: 50px;
+        margin-left: 30px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: rgb(17, 17, 66);
+        cursor: pointer;
+    } 
+    
+    .Company{
+        margin-top: 50px;
+        margin-right:50px;
+        font-weight:bolder;
+        font-size:15px;
+        color: rgba(54, 54, 52, 0.452);
+        cursor: pointer;
+    }
+
+    .Faq{
+        margin-top: 50px;
+        margin-right:50px;
+        font-weight:bolder;
+        font-size:15px;
+        color: rgba(54, 54, 52, 0.452);
+        cursor: pointer;
+    }
+    
+    .Login{
+        margin-top: 50px;
+        margin-right:50px;
+        
+        .Login_two{
+            background:rgb(94, 94, 170);
+            color: white;
+            padding:10px;
+            padding-left:30px;
+            padding-right: 30px;
+            border-radius:20px;
+            font-size: small;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+    }
+
+    .Register{
+        margin-top: 50px;
+        margin-right:100px;
+
+        .Register_two{
+            background:rgb(94, 94, 170);
+            color: white;
+            padding:10px;
+            padding-left:30px;
+            padding-right: 30px;
+            border-radius:20px;
+            font-size: small;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+    }
+}

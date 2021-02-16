@@ -1,0 +1,51 @@
+@import "../../scssMixin/mixin.scss";
+
+.container_two{
+    background-image: url(../../images/employee-man.png);
+    height:500px;
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .W_A_S{
+        @include flex;
+        flex-direction: column;
+        align-items: flex-end;
+        line-height: 50px;
+        margin-right: 50px;
+
+         .With_D{
+                 
+             margin-top:100px;
+              
+                .Withdraw{
+                    color: white;
+                    font-size:50px;
+                    font-weight: bolder;
+                    letter-spacing:5px;
+                }
+            }  
+                .As{
+                    color: white;
+                    font-size:50px;
+                    font-weight: bolder;
+                    letter-spacing:5px;
+                }
+                
+                .Access{
+                    color: white;
+                    letter-spacing:5px;
+                }
+            .App_c{
+                 
+                margin-top:100px;
+
+                .App{
+                    cursor: pointer;
+                }
+            }
+    }
+}
+
+
