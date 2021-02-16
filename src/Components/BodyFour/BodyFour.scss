@@ -1,0 +1,67 @@
+@import "../../scssMixin/mixin.scss";
+
+.container_Four{
+     background-image: url(../../images/hiow.png);
+     height:350px;
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size:cover;
+     margin-top:20px;
+
+     .How_c{
+         @include flex;
+         justify-content: center;
+         
+        .How_c_sub{
+             margin-top: 20px;
+                
+            .How{
+                color: white;
+                font-size:40px;
+                font-weight: bolder;
+                word-spacing: 5px;
+                letter-spacing:2px;
+            }
+        }
+     }
+
+    .order_container{
+        @include flex;
+        justify-content: space-between;
+        margin-top:20px;
+
+        .order_list_container{
+            margin-left:50px;
+            
+            ol{
+                li{
+                  color: white;
+                  letter-spacing: 2px;
+                  word-spacing: 2px;
+                }
+            }
+        }
+        
+        .RapidTwo{
+            margin-left: 20px;
+        }
+
+        .Register_body{
+              
+            margin-right:100px;
+
+            .Register_body_two{
+                background:rgb(94, 94, 170);
+                color: white;
+                padding:10px;
+                padding-left:30px;
+                padding-right: 30px;
+                border-radius:20px;
+                font-size: small;
+                cursor: pointer;
+                font-weight: bolder;
+            }
+        }
+    }
+
+}

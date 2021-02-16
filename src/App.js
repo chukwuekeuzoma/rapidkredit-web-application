@@ -3,7 +3,9 @@
 import React from 'react';
 import Navigation from "./Components/Navigation/Navigation"
 import BodyOne from "./Components/BodyOne/BodyOne"
-
+import BodyTwo from "./Components/BodyTwo/BodyTwo"
+import BodyThree from "./Components/BodyThree/BodyThree"
+import BodyFour from "./Components/BodyFour/BodyFour"
 function App() {
   return (
     // <div className="App">
@@ -25,6 +27,9 @@ function App() {
    <>
       <Navigation/>
       <BodyOne/>
+      <BodyTwo/>
+      <BodyThree/>
+      <BodyFour/>
 
    </>
 

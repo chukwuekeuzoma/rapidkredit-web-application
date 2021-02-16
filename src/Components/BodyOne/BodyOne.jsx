@@ -20,7 +20,7 @@ export default function BodyOne() {
                         </span>
                     </div>
                     <div className="App_c">
-                      <span className="App"><img src={App} alt="tw" height="50px"/> </span> 
+                      <span className="App"><img src={App} alt="tw" height="50px"/></span> 
                     </div>
                </div>
             </div>
