@@ -1,0 +1,23 @@
+@import "../../scssMixin/mixin.scss";
+
+.Imageslide_container{
+    @include flex;
+    height:200px;
+
+    .slideimage_one{
+        @include flex;
+        flex-direction: column;
+        height:200px;
+    }
+
+    .Slideimage_two{
+        border-radius: 50%;
+        height: 50px;
+        width:50px;
+        margin-bottom:30px;
+    }
+
+    .slide_text{
+        width: 80px;
+    }
+}

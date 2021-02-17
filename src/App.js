@@ -6,6 +6,7 @@ import BodyOne from "./Components/BodyOne/BodyOne"
 import BodyTwo from "./Components/BodyTwo/BodyTwo"
 import BodyThree from "./Components/BodyThree/BodyThree"
 import BodyFour from "./Components/BodyFour/BodyFour"
+import ImageSlider from "./Components/ImageSlider/ImageSlider"
 function App() {
   return (
     // <div className="App">
@@ -30,6 +31,7 @@ function App() {
       <BodyTwo/>
       <BodyThree/>
       <BodyFour/>
+      <ImageSlider/>
 
    </>
 
