@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 =======
 # rapidkredit-web-application
 >>>>>>> 77f4b92fd5d55896eeaac2d4d9bb84242354e528
+=======
+# rapidkredit-frontend
+>>>>>>> e96a06f6ba50b92e1706111297ad75e5f4ee38e0
