@@ -7,7 +7,7 @@ export const ImageSliderData = [
     },
 
     {
-    image:".././images/carowhite3.png",
+    image:"../../images/carowhite3.png",
     text:"Lorem ipsum dolor sit amet consectetur adipiscing eli sed do eiusmod tempor incididunt ut labore et dolore magna aliquaQuis ipsum suspendisse."
      },
 
