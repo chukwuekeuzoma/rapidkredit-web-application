@@ -7,6 +7,7 @@ import BodyTwo from "./Components/BodyTwo/BodyTwo"
 import BodyThree from "./Components/BodyThree/BodyThree"
 import BodyFour from "./Components/BodyFour/BodyFour"
 import ImageSlider from "./Components/ImageSlider/ImageSlider"
+import Footer from "./Components/Footer/Footer"
 function App() {
   return (
     // <div className="App">
@@ -32,6 +33,7 @@ function App() {
       <BodyThree/>
       <BodyFour/>
       <ImageSlider/>
+      <Footer/>
 
    </>
 

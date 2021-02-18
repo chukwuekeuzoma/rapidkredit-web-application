@@ -1,23 +1,51 @@
 @import "../../scssMixin/mixin.scss";
+.main_container{
+   
+    background-image: url(../../images/desk-01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
 
-.Imageslide_container{
-    @include flex;
-    height:200px;
-
-    .slideimage_one{
+    .Imageslide_container{
         @include flex;
-        flex-direction: column;
-        height:200px;
-    }
+        justify-content: center;
+        align-items: center;
+        margin-left:20px;
+        margin-right:20px;
+    
+        .slideimage_one{
+            @include flex;
+            flex-direction: column;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            margin:30px;
+            margin-top:50px;
+            width:100%;
+        }
+        
+        
+        .Slideimage_two{
+            border-radius: 50%;
+            border: 1px solid rgb(17, 17, 66);
+            height: 100px;
+            width:100px;
+            margin-bottom:10px;
+        }
 
-    .Slideimage_two{
-        border-radius: 50%;
-        height: 50px;
-        width:50px;
-        margin-bottom:30px;
-    }
 
-    .slide_text{
-        width: 80px;
+
+        .slide_text{
+            width:auto;
+            padding:10px;
+            font-size: small;
+            color:rgb(94, 94, 170);
+            font-weight: bold;
+            word-spacing:2px;
+            @include flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

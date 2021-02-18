@@ -1,0 +1,11 @@
+@import "../../scssMixin/mixin.scss";
+
+.footer_container{
+    background:rgb(94, 94, 170);
+    color:white;
+    @include flex;
+    justify-content: space-between;
+    height:500px;
+    width:100%;
+    margin-top:10px;
+}
