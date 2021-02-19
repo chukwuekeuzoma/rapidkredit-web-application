@@ -9,20 +9,23 @@ export default function Footer() {
     return (
        <>
           <div className="footer_container">
-                <div>
-                    <div><img src={RapidTwo} alt="tw" height="65px"/></div>
-                    <div>
-                        <span>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna
+              
+                <div className="footer_Rapid">
+                    <div className="footer_Rapid_logo"><img src={RapidTwo} alt="tw" height="65px"/></div>
+                    <div className="footer_Lorem">
+                        <span className="footer_Lorem_second">
+                            Lorem ipsum dolor sit amet, consectetur<br/>
+                            adipiscing elit, sed do eiusmod tempor<br/>
+                            incididunt ut labore et dolore magna<br/>
                             aliqua. Quis ipsum suspendisse
                         </span>
                     </div>
-                    <div>@Rapidkredit 2021. All rights Reserved</div>
+                    <div className="footer_All_right">
+                       <span className="footer_All_right_seond">@Rapidkredit 2021. All rights Reserved</span> 
+                    </div>
 
                 </div>
-                <div>
+                <div className="footer_list_tag_one">
                     <ul>
                         <li>Company</li>
                         <li>About</li>
@@ -31,7 +34,7 @@ export default function Footer() {
                         <li>Partners</li>
                     </ul>
                 </div>
-                <div>
+                <div className="footer_list_tag_two">
                     <ul>
                         <li>Help</li>
                         <li>Faq</li>
@@ -39,18 +42,21 @@ export default function Footer() {
                         <li>Forum</li>
                     </ul>
                 </div>
-                <div>
-                    <div>
-                        <div><img src={LocationIcon} alt="tw" height="30px"/></div>
-                        <div><span>Lorem ipsum dolor sit amet, consectetur</span></div>
-                 
-
+                <div className="footer_location">
+                    <div className="footer_location_icon">
+                        <div className="footer_img_location"><img src={LocationIcon} alt="tw" height="20px"/></div>
+                        <div><span className="footer_img_lorem">Lorem ipsum dolor sit amet, consectetur</span></div>
                     </div>
-                    <div>
-                        <div><img src={Email} alt="tw" height="30px"/></div>
-                        <div><span>rapidkredit@ghdbgbjhbjhd.com</span></div>
-                        <div><img src={SocialMedia} alt="tw" height="30px"/></div>
+                    <div className="footer_email">
+                        <div className="footer_email_img"><img src={Email} alt="tw" height="15px"/></div>
+                        <div><span className="footer_email_link">rapidkredit@ghdbgbjhbjhd.com</span></div>
+                     
                     </div>
+                     <div className="footer_social_media">
+                    
+                          <img src={SocialMedia} alt="tw" height="20px" className="footer_social_media_img"/>
+                    
+                     </div>
                 </div>
           </div>
         </>

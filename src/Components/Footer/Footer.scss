@@ -4,8 +4,107 @@
     background:rgb(94, 94, 170);
     color:white;
     @include flex;
-    justify-content: space-between;
-    height:500px;
+    justify-content: space-around;
+    height:400px;
     width:100%;
-    margin-top:10px;
+    margin-top:3px;
+
+    .footer_Rapid{
+        @include flex;
+        flex-direction: column;
+        justify-content:space-around;
+
+        .footer_Rapid_logo{
+            margin-top:-20px;
+            margin-left:-80px;
+            font-size:5px;
+        }
+
+        .footer_Lorem{
+            margin-left:-80px;
+            margin-top:-100px;
+
+            .footer_Lorem_second{
+                font-size: smaller;
+            }
+        }
+
+        .footer_All_right{
+            margin-left:-80px;
+            
+
+            .footer_All_right_seond{
+                font-size: smaller;
+                 margin-top:-30px !important;
+            }
+        }
+    }
+
+    .footer_list_tag_one{
+        margin-top:100px;
+        margin-left:-200px;
+
+        ul{
+            list-style: none;
+
+            li{
+                line-height:30px;
+                cursor: pointer;
+                font-size: smaller;
+            }
+        }
+    }
+
+    .footer_list_tag_two{
+        margin-top:100px;
+        margin-left:-200px;
+       
+        ul{
+            list-style: none;
+
+            li{
+                line-height:30px;
+                cursor: pointer;
+                font-size: smaller;
+            }
+        }
+
+    }
+
+    .footer_location{
+        margin-top:110px;
+
+        .footer_location_icon{
+            @include flex;
+            margin-left:-200px;
+
+            .footer_img_location{
+                margin-right:20px;
+            }
+            
+            .footer_img_lorem{
+                font-size: smaller;
+            }
+        }
+
+        .footer_email{
+            @include flex;
+            margin-left:-200px;
+            margin-top:30px;
+
+            .footer_email_img{
+                margin-right:20px;
+            }
+
+            .footer_email_link{
+                font-size: smaller;
+            }
+        }
+
+        .footer_social_media{
+             margin-top:130px;
+             margin-left: -70px;
+
+        }
+    }
 }
