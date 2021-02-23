@@ -1,17 +1,15 @@
 @import "../../scssMixin/mixin.scss";
 
 
-.container_one--hidden{
-    top:-120px;
-}
 
-.container_one{
+
+nav{
     position:sticky;
     display:flex;
     justify-content:space-between;
     height:120px;
     top:0;
-    background: white;
+    background: white ;
     width:100%;
     transition: top 1s;
     box-sizing:border-box;
@@ -19,13 +17,15 @@
     box-shadow:-2px 10px 8px 0px rgba(50, 50, 53, 0.75);
     
 
-    .R_em_ep,.Com_Fa_Lo_Re{
+    .R_em_ep{
         @include flex_center
     }
     .R_em_ep--mobile,.Com_Fa_Lo_Re--mobile,.R_em_ep--mobile-none{
        display: none !important;
     } 
 
+    
+   
     .RapidOne--mobile{
         display:none;
     }
@@ -51,59 +51,81 @@
         color: rgb(17, 17, 66);
         cursor: pointer;
     } 
-    
-    .Company{
-        margin-top: 50px;
-        margin-right:50px;
-        font-weight:bolder;
-        font-size:15px;
-        color: rgba(39, 39, 38, 0.452);
-        cursor: pointer;
-    }
+    .Com_Fa_Lo_Re{
+           
+        @include flex_center;
 
-    .Faq{
-        margin-top: 50px;
-        margin-right:50px;
-        font-weight:bolder;
-        font-size:15px;
-        color: rgba(32, 32, 32, 0.452);
-        cursor: pointer;
-    }
-    
-    .Login{
-        margin-top: 50px;
-        margin-right:50px;
-        
-        .Login_two{
-            background:rgb(94, 94, 170);
-            color: white;
-            padding:10px;
-            padding-left:30px;
-            padding-right: 30px;
-            border-radius:20px;
-            font-size: small;
-            cursor: pointer;
-            font-weight: bolder;
-        }
-    }
+            .Company{
+                margin-top: 50px;
+                margin-right:50px;
+                font-weight:bolder;
+                font-size:15px;
+                color: rgba(39, 39, 38, 0.452);
+                cursor: pointer;
+                
+               .drop{
+                    display:none !important;
+                }
+            
 
-    .Register{
-        margin-top: 50px;
-        margin-right:100px;
+                &:hover.drop{
+                    display:block;
+                    position:absolute;
+                    margin-top:120px;
+                    height:100px;
+                    width:100%;
+                    background-color: yellow;
+                  
+                }
 
-        .Register_two{
-            background:rgb(94, 94, 170);
-            color: white;
-            padding:10px;
-            padding-left:30px;
-            padding-right: 30px;
-            border-radius:20px;
-            font-size: small;
-            cursor: pointer;
-            font-weight: bolder;
-        }
-    }
-    
+
+            
+
+            }
+
+            .Faq{
+                margin-top: 50px;
+                margin-right:50px;
+                font-weight:bolder;
+                font-size:15px;
+                color: rgba(32, 32, 32, 0.452);
+                cursor: pointer;
+            }
+            
+            .Login{
+                margin-top: 50px;
+                margin-right:50px;
+                
+                .Login_two{
+                    background:rgb(94, 94, 170);
+                    color: white;
+                    padding:10px;
+                    padding-left:30px;
+                    padding-right: 30px;
+                    border-radius:20px;
+                    font-size: small;
+                    cursor: pointer;
+                    font-weight: bolder;
+                }
+            }
+
+            .Register{
+                margin-top: 50px;
+                margin-right:100px;
+
+                .Register_two{
+                    background:rgb(94, 94, 170);
+                    color: white;
+                    padding:10px;
+                    padding-left:30px;
+                    padding-right: 30px;
+                    border-radius:20px;
+                    font-size: small;
+                    cursor: pointer;
+                    font-weight: bolder;
+                }
+            }
+     }
     .nav_bar_Menu_icon{
         display: none;
     }
@@ -235,6 +257,13 @@
     }
 }
 
+nav.hide{
+    transform:translateY(-120px);
+}
+
+.small{
+    height:50px;
+}
 
 
 
