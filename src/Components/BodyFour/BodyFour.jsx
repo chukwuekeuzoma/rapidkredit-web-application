@@ -1,6 +1,6 @@
 import React from 'react'
 import "./BodyFour.scss"
-import RapidTwo from "../../images/rapid2.png"
+// import RapidTwo from "../../images/rapid2.png"
 
 
 export default function BodyFour() {
@@ -23,11 +23,12 @@ export default function BodyFour() {
                               <li>J sdhbnihjn klm dh mdj m, dkmkm b h nljnmojnm df</li>
                           </ol>
                       </div>
-                      <div className="RapidTwo"><img src={RapidTwo} alt="tw" height="65px"/></div>
+                      <div className="Register_body"><span className="Register_body_two">Register</span></div>
+                      {/* <div className="RapidTwo"><img src={RapidTwo} alt="tw" height="65px"/></div> */}
                   </div>
                   <div >
                       <div></div>
-                      <div className="Register_body"><span className="Register_body_two">Register</span></div>
+                      {/* <div className="Register_body"><span className="Register_body_two">Register</span></div> */}
                   </div>
                </div>
 

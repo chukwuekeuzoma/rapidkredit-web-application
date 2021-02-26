@@ -15,6 +15,12 @@ export default function ImageSlider() {
     return (
         <>
           <div className="main_container">
+             <div className="Testimonies_container">
+                 <div className="Testimonies">
+                     <span>TESTIMONIALS</span>
+                 </div>
+             </div>
+
             <div className="Imageslide_container">
                 <Carousel breakPoints={breakpoints}>
                     {ImageSliderData.map((slide, index) => {

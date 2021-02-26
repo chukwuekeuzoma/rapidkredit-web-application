@@ -116,41 +116,41 @@ export default function Navigation () {
                               </div>
                            </div>
                            <div className="img_box">
-                             <img src={Aboutus} alt="tw"/>
+                             <img src={Employeewelness} alt="tw"/>
                                 <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
-                                        About<br/>
-                                        us
+                                        Privacy<br/>
+                                        Policy
                                     </span>
                                 </div>
                             </div>
                            <div className="img_box">
-                             <img src={Aboutus} alt="tw"/>
+                             <img src={Fag} alt="tw"/>
                                 <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
-                                        About<br/>
-                                        us
+                                        Terms&<br/>
+                                        Condition
                                     </span>
                                 </div>
                            </div>
                            <div className="img_box">
-                               <img src={Aboutus} alt="tw"/>
+                               <img src={Earnbeforepayday} alt="tw"/>
                                <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
-                                        About<br/>
-                                        us
+                                        Legal<br/>
+                                        <br/>
                                     </span>
                                 </div>
                             </div>
                            <div className="img_box">
-                             <img src={Aboutus} alt="tw"/>
+                             <img src={Contactus} alt="tw"/>
                              <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
-                                        About<br/>
+                                        Contact<br/>
                                         us
                                     </span>
                                 </div>

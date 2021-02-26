@@ -1,13 +1,20 @@
 import React from 'react'
 import "./BodyTwo.scss"
 import {ArrowDropDown} from '@material-ui/icons';
-import Manwithphone from "../../images/manwithphone.png"
+import Earnbeforepayday from "../../images/earnbeforepayday.jpg"
+
 
 export default function BodyTwo() {
     return (
         <>
             <div className="container_three">
-                <div className="Man"><span><img src={Manwithphone} alt="tw" height="500px"/></span> </div>
+                <div className="manwithphone_container">
+                     <div className="color_box_one"></div>
+                     <div className="color_box_two"></div>
+                   <div className="Man">
+                       <img src={Earnbeforepayday} alt="tw"/>
+                    </div>
+                </div>
                 <div className="H_P_Loerm_contanier">
                     <div className="H_P_Loerm">
                       <h2 className="Lorem_H">Lorem Ipsum</h2>

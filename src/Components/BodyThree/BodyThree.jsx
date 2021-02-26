@@ -1,7 +1,8 @@
 import React from 'react'
 import {ArrowDropDown} from '@material-ui/icons';
-import Manwithphone from "../../images/manwithphone.png";
+import Employeewelness from "../../images/employeewelness.jpg";
 import "../BodyTwo/BodyTwo.scss";
+
 
 export default function BodyThree() {
     return (
@@ -26,7 +27,13 @@ export default function BodyThree() {
                         </div>
                     </div>
                 </div>
-                <div className="Man"><span><img src={Manwithphone} alt="tw" height="500px"/></span> </div>
+                <div className="manwithphone_container">
+                     <div className="color_box_one"></div>
+                     <div className="color_box_two"></div>
+                   <div className="Man">
+                       <img src={Employeewelness} alt="tw"/>
+                    </div>
+                </div>
             </div>
 
        </>

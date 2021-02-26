@@ -6,6 +6,18 @@
     background-position: center;
     background-size:cover;
 
+
+    .Testimonies_container{
+        @include flex_center;
+         margin-top:20px;
+
+        .Testimonies{
+            font-size:40px;
+            font-weight: bolder;
+            color: rgba(32, 32, 32, 0.452);
+        }
+    }
+
     .Imageslide_container{
         @include flex;
         justify-content: center;

@@ -7,7 +7,7 @@
     justify-content: space-around;
     height:400px;
     width:100%;
-    margin-top:3px;
+   
 
     .footer_Rapid{
         @include flex;
@@ -74,6 +74,26 @@
     .footer_location{
         margin-top:110px;
 
+
+        // .footer_email_text{
+        //     color: blue;
+        //     width: auto;
+        //     background: white;
+        //     border:1px solid green;
+        //     ::placeholder{
+        //         color:green;
+        //     }
+        //     label{
+        //         color: green;
+        //     }
+        //     &:hover{
+        //         color: green;
+        //     }
+           
+        // }
+
+        
+
         .footer_location_icon{
             @include flex;
             margin-left:-200px;
@@ -104,7 +124,26 @@
         .footer_social_media{
              margin-top:130px;
              margin-left: -70px;
+             display: flex;
+             justify-content:center;
+             align-items: center;
+             
+             .footer_social_container{
+                margin-right:10px !important;
+                background:rgb(34, 34, 121) ;
+                padding:5px;
+                border-radius:5px;
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                cursor: pointer;
+                
+             }
 
+             .footer_social{
+                 font-size:20px !important;
+                 color: white !important;
+             }
         }
     }
 }
