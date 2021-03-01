@@ -8,7 +8,7 @@
 //   background-position: 50% 40%;
 //   background-size:cover;
   margin-top:50px;
-  margin-bottom:50px;
+  margin-bottom:100px;
 
 
     .Emp_manwithphone_container{
@@ -46,12 +46,16 @@
            margin-top:50px;
            width:300px;
            height:400px;
+           background-image: url(../../images/employer.jpg);
+           background-size:cover;
+           background-repeat:no-repeat;
+           border-radius:15px;
 
-           img{
-               border-radius:50px;
-               height:100%;
-               width:100%;
-           }
+          //  img{
+          //      border-radius:50px;
+          //      height:100%;
+          //      width:100%;
+          //  }
 
         }
 }
@@ -102,4 +106,77 @@
             }
         }
      }
+}
+
+.video_container{
+  margin-bottom:100px;
+  @include flex;
+  justify-content:space-around;
+  z-index: 2;
+
+  
+
+  .Ve_Lorem_H{
+    font-size:40px;
+    color: rgb(17, 17, 66);
+    z-index: 2 !important;
+  }
+
+  .ve_Lorem_p{
+    word-spacing:5px;
+    color: rgb(17, 17, 66);
+    font-weight: bold;
+    z-index: 2 !important;
+  }
+ 
+  .video-js{
+    display: block;
+    border-radius:20px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+  }
+
+  .vjs-poster{
+    border-radius:20px;
+  }
+
+  .video-js .vjs-button{
+    border-radius:20px;
+  }
+
+  .video-js .vjs-button-big-player{
+    background:#2fdfff;
+  }
+}
+
+.kredit_container{
+  z-index:-99 !important;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .kredit{
+    top:-400px;
+    padding-left: 0px;
+    margin-left: 0px;
+    font-size:35.2vw;
+    width:100vw;
+    color: #2fdfff;
+    opacity: 0.4;
+    font-weight: bold;
+    position: absolute;
+    left:-37px;
+    right:0px;
+   
+  }
+
+}
+
+.time_convenient{
+  text-align: center;
+  color: rgb(17, 17, 66);
+  font-weight: bold;
+  margin-bottom:30px;
+  margin-top:150px;
 }
