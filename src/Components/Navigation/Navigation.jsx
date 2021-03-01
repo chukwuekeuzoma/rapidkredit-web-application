@@ -7,6 +7,7 @@ import Fag from "../../images/faq.jpg"
 import Contactus from "../../images/contactus.jpg"
 import Earnbeforepayday from "../../images/earnbeforepayday.jpg"
 import Employeewelness  from "../../images/employeewelness.jpg"
+import {Link} from "react-router-dom"
 import "./Navigation.css"
 // import classnames from "classnames"
 import {Menu, Clear } from '@material-ui/icons'
@@ -100,7 +101,7 @@ export default function Navigation () {
                 <div className="R_em_ep">
                     <div className="RapidOne"><img src={RapidOne} alt="tw" height="65px"/></div>        
                     <div className="Employee"><span>EMPLOYEE</span></div>
-                    <div className="Employer"><span>EMPLOYER</span></div>        
+                     <div className="Employer"><Link to="/Employer"><span>EMPLOYER</span></Link></div>        
                 </div>
                 <div className="Com_Fa_Lo_Re">
                     <div className="Company"><span>Company</span>
@@ -115,7 +116,7 @@ export default function Navigation () {
                                    </span>
                               </div>
                            </div>
-                           <div className="img_box">
+                           <div className="img_box" >
                              <img src={Employeewelness} alt="tw"/>
                                 <div className="overlay"></div>
                                 <div className="overlay_shade">

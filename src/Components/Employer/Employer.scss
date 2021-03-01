@@ -1,0 +1,105 @@
+@import "../../scssMixin/mixin.scss";
+
+.Emp_container_three{
+  @include flex;
+  justify-content:space-around;
+//   background-image: url(../../images/desk-01.jpg);
+//   background-repeat: no-repeat;
+//   background-position: 50% 40%;
+//   background-size:cover;
+  margin-top:50px;
+  margin-bottom:50px;
+
+
+    .Emp_manwithphone_container{
+         position: relative;
+    
+
+         .Emp_color_box_one{
+             position:absolute;
+             height: 100px;
+             width: 100px;
+             background: #2fdfff;
+             left:-50px;
+             top:120px;
+             border-radius:20px;
+             box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                        -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                        -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+
+         }
+         
+         .Emp_color_box_two{
+            position:absolute;
+            height: 80px;
+            width: 80px;
+            background: rgb(94, 94, 170);
+            right: -50px;
+            top:300px;
+            border-radius:20px;
+            box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+            -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+            -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+         }
+
+        .Emp_Man{
+           margin-top:50px;
+           width:300px;
+           height:400px;
+
+           img{
+               border-radius:50px;
+               height:100%;
+               width:100%;
+           }
+
+        }
+}
+  .Emp_H_P_Loerm_contanier{
+       
+        @include flex;
+        flex-direction: column;
+        align-content: center;
+
+        .Emp_H_P_Loerm{
+            margin-top:50px;
+        
+            .Emp_Lorem_H{
+                font-size:40px;
+                color: rgb(17, 17, 66);
+            }
+            
+            .Emp_Lorem_p{
+                word-spacing:5px;
+                color: rgb(17, 17, 66);
+                font-weight: bold;
+            }
+        }
+        
+        .Emp_learn_more_C{
+            @include flex;
+            justify-content: flex-end;
+            margin-top: 50px;
+            margin-right: 20px;
+
+            .Emp_learn_more_two{
+                background:rgb(94, 94, 170);
+                color: white;
+                padding:20px;
+                padding-left:30px;
+                padding-right: 50px;
+                border-radius:30px;
+                cursor: pointer;
+                font-weight: bolder;
+                position: relative;
+                font-size: small;
+
+                .Emp_Arrow_D{
+                  position: absolute;
+                  font-size: 40px !important;
+                  top: 9px !important;
+                }
+            }
+        }
+     }
+}
