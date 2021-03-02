@@ -78,7 +78,9 @@ export default function Employer() {
                 <br/>elit,sed do eiusmod tempor
                 incididunt ut<br/>labore et dolore magna
                 aliqua. Quis ipsum
- 
+            </div>
+            <div className="Emp_Register">
+               <span className="Emp_Register_two">Register</span>
             </div>
 
            

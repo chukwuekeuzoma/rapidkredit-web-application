@@ -180,3 +180,22 @@
   margin-bottom:30px;
   margin-top:150px;
 }
+
+.Emp_Register{
+
+  text-align: center;
+  margin-top:30px;
+  margin-bottom:50px;
+
+  .Emp_Register_two{
+    background:rgb(94, 94, 170);
+    color: white;
+    padding:10px;
+    padding-left:30px;
+    padding-right: 30px;
+    border-radius:20px;
+    font-size: small;
+    cursor: pointer;
+    font-weight: bolder;
+  }
+}
