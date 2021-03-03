@@ -160,7 +160,7 @@ export default function Navigation () {
                             </div>
                         </div>
                     </div>
-                    <div className="Faq"><span>FAQ</span></div>
+                    <div className="Faq"><Link to="/Faqpage" className="Faq_link"><span>FAQ</span></Link></div>
                     <div className="Login"><span className="Login_two">Login</span></div>
                     <div className="Register"><span className="Register_two ">Register</span></div>
                 </div>

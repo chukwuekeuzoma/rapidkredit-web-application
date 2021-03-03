@@ -1,0 +1,135 @@
+@import "../../scssMixin/mixin.scss";
+
+.Faq_main_container{
+
+     margin-bottom: 50px;
+
+        .Faq_container{
+            @include flex;
+            justify-content:space-around;
+            margin-top:50px;
+            margin-bottom:100px;
+
+            .Faq_picture_container{
+
+                position: relative;
+
+                .Faq_color_box_one{
+                    position:absolute;
+                    height: 100px;
+                    width: 100px;
+                    background: #2fdfff;
+                    left:-50px;
+                    top:120px;
+                    border-radius:20px;
+                    box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                            -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                            -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                }
+
+
+                .Faq_color_box_two{
+                    position:absolute;
+                    height: 80px;
+                    width: 80px;
+                    background: rgb(94, 94, 170);
+                    right: -50px;
+                    top:300px;
+                    border-radius:20px;
+                    box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                    -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                    -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+                }
+
+                .Faq_picture{
+                    margin-top:50px;
+                    width:300px;
+                    height:400px;
+                    background-image: url(../../images/faq.jpg);
+                    background-size:cover;
+                    background-repeat:no-repeat;
+                    background-position: center;
+                    border-radius:15px;
+                }
+            }
+
+            .Faq{
+                margin-left:-400px;
+                margin-top:70px;
+                color: rgb(17, 17, 66);
+                font-weight: bold;
+            }
+
+        }
+
+
+        .AddIcon_container{
+            @include flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+            
+            .AddIcon{
+                @include flex;
+                justify-content: center;
+                align-items: center;
+                border: 0.5px solid rgb(17, 17, 66) ;
+                padding:5px;
+
+                .Icon_S{
+                    margin-right:20px !important;
+                    font-weight: bolder;
+                    color:#2fdfff !important;
+                    cursor: pointer;
+                }
+
+                .Icon_L{
+                    font-weight: bolder;
+                    color:rgb(17, 17, 66);
+                }
+            }
+
+        }
+
+        .AddIcon_letter_container{
+            @include flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+            // transition:0.7s;
+            animation-name:AddIconAnimate;
+            animation-duration:1s;
+
+            .AddIcon_letter{
+                @include flex;
+                justify-content: center;
+                align-items: center;
+                border: 0.5px solid rgb(17, 17, 66) ;
+                padding:5px;
+                font-size: small;
+                padding:20px;
+                
+            }
+        }
+
+
+
+        .AddIcon_letter_container_none{
+            display: none;
+            transition:0.7s ease;
+            
+        }
+
+}
+
+// Animation
+
+
+@keyframes AddIconAnimate{
+    from{
+        opacity:0;
+    }
+    to{
+       opacity:1;
+    }
+}

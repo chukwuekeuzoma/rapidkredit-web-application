@@ -7,6 +7,7 @@ import Homepage from "./Components/HomePage/Homapage"
 import Employerpage  from "./Components/Employer/Employer"
 import  Aboutpage  from "./Components/AboutPage/Aboutpage"
 import Employee from "./Components/Employee/Employee"
+import Faqpage from "./Components/Faqpage/Faqpage"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 
@@ -53,6 +54,7 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/Employer" Component={Employerpage}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/Aboutpage" Component={Aboutpage}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/Employee" Component={Employee}/>
+           <RouteWithLayout Layout={NavFooterLayout}  path="/Faqpage" Component={Faqpage}/>
         </Switch>
       </div>
     </BrowserRouter>
