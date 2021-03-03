@@ -100,8 +100,8 @@ export default function Navigation () {
                     </div>
                 <div className="R_em_ep">
                     <div className="RapidOne"><img src={RapidOne} alt="tw" height="65px"/></div>        
-                    <div className="Employee"><span>EMPLOYEE</span></div>
-                     <div className="Employer"><Link to="/Employer"><span>EMPLOYER</span></Link></div>        
+                    <div className="Employee"><Link to="/Employee" className="links"><span>EMPLOYEE</span></Link></div>
+                     <div className="Employer"><Link to="/Employer" className="links"><span>EMPLOYER</span></Link></div>        
                 </div>
                 <div className="Com_Fa_Lo_Re">
                     <div className="Company"><span>Company</span>
@@ -109,12 +109,14 @@ export default function Navigation () {
                            <div className="img_box">
                              <img src={Aboutus} alt="tw"/>
                               <div className="overlay"></div>
-                              <div className="overlay_shade">
-                                   <span className="overlay_shade_text">
-                                       About<br/>
-                                       us
-                                   </span>
-                              </div>
+                                <Link to="Aboutpage" className="drop_down_links">
+                                    <div className="overlay_shade">
+                                        <span className="overlay_shade_text">
+                                            About<br/>
+                                            us
+                                        </span>
+                                    </div>
+                                </Link>
                            </div>
                            <div className="img_box" >
                              <img src={Employeewelness} alt="tw"/>
