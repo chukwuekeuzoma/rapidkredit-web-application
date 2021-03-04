@@ -1,17 +1,44 @@
 @import "../../scssMixin/mixin.scss";
 
-.Employee_container{
+.Contactus_container{
+    text-align: center;
+    color: rgb(17, 17, 66);
+    font-weight: bold;
+    margin-bottom:30px;
+    margin-top:80px;
+}
+
+.contactus_icon_container{
+    @include flex;
+    justify-content:space-around;
+    margin-top:150px;
+    margin-bottom:100px;
+
+    .contactus_icon{
+        color:rgb(17, 17, 66) !important;
+    }
+
+    .contactus_info{
+      color:rgb(17, 17, 66);
+
+      .contactus_text{
+          font-size: small;
+      }
+    }
+}
+
+.contactus_log_container{
     @include flex;
     justify-content:space-around;
     margin-top:50px;
     margin-bottom:100px;
     
-    .Employee_picture_container{
+    .contactus_picture_container{
     
         position: relative;
 
 
-        .Employee_color_box_one{
+        .contactus_color_box_one{
             position:absolute;
             height: 100px;
             width: 100px;
@@ -24,7 +51,7 @@
                        -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
         }
 
-        .Employee_color_box_two{
+        .contactus_color_box_two{
             position:absolute;
             height: 80px;
             width: 80px;
@@ -37,11 +64,11 @@
             -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
         }
        
-        .Employee_picture{
+        .contactus_picture{
             margin-top:50px;
             width:300px;
             height:400px;
-            background-image: url(../../images/employee.jpg);
+            background-image: url(../../images/contactus.jpg);
             background-size:cover;
             background-repeat:no-repeat;
             background-position: center;
@@ -51,7 +78,7 @@
     }
 
 
-    .Employee_Earn_before{
+    .contactus_Earn_before{
         margin-left:-400px;
         margin-top:70px;
         color: rgb(17, 17, 66);
@@ -61,17 +88,4 @@
 
   
 
-}
-
-.Employee_Icon_container{
-    @include flex;
-    justify-content: space-around;
-    background:rgb(94, 94, 170);
-    color: white !important;
-    padding: 50px;
-    padding-bottom:200px;
-
-    .Employee_Icon_Classes{
-        font-size:80px !important;
-    }
 }

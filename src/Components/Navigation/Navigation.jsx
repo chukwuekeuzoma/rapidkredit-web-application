@@ -151,12 +151,14 @@ export default function Navigation () {
                            <div className="img_box">
                              <img src={Contactus} alt="tw"/>
                              <div className="overlay"></div>
-                                <div className="overlay_shade">
-                                    <span className="overlay_shade_text">
-                                        Contact<br/>
-                                        us
-                                    </span>
-                                </div>
+                               <Link to="ContactUs" className="drop_down_links">
+                                    <div className="overlay_shade">
+                                        <span className="overlay_shade_text">
+                                            Contact<br/>
+                                            us
+                                        </span>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

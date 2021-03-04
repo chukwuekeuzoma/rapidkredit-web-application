@@ -8,6 +8,7 @@ import Employerpage  from "./Components/Employer/Employer"
 import  Aboutpage  from "./Components/AboutPage/Aboutpage"
 import Employee from "./Components/Employee/Employee"
 import Faqpage from "./Components/Faqpage/Faqpage"
+import ContactUs from "./Components/ContactUs/ContactUs"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 
@@ -55,6 +56,7 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/Aboutpage" Component={Aboutpage}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/Employee" Component={Employee}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/Faqpage" Component={Faqpage}/>
+           <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
         </Switch>
       </div>
     </BrowserRouter>
