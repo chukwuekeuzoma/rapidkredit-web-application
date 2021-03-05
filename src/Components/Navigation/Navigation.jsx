@@ -5,8 +5,8 @@ import RapidOne from "../../images/rapid.png"
 import Aboutus from "../../images/aboutus.jpg"
 import Fag from "../../images/faq.jpg"
 import Contactus from "../../images/contactus.jpg"
-import Earnbeforepayday from "../../images/earnbeforepayday.jpg"
-import Employeewelness  from "../../images/employeewelness.jpg"
+import Legal from "../../images/Legal.jpg"
+import Privacy from "../../images/privacy.jpg"
 import {Link} from "react-router-dom"
 import "./Navigation.css"
 // import classnames from "classnames"
@@ -99,7 +99,7 @@ export default function Navigation () {
                         </div>
                     </div>
                 <div className="R_em_ep">
-                    <div className="RapidOne"><img src={RapidOne} alt="tw" height="65px"/></div>        
+                    <div className="RapidOne"><Link to="/" className="links"><img src={RapidOne} alt="tw" height="65px"/></Link></div>        
                     <div className="Employee"><Link to="/Employee" className="links"><span>EMPLOYEE</span></Link></div>
                      <div className="Employer"><Link to="/Employer" className="links"><span>EMPLOYER</span></Link></div>        
                 </div>
@@ -107,7 +107,8 @@ export default function Navigation () {
                     <div className="Company"><span>Company</span>
                         <div className="box">
                            <div className="img_box">
-                             <img src={Aboutus} alt="tw"/>
+                              <div className="about_picture"></div>
+                             {/* <img src={Aboutus} alt="tw"/> */}
                               <div className="overlay"></div>
                                 <Link to="Aboutpage" className="drop_down_links">
                                     <div className="overlay_shade">
@@ -119,7 +120,8 @@ export default function Navigation () {
                                 </Link>
                            </div>
                            <div className="img_box" >
-                             <img src={Employeewelness} alt="tw"/>
+                                <div className="privacy_picture"></div>
+                             {/* <img src={Privacy} alt="tw"/> */}
                                 <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
@@ -129,7 +131,8 @@ export default function Navigation () {
                                 </div>
                             </div>
                            <div className="img_box">
-                             <img src={Fag} alt="tw"/>
+                                <div className="Fag_picture"></div>
+                             {/* <img src={Fag} alt="tw"/> */}
                                 <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
@@ -139,7 +142,8 @@ export default function Navigation () {
                                 </div>
                            </div>
                            <div className="img_box">
-                               <img src={Earnbeforepayday} alt="tw"/>
+                               <div className="Lagal_picture"></div>
+                               {/* <img src={Legal} alt="tw"/> */}
                                <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
@@ -149,7 +153,8 @@ export default function Navigation () {
                                 </div>
                             </div>
                            <div className="img_box">
-                             <img src={Contactus} alt="tw"/>
+                             <div className="contact_picture"></div>
+                             {/* <img src={Contactus} alt="tw"/> */}
                              <div className="overlay"></div>
                                <Link to="ContactUs" className="drop_down_links">
                                     <div className="overlay_shade">

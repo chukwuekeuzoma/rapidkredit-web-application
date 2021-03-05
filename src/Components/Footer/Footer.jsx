@@ -2,7 +2,6 @@ import React from 'react'
 import "./Footer.scss"
 import RapidTwo from "../../images/rapid2.png"
 import Email from "../../images/Email.png"
-import LocationIcon from "../../images/LocationIcon.png"
 import {Twitter, Instagram, Facebook, LinkedIn} from '@material-ui/icons';
 import TextField from '@material-ui/core/TextField';
 // import InstagramIcon from '@material-ui/icons/Instagram';
@@ -48,16 +47,17 @@ export default function Footer() {
                 </div>
                 <div className="footer_location">
                     <div>
-                        {/* <form>
+                        <form>
                             <TextField
                                 id="email"
                                 label="Email"
                                 placeholder="Email"
+                                color="secondary"
                                 type="email"
                                 variant="outlined"
-                                className="footer_email_text"
+                                // className="footer_email_text"
                             />
-                        </form> */}
+                        </form>
 
 
                         {/* <span>Subcribe</span>

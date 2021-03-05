@@ -75,22 +75,22 @@
         margin-top:110px;
 
 
-        // .footer_email_text{
-        //     color: blue;
-        //     width: auto;
-        //     background: white;
-        //     border:1px solid green;
-        //     ::placeholder{
-        //         color:green;
-        //     }
-        //     label{
-        //         color: green;
-        //     }
-        //     &:hover{
-        //         color: green;
-        //     }
+        .footer_email_text{
+            // color: blue;
+            width: auto;
+            background: rgb(211, 206, 206);
+            border:1px solid green;
+            ::placeholder{
+                color:green;
+            }
+            label{
+                color: white;
+            }
+            &:hover{
+                color: green;
+            }
            
-        // }
+        }
 
         
 
