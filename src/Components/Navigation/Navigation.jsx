@@ -2,11 +2,6 @@ import React,{useState} from 'react'
 // import "./Navigation.scss"
 import {useStyles} from "./NavigationCss"
 import RapidOne from "../../images/rapid.png"
-import Aboutus from "../../images/aboutus.jpg"
-import Fag from "../../images/faq.jpg"
-import Contactus from "../../images/contactus.jpg"
-import Legal from "../../images/Legal.jpg"
-import Privacy from "../../images/privacy.jpg"
 import {Link} from "react-router-dom"
 import "./Navigation.css"
 // import classnames from "classnames"
@@ -108,7 +103,6 @@ export default function Navigation () {
                         <div className="box">
                            <div className="img_box">
                               <div className="about_picture"></div>
-                             {/* <img src={Aboutus} alt="tw"/> */}
                               <div className="overlay"></div>
                                 <Link to="Aboutpage" className="drop_down_links">
                                     <div className="overlay_shade">
@@ -121,7 +115,6 @@ export default function Navigation () {
                            </div>
                            <div className="img_box" >
                                 <div className="privacy_picture"></div>
-                             {/* <img src={Privacy} alt="tw"/> */}
                                 <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
@@ -132,7 +125,6 @@ export default function Navigation () {
                             </div>
                            <div className="img_box">
                                 <div className="Fag_picture"></div>
-                             {/* <img src={Fag} alt="tw"/> */}
                                 <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
@@ -143,7 +135,6 @@ export default function Navigation () {
                            </div>
                            <div className="img_box">
                                <div className="Lagal_picture"></div>
-                               {/* <img src={Legal} alt="tw"/> */}
                                <div className="overlay"></div>
                                 <div className="overlay_shade">
                                     <span className="overlay_shade_text">
@@ -154,7 +145,6 @@ export default function Navigation () {
                             </div>
                            <div className="img_box">
                              <div className="contact_picture"></div>
-                             {/* <img src={Contactus} alt="tw"/> */}
                              <div className="overlay"></div>
                                <Link to="ContactUs" className="drop_down_links">
                                     <div className="overlay_shade">
