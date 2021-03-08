@@ -5,7 +5,7 @@
     color:white;
     @include flex;
     justify-content: space-around;
-    height:400px;
+    height:500px;
     width:100%;
    
 
@@ -22,7 +22,7 @@
 
         .footer_Lorem{
             margin-left:-80px;
-            margin-top:-100px;
+            margin-top:-140px;
 
             .footer_Lorem_second{
                 font-size: smaller;
@@ -31,17 +31,18 @@
 
         .footer_All_right{
             margin-left:-80px;
+
             
 
             .footer_All_right_seond{
                 font-size: smaller;
-                 margin-top:-30px !important;
+                 margin-top:-20px !important;
             }
         }
     }
 
     .footer_list_tag_one{
-        margin-top:100px;
+        margin-top:140px;
         margin-left:-200px;
 
         ul{
@@ -56,7 +57,7 @@
     }
 
     .footer_list_tag_two{
-        margin-top:100px;
+        margin-top:140px;
         margin-left:-200px;
        
         ul{
@@ -72,23 +73,37 @@
     }
 
     .footer_location{
-        margin-top:110px;
+        margin-top:140px;
+
+        .footer_textfield{
+            margin-left:-200px;
+
+            .subcribe{
+                margin-bottom:20px;
+
+                .subcribe_words{
+                    font-size: smaller;
+                }
+           }
+        }
 
 
         .footer_email_text{
-            // color: blue;
-            width: auto;
-            background: rgb(211, 206, 206);
-            border:1px solid green;
+                input{
+                height:5px;
+            }
+            
+            width: 100% !important;
+
             ::placeholder{
-                color:green;
+                color:#e3f2fd !important;
             }
-            label{
-                color: white;
+           
+            label {
+                color: #e3f2fd !important;
+                top: -5px;
             }
-            &:hover{
-                color: green;
-            }
+           
            
         }
 
@@ -114,6 +129,13 @@
 
             .footer_email_img{
                 margin-right:20px;
+                background:rgb(34, 34, 121) ;
+                padding:5px;
+                border-radius:5px;
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                cursor: pointer;
             }
 
             .footer_email_link{
@@ -122,7 +144,7 @@
         }
 
         .footer_social_media{
-             margin-top:130px;
+             margin-top:30px;
              margin-left: -70px;
              display: flex;
              justify-content:center;
