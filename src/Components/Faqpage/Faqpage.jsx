@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import "./Faqpage.scss"
 import AddIcon from '@material-ui/icons/Add';
+import Fade from 'react-reveal/Fade'
+
 
 export default function Fagepage() {
    
@@ -34,16 +36,18 @@ export default function Fagepage() {
             <div className="Faq_main_container">
                <div className="Faq_container">
                     <div className="Faq_picture_container">
-                         <div className="Faq_color_box_one"></div>
-                         <div className="Faq_color_box_two"></div>
-                         <div className="Faq_picture"></div>
+                    <Fade left delay={1000}> <div className="Faq_picture"></div></Fade>
+                    <Fade left delay={3000}>  <div className="Faq_color_box_one"></div></Fade>
+                    <Fade left delay={2000}> <div className="Faq_color_box_two"></div></Fade>
                     </div>
+                    <Fade right delay={1000}>    
                     <div className="Faq">
                       <h1>FAQ</h1>
                         Lorem ipsum dolor sit amet, consectetur<br/>
                         Lorem ipsum dolor sit amet, consectetur<br/>
                         Lorem ipsum dolor sit amet, consectetur<br/>
                     </div>
+                    </Fade>
                </div>
                <div className="AddIcon_container">
                   <div className="AddIcon"><AddIcon className="Icon_S" onClick={AddIconLetterChange}/><span className="Icon_L">Lorem ipsum dolor sit amet,consectetur Lorem ipsum dolor sit amet,consectetur</span></div>

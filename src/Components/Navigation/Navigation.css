@@ -85,30 +85,33 @@ nav{
 .about_picture{
     width:100%;
     height:104%;
-    background-image: url(../../images/aboutus.jpg);
+    background-image: url(../../images/aboutustwo.jpg);
     background-size:cover;
+    background-position: center;
     background-repeat:no-repeat;
 }
 
 .privacy_picture{
     width:100%;
     height:104%;
-    background-image: url(../../images/privacy.jpg);
+    background-image: url(../../images/private&policy.jpg);
     background-size:cover;
+    background-position: center;
     background-repeat:no-repeat;
 }
 
 .Fag_picture{
     width:100%;
     height:104%;
-    background-image: url(../../images/faq.jpg);
+    background-image: url(../../images/handshake.jpg);
     background-size:cover;
+    background-position: center;
     background-repeat:no-repeat;
 }
 .Lagal_picture{
     width:100%;
     height:104%;
-    background-image: url(../../images/Legal.jpg);
+    background-image: url(../../images/legaltwo.jpg);
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center;
