@@ -2,7 +2,7 @@ import React from 'react'
 import "./Employer.scss"
 import VideoPlayer from "react-video-js-player"
 import watch from "../../Videos/Javascript.mp4"
-import Employerpicture from "../../images/employer.jpg";
+import Employerpicture from "../../images/aboutustwo.jpg";
 
 export default function Employer() {
     return (
@@ -11,9 +11,7 @@ export default function Employer() {
                 <div className="Emp_manwithphone_container">
                      <div className="Emp_color_box_one"></div>
                      <div className="Emp_color_box_two"></div>
-                   <div className="Emp_Man">
-                       {/* <img src={Employerpicture} alt="tw"/> */}
-                    </div>
+                   <div className="Emp_Man"></div>
                 </div>
                 <div className="Emp_H_P_Loerm_contanier">
                     <div className="Emp_H_P_Loerm">

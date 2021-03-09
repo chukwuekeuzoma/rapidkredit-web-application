@@ -9,6 +9,7 @@ import  Aboutpage  from "./Components/AboutPage/Aboutpage"
 import Employee from "./Components/Employee/Employee"
 import Faqpage from "./Components/Faqpage/Faqpage"
 import ContactUs from "./Components/ContactUs/ContactUs"
+import Login from "./Components/Login/Login"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 
@@ -57,6 +58,7 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/Employee" Component={Employee}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/Faqpage" Component={Faqpage}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
+           <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login}/>
         </Switch>
       </div>
     </BrowserRouter>

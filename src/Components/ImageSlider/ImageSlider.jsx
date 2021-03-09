@@ -26,7 +26,7 @@ export default function ImageSlider() {
                     {ImageSliderData.map((slide, index) => {
 
                         return (
-                            <div className="slideimage_one">
+                            <div className="slideimage_one" key={index}>
                                 <div className="Slideimage_two">
                                     <img src={slide.image} alt="slideimage" className="Slideimage_two" />
                                 </div>

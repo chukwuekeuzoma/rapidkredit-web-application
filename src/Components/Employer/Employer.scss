@@ -130,15 +130,14 @@
   }
  
   .video-js{
-    display: block;
     border-radius:20px;
-    margin-left: auto;
-    margin-right: auto;
     z-index: 2;
   }
 
+
   .vjs-poster{
     border-radius:20px;
+    width:100%;
   }
 
   .video-js .vjs-button{

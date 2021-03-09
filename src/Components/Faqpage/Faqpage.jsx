@@ -36,9 +36,9 @@ export default function Fagepage() {
             <div className="Faq_main_container">
                <div className="Faq_container">
                     <div className="Faq_picture_container">
-                    <Fade left delay={1000}> <div className="Faq_picture"></div></Fade>
-                    <Fade left delay={3000}>  <div className="Faq_color_box_one"></div></Fade>
-                    <Fade left delay={2000}> <div className="Faq_color_box_two"></div></Fade>
+                    <Fade left delay={1000}><div className="Faq_picture"></div></Fade>
+                    <Fade left delay={3000}><div className="Faq_color_box_one"></div></Fade>
+                    <Fade left delay={2000}><div className="Faq_color_box_two"></div></Fade>
                     </div>
                     <Fade right delay={1000}>    
                     <div className="Faq">
