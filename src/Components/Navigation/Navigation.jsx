@@ -104,7 +104,7 @@ export default function Navigation () {
                            <div className="img_box">
                               <div className="about_picture"></div>
                               <div className="overlay"></div>
-                                <Link to="Aboutpage" className="drop_down_links">
+                                <Link to="Aboutpage" className="links">
                                     <div className="overlay_shade">
                                         <span className="overlay_shade_text">
                                             About<br/>
@@ -146,7 +146,7 @@ export default function Navigation () {
                            <div className="img_box">
                              <div className="contact_picture"></div>
                              <div className="overlay"></div>
-                               <Link to="ContactUs" className="drop_down_links">
+                               <Link to="ContactUs" className="links">
                                     <div className="overlay_shade">
                                         <span className="overlay_shade_text">
                                             Contact<br/>
@@ -157,8 +157,8 @@ export default function Navigation () {
                             </div>
                         </div>
                     </div>
-                    <div className="Faq"><Link to="/Faqpage" className="Faq_link"><span>FAQ</span></Link></div>
-                    <div className="Login"> <Link to="Login" className="login_link"><span className="Login_two">Login</span></Link></div>
+                    <div className="Faq"><Link to="/Faqpage" className="links"><span>FAQ</span></Link></div>
+                    <div className="Login"> <Link to="Login" className="links"><span className="Login_two">Login</span></Link></div>
                     <div className="Register"><span className="Register_two ">Register</span></div>
                 </div>
                 

@@ -1,12 +1,10 @@
 import React from 'react'
 import "./Footer.scss"
 import RapidTwo from "../../images/rapid2.png"
-import Email from "../../images/Email.png"
-
 import {Twitter, Instagram, Facebook, LinkedIn, Drafts} from '@material-ui/icons';
 import TextField from '@material-ui/core/TextField';
-import {withStyles,makeStyles} from '@material-ui/core/styles';
-// import { white } from '@material-ui/core/colors';
+import {makeStyles} from '@material-ui/core/styles';
+
 
 
 

@@ -1,18 +1,99 @@
 import React from 'react'
-import { Grid,Paper } from '@material-ui/core';
+import { Grid,Paper,TextField, Checkbox,Typography,Button } from '@material-ui/core';
 import Fade from 'react-reveal/Fade'
 import "./Login.scss"
+import RapidOne from "../../images/rapid.png"
+import {makeStyles} from '@material-ui/core/styles';
+import {Link} from "react-router-dom"
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
+
+const useStyles = makeStyles({
+    root: {
+            '& label.Mui-focused': {
+                color: 'rgb(94, 94, 170)',
+              },
+              '& .MuiInputBase-root': {
+                color: 'rgb(94, 94, 170)'
+               },
+               '&.MuiTextField-root label' :{
+                top: 8,
+                bottom: 8
+              },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: 'rgb(94, 94, 170)',
+                },
+                '&:hover fieldset': {
+                  borderColor: 'rgb(94, 94, 170))',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: 'rgb(94, 94, 170)',
+                },
+               
+              },
+    },
+  })
+
+ 
 
 export default function Login() {
+      
+    const classes =  useStyles();
+
     return (
         <>
             <div>
-            <Fade left>
+            <Fade left duration={300}>
               <Grid>
-                 <Paper elevation={10} className="paper">
-                     
-
+                 <Paper elevation={8} className="paper">
+                    <div className="login_logo">
+                    <Link to="/" className="links"><img src={RapidOne} alt="tw" height="50px" /></Link>
+                    </div>
+                     <form className={classes.root}>
+                          <div className="login_input_email">
+                                <TextField
+                                    id="email"
+                                    label="Email"
+                                    placeholder="Email"
+                                    type="email"
+                                    variant="outlined"
+                                    className="login_textfield"
+                                />
+                           </div>
+                           <div className="login_input_password">
+                                <TextField
+                                    id="password"
+                                    label="Password"
+                                    placeholder="Password"
+                                    type="password"
+                                    variant="outlined"
+                                    className="login_textfield"
+                                />
+                           </div>
+                                <FormControlLabel
+                                    control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange}
+                                        name="checkedB"
+                                        style ={{color: "rgb(94, 94, 170)",}}
+                                    />
+                                        }
+                                        label={<Typography style={{ color:"rgba(32, 32, 32, 0.452)", fontSize:"15px"}}>
+                                            Remember me 
+                                        </Typography>}
+                                        
+                                />
+                    </form>
+                          <Button variant="outlined" className="login_Button">Login</Button>
+                          
+                          <div className="login_register">
+                             <div>
+                                <span className="dont_have">Don't have an account?</span>
+                                <span className="login_register">Register here</span>
+                             </div> 
+                          </div>
 
                  </Paper>
                  

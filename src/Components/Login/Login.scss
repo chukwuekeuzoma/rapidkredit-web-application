@@ -4,3 +4,72 @@
     width: 280px;
     margin:20px auto;
 }
+.login_logo{
+    text-align: center;
+}
+.login_input_email{
+     margin-top:50px;
+     text-align: center;
+
+
+    .login_textfield{
+        // input{
+        //     height:5px;
+        // }
+        
+        width: 100% !important;
+
+        ::placeholder{
+            color:rgb(17, 17, 66)!important;
+        }
+    
+        label {
+            color: rgb(17, 17, 66) !important;
+        }
+    
+    }
+};
+
+.login_input_password{
+    margin-top:30px;
+
+    .login_textfield{
+        // input{
+        //     height:5px;
+        // }
+        
+        width: 100% !important;
+
+        ::placeholder{
+            color:rgb(94, 94, 170)!important;
+        }
+    
+        label {
+            color: rgb(94, 94, 170) !important;
+        }
+    
+    }
+}
+
+.login_Button{
+    width:100% !important;
+    color: white !important;
+    background:rgb(94, 94, 170) !important;
+}
+
+.login_register{
+    text-align: center;
+    margin-top:50px;
+
+    .dont_have{
+      color: rgba(32, 32, 32, 0.452);
+      font-size:11px;
+    }
+
+    .login_register{
+        cursor: pointer;
+        color:rgb(94, 94, 170) !important;
+        font-weight: bolder;
+        font-size:11px;
+    }
+}
