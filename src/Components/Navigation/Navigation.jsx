@@ -159,7 +159,7 @@ export default function Navigation () {
                     </div>
                     <div className="Faq"><Link to="/Faqpage" className="links"><span>FAQ</span></Link></div>
                     <div className="Login"> <Link to="Login" className="links"><span className="Login_two">Login</span></Link></div>
-                    <div className="Register"><span className="Register_two ">Register</span></div>
+                    <div className="Register"> <Link to="Register" className="links"><span className="Register_two ">Register</span></Link></div>
                 </div>
                 
                 {/* mobile-screen */}

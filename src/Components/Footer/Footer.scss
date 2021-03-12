@@ -1,7 +1,7 @@
 @import "../../scssMixin/mixin.scss";
 
 .footer_container{
-    background:rgb(94, 94, 170);
+    background:rgb(17, 17, 66) ;
     color:white;
     @include flex;
     justify-content: space-around;
@@ -12,17 +12,17 @@
     .footer_Rapid{
         @include flex;
         flex-direction: column;
-        justify-content:space-around;
+      
 
         .footer_Rapid_logo{
-            margin-top:-20px;
+            margin-top:30px;
             margin-left:-80px;
             font-size:5px;
         }
 
         .footer_Lorem{
             margin-left:-80px;
-            margin-top:-140px;
+            margin-top:65px;
 
             .footer_Lorem_second{
                 font-size: smaller;
@@ -31,12 +31,12 @@
 
         .footer_All_right{
             margin-left:-80px;
-
+            margin-top:175px !important;
             
 
             .footer_All_right_seond{
                 font-size: smaller;
-                 margin-top:-20px !important;
+                
             }
         }
     }
@@ -89,9 +89,6 @@
 
 
         .footer_email_text{
-                input{
-                height:5px;
-            }
             
             width: 100% !important;
 
@@ -101,7 +98,6 @@
            
             label {
                 color: #e3f2fd !important;
-                top: -5px;
             }
            
            
@@ -129,7 +125,7 @@
 
             .footer_email_img{
                 margin-right:20px;
-                background:rgb(34, 34, 121) ;
+                background:rgb(94, 94, 170);
                 padding:5px;
                 border-radius:5px;
                 display: flex;
@@ -152,7 +148,7 @@
              
              .footer_social_container{
                 margin-right:10px !important;
-                background:rgb(34, 34, 121) ;
+                background:rgb(94, 94, 170) ;
                 padding:5px;
                 border-radius:5px;
                 display: flex;

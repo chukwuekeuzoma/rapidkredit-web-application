@@ -99,6 +99,7 @@ export default function Footer() {
 
                         <form className={classes.root}>
                             <TextField
+                                size="small"
                                 id="email"
                                 label="Email"
                                 placeholder="Email"

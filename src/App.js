@@ -10,6 +10,7 @@ import Employee from "./Components/Employee/Employee"
 import Faqpage from "./Components/Faqpage/Faqpage"
 import ContactUs from "./Components/ContactUs/ContactUs"
 import Login from "./Components/Login/Login"
+import Register from "./Components/Register/Register"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 
@@ -59,6 +60,7 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/Faqpage" Component={Faqpage}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login}/>
+           <RouteWithLayout Layout={OrdinaryLayout}  path="/Register" Component={Register}/>
         </Switch>
       </div>
     </BrowserRouter>

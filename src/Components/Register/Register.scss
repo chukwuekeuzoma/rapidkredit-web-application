@@ -1,0 +1,99 @@
+.paper{
+    padding: 20px;
+    height:70vh;
+    width: 280px;
+    margin:20px auto;
+}
+.Register_logo{
+    text-align: center;
+}
+.register_input_email{
+     margin-top:20px;
+     text-align: center;
+
+
+    .register_textfield{
+        // input{
+        //     height:5px;
+        // }
+        
+        width: 100% !important;
+
+        ::placeholder{
+            color:rgb(94, 94, 170)!important;
+        }
+    
+        label {
+            color: rgb(94, 94, 170)!important;
+        }
+    
+    }
+};
+
+.select_input_email{
+    margin-top:20px;
+    text-align: center;
+
+
+   .select_textfield{
+       width: 100% !important;
+
+       ::placeholder{
+           color:rgb(94, 94, 170)!important;
+       }
+   
+       label {
+           color: rgb(94, 94, 170)!important;
+       }
+   
+   }
+};
+
+
+.register_password{
+    margin-top:20px;
+
+    .register_textfield{
+        width: 100% !important;
+
+        ::placeholder{
+            color:rgb(94, 94, 170)!important;
+        }
+    
+        label {
+            color: rgb(94, 94, 170) !important;
+        }
+    
+    }
+}
+.register_Botton_container{
+    // margin-top:10px;
+
+    .register_Button{
+        width:100% !important;
+        color: white !important;
+        background:rgb(94, 94, 170) !important;
+        margin-top:50px;
+    }
+}
+
+.login_register{
+    text-align: center;
+    margin-top:50px;
+
+    .dont_have{
+      color: rgba(2, 2, 2, 0.452);
+      font-size:11px;
+    }
+
+    .login_register{
+        cursor: pointer;
+        color:rgb(94, 94, 170) !important;
+        font-weight: bolder;
+        font-size:11px;
+    }
+}
+
+
+
+

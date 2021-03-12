@@ -20,11 +20,11 @@
         width: 100% !important;
 
         ::placeholder{
-            color:rgb(17, 17, 66)!important;
+            color:rgb(94, 94, 170)!important;
         }
     
         label {
-            color: rgb(17, 17, 66) !important;
+            color:rgb(94, 94, 170) !important;
         }
     
     }
@@ -51,10 +51,15 @@
     }
 }
 
-.login_Button{
-    width:100% !important;
-    color: white !important;
-    background:rgb(94, 94, 170) !important;
+.login_Botton_container{
+    margin-top:50px;
+
+    .login_Button{
+        width:100% !important;
+        color: white !important;
+        background:rgb(94, 94, 170) !important;
+      
+    }
 }
 
 .login_register{

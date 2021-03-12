@@ -24,7 +24,7 @@ const useStyles = makeStyles({
                 '& fieldset': {
                   borderColor: 'rgb(94, 94, 170)',
                 },
-                '&:hover fieldset': {
+                '&:hover': {
                   borderColor: 'rgb(94, 94, 170))',
                 },
                 '&.Mui-focused fieldset': {
@@ -53,6 +53,7 @@ export default function Login() {
                      <form className={classes.root}>
                           <div className="login_input_email">
                                 <TextField
+                                    size="small"
                                     id="email"
                                     label="Email"
                                     placeholder="Email"
@@ -63,6 +64,7 @@ export default function Login() {
                            </div>
                            <div className="login_input_password">
                                 <TextField
+                                    size="small"
                                     id="password"
                                     label="Password"
                                     placeholder="Password"
@@ -71,27 +73,15 @@ export default function Login() {
                                     className="login_textfield"
                                 />
                            </div>
-                                <FormControlLabel
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        name="checkedB"
-                                        style ={{color: "rgb(94, 94, 170)",}}
-                                    />
-                                        }
-                                        label={<Typography style={{ color:"rgba(32, 32, 32, 0.452)", fontSize:"15px"}}>
-                                            Remember me 
-                                        </Typography>}
-                                        
-                                />
+                            <div className="login_Botton_container">
+                                    <Button variant="outlined" className="login_Button">Login</Button>
+                            </div> 
                     </form>
-                          <Button variant="outlined" className="login_Button">Login</Button>
                           
                           <div className="login_register">
                              <div>
                                 <span className="dont_have">Don't have an account?</span>
-                                <span className="login_register">Register here</span>
+                                <Link to="Register" className="links"><span className="login_register">Register here</span></Link>
                              </div> 
                           </div>
 
