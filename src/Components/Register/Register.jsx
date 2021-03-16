@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Grid,Paper,TextField,Button } from '@material-ui/core';
 import Fade from 'react-reveal/Fade'
 import "./Register.scss"
@@ -47,8 +47,20 @@ const useStyles = makeStyles({
 
 
   export default function Register() {
+
+
+  const classes =  useStyles();
+  const [Companydata, setCompanydata] = useState([])
+  useEffect(()=>{
+    fetch("https://rapidkredit.herokuapp.com/api/companies")
+    .then(response => response.json())
+    .then(companydata => setCompanydata(companydata.data))
+    .catch(e => console.log(e))
+  },[])
+   
+   
       
-    const classes =  useStyles();
+   
 
     return (
         <>
@@ -66,7 +78,7 @@ const useStyles = makeStyles({
                                         Select your organization
                                     </InputLabel>
                                     <Select
-                                    native
+                                     native
                                     // value={state.age}
                                     // onChange={handleChange}
                                     label=" Select your organization"
@@ -75,11 +87,11 @@ const useStyles = makeStyles({
                                         id: 'outlined-age-native-simple',
                                     }}
                                     >
-                                    <option aria-label="None" value="" />
+                                    <option aria-label="None" value=""/>
                                    
-                                    {countries.map(({code, name}, index) => (
-                                        <option key={index} value={code}>
-                                        {name}
+                                    {Companydata.map(({id, company_name}, index) => (
+                                        <option key={index} value={id}>
+                                        {company_name}
                                         </option>
                                     ))}
                                     </Select>
