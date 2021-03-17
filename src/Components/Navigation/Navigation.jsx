@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 // import "./Navigation.scss"
 import {useStyles} from "./NavigationCss"
 import RapidOne from "../../images/rapid.png"
@@ -11,71 +11,26 @@ import {Menu, Clear } from '@material-ui/icons'
 // import { Component } from 'react'
 
 export default function Navigation () {
+
+   const classes = useStyles();
     
-    const classes = useStyles();
+    //  var lastScrollTop = 0;
+    //  var  navbar= document.getElementsByTagName("nav");
+
+    //    useEffect(()=>{
+    //        window.addEventListener("scroll", function() {
+    //            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    //            if(scrollTop > lastScrollTop){
+    //                navbar.style.top="-120px";
+    //            }else{
+    //                navbar.style.top="0";
+    //            }
+    //            lastScrollTop = scrollTop;
+    //        })
+    //    },[])
     
       
-    //  const nav = document.querySelector('nav');
-    //  let prevScrollpos = window.pageYOffset;
 
-    //  window.addEventListener('scroll', ()=>{
-    //      let currentScrollPos = window.pageYOffset;
-
-    //      if(prevScrollpos < currentScrollPos){
-    //          nav.classList.add('hide');
-    //      }else{
-    //         nav.classList.remove('hide');
-    //      }
-
-    //      prevScrollpos=currentScrollPos;
-    //  })
-
-    // var nav = document.querySelector('nav');
-    
-    // const martins = () =>{
-    //     if(window.pageYOffset > 100){
-    //         nav.classList += 'small'
-    //         } else{
-    //             nav.classList ='nav'
-    //         }
-            
-    // } 
-
-    // window.addEventListener('scroll',martins)
-   
-    // constructor(props){
-    //    super(props);
-
-    //    this.state ={
-    //        prevScrollpos:window.pageYOffset,
-    //        visible:true
-    //    };
-    // }
-    
-    
-
-    //  handleScroll = () =>{
-    //    const {prevScrollpos} =this.state;
-
-    //    const currentScrollPos = window.pageYOffset;
-    //    const visible = prevScrollpos > currentScrollPos
-
-    //    this.setState({
-    //        prevScrollpos:currentScrollPos,
-    //        visible
-    //    });
-
-    //  }
-
-    //  componentDidMount (){
-    //     window.addEventListener("scroll",this.handleScroll);
-    // }
-
-    // componentWillUnmount (){
-    //     window.removeEventListener("scroll",this.handleScroll)
-    // }
-
-//    render() {
 
     const [Navbar, setNavbar] = useState(false)
 
@@ -85,8 +40,6 @@ export default function Navigation () {
          
     return (
         <>
-            {/* <div className={classnames("container_one",{"nav--hidden":!this.state.visible})}> */}
-       
             <nav>
                     <div className="nav_bar_Menu_icon">
                         <div onClick={Navchange}>

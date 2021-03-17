@@ -1,0 +1,78 @@
+@import "../../../scssMixin/mixin.scss";
+
+.DBL_container{
+    background: rgba(36, 36, 35, 0.452);
+    width:100vw;
+    height:100vh;
+    position: relative;
+
+    .DBl_options_container{
+        height: 100vh;
+        width: 20vw;
+        background: white;
+        position: fixed;
+
+        .DBl_Rapidone{
+             @include flex;
+             justify-content: center;
+             align-items: center;
+             margin-top:30px;
+             padding:20px;
+        }
+         
+        .DBl_icon_container{
+
+          margin-top: 30px;
+
+            .DBl_icon_container_select{
+                @include flex;
+                justify-content: center;
+                align-items: center;
+                margin-top:10px;
+                cursor: pointer;
+                padding:10px;
+                border-radius:10px;
+                width:200px;
+                margin-left:20px;
+
+              .DBl_c{
+                @include flex;
+                justify-content: center;
+                align-items: center;
+                padding-right:50px;
+              }
+            }
+            
+            .DBl_icon_container_select:hover{
+                background:rgb(17, 17, 66) !important;
+                color:#2fdfff !important;
+                padding:10px;
+            }
+               
+            .DashboardIcon{
+                padding-right:20px !important;
+            }
+            
+            .CallReceivedIcon{
+                padding-right:20px !important;
+            }
+            // .Requests{
+            //     padding-right:25px !important; 
+            // }
+
+            .RedeemIcon{
+                padding-right:20px !important;
+            }
+
+            .PersonIcon{
+                padding-right:20px !important;
+            }
+
+            // .Profile{
+            //     padding-right:20px !important; 
+            // }
+       }
+    }
+
+
+}
