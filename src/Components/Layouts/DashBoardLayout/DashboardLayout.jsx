@@ -11,41 +11,53 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 export default function DashboardLayout() {
     return (
         <>
-            <div className ="DBL_container">
-                <div className="DBl_options_container">
-                    <div className="DBl_Rapidone">
+            <div className ="DBN_container">
+                <div className="DBN_options_container">
+                    <div className="DBN_Rapidone">
                         <img src={RapidOne} alt="tw" height="50px"/>
                     </div>
-                    <div className="DBl_icon_container">
-                       <div className="DBl_icon_container_select">
-                          <div className="DBl_c">
+                    <div className="DBN_icon_container">
+                       <div className="DBN_icon_container_select">
+                          <div className="DBN_c">
                                 <DashboardIcon className="DashboardIcon"/>
                                 <span>Dashboard</span>
                           </div>
                        </div>
-                       <div className="DBl_icon_container_select">
-                          <div className="DBl_c">
+                       <div className="DBN_icon_container_select">
+                          <div className="DBN_c">
                                 <CallReceivedIcon className="CallReceivedIcon"/>
                                 <span className="Requests">Requests<span style={{opacity:"0"}}>....</span></span>
                            </div>
                         </div>
-                        <div className="DBl_icon_container_select">
-                          <div className="DBl_c">
+                        <div className="DBN_icon_container_select">
+                          <div className="DBN_c">
                                 <RedeemIcon className="RedeemIcon"/>
                                 <span>Settlements</span>
                            </div>
                         </div>
-                        <div className="DBl_icon_container_select">
-                          <div className="DBl_c">
+                        <div className="DBN_icon_container_select">
+                          <div className="DBN_c">
                                 <PersonIcon className="PersonIcon"/>
                                 <span className="Profile">Profile<span style={{opacity:"0"}}>...........</span></span>
                            </div>
                         </div>
                     </div>
 
-                    <div className="DBl_logout_container">
-                       <div><HelpOutlineIcon/></div>
-                       <div><ExitToAppIcon/></div>
+                    <div className="DBN_logout_container">
+                      <div>
+                        <div className="DBN_HelpOutline_container">
+                            <div className="DBN_HelpOutlineIcon_container">
+                                <HelpOutlineIcon className="HelpOutlineIcon"/>
+                                <span>Support<span style={{opacity:"0"}}>...............</span></span>
+                            </div>
+                        </div>
+                        <div className="DBN_ExitToApp_container">
+                            <div className="DBN_ExitToAppIcon_container">
+                                <ExitToAppIcon className="ExitToAppIcon"/>
+                                <span>Logout<span style={{opacity:"0"}}>..................</span></span>
+                            </div>
+                        </div>
+                      </div>
                    </div>
                 </div>
             </div>
