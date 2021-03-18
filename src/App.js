@@ -63,7 +63,7 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Register" Component={Register}/>
-           <RouteWithLayout Layout={DashBoardNav}  path="/DashboardNav" Component={DashBoardNav}/>
+           <RouteWithLayout Layout={DashboardLayout}  path="/DashboardNav" Component={DashBoardNav}/>
         </Switch>
       </div>
     </BrowserRouter>

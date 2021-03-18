@@ -1,2 +1,16 @@
 @import "../../../scssMixin/mixin.scss";
 
+.dashboardlayout_container{
+    background: rgba(36, 36, 35, 0.452);
+    width:100vw;
+    height:100vh;
+    position: relative;
+
+    .DBL_dashboardnav_container{
+        width: 20vw;
+    }
+
+    .DBL_children_container{
+        width: 80vw;
+    }
+}

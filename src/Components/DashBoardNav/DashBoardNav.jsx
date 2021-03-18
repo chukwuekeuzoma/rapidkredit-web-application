@@ -7,6 +7,7 @@ import RedeemIcon from '@material-ui/icons/Redeem';
 import PersonIcon from '@material-ui/icons/Person';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import {Link} from "react-router-dom"
 
 export default function DashboardLayout() {
     
@@ -54,12 +55,14 @@ export default function DashboardLayout() {
                                 <span>Support<span style={{opacity:"0"}}>...............</span></span>
                             </div>
                         </div>
-                        <div className="DBN_ExitToApp_container">
-                            <div className="DBN_ExitToAppIcon_container">
-                                <ExitToAppIcon className="ExitToAppIcon"/>
-                                <span>Logout<span style={{opacity:"0"}}>..................</span></span>
+                        <Link to="/" className="links">
+                            <div className="DBN_ExitToApp_container">
+                                <div className="DBN_ExitToAppIcon_container">
+                                    <ExitToAppIcon className="ExitToAppIcon"/>
+                                    <span>Logout<span style={{opacity:"0"}}>..................</span></span>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                       </div>
                    </div>
                 </div>
