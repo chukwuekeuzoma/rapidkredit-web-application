@@ -11,7 +11,7 @@ import Faqpage from "./Components/Faqpage/Faqpage"
 import ContactUs from "./Components/ContactUs/ContactUs"
 import Login from "./Components/Login/Login"
 import Register from "./Components/Register/Register"
-import DashBoardNav from "./Components/DashBoardNav/DashBoardNav"
+import Dashboard from "./Components/Dashboard/Dashboard"
 import DashboardLayout from "./Components/Layouts/DashBoardLayout/DashboardLayout"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
@@ -63,7 +63,7 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Register" Component={Register}/>
-           <RouteWithLayout Layout={DashboardLayout}  path="/DashboardNav" Component={DashBoardNav}/>
+           <RouteWithLayout Layout={DashboardLayout}  path="/DashboardNav" Component={Dashboard}/>
         </Switch>
       </div>
     </BrowserRouter>
