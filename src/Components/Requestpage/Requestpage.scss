@@ -1,0 +1,20 @@
+@import "../../scssMixin/mixin.scss";
+
+.Dashboard_container{
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.Request_page_grid_one{
+    height:150px !important;
+    border-radius:5px !important;
+    background:rgb(17, 17, 66) !important;
+}
+
+.Request_page_grid_two{
+    height:290px;
+    border-radius:5px !important;
+    background:white !important;
+}

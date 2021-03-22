@@ -21,18 +21,22 @@ export default function DashboardLayout() {
                         <img src={RapidOne} alt="tw" height="50px"/>
                     </div>
                     <div className="DBN_icon_container">
-                       <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
-                          <div className="DBN_c">
-                                <DashboardIcon className="DashboardIcon"/>
-                                <span>Dashboard</span>
-                          </div>
-                       </div>
-                       <div  onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
-                          <div className="DBN_c">
-                                <CallReceivedIcon className="CallReceivedIcon"/>
-                                <span className="Requests">Requests<span style={{opacity:"0"}}>....</span></span>
-                           </div>
-                        </div>
+                       <Link to="Dashboard" className="links">
+                            <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
+                                <div className="DBN_c">
+                                        <DashboardIcon className="DashboardIcon"/>
+                                        <span>Dashboard</span>
+                                </div>
+                            </div>
+                       </Link>
+                       <Link to="RequestPage" className="links">
+                        <div  onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
+                            <div className="DBN_c">
+                                    <CallReceivedIcon className="CallReceivedIcon"/>
+                                    <span className="Requests">Requests<span style={{opacity:"0"}}>....</span></span>
+                            </div>
+                            </div>
+                        </Link>
                         <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
                           <div className="DBN_c">
                                 <RedeemIcon className="RedeemIcon"/>

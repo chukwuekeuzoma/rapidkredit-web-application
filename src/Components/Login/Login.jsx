@@ -74,7 +74,7 @@ export default function Login() {
                                 />
                            </div>
                             <div className="login_Botton_container">
-                            <Link to="DashboardNav" className="links"><Button variant="outlined" className="login_Button">Login</Button></Link>
+                            <Link to="Dashboard" className="links"><Button variant="outlined" className="login_Button">Login</Button></Link>
                             </div> 
                     </form>
                           
