@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade'
 export default function Dashboard() {
     return (
         <>
-           <Fade big duration={1000} className="fade">
+           <Fade big duration={1000}>
                 <div className="Dashboard_container">
                     <h2>Dashboard</h2>
                     <h2>
@@ -14,12 +14,12 @@ export default function Dashboard() {
                     </h2>
                 </div>
             
-             <div className="DB_Grid_container">
-                 <div className="DB_content_one">1</div>
-                 <div className="DB_content_two">2</div>
-                 <div className="DB_content_three">3</div>
-                 <div className="DB_content_four">4</div>               
-            </div>
+                <div className="DB_Grid_container">
+                    <div className="DB_content_one">1</div>
+                    <div className="DB_content_two">2</div>
+                    <div className="DB_content_three">3</div>
+                    <div className="DB_content_four">4</div>               
+                </div>
             </Fade>    
         </>
     )

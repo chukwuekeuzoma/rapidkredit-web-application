@@ -13,6 +13,8 @@ import Login from "./Components/Login/Login"
 import Register from "./Components/Register/Register"
 import Dashboard from "./Components/Dashboard/Dashboard"
 import RequestPage from "./Components/Requestpage/Requestpage"
+import SettlementPage from "./Components/SettelmentPage/SettlementPage"
+import ProfilePage from "./Components/ProfilePage/Profilepage"
 import DashboardLayout from "./Components/Layouts/DashBoardLayout/DashboardLayout"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
@@ -65,7 +67,9 @@ function App() {
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Register" Component={Register}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Dashboard" Component={Dashboard}/>
-           <RouteWithLayout Layout={DashboardLayout}  path="/RequestPage" Component={RequestPage}/>
+           <RouteWithLayout Layout={DashboardLayout}  path="/Request" Component={RequestPage}/>
+           <RouteWithLayout Layout={DashboardLayout}  path="/Settlement" Component={SettlementPage}/>
+           <RouteWithLayout Layout={DashboardLayout}  path="/Profile" Component={ProfilePage}/>
         </Switch>
       </div>
     </BrowserRouter>

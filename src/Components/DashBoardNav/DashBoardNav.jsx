@@ -29,7 +29,7 @@ export default function DashboardLayout() {
                                 </div>
                             </div>
                        </Link>
-                       <Link to="RequestPage" className="links">
+                       <Link to="Request" className="links">
                         <div  onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
                             <div className="DBN_c">
                                     <CallReceivedIcon className="CallReceivedIcon"/>
@@ -37,18 +37,22 @@ export default function DashboardLayout() {
                             </div>
                             </div>
                         </Link>
-                        <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
-                          <div className="DBN_c">
-                                <RedeemIcon className="RedeemIcon"/>
-                                <span>Settlements</span>
-                           </div>
-                        </div>
-                        <div onClick={() => setActive("PersonIcon")} className={Active === "PersonIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
-                          <div className="DBN_c">
-                                <PersonIcon className="PersonIcon"/>
-                                <span className="Profile">Profile<span style={{opacity:"0"}}>...........</span></span>
-                           </div>
-                        </div>
+                        <Link to="Settlement" className="links">
+                            <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
+                            <div className="DBN_c">
+                                    <RedeemIcon className="RedeemIcon"/>
+                                    <span>Settlements</span>
+                            </div>
+                            </div>
+                        </Link>
+                        <Link to="Profile" className="links">
+                            <div onClick={() => setActive("PersonIcon")} className={Active === "PersonIcon"?"DBN_icon_container_select_active":"DBN_icon_container_select"}>
+                            <div className="DBN_c">
+                                    <PersonIcon className="PersonIcon"/>
+                                    <span className="Profile">Profile<span style={{opacity:"0"}}>...........</span></span>
+                            </div>
+                            </div>
+                        </Link>
                     </div>
 
                     <div className="DBN_logout_container">
