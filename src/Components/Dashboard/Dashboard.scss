@@ -4,6 +4,23 @@
     @include flex;
     justify-content: space-between;
     align-items: center;
+
+  
+
+    .Dashboard_select_textfield{
+        background: white !important;
+        width: 150px !important;
+        margin-right:20px;
+ 
+        ::placeholder{
+            color:rgb(17, 17, 66)!important;
+        }
+    
+        label {
+            color: rgb(17, 17, 66)!important;
+        }
+    
+    }
 }
 
 
@@ -19,6 +36,7 @@
         background:rgb(17, 17, 66) !important;
         height:150px;
         border-radius:5px;
+        position: relative;
     }
 
 
