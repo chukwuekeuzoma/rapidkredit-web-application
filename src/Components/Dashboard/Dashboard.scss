@@ -5,12 +5,14 @@
     justify-content: space-between;
     align-items: center;
 
-  
+    h2{
+        color:rgb(17, 17, 66);
+    }
 
     .Dashboard_select_textfield{
         background: white !important;
         width: 150px !important;
-        margin-right:20px;
+        margin-right:270px;
  
         ::placeholder{
             color:rgb(17, 17, 66)!important;
@@ -55,6 +57,111 @@
         background:white !important;
         height:290px;
         border-radius:5px;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+
+        .circular{
+            position: relative;
+            background:red;
+            height:100px;
+            width:100px;
+
+            .inner{
+                position: absolute;
+                z-index:6;
+                top:50%;
+                left:50%;
+                height:80px;
+                width:80px;
+                margin:-40px 0 0 -40px;
+                background: #dee3de;
+                box-shadow:0 3px 0 rgba(0,0,0,0.2);
+                border-radius:100%;
+            }
+
+            .Bar{
+                position: absolute;
+                height:100%;
+                width:100%;
+                border-radius:100%;
+                clip: rect(0px,100px,100px, 50px);
+                background: white;
+
+                .Progress{
+                    position: absolute;
+                    height:100%;
+                    width:100%;
+                    border-radius:100%;
+                    clip: rect(0px,50px,100px, 0px);
+                    background:rgb(17, 17, 66) ;
+                }
+            }
+        }
+
+        .circle{
+            z-index: 1;
+            animation:left 4s linear both;
+
+            .Left{
+                z-index: 1;
+                animation:left 4s linear both;
+            }
+
+            .Progress{
+                z-index: 1;
+                animation:left 4s linear both;
+            }
+    
+        }
+
+       
+
+       
+
+
+
+       
+
+        // .BarLeft{
+        //     position: absolute;
+        //     height:100%;
+        //     width:100%;
+        //     border-radius:100%;
+        //     clip: rect(0px,100px,100px, 50px);
+        //     background: white;
+
+        //     .Progress{
+        //         position: absolute;
+        //         height:100%;
+        //         width:100%;
+        //         border-radius:100%;
+        //         clip: rect(0px,50px,100px, 0px);
+        //         background:rgb(17, 17, 66) ;
+        //         z-index: 1;
+        //         animation:left 4s linear both;
+                 
+        //         .Left{
+        //             z-index: 1;
+        //             animation:left 4s linear both;
+        //         }
+        //     }
+        // }
+
+      
+        
+      
+
+        @keyframes left{
+            100%{
+               transform: rotate(180deg);
+            }
+        }
+            
+        // .Right{
+        //     z-index:3;
+        // }
+        
     }
 
     .DB_content_four{
@@ -64,5 +171,81 @@
         height:290px;
         border-radius:5px;
     }
+
+    .DB_Header{
+        @include flex;
+        justify-content: space-around;
+        align-items: center;
+      
         
+
+        .DB_Header_content{
+            @include flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top:20px;
+           
+        }
+
+        .DB_Header_content_one{
+            @include flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top:10px;
+           
+        }
+
+        .DB_Header_content_two{
+            @include flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top:10px;
+            border-right: 1px solid white;
+            border-left: 1px solid white;
+            padding-right:30px;
+            padding-left:30px;
+        }
+
+        .Numbers{
+            color:#2fdfff;
+        }
+
+        .Numbers_one{
+            color:white;
+            font-size:40px;
+            font-weight: bolder;
+        }
+
+        .Total{
+            color:#2fdfff;
+        }
+
+        .Total_one{
+            color:white;
+            font-size:40px;
+            font-weight: bolder;
+        }
+
+        .Avaluable{
+            color:#2fdfff;
+        }
+
+        .Avaluable_one{
+            color:white;
+            font-weight: bolder;
+            font-size:20px;
+        }
+
+        .DB_Header_Button{
+            width:100% !important;
+            color: rgb(17, 17, 66) !important;
+            background:#2fdfff !important;
+            font-weight: bolder;
+            margin-top:10px !important;
+         
+        }
+    }
+        
+     
+
 }

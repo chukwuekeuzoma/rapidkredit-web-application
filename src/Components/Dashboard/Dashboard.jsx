@@ -1,10 +1,13 @@
 import React,{useState,useEffect} from 'react'
-import "./Dashboard.scss"
+// import "./Dashboard.scss"
+import "./Dashboard.css"
+import {Button } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import {makeStyles} from '@material-ui/core/styles';
 import Fade from 'react-reveal/Fade'
 import Select from '@material-ui/core/Select';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 
 
@@ -89,14 +92,49 @@ export default function Dashboard() {
             
                 <div className="DB_Grid_container">
                     <div className="DB_content_one">
-                        <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                        <div className="DB_Header">
+                            <div className="DB_Header_content">
+                              <span className="Numbers">Numbers of <br/> request</span>
+                              <span className="Numbers_one">2</span>
+                            </div>
+                            <div  className="DB_Header_content_two">
+                              <span className="Total">Total amount <br/> Requested</span>
+                              <span className="Total_one">N&nbsp;23,000</span>
+                            </div>
+                            <div  className="DB_Header_content_one">
+                              <span className="Avaluable">Avaluable</span>
+                              <span className="Avaluable_one">N36,250.00</span>
+                              <Button variant="outlined" className="DB_Header_Button">REQUEST PAYOUT</Button>
+                            </div>
                         </div>
                     </div>
                     <div className="DB_content_two">2</div>
-                    <div className="DB_content_three">3</div>
+                    <div className="DB_content_three">
+                         <div className="circular">
+                              <div className="inner"></div>
+                              <div className="Numb">15<div className="Days">Days(s)</div></div>
+                               <div className="circle">
+                                  <div className="Bar Left">
+                                      <div className="Progress"></div>
+                                  </div>
+                                  <div className="Bar Right">
+                                      <div className="Progress"></div>
+                                  </div>
+                               </div>
+                         </div>
+                         <div className="Calander">
+                             <div className="Calander_Number"><span>Number of days you've 
+                             <br/>worked<br/>This month</span></div>
+                             <div className="calander_icon">
+                                  <CalendarTodayIcon/>
+                                  <br/>
+                                    Feb
+                                   <br/>
+                                   2021
+                             </div>
+                         </div>
+
+                    </div>
                     <div className="DB_content_four">4</div>               
                 </div>
             </Fade>    

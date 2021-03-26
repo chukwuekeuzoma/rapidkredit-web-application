@@ -1,0 +1,240 @@
+.Dashboard_container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Dashboard_container h2{
+    color:rgb(17, 17, 66);
+}
+
+.Dashboard_select_textfield{
+    background: white !important;
+    width: 150px !important;
+    margin-right:270px !important;
+}
+
+.Dashboard_select_textfield::placeholder{
+    color:rgb(17, 17, 66)!important;
+}
+
+.Dashboard_select_textfield label{
+    color: rgb(17, 17, 66)!important;
+}
+
+.DB_Grid_container{
+    display: grid;
+    gap:10px;
+    grid-template-columns:repeat(12,1fr);
+    grid-template-rows:repeat(4,minmax(150,auto));
+}
+
+.DB_content_one{
+    grid-column: 1/10;
+    grid-row:1/2;
+    background:rgb(17, 17, 66) !important;
+    height:150px;
+    border-radius:5px;
+    position: relative;
+}
+
+.DB_content_two{
+    grid-column:10/13;
+    grid-row:1/13;
+    background:white !important;
+    height:450px;
+    border-radius:5px;
+}
+
+.DB_content_three{
+    grid-column:1/4;
+    grid-row:2/13;
+    background:white !important;
+    height:290px;
+    border-radius:5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.DB_content_four{
+    grid-column:4/10;
+    grid-row:2/13;
+    background:white !important;
+    height:290px;
+    border-radius:5px;
+}
+
+.DB_Header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.DB_Header_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:20px;
+}
+
+.DB_Header_content_one{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:10px;
+}
+
+.DB_Header_content_two{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:10px;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    padding-right:30px;
+    padding-left:30px;
+}
+
+
+.Numbers{
+    color:#2fdfff;
+}
+
+.Numbers_one{
+    color:white;
+    font-size:40px;
+    font-weight: bolder;
+}
+
+.Total{
+    color:#2fdfff;
+}
+
+.Total_one{
+    color:white;
+    font-size:40px;
+    font-weight: bolder;
+}
+
+.Avaluable{
+    color:#2fdfff;
+}
+
+.Avaluable_one{
+    color:white;
+    font-weight: bolder;
+    font-size:20px;
+}
+
+.DB_Header_Button{
+    width:100% !important;
+    color: rgb(17, 17, 66) !important;
+    background:#2fdfff !important;
+    font-weight: bolder;
+    margin-top:10px !important;
+}
+
+.circular{
+    position: relative;
+    height:100px;
+    width:100px;
+    transform: scale(1.4);
+}
+
+
+.circular .inner{
+    position: absolute;
+    z-index:6;
+    top:50%;
+    left:50%;
+    height:80px;
+    width:80px;
+    margin:-40px 0 0 -40px;
+    background: white;
+    box-shadow:0 0px 0 rgba(0,0,0,0.2);
+    border-radius:100%;
+}
+
+.circular .Numb{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    color:rgb(17, 17, 66);
+
+}
+
+.Days{
+    font-size:10px !important;
+    font-weight: lighter !important;
+}
+.circular .Bar{
+    position: absolute;
+    height:100%;
+    width:100%;
+    border-radius:100%;
+    clip: rect(0px,100px,100px, 50px);
+    background: #2fdfff;
+}
+
+.circle .Bar .Progress{
+    position: absolute;
+    height:100%;
+    width:100%;
+    border-radius:100%;
+    clip: rect(0px,50px,100px, 0px);
+    background:rgb(17, 17, 66) ;
+}
+
+.circle .Left .Progress{
+    z-index: 1;
+    animation:left 4s linear both;
+}
+
+.circle .Right {
+    z-index: 3;
+    transform: rotate(180deg);
+}
+
+.circle .Right .Progress{
+    animation:right 4s linear both;
+    animation-delay: 4s;
+}
+
+.Calander{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;    
+}
+
+.Calander_Number{
+    font-size:10px;
+    font-weight: bold;
+    color:rgb(17, 17, 66) !important;
+    padding-right:60px;
+}
+
+.calander_icon{
+    font-size: 10px !important;
+    font-weight: bold !important;
+    color:rgb(17, 17, 66) !important;
+}
+
+@keyframes left{
+    100%{
+       transform: rotate(100deg);
+    }
+}
+
+/* @keyframes right{
+    60%{
+       transform: rotate(180deg);
+    }
+} */
+  
