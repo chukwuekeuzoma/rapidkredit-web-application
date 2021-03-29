@@ -4,10 +4,20 @@ import "./Dashboard.css"
 import {Button } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Fade from 'react-reveal/Fade'
 import Select from '@material-ui/core/Select';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import PicThree from "../../images/carowhite4.png"
+import PicFour from "../../images/carowhite5.png"
+import PicFive from "../../images/carowhite6.png"
+
 
 
 
@@ -39,21 +49,51 @@ const useStyles = makeStyles({
     formControl: {
         minWidth: 120,
       },
+
+      Table: {
+        minWidth:50,
+      },
     
   })
+
+
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.action.hover,
+      color: theme.palette.common.black,
+     
+    },
+    body: {
+      fontSize: 14,
+      padding:15,
+      paddingBottom:0,
+    },
+  }))(TableCell);
+  
+
+  
+  function createData(icon,name, calories, fat) {
+    return {icon,name, calories,fat};
+  }
+  
+  const rows = [
+    createData(PicThree,'Eclair', 262, 16.0),
+    createData(PicFour,'Cupcake', 305, 3.7),
+    createData(PicFive,'Gingerbread', 356, 16.0),
+  ];
 
 
 export default function Dashboard() {
 
     const classes =  useStyles();
 
-    const [Companydata, setCompanydata] = useState([])
-    useEffect(()=>{
-      fetch("https://rapidkredit.herokuapp.com/api/companies")
-      .then(response => response.json())
-      .then(companydata => setCompanydata(companydata.data))
-      .catch(e => console.log(e))
-    },[])
+    // const [Companydata, setCompanydata] = useState([])
+    // useEffect(()=>{
+    //   fetch("https://rapidkredit.herokuapp.com/api/companies")
+    //   .then(response => response.json())
+    //   .then(companydata => setCompanydata(companydata.data))
+    //   .catch(e => console.log(e))
+    // },[])
     
      return (
         <>
@@ -76,11 +116,18 @@ export default function Dashboard() {
                                     id: 'outlined-age-native-simple',
                                 }}
                                 >
-                                <option aria-label="None" value=""/>
+                                {/* <option aria-label="None" value=""/>
                             
                                 {Companydata.map(({id, company_name}, index) => (
                                     <option key={index} value={id}>
                                     {company_name}
+                                    </option> */}
+
+                                    <option aria-label="None" value=""/>
+                            
+                                    {rows.map((row, index) => (
+                                    <option key={index} value={row.name}>
+                                       {row.name}
                                     </option>
                                 ))}
                                 </Select>
@@ -108,7 +155,43 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    <div className="DB_content_two">2</div>
+                    <div className="DB_content_two">
+                        <div className="Portfolio">
+                            <span className="Portfolio_one">Portfolio</span><br/>
+                            <span className="Total_num">Total Number of Organisation<br/>you work for</span>
+                        </div>
+                        <br/>
+                         <div className="Portfolio_circular">
+                           <div className="Portfolio_inner">
+                               <div className="Portfolio_Numb"><span>3</span></div>
+                            </div>
+                         </div>
+                        <div style={{marginTop:"20px"}}>
+                          <TableContainer className={classes.table}>
+                              <Table className={classes.table}>
+                                <TableHead >
+                                  <TableRow>
+                                    <StyledTableCell>Organisation</StyledTableCell>
+                                    <StyledTableCell  align="right">Number of days worked</StyledTableCell>
+                                  </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                  {rows.map((row) => (
+                                    <TableRow key={row.name}>
+                                      <StyledTableCell component="th" scope="row">
+                                      <div className="Table_cellhead_container" >
+                                          <img src={row.icon} alt="slideimage" className="Table_cell" />
+                                          <div>{row.name}</div>
+                                      </div>
+                                      </StyledTableCell>
+                                      <StyledTableCell  align="right">{row.calories}</StyledTableCell>
+                                    </TableRow>
+                                  ))}
+                                </TableBody>
+                              </Table>
+                            </TableContainer>
+                        </div>
+                    </div>
                     <div className="DB_content_three">
                          <div className="circular">
                               <div className="inner"></div>
@@ -135,7 +218,34 @@ export default function Dashboard() {
                          </div>
 
                     </div>
-                    <div className="DB_content_four">4</div>               
+                    <div className="DB_content_four">
+                          <div className="Position"><span>Positions(s)</span></div>
+                          <TableContainer className={classes.table}>
+                            <Table className={classes.table}>
+                              <TableHead >
+                                <TableRow>
+                                  <StyledTableCell>Organisation</StyledTableCell>
+                                  <StyledTableCell>Position</StyledTableCell>
+                                  <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
+                                </TableRow>
+                              </TableHead>
+                              <TableBody>
+                                {rows.map((row) => (
+                                  <TableRow key={row.name}>
+                                    <StyledTableCell component="th" scope="row">
+                                     <div className="Table_cellhead_container" >
+                                        <img src={row.icon} alt="slideimage" className="Table_cell" />
+                                        <div>{row.name}</div>
+                                     </div>
+                                     </StyledTableCell>
+                                    <StyledTableCell>{row.calories}</StyledTableCell>
+                                    <StyledTableCell>{row.fat}</StyledTableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                          </TableContainer>
+                      </div>               
                 </div>
             </Fade>    
         </>

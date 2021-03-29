@@ -91,7 +91,7 @@ const useStyles = makeStyles({
                                    
                                     {Companydata.map(({id, company_name}, index) => (
                                         <option key={index} value={id}>
-                                        {company_name}
+                                         {company_name}
                                         </option>
                                     ))}
                                     </Select>

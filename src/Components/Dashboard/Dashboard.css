@@ -44,6 +44,11 @@
     background:white !important;
     height:450px;
     border-radius:5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    
 }
 
 .DB_content_three{
@@ -134,6 +139,7 @@
     background:#2fdfff !important;
     font-weight: bolder;
     margin-top:10px !important;
+    
 }
 
 .circular{
@@ -190,6 +196,7 @@
     border-radius:100%;
     clip: rect(0px,50px,100px, 0px);
     background:rgb(17, 17, 66) ;
+  
 }
 
 .circle .Left .Progress{
@@ -237,4 +244,75 @@
        transform: rotate(180deg);
     }
 } */
-  
+
+.Position{
+    margin-top:20px;
+    margin-left: 20px;
+    margin-bottom:10px;
+    font-size:23px;
+    font-weight: bolder;
+    color: black !important;
+    opacity: 0.7;
+}
+
+.Table_cellhead_container{
+    display: flex;
+    align-items: center;
+}
+
+.Table_cell{
+    border-radius: 100%;
+    height:20px;
+    width:20px;
+    margin-right:10px;
+    margin-bottom:3px;
+}
+
+.Portfolio{
+    color: black !important;
+    
+    margin-top:20px;
+}
+
+.Total_num{
+    font-size: smaller !important;
+    font-weight: bolder;
+    opacity: 0.5 !important;
+}
+
+.Portfolio_one{
+    font-weight: bolder !important;
+    font-size:23px;
+    opacity: 0.7 !important;
+}
+
+.Portfolio_circular{
+    position: relative;
+    height:100px;
+    width:100px;
+    background: #2fdfff;
+    border-radius:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Portfolio_inner{
+    position: absolute;
+    height:90px;
+    width:90px;
+    background: white;
+    box-shadow:0 0px 0 rgba(0,0,0,0.2);
+    border-radius:100%;
+}
+
+.Portfolio_Numb{
+    margin-top: 25px !important;
+    font-size:30px;
+    font-weight: bolder;
+    color:rgb(17, 17, 66) !important;
+}
+
+
+ 
+
