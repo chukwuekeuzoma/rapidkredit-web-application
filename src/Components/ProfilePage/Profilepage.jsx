@@ -3,6 +3,9 @@ import Fade from 'react-reveal/Fade'
 import "./ProfilePage.scss"
 import {Button } from '@material-ui/core';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
+import Employee from "../../images/employee.jpg"
 
 export default function Profilepage() {
     return (
@@ -40,7 +43,16 @@ export default function Profilepage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="PR_content_two">2</div>               
+                        <div className="PR_content_two">
+                            <div className="profile_content_container">
+                                <div className="profile_content">
+                                    <img src={Employee} alt="slideimage" className="PR_profile_image" />
+                                    <div><span className="Profile_name">John Doe</span><br/><span className="Profile_name_content">Lorem ipsum dolor sit amet<br/>consectetu</span></div>
+                                </div>
+                                <div className="Profile_draft"><DraftsIcon/><br/>Email<br/>info@rapidkredit.com</div>
+                                <div className="profile_phone"><LocalPhoneIcon/><br/>Phone<br/>+234 12345679</div>
+                            </div>
+                        </div>               
                     </div>
                 </Fade>
             </div>

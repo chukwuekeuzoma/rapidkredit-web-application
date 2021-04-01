@@ -156,5 +156,46 @@
         height:290px;
         border-radius:5px;
 
+        
+
+        .profile_content_container{
+            @include flex;
+            justify-content:space-around;
+            margin-top:20px;
+
+
+            .PR_profile_image{
+                border-radius: 80%;
+                height:80px;
+                width:80px;
+                margin-right:10px;
+            }
+
+            .profile_content{
+                @include flex;
+                justify-content: space-around;
+
+                .Profile_name{
+                    font-size:20px !important;
+                    font-weight: bolder;
+                }
+
+                .Profile_name_content{
+                    font-size: smaller;
+                }
+
+            }
+        }
+
+        .Profile_draft{
+            font-size: smaller !important;
+            color: rgb(17, 17, 66) !important;
+        }
+
+        .profile_phone{
+            font-size: smaller !important;
+            color: rgb(17, 17, 66) !important;
+        }
+
     }
 }
