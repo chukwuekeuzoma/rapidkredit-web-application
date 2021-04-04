@@ -8,6 +8,19 @@
     h2{
         color:rgb(17, 17, 66);
     }
+
+    .PR_select_textfield{
+        background: white !important;
+        width: 150px !important;
+    }
+    
+    .PR_select_textfield::placeholder{
+        color:rgb(17, 17, 66)!important;
+    }
+    
+    .PR_select_textfield label{
+        color: rgb(17, 17, 66)!important;
+    }
 }
 
 
@@ -153,7 +166,7 @@
         grid-column:1/13;
         grid-row:2/13;
         background:white !important;
-        height:290px;
+        height:300px;
         border-radius:5px;
 
         
@@ -165,11 +178,13 @@
 
 
             .PR_profile_image{
-                border-radius: 80%;
-                height:80px;
-                width:80px;
+                border-radius: 100%;
+                height:100px;
+                width:100px;
                 margin-right:10px;
+
             }
+
 
             .profile_content{
                 @include flex;
@@ -198,4 +213,5 @@
         }
 
     }
+
 }
