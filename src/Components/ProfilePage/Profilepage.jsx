@@ -11,6 +11,15 @@ import InputLabel from '@material-ui/core/InputLabel';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import Select from '@material-ui/core/Select';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import PicThree from "../../images/carowhite4.png"
+import PicFour from "../../images/carowhite5.png"
+import PicFive from "../../images/carowhite6.png"
 
 
 
@@ -45,10 +54,37 @@ const useStyles = makeStyles({
       },
 
       Table: {
-        minWidth:50,
+        width:400,
       },
     
   })
+
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.action.hover,
+      color: theme.palette.common.black,
+     
+    },
+    body: {
+      fontSize: 14,
+      padding:15,
+      paddingBottom:0,
+    },
+  }))(TableCell);
+  
+
+  
+  function createData(icon,name, calories, fat) {
+    return {icon,name, calories,fat};
+  }
+  
+  const rows = [
+    createData(PicThree,'Eclair', 262, 16.0),
+    createData(PicFour,'Cupcake', 305, 3.7),
+    createData(PicFive,'Gingerbread', 356, 16.0),
+  ];
+
+
 
 export default function Profilepage() {
     
@@ -80,8 +116,8 @@ export default function Profilepage() {
                                     <option aria-label="None" value=""/>
                             
                                     
-                                    <option value="Employer">
-                                       Employer
+                                    <option value="Employers">
+                                       Employers
                                     </option>
                                     <option value="Accountinfo">
                                        Account Info
@@ -133,26 +169,53 @@ export default function Profilepage() {
                                 <div className="profile_phone"><LocalPhoneIcon/><br/>Phone<br/>+234 12345679</div>
                             </div>
                             <div className="PR_Profile_details_container">
-                             <div className="PR_no_of_days_worked_container">
-                                <div className="PR_no_of_days_worked">
-                                    <div className="PR_no_of_days_worked_content"><span>3</span></div>
-                                </div>
-                                <div className="PR_no_of_days_worked_content_one"><span>Total Number of<br/>Organistion you work<br/>for</span></div>
-                             </div>
-                                <div>
-                                    <h2>Employers</h2>
-                                </div>
-                                <div className="PR_input_container">
-                                    <div>
-                                        <input type="file" id="file"/>
-                                        <label htmlFor="file">
-                                            <AddCircleOutlineIcon className="AddCircleOutlineIcon"/>
-                                        </label>
+                                <div className="PR_no_of_days_worked_container">
+                                    <div className="PR_no_of_days_worked">
+                                        <div className="PR_no_of_days_worked_content"><span>3</span></div>
                                     </div>
-                                    <div className="AddCircleOutlineIcon_text">
-                                        <span>Add New<br/>Employer</span>
-                                    </div>
+                                    <div className="PR_no_of_days_worked_content_one"><span>Total Number of<br/>Organistion you work<br/>for</span></div>
                                 </div>
+                                   <div>
+                                        <div className="PR_Employers">
+                                            <span>Employers</span>
+                                        </div>
+                                        <TableContainer className="PR_Table">
+                                            <Table > 
+                                                <TableHead>
+                                                    <TableRow>
+                                                    <StyledTableCell>Organisation</StyledTableCell>
+                                                    <StyledTableCell>Position</StyledTableCell>
+                                                    <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                    {rows.map((row) => (
+                                                    <TableRow key={row.name}>
+                                                        <StyledTableCell component="th" scope="row">
+                                                        <div className="Table_cellhead_container" >
+                                                            <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
+                                                            <div>{row.name}</div>
+                                                        </div>
+                                                        </StyledTableCell>
+                                                        <StyledTableCell>{row.calories}</StyledTableCell>
+                                                        <StyledTableCell>{row.fat}</StyledTableCell>
+                                                    </TableRow>
+                                                    ))}
+                                                </TableBody>
+                                            </Table>
+                                        </TableContainer>
+                                    </div>
+                                    <div className="PR_input_container">
+                                        <div>
+                                            <input type="file" id="file"/>
+                                            <label htmlFor="file">
+                                                <AddCircleOutlineIcon className="AddCircleOutlineIcon"/>
+                                            </label>
+                                        </div>
+                                        <div className="AddCircleOutlineIcon_text">
+                                            <span>Add New<br/>Employer</span>
+                                        </div>
+                                    </div>
                             </div>
                         </div>               
                     </div>
