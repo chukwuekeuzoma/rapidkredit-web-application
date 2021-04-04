@@ -212,6 +212,73 @@
             color: rgb(17, 17, 66) !important;
         }
 
+
+        .PR_Profile_details_container{
+            @include flex;
+            justify-content: space-between;
+        }
+        .PR_no_of_days_worked_container{
+             @include flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+             margin-top:40px;
+             margin-left:20px;
+
+            .PR_no_of_days_worked{
+                border-radius:100%;
+                height: 50px;
+                width: 50px;
+                border:3px solid #2fdfff;
+                text-align: center;
+                @include flex;
+                align-items: center;
+                justify-content: center;
+
+                .PR_no_of_days_worked_content{
+                    color:rgb(17, 17, 66) !important;
+                    font-size:20px;
+                    font-weight: bolder;
+                }
+            }
+            .PR_no_of_days_worked_content_one{
+                 font-size:smaller !important;
+                 font-weight: bolder;
+                 opacity: 0.6;
+                 margin-top:10px;
+            }
+        }
+
+        .PR_input_container{
+            @include flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top:20px;
+            margin-right:20px;
+
+
+            input[type="file"]{
+                display: none;
+            }
+
+            .AddCircleOutlineIcon{
+                font-size:50px !important;
+                background: white !important;
+                color:#2fdfff !important;
+                cursor: pointer !important;
+            }
+
+            .AddCircleOutlineIcon_text{
+                font-size:smaller !important;
+                font-weight: bolder;
+                margin-top:10px;
+                color:rgb(17, 17, 66) !important;
+            }
+        }
+
     }
 
 }

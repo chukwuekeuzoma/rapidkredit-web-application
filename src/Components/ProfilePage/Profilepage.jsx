@@ -9,6 +9,7 @@ import Employee from "../../images/employee.jpg"
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import Select from '@material-ui/core/Select';
 
 
@@ -63,13 +64,13 @@ export default function Profilepage() {
                         <form className={classes.root}>
                             <FormControl variant="outlined" className="PR_select_textfield" size="small">
                                 <InputLabel htmlFor="outlined-age-native-simple">
-                                    Organization
+                                    Profile Info
                                 </InputLabel>
                                 <Select
                                 native
                                 // value={state.age}
                                 // onChange={handleChange}
-                                label="Organization"
+                                label="Profile Info"
                                 inputProps={{
                                     name: 'age',
                                     id: 'outlined-age-native-simple',
@@ -81,6 +82,12 @@ export default function Profilepage() {
                                     
                                     <option value="Employer">
                                        Employer
+                                    </option>
+                                    <option value="Accountinfo">
+                                       Account Info
+                                    </option>
+                                    <option value="Security">
+                                       Security
                                     </option>
                             
                                 </Select>
@@ -119,14 +126,33 @@ export default function Profilepage() {
                         <div className="PR_content_two">
                             <div className="profile_content_container">
                                 <div className="profile_content">
-                                    
-                                         <img src={Employee} alt="slideimage" className="PR_profile_image"/>
-                                    
-                                   
-                                    <div><span className="Profile_name">John Doe</span><br/><span className="Profile_name_content">Lorem ipsum dolor sit amet<br/>consectetu</span></div>
+                                      <img src={Employee} alt="slideimage" className="PR_profile_image"/>
+                                      <div><span className="Profile_name">John Doe</span><br/><span className="Profile_name_content">Lorem ipsum dolor sit amet<br/>consectetu</span></div>
                                 </div>
                                 <div className="Profile_draft"><DraftsIcon/><br/>Email<br/>info@rapidkredit.com</div>
                                 <div className="profile_phone"><LocalPhoneIcon/><br/>Phone<br/>+234 12345679</div>
+                            </div>
+                            <div className="PR_Profile_details_container">
+                             <div className="PR_no_of_days_worked_container">
+                                <div className="PR_no_of_days_worked">
+                                    <div className="PR_no_of_days_worked_content"><span>3</span></div>
+                                </div>
+                                <div className="PR_no_of_days_worked_content_one"><span>Total Number of<br/>Organistion you work<br/>for</span></div>
+                             </div>
+                                <div>
+                                    <h2>Employers</h2>
+                                </div>
+                                <div className="PR_input_container">
+                                    <div>
+                                        <input type="file" id="file"/>
+                                        <label htmlFor="file">
+                                            <AddCircleOutlineIcon className="AddCircleOutlineIcon"/>
+                                        </label>
+                                    </div>
+                                    <div className="AddCircleOutlineIcon_text">
+                                        <span>Add New<br/>Employer</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>               
                     </div>
