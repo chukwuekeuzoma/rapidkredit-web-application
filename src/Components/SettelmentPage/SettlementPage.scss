@@ -17,16 +17,150 @@
         grid-column: 1/13;
         grid-row:1/2;
         background:rgb(17, 17, 66) !important;
-        height:150px;
+        height:120px;
         border-radius:5px;
+
+        .ST_Header{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    
+        .ST_Header_content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top:20px;
+        }
+    
+        .ST_Numbers{
+            color:#2fdfff;
+        }
+    
+        .ST_Numbers_one{
+            color:white;
+            font-size:40px;
+            font-weight: bolder;
+        }
+    
+        .ST_Header_content_two{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top:10px;
+            border-left: 1px solid white;
+            padding-right:30px;
+            padding-left:20px;
+        }
+    
+        .ST_Total{
+            color:#2fdfff;
+        }
+        
+        .ST_Total_one{
+            color:white;
+            font-size:40px;
+            font-weight: bolder;
+        }
+    
+        .ST_Header_content_one{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top:10px;
+            border-left: 1px solid white;
+            padding-left:20px;
+        }
+    
+        .ST_Avaluable{
+            color:#2fdfff;
+        }
+        
+        .ST_Avaluable_one{
+            color:white;
+            font-weight: bolder;
+            font-size:20px;
+        }
+    
+        .ST_Header_Button{
+            width:100% !important;
+            color: rgb(17, 17, 66) !important;
+            background:#2fdfff !important;
+            font-weight: bolder;
+            margin-top:10px !important;
+            
+        }
+    
+        .ST_Number_Days_container{
+            @include flex;
+            flex-direction:column;
+            justify-content:space-around !important;
+            justify-content: center;
+            
+           
+            
+    
+            .ST_Days_container{
+                @include flex;
+                justify-content: space-between !important;
+                justify-content: center;
+                margin-top:14px !important;
+                border-left: 1px solid white;
+                
+              
+    
+                .ST_Number_of_days{
+                    color:#2fdfff !important;
+                    margin-right:50px !important;
+                    padding-left: 20px;
+                }
+            }
+        
+    
+            .ST_Days_container_two{
+                @include flex;
+                justify-content: space-between !important;
+                justify-content: center;
+                border-left: 1px solid white;
+                
+               .ST_Figures{
+                color:white !important;
+                font-size:40px;
+                margin-right:50px !important;
+                font-weight: bolder;
+                padding-left: 20px;
+               }
+    
+            }
+        }
+
+        .ST_Icon_Container{
+            border-left: 1px solid white;
+            margin-top:10px;
+      
+            .ST_Date{
+                color:white !important;
+                margin-right:-10px !important;
+                margin-top:20px;
+                margin-left: 10px;
+            }
+
+            .ST_Icon{
+                color:#2fdfff !important;
+                margin-top:5px !important;
+                margin-left:10px !important;
+            }
+        }
     }
 
     .ST_content_two{
         grid-column:1/13;
         grid-row:2/13;
         background:white !important;
-        height:290px;
+        height:320px;
         border-radius:5px;
 
     }
+
+   
 }

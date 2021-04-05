@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Fade from 'react-reveal/Fade'
 import "./ProfilePage.scss"
 import {Button } from '@material-ui/core';
@@ -87,6 +87,12 @@ const useStyles = makeStyles({
 
 
 export default function Profilepage() {
+
+    const[ProfileInfo, setProfileInfo] = useState("")
+
+    const handleChange = (e) => {
+        setProfileInfo(e.target.value)
+    }
     
     const classes =  useStyles();
 
@@ -105,7 +111,7 @@ export default function Profilepage() {
                                 <Select
                                 native
                                 // value={state.age}
-                                // onChange={handleChange}
+                                 onChange={handleChange}
                                 label="Profile Info"
                                 inputProps={{
                                     name: 'age',
@@ -175,36 +181,80 @@ export default function Profilepage() {
                                     </div>
                                     <div className="PR_no_of_days_worked_content_one"><span>Total Number of<br/>Organistion you work<br/>for</span></div>
                                 </div>
-                                   <div>
-                                        <div className="PR_Employers">
-                                            <span>Employers</span>
+                                    
+                                  {ProfileInfo ==="Employers"?
+                                      <Fade big  duration={1000}>
+                                        <div>
+                                            <div className="PR_Employers">
+                                                <span>Employers</span>
+                                            </div>
+                                            <TableContainer className="PR_Table">
+                                                <Table > 
+                                                    <TableHead>
+                                                        <TableRow>
+                                                        <StyledTableCell>Organisation</StyledTableCell>
+                                                        <StyledTableCell>Position</StyledTableCell>
+                                                        <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
+                                                        </TableRow>
+                                                    </TableHead>
+                                                    <TableBody>
+                                                        {rows.map((row) => (
+                                                        <TableRow key={row.name}>
+                                                            <StyledTableCell component="th" scope="row">
+                                                            <div className="Table_cellhead_container" >
+                                                                <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
+                                                                <div>{row.name}</div>
+                                                            </div>
+                                                            </StyledTableCell>
+                                                            <StyledTableCell>{row.calories}</StyledTableCell>
+                                                            <StyledTableCell>{row.fat}</StyledTableCell>
+                                                        </TableRow>
+                                                        ))}
+                                                    </TableBody>
+                                                </Table>
+                                            </TableContainer>
                                         </div>
-                                        <TableContainer className="PR_Table">
-                                            <Table > 
-                                                <TableHead>
-                                                    <TableRow>
-                                                    <StyledTableCell>Organisation</StyledTableCell>
-                                                    <StyledTableCell>Position</StyledTableCell>
-                                                    <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
-                                                    </TableRow>
-                                                </TableHead>
-                                                <TableBody>
-                                                    {rows.map((row) => (
-                                                    <TableRow key={row.name}>
-                                                        <StyledTableCell component="th" scope="row">
-                                                        <div className="Table_cellhead_container" >
-                                                            <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
-                                                            <div>{row.name}</div>
-                                                        </div>
-                                                        </StyledTableCell>
-                                                        <StyledTableCell>{row.calories}</StyledTableCell>
-                                                        <StyledTableCell>{row.fat}</StyledTableCell>
-                                                    </TableRow>
-                                                    ))}
-                                                </TableBody>
-                                            </Table>
-                                        </TableContainer>
-                                    </div>
+                                        </Fade>
+                                        :
+                                        (ProfileInfo ==="Accountinfo"?<Fade left duration={1000}><div><h2>Accountinfo</h2></div></Fade>
+                                        :
+                                        (ProfileInfo ==="Security"?<Fade left duration={1000}><div><h2>Securityinfo</h2></div></Fade>
+                                        :
+                                        <Fade big duration={1000}>
+                                            <div>
+                                                <div className="PR_Employers">
+                                                    <span>Employers</span>
+                                                </div>
+                                                <TableContainer className="PR_Table">
+                                                    <Table > 
+                                                        <TableHead>
+                                                            <TableRow>
+                                                            <StyledTableCell>Organisation</StyledTableCell>
+                                                            <StyledTableCell>Position</StyledTableCell>
+                                                            <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
+                                                            </TableRow>
+                                                        </TableHead>
+                                                        <TableBody>
+                                                            {rows.map((row) => (
+                                                            <TableRow key={row.name}>
+                                                                <StyledTableCell component="th" scope="row">
+                                                                <div className="Table_cellhead_container" >
+                                                                    <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
+                                                                    <div>{row.name}</div>
+                                                                </div>
+                                                                </StyledTableCell>
+                                                                <StyledTableCell>{row.calories}</StyledTableCell>
+                                                                <StyledTableCell>{row.fat}</StyledTableCell>
+                                                            </TableRow>
+                                                            ))}
+                                                        </TableBody>
+                                                    </Table>
+                                                </TableContainer>
+                                            </div>
+                                        </Fade>
+                                       )
+                                        )
+                                    }
                                     <div className="PR_input_container">
                                         <div>
                                             <input type="file" id="file"/>
