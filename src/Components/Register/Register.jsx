@@ -11,6 +11,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import {useFormik } from "formik"
 import * as Yup from 'yup';
 import axios from "axios"
+import Alert from '@material-ui/lab/Alert';
 
 
 
@@ -54,6 +55,9 @@ export default function Register() {
 
   const classes = useStyles();
   const [Companydata, setCompanydata] = useState([])
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
+
   useEffect(() => {
     fetch("https://rapidkredit.herokuapp.com/api/companies")
       .then(response => response.json())
@@ -68,10 +72,12 @@ export default function Register() {
       body:JSON.stringify(values),
     }).then(response =>response.json())
     .then(data => {
-      console.log('Success:', data);
+      setSuccess(data.message)
+      // console.log(data.message);
     })
     .catch((error) => {
-      console.error('Error:', error);
+      setError(error)
+      // console.error('Error:', error);
     });
   };
         
@@ -101,12 +107,16 @@ export default function Register() {
               <div className="Register_logo">
                 <Link to="/" className="links"><img src={RapidOne} alt="tw" height="50px" /></Link>
               </div>
-                 <form className={classes.root} onSubmit={formik.handleSubmit}>
+               <div className="Alert">
+                  {error && <Alert severity="error">{error}</Alert>}
+                  {success && <Alert severity="success">{success}</Alert>}
+               </div>
+                  <form className={classes.root} onSubmit={formik.handleSubmit}>
                     <div className="select_input_email">
                       <FormControl variant="outlined" className="select_textfield" size="small">
                         <InputLabel htmlFor="outlined-age-native-simple">
                           Select your organization
-                                        </InputLabel>
+                                        </InputLabel> 
                         <Select
                           native
                           value={formik.values.companyId}

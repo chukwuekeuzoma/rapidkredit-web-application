@@ -3,7 +3,10 @@
     height:80vh;
     width: 280px;
     margin:20px auto;
+    position: relative;
 }
+
+
 .Register_logo{
     text-align: center;
 }
@@ -69,13 +72,13 @@
         width:100% !important;
         color: white !important;
         background:rgb(94, 94, 170) !important;
-        margin-top:50px;
+        margin-top:10px;
     }
 }
 
 .login_register{
     text-align: center;
-    margin-top:20px;
+    margin-top:3px;
 
     .dont_have{
       color: rgba(2, 2, 2, 0.452);
