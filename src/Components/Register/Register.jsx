@@ -50,6 +50,16 @@ const useStyles = makeStyles({
 })
 
 
+const validationSchema= Yup.object({
+  firstName:Yup.string().min(4, "Pls enter your real name").required("First name required"),
+  lastName:Yup.string().min(4, "Pls enter your real name").required("Last name required"),
+  email:Yup.string().email("Pls enter a valid email address").required(),
+  username:Yup.string().min(4,"Pls enter your username").required("username required"),
+  companyId:Yup.string().required("Pls select a company"),
+  country:Yup.string().required("Pls select your country"),
+  phone:Yup.string().min(11, "Pls enter a valid phone number").required("Phone number required")
+}); 
+
 export default function Register() {
 
 
@@ -65,7 +75,7 @@ export default function Register() {
       .catch(e => console.log(e))
   }, [])
 
-  const onSubmit=(values) =>{
+  const onSubmit= async (values) =>{
     fetch('https://rapidkredit.herokuapp.com/api/auth/register', {
       method: 'post',
       headers: {'Content-Type':'application/json'},
@@ -73,10 +83,13 @@ export default function Register() {
     }).then(response =>response.json())
     .then(data => {
       setSuccess(data.message)
+      setError(null)
+      formik.resetForm();
       // console.log(data.message);
     })
     .catch((error) => {
-      setError(error)
+      setError(error.data.message)
+      setSuccess(null)
       // console.error('Error:', error);
     });
   };
@@ -95,7 +108,8 @@ export default function Register() {
         country:"",
     },
     onSubmit,
-    
+    validateOnBlur:true,
+    validationSchema:validationSchema,
   
   });
   return (
@@ -103,7 +117,7 @@ export default function Register() {
       <div>
         <Fade right duration={300}>
           <Grid>
-            <Paper elevation={8} className="paper">
+            <Paper elevation={8} className="register_paper">
               <div className="Register_logo">
                 <Link to="/" className="links"><img src={RapidOne} alt="tw" height="50px" /></Link>
               </div>
@@ -121,6 +135,7 @@ export default function Register() {
                           native
                           value={formik.values.companyId}
                           onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
                           label=" Select your organization"
                           inputProps={{
                             name: 'companyId',
@@ -137,6 +152,9 @@ export default function Register() {
                         </Select>
                       </FormControl>
                     </div>
+                    <div className="field_container">
+                      <span className="field">{formik.touched.companyId && formik.errors.companyId?formik.errors.companyId:""}</span>
+                    </div>
                     <div className="select_input_email">
                       <FormControl variant="outlined" className="select_textfield" size="small">
                         <InputLabel htmlFor="outlined-age-native-simple">
@@ -146,6 +164,7 @@ export default function Register() {
                           native
                           value={formik.values.country}
                           onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
                           label="Select Country"
                           inputProps={{
                             name: 'country',
@@ -164,6 +183,9 @@ export default function Register() {
                         </Select>
                       </FormControl>
                     </div>
+                    <div className="field_container">
+                      <span className="field">{formik.touched.country && formik.errors.country ?formik.errors.country:""}</span> 
+                    </div>
                     <div className="register_input_email">
                       <TextField
                         size="small"
@@ -175,7 +197,11 @@ export default function Register() {
                         className="register_textfield"
                         value={formik.values.firstName}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                       />
+                    </div>
+                    <div className="field_container">
+                      <span className="field">{formik.touched.firstName && formik.errors.firstName ?formik.errors.firstName:""}</span>
                     </div>
                     <div className="register_input_email">
                       <TextField
@@ -188,7 +214,11 @@ export default function Register() {
                         className="register_textfield"
                         value={formik.values.lastName}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                       />
+                    </div>
+                    <div className="field_container">
+                      <span className="field">{formik.touched.lastName && formik.errors.lastName ?formik.errors.lastName:""}</span>
                     </div>
                     <div className="register_input_email">
                       <TextField
@@ -201,7 +231,11 @@ export default function Register() {
                         className="register_textfield"
                         value={formik.values.email}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                       />
+                    </div>
+                    <div className="field_container">
+                      <span className="field">{formik.touched.email && formik.errors.email ?formik.errors.email:""}</span>
                     </div>
                     <div className="register_password">
                       <TextField
@@ -212,9 +246,13 @@ export default function Register() {
                         type="name"
                         variant="outlined"
                         className="register_textfield"
-                        value={formik.values.userName}
+                        value={formik.values.username}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                       />
+                    </div>
+                    <div className="field_container">
+                      <span className="field">{formik.touched.username && formik.errors.username ?formik.errors.username:""}</span>
                     </div>
                     <div className="register_password">
                       <TextField
@@ -227,10 +265,14 @@ export default function Register() {
                         className="register_textfield"
                         value={formik.values.phone}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                       />
                     </div>
+                    <div className="field_container">
+                      <span className="field">{formik.touched.phone && formik.errors.phone ?formik.errors.phone:""}</span>
+                    </div>
                     <div className="register_Botton_container">
-                      <Button variant="outlined" className="register_Button" type="submit">Register</Button>
+                      <Button variant="outlined" className="register_Button" type="submit" disabled={!formik.isValid}>Register</Button>
                     </div>
                   </form>
               <div className="login_register">
@@ -250,4 +292,4 @@ export default function Register() {
   )
 }
 
-// https://stackoverflow.com/questions/50530294/reactjs-validateform-onsubmit-requires-a-few-clicks
+

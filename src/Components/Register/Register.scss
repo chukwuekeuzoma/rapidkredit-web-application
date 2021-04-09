@@ -1,6 +1,6 @@
-.paper{
+.register_paper{
     padding: 20px;
-    height:80vh;
+    height:100vh;
     width: 280px;
     margin:20px auto;
     position: relative;
@@ -73,6 +73,10 @@
         color: white !important;
         background:rgb(94, 94, 170) !important;
         margin-top:10px;
+
+        :disabled{
+             filter: contrast(0.7) !important;
+        }
     }
 }
 
@@ -93,6 +97,18 @@
     }
 }
 
+.field_container{
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.field{
+    color: red !important;
+    font-size: 11px !important;
+    min-height:18px !important;
+    font-weight: bolder;
+}
 
 
 
