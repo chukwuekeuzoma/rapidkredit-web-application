@@ -1,0 +1,157 @@
+import React, { useState} from 'react'
+import "./Password.scss"
+import { Grid, Paper, TextField, Button } from '@material-ui/core';
+import { useFormik } from "formik"
+import * as yup from 'yup';
+import Fade from 'react-reveal/Fade'
+import { makeStyles } from '@material-ui/core/styles';
+import RapidOne from "../../images/rapid.png"
+import Alert from '@material-ui/lab/Alert';
+
+
+
+const useStyles = makeStyles({
+    root: {
+      '& label.Mui-focused': {
+        color: 'rgb(94, 94, 170)',
+      },
+      '& .MuiInputBase-root': {
+        color: 'rgb(94, 94, 170)'
+      },
+      '&.MuiTextField-root label': {
+        top: 8,
+        bottom: 8
+      },
+      '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+          borderColor: 'rgb(94, 94, 170)',
+        },
+        '&:hover': {
+          borderColor: 'rgb(94, 94, 170))',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: 'rgb(94, 94, 170)',
+        },
+  
+      },
+    },
+    formControl: {
+      minWidth: 120,
+    },
+  
+  })
+
+  var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+
+
+  const validationSchema = yup.object({
+    password: yup.string().matches(strongRegex, "please enter a strong password").required(),
+    confirmPassword:yup.string().when("password", {
+       is: val => (val && val.length > 0 ? true:false),
+       then: yup.string().oneOf([yup.ref("password")], "password does not match")
+    }),
+    
+  });
+
+
+export default function Password() {
+       
+    const classes = useStyles();
+
+
+    const formik = useFormik({
+        initialValues: {
+          password: "",
+          confirmPassword: "",
+        },
+        // onSubmit,
+        validateOnBlur: true,
+        validationSchema: validationSchema,
+    
+      });
+
+    //   const onSubmit = async (values) => {
+    //     fetch('https://rapidkredit.herokuapp.com/api/auth/register', {
+    //       method: 'post',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify(values),
+    //     }).then(response => response.json())
+    //       .then(data => {
+    //         setSuccess(data.message)
+    //         setError(null)
+    //         formik.resetForm();
+    //         // console.log(data.message);
+    //       })
+    //       .catch((error) => {
+    //         setError(error.data.message)
+    //         setSuccess(null)
+    //         // console.error('Error:', error);
+    //       });
+    //   };
+
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
+
+    return (
+        <>
+            <div>
+              <Fade right duration={300}>
+                <Grid>
+                    <Paper elevation={8} className="password_paper">
+                        <div className="password_logo">
+                        <img src={RapidOne} alt="tw" height="50px" />
+                        </div>
+                        {error && <Alert severity="error">{error}</Alert>}
+                        {success && <Alert severity="success">{success}</Alert>}
+                        <form className={classes.root} >
+                            <div className="password_input">
+                                <TextField
+                                    size="small"
+                                    label="password"
+                                    placeholder="password"
+                                    name="password"
+                                    type="password"
+                                    variant="outlined"
+                                    className="register_textfield"
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                            </div>
+                            <div className="Password_field_container">
+                                <span className="Password_field">
+                                    {formik.touched.password && formik.errors.password ? formik.errors.password : ""}
+                                </span>
+                            </div>
+                            <div className="password_input">
+                                <TextField
+                                    size="small"
+                                    label="Confirm Password"
+                                    placeholder="Confirm Password"
+                                    name="confirmPassword"
+                                    type="password"
+                                    variant="outlined"
+                                    className="register_textfield"
+                                    value={formik.values.confirmPassword}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                            </div>
+                            <div className="Password_field_container">
+                                <span className="Password_field">
+                                    {formik.touched.confirmPassword && formik.errors.confirmPassword? formik.errors.confirmPassword : ""}
+                                </span>
+                            </div>
+                            <div className="password_Botton_container">
+                               <Button variant="outlined" className="password_Button" disabled={!formik.isValid}>Register</Button>
+                            </div>
+                        </form>
+
+                    </Paper>
+                </Grid>
+              </Fade>
+                
+            </div>
+        </>
+    )
+}
