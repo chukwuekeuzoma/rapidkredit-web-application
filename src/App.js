@@ -16,7 +16,7 @@ import RequestPage from "./Components/Requestpage/Requestpage"
 import SettlementPage from "./Components/SettelmentPage/SettlementPage"
 import ProfilePage from "./Components/ProfilePage/Profilepage"
 import DashboardLayout from "./Components/Layouts/DashBoardLayout/DashboardLayout"
-import {BrowserRouter, Route, Switch} from "react-router-dom"
+import {BrowserRouter,HashRouter, Route, Switch} from "react-router-dom"
 import Password from "./Components/PasswordPage/Password"
 
 
@@ -56,7 +56,7 @@ function App() {
     // </div>
 
  <>
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <Switch>
            <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage}/>
@@ -74,7 +74,7 @@ function App() {
            <RouteWithLayout Layout={DashboardLayout}  path="/Profile" Component={ProfilePage}/>
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
 
 
    </>
