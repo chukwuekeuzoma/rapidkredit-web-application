@@ -62,12 +62,12 @@ export default function Password() {
     const {token} = useParams();
     
     const onSubmit = async (values) => {
-         const {confirmPassword, ...rest} = values;
+         const {confirmPassword, password} = values;
 
         fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(rest),
+          body: JSON.stringify(password),
         }).then(response => response.json())
           .then(data => {
             setSuccess(data.message)
