@@ -7,6 +7,7 @@ import Fade from 'react-reveal/Fade'
 import { makeStyles } from '@material-ui/core/styles';
 import RapidOne from "../../images/rapid.png"
 import Alert from '@material-ui/lab/Alert';
+import {useParams} from "react-router-dom"
 
 
 
@@ -63,31 +64,35 @@ export default function Password() {
         initialValues: {
           password: "",
           confirmPassword: "",
+          
         },
-        // onSubmit,
+        onSubmit,
         validateOnBlur: true,
         validationSchema: validationSchema,
-    
+        
       });
 
-    //   const onSubmit = async (values) => {
-    //     fetch('https://rapidkredit.herokuapp.com/api/auth/register', {
-    //       method: 'post',
-    //       headers: { 'Content-Type': 'application/json' },
-    //       body: JSON.stringify(values),
-    //     }).then(response => response.json())
-    //       .then(data => {
-    //         setSuccess(data.message)
-    //         setError(null)
-    //         formik.resetForm();
-    //         // console.log(data.message);
-    //       })
-    //       .catch((error) => {
-    //         setError(error.data.message)
-    //         setSuccess(null)
-    //         // console.error('Error:', error);
-    //       });
-    //   };
+
+      const {token} = useParams();
+
+      const onSubmit = async (values) => {
+        fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(values),
+        }).then(response => response.json())
+          .then(data => {
+            setSuccess(data.message)
+            setError(null)
+            formik.resetForm();
+            // console.log(data.message);
+          })
+          .catch((error) => {
+            setError(error.data.message)
+            setSuccess(null)
+            // console.error('Error:', error);
+          });
+      };
 
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
