@@ -59,27 +59,15 @@ export default function Password() {
        
     const classes = useStyles();
 
+    const {token} = useParams();
+    
+    const onSubmit = async (values) => {
+         const {confirmPassword,...password} = values;
 
-    const formik = useFormik({
-        initialValues: {
-          password: "",
-          confirmPassword: "",
-          
-        },
-        onSubmit,
-        validateOnBlur: true,
-        validationSchema: validationSchema,
-        
-      });
-
-
-      const {token} = useParams();
-
-      const onSubmit = async (values) => {
         fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(values),
+          body: JSON.stringify(password),
         }).then(response => response.json())
           .then(data => {
             setSuccess(data.message)
@@ -93,6 +81,19 @@ export default function Password() {
             // console.error('Error:', error);
           });
       };
+
+
+    const formik = useFormik({
+        initialValues: {
+          password: "",
+          confirmPassword: "",
+          
+        },
+        onSubmit,
+        validateOnBlur: true,
+        validationSchema: validationSchema,
+        
+      });
 
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
@@ -108,7 +109,7 @@ export default function Password() {
                         </div>
                         {error && <Alert severity="error">{error}</Alert>}
                         {success && <Alert severity="success">{success}</Alert>}
-                        <form className={classes.root} >
+                        <form className={classes.root}  onSubmit={formik.handleSubmit}>
                             <div className="password_input">
                                 <TextField
                                     size="small"
@@ -148,7 +149,7 @@ export default function Password() {
                                 </span>
                             </div>
                             <div className="password_Botton_container">
-                               <Button variant="outlined" className="password_Button" disabled={!formik.isValid}>Register</Button>
+                               <Button variant="outlined" className="password_Button" disabled={!formik.isValid} type="submit">Register</Button>
                             </div>
                         </form>
 
