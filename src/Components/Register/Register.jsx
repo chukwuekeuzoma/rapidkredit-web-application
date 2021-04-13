@@ -94,7 +94,7 @@ export default function Register() {
           // console.log(data.message)
       })
       .catch((error) => {
-        setError(error.data.message)
+        setError(error.message)
         setSuccess("")
         // console.error('Error:', error);
       });

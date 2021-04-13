@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import RapidOne from "../../images/rapid.png"
 import Alert from '@material-ui/lab/Alert';
 import {useParams} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 
@@ -42,11 +43,11 @@ const useStyles = makeStyles({
   
   })
 
-  var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+  var strongRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 
 
   const validationSchema = yup.object({
-    password: yup.string().matches(strongRegex,"password must contain uppercase,lowercase & symbol(@,$) & eight characters").required(),
+    password: yup.string().matches(strongRegex,"password must contain uppercase,lowercase with num & 6 characters").required(),
     confirmPassword:yup.string().when("password", {
        is: val => (val && val.length > 0 ? true:false),
        then: yup.string().oneOf([yup.ref("password")], "password does not match")
@@ -65,16 +66,16 @@ export default function Password() {
     const {token} = useParams();
     
     const onSubmit = async (values) => {
-         const {confirmPassword, password} = values;
+         const {confirmPassword, ...rest} = values;
 
         fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(password),
+          body: JSON.stringify(rest),
         }).then(response => response.json())
           .then(data => {
             if(data.status === "success"){
-            setSuccess(data.message)
+            setSuccess(`${data.message},Login`)
             setError("")
             };
             if(data.status === "error"){
@@ -86,7 +87,7 @@ export default function Password() {
           })
           
           .catch((error) => {
-            setError(error.data.message)
+            setError(error.message)
             setSuccess("")
             // console.error('Error:', error);
           });
@@ -95,8 +96,8 @@ export default function Password() {
 
     const formik = useFormik({
         initialValues: {
-          password: "",
-          confirmPassword: "",
+          password:"",
+          confirmPassword:"",
           
         },
         onSubmit,
@@ -161,6 +162,12 @@ export default function Password() {
                                <Button variant="outlined" className="password_Button" disabled={!formik.isValid} type="submit">Register</Button>
                             </div>
                         </form>
+                        <div className="login_register_pas">
+                          <div>
+                            <span className="dont_have_pas">click here to...</span>
+                            <Link exact to="Login" className="links"><span className="login_register_pas">Login</span></Link>
+                          </div>
+                        </div>
 
                     </Paper>
                 </Grid>
