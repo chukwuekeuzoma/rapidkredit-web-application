@@ -56,29 +56,39 @@ const useStyles = makeStyles({
 
 
 export default function Password() {
+
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
        
     const classes = useStyles();
 
     const {token} = useParams();
     
     const onSubmit = async (values) => {
-         const {confirmPassword, password} = values;
+        //  const {confirmPassword, password} = values;
 
         fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(password),
+          body: JSON.stringify(values),
         }).then(response => response.json())
           .then(data => {
+            if(data.status === "success"){
             setSuccess(data.message)
-            setError(null)
+            setError("")
+            };
+            if(data.status === "error"){
+              setError(data.message)
+              setSuccess("")
+            }
             formik.resetForm();
-            // console.log(data.message);
+            console.log(data.message)
           })
+          
           .catch((error) => {
             setError(error.data.message)
-            setSuccess(null)
-            // console.error('Error:', error);
+            setSuccess("")
+            console.error('Error:', error);
           });
       };
 
@@ -95,8 +105,7 @@ export default function Password() {
         
       });
 
-    const [error, setError] = useState("")
-    const [success, setSuccess] = useState("")
+ 
 
     return (
         <>

@@ -82,14 +82,20 @@ export default function Register() {
       body: JSON.stringify(values),
     }).then(response => response.json())
       .then(data => {
-        setSuccess(data.message)
-        setError(null)
-        formik.resetForm();
-        // console.log(data.message);
+        if(data.status === "success"){
+          setSuccess(data.message)
+          setError("")
+          };
+          if(data.status === "error"){
+            setError(data.message)
+            setSuccess("")
+          }
+          formik.resetForm();
+          // console.log(data.message)
       })
       .catch((error) => {
         setError(error.data.message)
-        setSuccess(null)
+        setSuccess("")
         // console.error('Error:', error);
       });
   };
