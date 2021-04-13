@@ -46,7 +46,7 @@ const useStyles = makeStyles({
 
 
   const validationSchema = yup.object({
-    password: yup.string().matches(strongRegex, "please enter a strong password").required(),
+    password: yup.string().matches(strongRegex,"password must contain uppercase,lowercase & symbol(@,$) & eight characters").required(),
     confirmPassword:yup.string().when("password", {
        is: val => (val && val.length > 0 ? true:false),
        then: yup.string().oneOf([yup.ref("password")], "password does not match")
@@ -82,13 +82,13 @@ export default function Password() {
               setSuccess("")
             }
             formik.resetForm();
-            console.log(data.message)
+            // console.log(data.message)
           })
           
           .catch((error) => {
             setError(error.data.message)
             setSuccess("")
-            console.error('Error:', error);
+            // console.error('Error:', error);
           });
       };
 
