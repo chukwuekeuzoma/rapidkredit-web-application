@@ -1,5 +1,5 @@
-import React,{useState, Component} from 'react'
-import { Grid,Paper,TextField, Checkbox,Typography,Button } from '@material-ui/core';
+import React,{useState} from 'react'
+import { Grid,Paper,TextField,Button } from '@material-ui/core';
 import Fade from 'react-reveal/Fade'
 import "./Login.scss"
 import RapidOne from "../../images/rapid.png"
@@ -7,7 +7,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Link,useHistory} from "react-router-dom"
 import Alert from '@material-ui/lab/Alert';
 import axios from "axios"
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 
 
 const useStyles = makeStyles({
@@ -43,8 +43,6 @@ export default function () {
     
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [login, setLogin] = useState(false)
-    const [store, setStore] = useState("")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
 
@@ -58,7 +56,7 @@ export default function () {
     
     const onSubmit = (e) => {
       e.preventDefault();
-      axios.post('https://rapidkredit.herokuapp.com/api/auth/login/', values)
+      axios.post('auth/login/', values)
         .then( response =>{
               localStorage.setItem("token", JSON.stringify({
               token:response.data.data.token
