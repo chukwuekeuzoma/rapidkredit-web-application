@@ -67,11 +67,11 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login}/>
            <RouteWithLayout Layout={OrdinaryLayout}  path="/Register" Component={Register}/>
-           <RouteWithLayout Layout={OrdinaryLayout}   path="/:token" Component={Password}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Dashboard" Component={Dashboard}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Request" Component={RequestPage}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Settlement" Component={SettlementPage}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Profile" Component={ProfilePage}/>
+           <RouteWithLayout Layout={OrdinaryLayout}   path="/:token" Component={Password}/>
         </Switch>
       </div>
     </HashRouter>

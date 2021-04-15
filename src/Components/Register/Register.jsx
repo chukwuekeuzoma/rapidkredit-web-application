@@ -69,36 +69,57 @@ export default function Register() {
   const [success, setSuccess] = useState("")
 
   useEffect(() => {
-    fetch("https://rapidkredit.herokuapp.com/api/companies")
-      .then(response => response.json())
-      .then(companydata => setCompanydata(companydata.data))
+    axios("companies")
+      .then(companydata => setCompanydata(companydata.data.data))
       .catch(e => console.log(e))
   }, [])
 
-  const onSubmit = async (values) => {
-    fetch('https://rapidkredit.herokuapp.com/api/auth/register', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values),
-    }).then(response => response.json())
-      .then(data => {
-        if(data.status === "success"){
-          setSuccess(data.message)
-          setError("")
-          };
-          if(data.status === "error"){
-            setError(data.message)
-            setSuccess("")
-          }
-          formik.resetForm();
-          // console.log(data.message)
-      })
-      .catch((error) => {
-        setError(error.message)
-        setSuccess("")
-        // console.error('Error:', error);
-      });
-  };
+  // const onSubmit = async (values) => {
+  //   fetch('https://rapidkredit.herokuapp.com/api/auth/register', {
+  //     method: 'post',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(values),
+  //   }).then(response => response.json())
+  //     .then(data => {
+  //       if(data.status === "success"){
+  //         setSuccess(data.message)
+  //         setError("")
+  //         };
+  //         if(data.status === "error"){
+  //           setError(data.message)
+  //           setSuccess("")
+  //         }
+  //         formik.resetForm();
+  //         // console.log(data.message)
+  //     })
+  //     .catch((error) => {
+  //       setError(error.message)
+  //       setSuccess("")
+  //       // console.error('Error:', error);
+  //     });
+  // };
+
+  const onSubmit = async (values) =>{
+    axios.post('auth/login/', values)
+    .then(data => {
+            if(data.data.status === "success"){
+              setSuccess(data.data.message)
+              setError("")
+              };
+              if(data.data.status === "error"){
+                setError(data.data.message)
+                setSuccess("")
+              }
+              formik.resetForm();
+              // console.log(data.data.message)
+          })
+          .catch((error) => {
+                  setError(error.data.message)
+                  setSuccess("")
+                  // console.error('Error:', error);
+            });
+  }
+
 
 
 

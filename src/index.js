@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import axios from "axios"
+
+
+axios.defaults.baseURL = "https://rapidkredit.herokuapp.com/api/";
 
 ReactDOM.render(
     <App />,

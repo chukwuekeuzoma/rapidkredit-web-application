@@ -4,8 +4,9 @@ import Fade from 'react-reveal/Fade'
 import "./Login.scss"
 import RapidOne from "../../images/rapid.png"
 import {makeStyles} from '@material-ui/core/styles';
-import {Link} from "react-router-dom"
+import {Link,useHistory} from "react-router-dom"
 import Alert from '@material-ui/lab/Alert';
+import axios from "axios"
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
@@ -41,47 +42,44 @@ const useStyles = makeStyles({
 export default function () {
     
     const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [login, setLogin] = useState(false)
-    const [store, setStore] = useState("")
+    const [password, setPassword] = useState("") 
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
+
+    const history = useHistory();
 
     const values = {
       username,
       password
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-      fetch('https://rapidkredit.herokuapp.com/api/auth/login/', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      }).then(response => response.json())
-      .then( (data) => {console.warn("result",data);
-            localStorage.setItem("login", JSON.stringify({
-            login:true,
-            token:data.token
-          }))
-          if(data.status === "success"){
-            setSuccess(data.message)
-            setError("")
-            };
-          if(data.status === "error"){
-              setError(data.message)
-              setSuccess("")
-            }
-          // console.log(data.message)
-          
-        }).catch((error) => {
-          setError(error.message)
-          setSuccess("")
-          // console.error('Error:', error);
-        });
-
     
+    const onSubmit = (e) => {
+      e.preventDefault();
+      axios.post('auth/login/', values)
+        .then( data => {console.log(data);
+              localStorage.setItem("token", JSON.stringify({
+              token:data.data.data.token
+            }))
+            if(data.data.status === "success"){
+              setSuccess(data.data.message)
+              setError("")
+              };
+            if(data.data.status === "error"){
+                setError(data.data.message)
+                setSuccess("")
+              }
+            console.log(data.message)
+            history.push("/Dashboard")
+          }).catch((error) => {
+            setError(error.data.message)
+            setSuccess("")
+            console.error('Error:', error);
+          });
+              
+
     }
+
 
     const classes =  useStyles();
 

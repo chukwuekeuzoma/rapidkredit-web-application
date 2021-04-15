@@ -9,6 +9,7 @@ import RapidOne from "../../images/rapid.png"
 import Alert from '@material-ui/lab/Alert';
 import {useParams} from "react-router-dom"
 import { Link } from "react-router-dom"
+import axios from "axios"
 
 
 
@@ -65,33 +66,56 @@ export default function Password() {
 
     const {token} = useParams();
     
-    const onSubmit = async (values) => {
-         const {confirmPassword, ...rest} = values;
+    // const onSubmit = async (values) => {
+    //      const {confirmPassword, ...rest} = values;
 
-        fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
-          method: 'post',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(rest),
-        }).then(response => response.json())
-          .then(data => {
-            if(data.status === "success"){
-            setSuccess(`${data.message},Login`)
-            setError("")
-            };
-            if(data.status === "error"){
-              setError(data.message)
-              setSuccess("")
-            }
-            formik.resetForm();
-            // console.log(data.message)
-          })
+    //     fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
+    //       method: 'post',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify(rest),
+    //     }).then(response => response.json())
+    //       .then(data => {
+    //         if(data.status === "success"){
+    //         setSuccess(`${data.message},Login`)
+    //         setError("")
+    //         };
+    //         if(data.status === "error"){
+    //           setError(data.message)
+    //           setSuccess("")
+    //         }
+    //         formik.resetForm();
+    //         // console.log(data.message)
+    //       })
           
-          .catch((error) => {
-            setError(error.message)
-            setSuccess("")
-            // console.error('Error:', error);
-          });
-      };
+    //       .catch((error) => {
+    //         setError(error.message)
+    //         setSuccess("")
+    //         // console.error('Error:', error);
+    //       });
+    //   };
+
+    const onSubmit = async (values) => {
+           const {confirmPassword, ...rest} = values;
+         axios.post(`auth/register/accept/${token}`,rest)
+                .then(data => {
+                  if(data.data.status === "success"){
+                  setSuccess(`${data.data.message},Login`)
+                  setError("")
+                  };
+                  if(data.data.status === "error"){
+                    setError(data.data.message)
+                    setSuccess("")
+                  }
+                  formik.resetForm();
+                  // console.log(data.message)
+                })
+
+                .catch((error) => {
+                          setError(error.data.message)
+                          setSuccess("")
+                          // console.error('Error:', error);
+                        });
+    }
 
 
     const formik = useFormik({
