@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useState, Component} from 'react'
 import { Grid,Paper,TextField, Checkbox,Typography,Button } from '@material-ui/core';
 import Fade from 'react-reveal/Fade'
 import "./Login.scss"
 import RapidOne from "../../images/rapid.png"
 import {makeStyles} from '@material-ui/core/styles';
 import {Link} from "react-router-dom"
+import Alert from '@material-ui/lab/Alert';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
@@ -37,8 +38,51 @@ const useStyles = makeStyles({
 
  
 
-export default function Login() {
-      
+export default function () {
+    
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [login, setLogin] = useState(false)
+    const [store, setStore] = useState("")
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
+
+    const values = {
+      username,
+      password
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+      fetch('https://rapidkredit.herokuapp.com/api/auth/login/', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      }).then(response => response.json())
+      .then( (data) => {console.warn("result",data);
+            localStorage.setItem("login", JSON.stringify({
+            login:true,
+            token:data.token
+          }))
+          if(data.status === "success"){
+            setSuccess(data.message)
+            setError("")
+            };
+          if(data.status === "error"){
+              setError(data.message)
+              setSuccess("")
+            }
+          // console.log(data.message)
+          
+        }).catch((error) => {
+          setError(error.message)
+          setSuccess("")
+          // console.error('Error:', error);
+        });
+
+    
+    }
+
     const classes =  useStyles();
 
     return (
@@ -48,33 +92,40 @@ export default function Login() {
               <Grid>
                  <Paper elevation={8} className="paper">
                     <div className="login_logo">
-                    <Link to="/" className="links"><img src={RapidOne} alt="tw" height="50px" /></Link>
+                    <img src={RapidOne} alt="tw" height="50px"/>
                     </div>
-                     <form className={classes.root}>
+                    <div>
+                      {error && <Alert severity="error">{error}</Alert>}
+                      {success && <Alert severity="success">{success}</Alert>}
+                    </div>
+                     <form className={classes.root} onSubmit={onSubmit}>
                           <div className="login_input_email">
                                 <TextField
                                     size="small"
-                                    id="email"
-                                    label="Email"
-                                    placeholder="Email"
-                                    type="email"
+                                    label="Username"
+                                    placeholder="Username"
+                                    name="username"
+                                    type="name"
                                     variant="outlined"
                                     className="login_textfield"
+                                    onChange={e =>  setUsername(e.target.value)}
                                 />
                            </div>
                            <div className="login_input_password">
                                 <TextField
                                     size="small"
-                                    id="password"
                                     label="Password"
                                     placeholder="Password"
                                     type="password"
                                     variant="outlined"
                                     className="login_textfield"
+                                    onChange={e => setPassword(e.target.value)}
                                 />
                            </div>
                             <div className="login_Botton_container">
-                            <Link to="Dashboard" className="links"><Button variant="outlined" className="login_Button">Login</Button></Link>
+                            {/* <Link to="Dashboard" className="links"> */}
+                               <Button variant="outlined" className="login_Button"  type="submit">Login</Button>
+                            {/* </Link> */}
                             </div> 
                     </form>
                           
