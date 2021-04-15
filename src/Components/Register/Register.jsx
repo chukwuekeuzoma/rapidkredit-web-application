@@ -100,7 +100,7 @@ export default function Register() {
   // };
 
   const onSubmit = async (values) =>{
-    axios.post('auth/login/', values)
+    axios.post('auth/register/', values)
     .then(data => {
             if(data.data.status === "success"){
               setSuccess(data.data.message)
