@@ -73,48 +73,24 @@ export default function Register() {
       .then(companydata => setCompanydata(companydata.data.data))
       .catch(e => console.log(e))
   }, [])
-
-  // const onSubmit = async (values) => {
-  //   fetch('https://rapidkredit.herokuapp.com/api/auth/register', {
-  //     method: 'post',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(values),
-  //   }).then(response => response.json())
-  //     .then(data => {
-  //       if(data.status === "success"){
-  //         setSuccess(data.message)
-  //         setError("")
-  //         };
-  //         if(data.status === "error"){
-  //           setError(data.message)
-  //           setSuccess("")
-  //         }
-  //         formik.resetForm();
-  //         // console.log(data.message)
-  //     })
-  //     .catch((error) => {
-  //       setError(error.message)
-  //       setSuccess("")
-  //       // console.error('Error:', error);
-  //     });
-  // };
+ 
 
   const onSubmit = async (values) =>{
     axios.post('auth/register/', values)
-    .then(data => {
-            if(data.data.status === "success"){
-              setSuccess(data.data.message)
+    .then(response => {
+            if(response.data.status === "success"){
+              setSuccess(response.data.message)
               setError("")
               };
-              if(data.data.status === "error"){
-                setError(data.data.message)
+              if(response.data.status === "error"){
+                setError(response.data.message)
                 setSuccess("")
               }
               formik.resetForm();
               // console.log(data.data.message)
           })
           .catch((error) => {
-                  setError(error.data.message)
+                  setError(error.response.data.message)
                   setSuccess("")
                   // console.error('Error:', error);
             });

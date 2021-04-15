@@ -42,7 +42,9 @@ const useStyles = makeStyles({
 export default function () {
     
     const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("") 
+    const [password, setPassword] = useState("")
+    const [login, setLogin] = useState(false)
+    const [store, setStore] = useState("")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
 
@@ -56,25 +58,25 @@ export default function () {
     
     const onSubmit = (e) => {
       e.preventDefault();
-      axios.post('auth/login/', values)
-        .then( data => {console.log(data);
+      axios.post('https://rapidkredit.herokuapp.com/api/auth/login/', values)
+        .then( response =>{
               localStorage.setItem("token", JSON.stringify({
-              token:data.data.data.token
+              token:response.data.data.token
             }))
-            if(data.data.status === "success"){
-              setSuccess(data.data.message)
+            if(response.data.status === "success"){
+              setSuccess(response.data.message)
               setError("")
               };
-            if(data.data.status === "error"){
-                setError(data.data.message)
+            if(response.data.status === "error"){
+                setError(response.data.message)
                 setSuccess("")
               }
-            console.log(data.message)
+            // console.log(response)
             history.push("/Dashboard")
           }).catch((error) => {
-            setError(error.data.message)
+            setError(error.response.data.message)
             setSuccess("")
-            console.error('Error:', error);
+            // console.log('Error:', error);
           });
               
 
@@ -121,9 +123,7 @@ export default function () {
                                 />
                            </div>
                             <div className="login_Botton_container">
-                            {/* <Link to="Dashboard" className="links"> */}
                                <Button variant="outlined" className="login_Button"  type="submit">Login</Button>
-                            {/* </Link> */}
                             </div> 
                     </form>
                           

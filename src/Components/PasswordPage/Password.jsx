@@ -44,11 +44,11 @@ const useStyles = makeStyles({
   
   })
 
-  var strongRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+  var strongRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
 
 
   const validationSchema = yup.object({
-    password: yup.string().matches(strongRegex,"password must contain uppercase,lowercase with num & 6 characters").required(),
+    password: yup.string().matches(strongRegex,"password must contain uppercase,lowercase with num & 8 characters").required(),
     confirmPassword:yup.string().when("password", {
        is: val => (val && val.length > 0 ? true:false),
        then: yup.string().oneOf([yup.ref("password")], "password does not match")
@@ -66,44 +66,18 @@ export default function Password() {
 
     const {token} = useParams();
     
-    // const onSubmit = async (values) => {
-    //      const {confirmPassword, ...rest} = values;
-
-    //     fetch(`https://rapidkredit.herokuapp.com/api/auth/register/accept/${token}`, {
-    //       method: 'post',
-    //       headers: { 'Content-Type': 'application/json' },
-    //       body: JSON.stringify(rest),
-    //     }).then(response => response.json())
-    //       .then(data => {
-    //         if(data.status === "success"){
-    //         setSuccess(`${data.message},Login`)
-    //         setError("")
-    //         };
-    //         if(data.status === "error"){
-    //           setError(data.message)
-    //           setSuccess("")
-    //         }
-    //         formik.resetForm();
-    //         // console.log(data.message)
-    //       })
-          
-    //       .catch((error) => {
-    //         setError(error.message)
-    //         setSuccess("")
-    //         // console.error('Error:', error);
-    //       });
-    //   };
+    
 
     const onSubmit = async (values) => {
            const {confirmPassword, ...rest} = values;
          axios.post(`auth/register/accept/${token}`,rest)
-                .then(data => {
-                  if(data.data.status === "success"){
-                  setSuccess(`${data.data.message},Login`)
+                .then(response  => {
+                  if(response.data.status === "success"){
+                  setSuccess(`${response.data.message},Login`)
                   setError("")
                   };
-                  if(data.data.status === "error"){
-                    setError(data.data.message)
+                  if(response.data.status === "error"){
+                    setError(response.data.message)
                     setSuccess("")
                   }
                   formik.resetForm();
@@ -111,7 +85,7 @@ export default function Password() {
                 })
 
                 .catch((error) => {
-                          setError(error.data.message)
+                          setError(error.response.data.message)
                           setSuccess("")
                           // console.error('Error:', error);
                         });
