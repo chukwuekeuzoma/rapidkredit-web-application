@@ -120,7 +120,7 @@ export default function Register() {
       <div>
         <Fade right duration={300}>
           <Grid>
-            <Paper elevation={8} className="register_paper">
+            <Paper elevation={3} className="register_paper">
               <div className="Register_logo">
                 <Link to="/" className="links"><img src={RapidOne} alt="tw" height="50px" /></Link>
               </div>

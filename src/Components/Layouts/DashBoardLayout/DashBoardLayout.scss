@@ -19,3 +19,26 @@
         width: 80vw;
     }
 }
+
+.DBL_paper{
+    padding: 20px;
+    height:50vh;
+    width: 280px;
+    margin:20px auto;
+
+    .DBL_logo{
+        text-align: center;
+    }
+}
+
+.DBL_Botton_container{
+    margin-top:50px;
+
+    .DBL_Button{
+        width:100% !important;
+        color: white !important;
+        background:rgb(94, 94, 170) !important;
+      
+    }
+}
+

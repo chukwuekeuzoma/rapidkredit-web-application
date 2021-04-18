@@ -88,7 +88,7 @@ export default function () {
             <div>
             <Fade left duration={300}>
               <Grid>
-                 <Paper elevation={8} className="paper">
+                 <Paper elevation={3} className="paper">
                     <div className="login_logo">
                     <img src={RapidOne} alt="tw" height="50px"/>
                     </div>

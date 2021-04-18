@@ -65,8 +65,8 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/Employee" Component={Employee}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/Faqpage" Component={Faqpage}/>
            <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
-           <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login}/>
-           <RouteWithLayout Layout={OrdinaryLayout}  path="/Register" Component={Register}/>
+           <RouteWithLayout Layout={OrdinaryLayout}   path="/Login" Component={Login}/>
+           <RouteWithLayout Layout={OrdinaryLayout}   path="/Register" Component={Register}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Dashboard" Component={Dashboard}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Request" Component={RequestPage}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Settlement" Component={SettlementPage}/>

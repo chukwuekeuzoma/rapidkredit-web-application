@@ -63,7 +63,7 @@ export default function DashboardLayout() {
                                 <span>Support<span style={{opacity:"0"}}>...............</span></span>
                             </div>
                         </div>
-                        <Link to="/" className="links">
+                        <Link to="/" className="links"  onClick={() => localStorage.clear()} >
                             <div className="DBN_ExitToApp_container">
                                 <div className="DBN_ExitToAppIcon_container">
                                     <ExitToAppIcon className="ExitToAppIcon"/>

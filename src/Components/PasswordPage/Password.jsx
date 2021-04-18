@@ -111,7 +111,7 @@ export default function Password() {
             <div>
               <Fade right duration={300}>
                 <Grid>
-                    <Paper elevation={8} className="password_paper">
+                    <Paper elevation={3} className="password_paper">
                         <div className="password_logo">
                         <img src={RapidOne} alt="tw" height="50px" />
                         </div>
