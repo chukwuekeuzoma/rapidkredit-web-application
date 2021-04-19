@@ -42,6 +42,9 @@ export default function DashboardLayout(props) {
                                 <div className="DBL_logo">
                                     <Link to="/" className="links"><img src={RapidOne} alt="tw" height="50px" /></Link>
                                 </div>
+                                <div className="session">
+                                    <h1>Session Expired</h1>
+                                </div>
                                 <div className="DBL_Botton_container">
                                     <Link to="Login" className="links"><Button variant="outlined" className="DBL_Button">Please login in</Button></Link>
                                 </div>
