@@ -11,7 +11,7 @@ import RapidOne from "../../../images/rapid.png"
 export default function DashboardLayout(props) {
 
     const Oneminute = 60000;
-    let time = 1 * Oneminute;
+    let time = 10 * Oneminute;
 
     const remove = () => {
         localStorage.removeItem("token")
