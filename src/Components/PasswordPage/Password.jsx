@@ -73,7 +73,7 @@ export default function Password() {
          axios.post(`auth/register/accept/${token}`,rest)
                 .then(response  => {
                   if(response.data.status === "success"){
-                  setSuccess(`${response.data.message},Login`)
+                  setSuccess(`${response.data.message},Pls Click Login below`)
                   setError("")
                   };
                   if(response.data.status === "error"){

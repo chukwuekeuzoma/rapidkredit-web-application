@@ -131,6 +131,7 @@ export default function () {
                              <div>
                                 <span className="dont_have">Don't have an account?</span>
                                 <Link to="Register" className="links"><span className="login_register">Register here</span></Link>
+                                <Link to="Recoverpassword" className="links"><div className="forgotpassword"><span>Forgot password?</span></div></Link>
                              </div> 
                           </div>
 

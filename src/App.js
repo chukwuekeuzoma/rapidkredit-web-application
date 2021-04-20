@@ -17,7 +17,10 @@ import SettlementPage from "./Components/SettelmentPage/SettlementPage"
 import ProfilePage from "./Components/ProfilePage/Profilepage"
 import DashboardLayout from "./Components/Layouts/DashBoardLayout/DashboardLayout"
 import {HashRouter, Route, Switch} from "react-router-dom"
+import ForgotPasswordone from "./Components/ForgotPasswordPageOne/ForgotPasswordone"
+import ForgotPasswordTwo from "./Components/ForgotPasswordTwo/ForgotPasswordTwo"
 import Password from "./Components/PasswordPage/Password"
+
 
 
 
@@ -67,6 +70,8 @@ function App() {
            <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
            <RouteWithLayout Layout={OrdinaryLayout}   path="/Login" Component={Login}/>
            <RouteWithLayout Layout={OrdinaryLayout}   path="/Register" Component={Register}/>
+           <RouteWithLayout Layout={OrdinaryLayout}   path="/Recoverpassword" Component={ForgotPasswordone}/>
+           <RouteWithLayout Layout={OrdinaryLayout}   path="/Passwordreset" Component={ForgotPasswordTwo}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Dashboard" Component={Dashboard}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Request" Component={RequestPage}/>
            <RouteWithLayout Layout={DashboardLayout}  path="/Settlement" Component={SettlementPage}/>
