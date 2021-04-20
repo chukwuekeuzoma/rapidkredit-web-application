@@ -62,14 +62,14 @@ export default function ForgotPasswordone() {
     
 
     useEffect(() => {
-        axios("companies")
+        axios.get("companies")
             .then(companydata => setCompanydata(companydata.data.data))
             .catch(e => console.log(e))
     }, [])
 
     
     const onSubmit = async (values) =>{
-        axios.post('auth/register/', values)
+        axios.post('auth/password/reset', values)
         .then(response => {
                 if(response.data.status === "success"){
                   setSuccess(response.data.message)
