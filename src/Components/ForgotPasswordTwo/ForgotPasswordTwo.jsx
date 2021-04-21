@@ -71,7 +71,7 @@ export default function ForgotPasswordTwo() {
         axios.patch(`auth/reset/password/${token}`, rest)
             .then(response => {
                 if (response.data.status === "success") {
-                    setSuccess(`${response.data.message},you can Login`)
+                    setSuccess(`${response.data.message} you can Login`)
                     setError("")
                     setButton(true)
                 };
@@ -159,12 +159,12 @@ export default function ForgotPasswordTwo() {
                                         <Button variant="outlined" className="password_Button" disabled={!formik.isValid} type="submit">Submit</Button>
                                     </div>
                                 </form>}
-                            <div className="login_register_pas">
+                            {/* <div className="login_register_pas">
                                 <div>
                                     <span className="dont_have_pas">click here to...</span>
                                     <Link to={{pathname:"/Login"}} className="links"><span className="login_register_pas">Login</span></Link>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </Paper>
                     </Grid>

@@ -46,7 +46,7 @@ export default function DashboardLayout(props) {
                                     <h1>Session Expired</h1>
                                 </div>
                                 <div className="DBL_Botton_container">
-                                    <Link to="Login" className="links"><Button variant="outlined" className="DBL_Button">Please login</Button></Link>
+                                    <Link to={{pathname:"/Login"}} className="links"><Button variant="outlined" className="DBL_Button">Please login</Button></Link>
                                 </div>
                             </Paper>
                         </Grid>

@@ -61,6 +61,7 @@ export default function Password() {
 
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
+  const [button, setButton] = useState(false)
        
     const classes = useStyles();
 
@@ -73,8 +74,9 @@ export default function Password() {
          axios.post(`auth/register/accept/${token}`,rest)
                 .then(response  => {
                   if(response.data.status === "success"){
-                  setSuccess(`${response.data.message},Pls Click Login below`)
+                  setSuccess(`${response.data.message} you can Login`)
                   setError("")
+                  setButton(true)
                   };
                   if(response.data.status === "error"){
                     setError(response.data.message)
@@ -117,7 +119,10 @@ export default function Password() {
                         </div>
                         {error && <Alert severity="error">{error}</Alert>}
                         {success && <Alert severity="success">{success}</Alert>}
-                        <form className={classes.root}  onSubmit={formik.handleSubmit}>
+                       {button?<div className="password_Botton_container">
+                                <Link  to={{pathname:"/Login"}} className="links"><Button variant="outlined" className="password_Button" >Login</Button></Link>
+                            </div>
+                       :<form className={classes.root}  onSubmit={formik.handleSubmit}>
                             <div className="password_input">
                                 <TextField
                                     size="small"
@@ -159,13 +164,13 @@ export default function Password() {
                             <div className="password_Botton_container">
                                <Button variant="outlined" className="password_Button" disabled={!formik.isValid} type="submit">Register</Button>
                             </div>
-                        </form>
-                        <div className="login_register_pas">
+                        </form>}
+                        {/* <div className="login_register_pas">
                           <div>
                             <span className="dont_have_pas">click here to...</span>
                             <Link to={{pathname:"/Login"}} className="links"><span className="login_register_pas">Login</span></Link>
                           </div>
-                        </div>
+                        </div> */}
 
                     </Paper>
                 </Grid>
