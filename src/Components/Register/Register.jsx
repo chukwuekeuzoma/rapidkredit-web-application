@@ -295,7 +295,7 @@ export default function Register() {
               <div className="login_register">
                 <div>
                   <span className="dont_have">Have an account?</span>
-                  <Link to="Login" className="links"><span className="login_register">Login here</span></Link>
+                  <Link to={{pathname:"/Login"}} className="links"><span className="login_register">Login here</span></Link>
                 </div>
               </div>
 

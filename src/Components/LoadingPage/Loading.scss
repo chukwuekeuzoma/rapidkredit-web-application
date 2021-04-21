@@ -1,0 +1,21 @@
+@import "../../scssMixin/mixin.scss";
+
+.Loading_container{
+    @include flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../../images/desk-01.jpg) !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 90vh;
+    color: blueviolet !important;
+
+    img{
+        color: red !important;
+    }
+
+   
+}
+

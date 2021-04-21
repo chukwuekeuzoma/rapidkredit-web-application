@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import RapidOne from "../../images/rapid.png"
 import Alert from '@material-ui/lab/Alert';
 import { Link } from "react-router-dom"
+import {useParams} from "react-router-dom"
 import axios from "axios"
 
 
@@ -61,10 +62,13 @@ export default function ForgotPasswordTwo() {
     const [button, setButton] = useState(false)
 
     const classes = useStyles();
+    
+    const {token} = useParams();
+
 
     const onSubmit = async (values) => {
         const { confirmPassword, ...rest } = values;
-        axios.post("auth/register/accept", rest)
+        axios.post(`auth/reset/password/${token}`, rest)
             .then(response => {
                 if (response.data.status === "success") {
                     setSuccess(`${response.data.message},you can Login`)
@@ -110,7 +114,7 @@ export default function ForgotPasswordTwo() {
                             {error && <Alert severity="error">{error}</Alert>}
                             {success && <Alert severity="success">{success}</Alert>}
                             {button ? <div className="password_Botton_container">
-                                <Link exact to="Login" className="links"><Button variant="outlined" className="password_Button" >Login</Button></Link>
+                                <Link  to={{pathname:"/Login"}} className="links"><Button variant="outlined" className="password_Button" >Login</Button></Link>
                             </div>
                                 : <form className={classes.root} onSubmit={formik.handleSubmit}>
                                     <div className="password_input">
@@ -158,7 +162,7 @@ export default function ForgotPasswordTwo() {
                             <div className="login_register_pas">
                                 <div>
                                     <span className="dont_have_pas">click here to...</span>
-                                    <Link exact to="Login" className="links"><span className="login_register_pas">Login</span></Link>
+                                    <Link to={{pathname:"/Login"}} className="links"><span className="login_register_pas">Login</span></Link>
                                 </div>
                             </div>
 

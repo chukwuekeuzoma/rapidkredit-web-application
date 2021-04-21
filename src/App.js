@@ -1,11 +1,11 @@
 // import logo from './logo.svg';
 // import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import NavFooterLayout from "./Components/Layouts/NavFooterLayout"
 import OrdinaryLayout from "./Components/Layouts/OrdinaryLayout"
 import Homepage from "./Components/HomePage/Homapage"
-import Employerpage  from "./Components/Employer/Employer"
-import  Aboutpage  from "./Components/AboutPage/Aboutpage"
+import Employerpage from "./Components/Employer/Employer"
+import Aboutpage from "./Components/AboutPage/Aboutpage"
 import Employee from "./Components/Employee/Employee"
 import Faqpage from "./Components/Faqpage/Faqpage"
 import ContactUs from "./Components/ContactUs/ContactUs"
@@ -16,9 +16,10 @@ import RequestPage from "./Components/Requestpage/Requestpage"
 import SettlementPage from "./Components/SettelmentPage/SettlementPage"
 import ProfilePage from "./Components/ProfilePage/Profilepage"
 import DashboardLayout from "./Components/Layouts/DashBoardLayout/DashboardLayout"
-import {HashRouter, Route, Switch} from "react-router-dom"
+import { HashRouter, Route, Switch } from "react-router-dom"
 import ForgotPasswordone from "./Components/ForgotPasswordPageOne/ForgotPasswordone"
 import ForgotPasswordTwo from "./Components/ForgotPasswordTwo/ForgotPasswordTwo"
+import Loading from "./Components/LoadingPage/Loading"
 import Password from "./Components/PasswordPage/Password"
 
 
@@ -26,20 +27,30 @@ import Password from "./Components/PasswordPage/Password"
 
 
 
-function RouteWithLayout({Layout, Component, ...rest}){
+function RouteWithLayout({ Layout, Component, ...rest }) {
   return (
     <Route {...rest} >
       <Layout {...rest} >
         <Component {...rest} />
       </Layout>
     </Route>
-   
+
   )
 }
 
 
 
 function App() {
+
+
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+
+
   return (
     // <div className="App">
     //   <header className="App-header">
@@ -58,31 +69,32 @@ function App() {
     //   </header>
     // </div>
 
- <>
-    <HashRouter>
-      <div>
-        <Switch>
-           <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage}/>
-           <RouteWithLayout Layout={NavFooterLayout}  path="/Employer" Component={Employerpage}/>
-           <RouteWithLayout Layout={NavFooterLayout}  path="/Aboutpage" Component={Aboutpage}/>
-           <RouteWithLayout Layout={NavFooterLayout}  path="/Employee" Component={Employee}/>
-           <RouteWithLayout Layout={NavFooterLayout}  path="/Faqpage" Component={Faqpage}/>
-           <RouteWithLayout Layout={NavFooterLayout}  path="/ContactUs" Component={ContactUs}/>
-           <RouteWithLayout Layout={OrdinaryLayout}   path="/Login" Component={Login}/>
-           <RouteWithLayout Layout={OrdinaryLayout}   path="/Register" Component={Register}/>
-           <RouteWithLayout Layout={OrdinaryLayout}   path="/Recoverpassword" Component={ForgotPasswordone}/>
-           <RouteWithLayout Layout={OrdinaryLayout}   path="/Passwordreset" Component={ForgotPasswordTwo}/>
-           <RouteWithLayout Layout={DashboardLayout}  path="/Dashboard" Component={Dashboard}/>
-           <RouteWithLayout Layout={DashboardLayout}  path="/Request" Component={RequestPage}/>
-           <RouteWithLayout Layout={DashboardLayout}  path="/Settlement" Component={SettlementPage}/>
-           <RouteWithLayout Layout={DashboardLayout}  path="/Profile" Component={ProfilePage}/>
-           <RouteWithLayout Layout={OrdinaryLayout}   path="/:token" Component={Password}/>
-        </Switch>
-      </div>
-    </HashRouter>
+    <>{isLoading ? <Loading/> :
+      <HashRouter>
+        <div>
+          <Switch>
+            <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage} />
+            <RouteWithLayout Layout={NavFooterLayout} path="/Employer" Component={Employerpage} />
+            <RouteWithLayout Layout={NavFooterLayout} path="/Aboutpage" Component={Aboutpage} />
+            <RouteWithLayout Layout={NavFooterLayout} path="/Employee" Component={Employee} />
+            <RouteWithLayout Layout={NavFooterLayout} path="/Faqpage" Component={Faqpage} />
+            <RouteWithLayout Layout={NavFooterLayout} path="/ContactUs" Component={ContactUs} />
+            <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login} />
+            <RouteWithLayout Layout={OrdinaryLayout} path="/Register" Component={Register} />
+            <RouteWithLayout Layout={OrdinaryLayout} path="/Recoverpassword" Component={ForgotPasswordone} />
+            <RouteWithLayout Layout={DashboardLayout} path="/Dashboard" Component={Dashboard} />
+            <RouteWithLayout Layout={DashboardLayout} path="/Request" Component={RequestPage} />
+            <RouteWithLayout Layout={DashboardLayout} path="/Settlement" Component={SettlementPage} />
+            <RouteWithLayout Layout={DashboardLayout} path="/Profile" Component={ProfilePage} />
+            <RouteWithLayout Layout={OrdinaryLayout}  path="/Passwordreset/:token" Component={ForgotPasswordTwo} />
+            <RouteWithLayout Layout={OrdinaryLayout}  path="/Password/:token" Component={Password}/>
+           
+          </Switch>
+        </div>
+      </HashRouter>
 
-
-   </>
+    }
+    </>
 
   );
 }

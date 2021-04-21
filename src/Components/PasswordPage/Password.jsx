@@ -163,7 +163,7 @@ export default function Password() {
                         <div className="login_register_pas">
                           <div>
                             <span className="dont_have_pas">click here to...</span>
-                            <Link exact to="Login" className="links"><span className="login_register_pas">Login</span></Link>
+                            <Link to={{pathname:"/Login"}} className="links"><span className="login_register_pas">Login</span></Link>
                           </div>
                         </div>
 
