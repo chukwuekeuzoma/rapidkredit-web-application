@@ -54,11 +54,11 @@ export default function Requestpage() {
                         <div className="RQ_Header">
                             <div className="RQ_Header_content">
                                 <span className="RQ_Numbers">Numbers of <br/> request</span>
-                                <span className="RQ_Numbers_one">2</span>
+                                <span className="RQ_Numbers_one">0</span>
                             </div>
                             <div  className="RQ_Header_content_two">
                                 <span className="RQ_Total">Total amount <br/> Requested</span>
-                                <span className="RQ_Total_one">N&nbsp;23,000</span>
+                                <span className="RQ_Total_one">N&nbsp;0.00</span>
                             </div>
                             <div className="RQ_Number_Days_container">
                                 <div className="RQ_Days_container">
@@ -66,13 +66,13 @@ export default function Requestpage() {
                                     <CalendarTodayIcon className ="RQ_Icon"/><br/> 
                                 </div>
                                 <div className="RQ_Days_container_two">
-                                    <div className="RQ_Figures"><span>15</span></div>
+                                    <div className="RQ_Figures"><span>0</span></div>
                                     <div className="RQ_Date"><span>Feb<br/>2021</span></div>  
                                 </div>
                             </div>
                             <div  className="RQ_Header_content_one">
                                 <span className="RQ_Avaluable">Avaluable</span>
-                                <span className="RQ_Avaluable_one">N36,250.00</span>
+                                <span className="RQ_Avaluable_one">N0.00</span>
                                 <Button variant="outlined" className="RQ_Header_Button">REQUEST PAYOUT</Button>
                             </div>
                         </div>

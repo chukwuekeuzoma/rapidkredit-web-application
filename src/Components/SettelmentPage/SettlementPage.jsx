@@ -51,18 +51,18 @@ export default function SettlementPage() {
                             <div className="ST_Header">
                                 <div className="ST_Header_content">
                                     <span className="ST_Numbers">Numbers of <br/>Settlement</span>
-                                    <span className="ST_Numbers_one">2</span>
+                                    <span className="ST_Numbers_one">0</span>
                                 </div>
                                 <div  className="ST_Header_content_two">
                                     <span className="ST_Total">Total<br/>Commissions</span>
-                                    <span className="ST_Total_one">N&nbsp;23,000</span>
+                                    <span className="ST_Total_one">N&nbsp;0.00</span>
                                 </div>
                                 <div className="ST_Number_Days_container">
                                     <div className="ST_Days_container">
                                         <div className="ST_Number_of_days"><span>Pending<br/>Settlement</span></div>
                                     </div>
                                     <div className="ST_Days_container_two">
-                                        <div className="ST_Figures"><span>1</span></div>
+                                        <div className="ST_Figures"><span>0</span></div>
                                     </div>
                                 </div>
                                 <div className="ST_Icon_Container">

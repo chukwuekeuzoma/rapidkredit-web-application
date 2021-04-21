@@ -142,15 +142,15 @@ export default function Dashboard() {
                         <div className="DB_Header">
                             <div className="DB_Header_content">
                               <span className="Numbers">Numbers of <br/> request</span>
-                              <span className="Numbers_one">2</span>
+                              <span className="Numbers_one">0</span>
                             </div>
                             <div  className="DB_Header_content_two">
                               <span className="Total">Total amount <br/> Requested</span>
-                              <span className="Total_one">N&nbsp;23,000</span>
+                              <span className="Total_one">N&nbsp;0.00</span>
                             </div>
                             <div  className="DB_Header_content_one">
                               <span className="Avaluable">Avaluable</span>
-                              <span className="Avaluable_one">N36,250.00</span>
+                              <span className="Avaluable_one">N0.00</span>
                               <Button variant="outlined" className="DB_Header_Button">REQUEST PAYOUT</Button>
                             </div>
                         </div>
@@ -163,7 +163,7 @@ export default function Dashboard() {
                         <br/>
                          <div className="Portfolio_circular">
                            <div className="Portfolio_inner">
-                               <div className="Portfolio_Numb"><span>3</span></div>
+                               <div className="Portfolio_Numb"><span>0</span></div>
                             </div>
                          </div>
                         <div style={{marginTop:"20px"}}>
@@ -195,7 +195,7 @@ export default function Dashboard() {
                     <div className="DB_content_three">
                          <div className="circular">
                               <div className="inner"></div>
-                              <div className="Numb">15<div className="Days">Days(s)</div></div>
+                              <div className="Numb">0<div className="Days">Days(s)</div></div>
                                <div className="circle">
                                   <div className="Bar Left">
                                       <div className="Progress"></div>

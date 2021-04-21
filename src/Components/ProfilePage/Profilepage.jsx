@@ -142,11 +142,11 @@ export default function Profilepage() {
                             <div className="PR_Header">
                                 <div className="PR_Header_content">
                                     <span className="PR_Numbers">Numbers of <br/> request</span>
-                                    <span className="PR_Numbers_one">2</span>
+                                    <span className="PR_Numbers_one">0</span>
                                 </div>
                                 <div  className="PR_Header_content_two">
                                     <span className="PR_Total">Total amount <br/> Requested</span>
-                                    <span className="PR_Total_one">N&nbsp;23,000</span>
+                                    <span className="PR_Total_one">N&nbsp;0.00</span>
                                 </div>
                                 <div className="PR_Number_Days_container">
                                     <div className="PR_Days_container">
@@ -154,13 +154,13 @@ export default function Profilepage() {
                                         <CalendarTodayIcon className ="PR_Icon"/><br/> 
                                     </div>
                                     <div className="PR_Days_container_two">
-                                        <div className="PR_Figures"><span>15</span></div>
+                                        <div className="PR_Figures"><span>0</span></div>
                                         <div className="PR_Date"><span>Feb<br/>2021</span></div>  
                                     </div>
                                 </div>
                                 <div  className="PR_Header_content_one">
                                     <span className="PR_Avaluable">Avaluable</span>
-                                    <span className="PR_Avaluable_one">N36,250.00</span>
+                                    <span className="PR_Avaluable_one">N0.00</span>
                                     <Button variant="outlined" className="PR_Header_Button">REQUEST PAYOUT</Button>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@ export default function Profilepage() {
                             <div className="PR_Profile_details_container">
                                 <div className="PR_no_of_days_worked_container">
                                     <div className="PR_no_of_days_worked">
-                                        <div className="PR_no_of_days_worked_content"><span>3</span></div>
+                                        <div className="PR_no_of_days_worked_content"><span>0</span></div>
                                     </div>
                                     <div className="PR_no_of_days_worked_content_one"><span>Total Number of<br/>Organistion you work<br/>for</span></div>
                                 </div>
