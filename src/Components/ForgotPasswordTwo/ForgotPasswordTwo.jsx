@@ -68,7 +68,7 @@ export default function ForgotPasswordTwo() {
 
     const onSubmit = async (values) => {
         const { confirmPassword, ...rest } = values;
-        axios.post(`auth/reset/password/${token}`, rest)
+        axios.patch(`auth/reset/password/${token}`, rest)
             .then(response => {
                 if (response.data.status === "success") {
                     setSuccess(`${response.data.message},you can Login`)
