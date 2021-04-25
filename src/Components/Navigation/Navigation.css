@@ -337,13 +337,14 @@ nav{
         animation-duration:0.5s;
     }
    
-    nav.hide{
-        transform:translateY(-120px);
-    }
-    
+  
     .small{
         height:50px;
     }
+}
+
+nav.top{
+    transform:translateY(120px);
 }
 
 

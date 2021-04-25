@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import Fade from 'react-reveal/Fade'
 import "./ProfilePage.scss"
 import {Button } from '@material-ui/core';
@@ -20,6 +20,7 @@ import TableRow from '@material-ui/core/TableRow';
 import PicThree from "../../images/carowhite4.png"
 import PicFour from "../../images/carowhite5.png"
 import PicFive from "../../images/carowhite6.png"
+import axios from "axios"
 
 
 
@@ -89,12 +90,50 @@ const useStyles = makeStyles({
 export default function Profilepage() {
 
     const[ProfileInfo, setProfileInfo] = useState("")
+    const [UserData, setUserData] = useState([])
+    const [UserProfile, setUserProfile] = useState([])
+    
+
+    let store =  JSON.parse(localStorage.getItem("token"))
+
+
+    axios.interceptors.request.use(
+        config =>{
+            config.headers.authorization = `Bearer ${store.token}`
+            return config;
+        },
+        err => {
+            return Promise.reject(err)
+        }
+    )
+
+    useEffect(  async () => {
+      axios.get("users/get/data")
+          .then(response => setUserData(response.data.data.user))
+          .catch(e => console.log(e))
+    }, [])
+   
+    useEffect(  async () => {
+        axios.get("users/get/data")
+            .then(response => setUserProfile(response.data.data.userProfile[0]))
+            .catch(e => console.log(e))
+      }, [])
+     
+    
+
+    //   if(!UserProfile.length && !UserData.length){
+    //     return  <div>Loading..</div>
+    // }
+    
 
     const handleChange = (e) => {
         setProfileInfo(e.target.value)
     }
     
     const classes =  useStyles();
+
+   
+ 
 
     return (
         <>
@@ -159,20 +198,25 @@ export default function Profilepage() {
                                     </div>
                                 </div>
                                 <div  className="PR_Header_content_one">
-                                    <span className="PR_Avaluable">Avaluable</span>
-                                    <span className="PR_Avaluable_one">N0.00</span>
+                                    <span className="PR_Avaluable">Available</span>
+                                    <span className="PR_Avaluable_one">N{UserProfile.monthly_balance}</span>
+                                    {UserProfile.monthly_balance === "0.00"?
+                                    <Button variant="outlined" className="PR_Header_Button">Unavailable</Button>
+                                    :
                                     <Button variant="outlined" className="PR_Header_Button">REQUEST PAYOUT</Button>
+                                    }
                                 </div>
                             </div>
                         </div>
                         <div className="PR_content_two">
+                        
                             <div className="profile_content_container">
+                                <img src={Employee} alt="slideimage" className="PR_profile_image"/>
                                 <div className="profile_content">
-                                      <img src={Employee} alt="slideimage" className="PR_profile_image"/>
-                                      <div><span className="Profile_name">John Doe</span><br/><span className="Profile_name_content">Lorem ipsum dolor sit amet<br/>consectetu</span></div>
+                                    <div><span className="Profile_name">{UserData.first_name} {UserData.last_name}</span><br /><span className="Profile_name_content">Employer</span></div>
                                 </div>
-                                <div className="Profile_draft"><DraftsIcon/><br/>Email<br/>info@rapidkredit.com</div>
-                                <div className="profile_phone"><LocalPhoneIcon/><br/>Phone<br/>+234 12345679</div>
+                                <div className="Profile_draft"><DraftsIcon/><br/>Email<br/>{UserProfile.user_email}</div>
+                                <div className="profile_phone"><LocalPhoneIcon/><br/>Phone<br/>{UserProfile.phone}</div> 
                             </div>
                             <div className="PR_Profile_details_container">
                                 <div className="PR_no_of_days_worked_container">
@@ -194,7 +238,6 @@ export default function Profilepage() {
                                                         <TableRow>
                                                         <StyledTableCell>Organisation</StyledTableCell>
                                                         <StyledTableCell>Position</StyledTableCell>
-                                                        <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
                                                         </TableRow>
                                                     </TableHead>
                                                     <TableBody>
@@ -207,7 +250,7 @@ export default function Profilepage() {
                                                             </div>
                                                             </StyledTableCell>
                                                             <StyledTableCell>{row.calories}</StyledTableCell>
-                                                            <StyledTableCell>{row.fat}</StyledTableCell>
+                                                            {/* <StyledTableCell>{row.fat}</StyledTableCell> */}
                                                         </TableRow>
                                                         ))}
                                                     </TableBody>
@@ -231,7 +274,7 @@ export default function Profilepage() {
                                                             <TableRow>
                                                             <StyledTableCell>Organisation</StyledTableCell>
                                                             <StyledTableCell>Position</StyledTableCell>
-                                                            <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
+                                                            {/* <StyledTableCell>Employer&nbsp;ID</StyledTableCell> */}
                                                             </TableRow>
                                                         </TableHead>
                                                         <TableBody>
@@ -244,7 +287,7 @@ export default function Profilepage() {
                                                                 </div>
                                                                 </StyledTableCell>
                                                                 <StyledTableCell>{row.calories}</StyledTableCell>
-                                                                <StyledTableCell>{row.fat}</StyledTableCell>
+                                                                {/* <StyledTableCell>{row.fat}</StyledTableCell> */}
                                                             </TableRow>
                                                             ))}
                                                         </TableBody>
@@ -255,7 +298,7 @@ export default function Profilepage() {
                                        )
                                         )
                                     }
-                                    <div className="PR_input_container">
+                                    {/* <div className="PR_input_container">
                                         <div>
                                             <input type="file" id="file"/>
                                             <label htmlFor="file">
@@ -265,7 +308,7 @@ export default function Profilepage() {
                                         <div className="AddCircleOutlineIcon_text">
                                             <span>Add New<br/>Employer</span>
                                         </div>
-                                    </div>
+                                    </div> */}
                             </div>
                         </div>               
                     </div>

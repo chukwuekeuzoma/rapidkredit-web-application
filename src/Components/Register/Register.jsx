@@ -68,8 +68,9 @@ export default function Register() {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
 
-  useEffect(() => {
-    axios("companies")
+
+  useEffect(  async () => {
+    axios.get("companies")
       .then(companydata => setCompanydata(companydata.data.data))
       .catch(e => console.log(e))
   }, [])

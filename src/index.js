@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import axios from "axios"
 
 
+
+
+
 axios.defaults.baseURL = "https://rapidkredit.herokuapp.com/api/";
 
 ReactDOM.render(
