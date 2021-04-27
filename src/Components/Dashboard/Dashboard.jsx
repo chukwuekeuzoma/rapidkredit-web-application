@@ -17,6 +17,7 @@ import TableRow from '@material-ui/core/TableRow';
 import PicThree from "../../images/carowhite4.png"
 import PicFour from "../../images/carowhite5.png"
 import PicFive from "../../images/carowhite6.png"
+import axios from "axios"
 
 
 
@@ -78,22 +79,44 @@ const useStyles = makeStyles({
   
   const rows = [
     createData(PicThree,'Eclair', 262, 16.0),
-    createData(PicFour,'Cupcake', 305, 3.7),
-    createData(PicFive,'Gingerbread', 356, 16.0),
+    // createData(PicFour,'Cupcake', 305, 3.7),
+    // createData(PicFive,'Gingerbread', 356, 16.0),
   ];
 
 
 export default function Dashboard() {
 
+
+  const [UserData, setUserData] = useState([])
+  const [UserProfile, setUserProfile] = useState([])
+    
+    let store = JSON.parse(localStorage.getItem("token"))
+
+
+    axios.interceptors.request.use(
+        config => {
+            config.headers.authorization = `Bearer ${store.token}`
+            return config;
+        },
+        err => {
+            return Promise.reject(err)
+        }
+    )
+
+    useEffect(async () => {
+        axios.get("users/get/data")
+            .then(response => {
+                setUserProfile(JSON.parse(response.data.data).userProfile[0])
+            })
+            .catch(e => console.log(e))
+    }, [])
+
+
+    
+
     const classes =  useStyles();
 
-    // const [Companydata, setCompanydata] = useState([])
-    // useEffect(()=>{
-    //   fetch("https://rapidkredit.herokuapp.com/api/companies")
-    //   .then(response => response.json())
-    //   .then(companydata => setCompanydata(companydata.data))
-    //   .catch(e => console.log(e))
-    // },[])
+    
     
      return (
         <>
@@ -142,16 +165,20 @@ export default function Dashboard() {
                         <div className="DB_Header">
                             <div className="DB_Header_content">
                               <span className="Numbers">Numbers of <br/> request</span>
-                              <span className="Numbers_one">0</span>
+                              <span className="Numbers_one">{UserProfile.loan_count}</span>
                             </div>
                             <div  className="DB_Header_content_two">
                               <span className="Total">Total amount <br/> Requested</span>
-                              <span className="Total_one">N&nbsp;0.00</span>
+                              <span className="Total_one">N&nbsp;{UserProfile.amount_loaned}</span>
                             </div>
                             <div  className="DB_Header_content_one">
-                              <span className="Avaluable">Avaluable</span>
-                              <span className="Avaluable_one">N0.00</span>
-                              <Button variant="outlined" className="DB_Header_Button">REQUEST PAYOUT</Button>
+                              <span className="Avaluable">Available</span>
+                              <span className="Avaluable_one">N{UserProfile.monthly_balance}</span>
+                              {UserProfile.monthly_balance === "0.00" ?
+                                        <Button variant="outlined" className="DB_Header_Button">Unavailable</Button>
+                                        :
+                                        <Button variant="outlined" className="DB_Header_Button">REQUEST PAYOUT</Button>
+                                    }
                             </div>
                         </div>
                     </div>
@@ -195,7 +222,7 @@ export default function Dashboard() {
                     <div className="DB_content_three">
                          <div className="circular">
                               <div className="inner"></div>
-                              <div className="Numb">0<div className="Days">Days(s)</div></div>
+                              <div className="Numb">{UserProfile.days_worked_for}<div className="Days">Days(s)</div></div>
                                <div className="circle">
                                   <div className="Bar Left">
                                       <div className="Progress"></div>
@@ -225,8 +252,8 @@ export default function Dashboard() {
                               <TableHead >
                                 <TableRow>
                                   <StyledTableCell>Organisation</StyledTableCell>
-                                  <StyledTableCell>Position</StyledTableCell>
-                                  <StyledTableCell>Employer&nbsp;ID</StyledTableCell>
+                                  <StyledTableCell>Role</StyledTableCell>
+                                  {/* <StyledTableCell>Employer&nbsp;ID</StyledTableCell> */}
                                 </TableRow>
                               </TableHead>
                               <TableBody>
@@ -239,7 +266,7 @@ export default function Dashboard() {
                                      </div>
                                      </StyledTableCell>
                                     <StyledTableCell>{row.calories}</StyledTableCell>
-                                    <StyledTableCell>{row.fat}</StyledTableCell>
+                                    {/* <StyledTableCell>{row.fat}</StyledTableCell> */}
                                   </TableRow>
                                 ))}
                               </TableBody>

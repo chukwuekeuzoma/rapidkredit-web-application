@@ -81,8 +81,8 @@ function createData(icon, name, calories, fat) {
 
 const rows = [
     createData(PicThree, 'Eclair', 262, 16.0),
-    createData(PicFour, 'Cupcake', 305, 3.7),
-    createData(PicFive, 'Gingerbread', 356, 16.0),
+    // createData(PicFour, 'Cupcake', 305, 3.7),
+    // createData(PicFive, 'Gingerbread', 356, 16.0),
 ];
 
 
@@ -303,7 +303,40 @@ export default function Profilepage() {
                                     </Fade>
                                     :
                                     (ProfileInfo === "Accountinfo" ? 
-                                       <div className="PR_Employers">Accountinfo</div>
+                                    <Fade big duration={1000}>
+                                       <div>
+                                           <div className="PR_Employers">Account Details</div>
+
+                                           <TableContainer className="PR_Table">
+                                                <Table >
+                                                    <TableHead>
+                                                        <TableRow>
+                                                            <StyledTableCell>Bank</StyledTableCell>
+                                                            <StyledTableCell>Account name</StyledTableCell>
+                                                            <StyledTableCell>Account No.</StyledTableCell>
+                                                        </TableRow>
+                                                    </TableHead>
+                                                    <TableBody>
+                                                        {rows.map((row) => (
+                                                            <TableRow key={row.name}>
+                                                                <StyledTableCell component="th" scope="row">
+                                                                    <div className="Table_cellhead_container" >
+                                                                        <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
+                                                                        <div>{row.name}</div>
+                                                                    </div>
+                                                                </StyledTableCell>
+                                                                <StyledTableCell>{row.calories}</StyledTableCell>
+                                                                <StyledTableCell>{row.fat}</StyledTableCell>
+                                                            </TableRow>
+                                                        ))}
+                                                    </TableBody>
+                                                </Table>
+                                            </TableContainer>
+
+                                         </div>
+                                       </Fade>
+                                           
+
                                         :
                                         (ProfileInfo === "Security" ?
                                           <div className="PR_Employers">Securityinfo</div>
