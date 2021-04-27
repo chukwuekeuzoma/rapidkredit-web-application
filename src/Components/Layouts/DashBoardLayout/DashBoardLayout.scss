@@ -2,8 +2,8 @@
 
 .dashboardlayout_container{
     background:#dee3de ;
-    width:100vw;
-    height:100vh;
+    width:100%;
+    height:100%;
     @include flex; 
 
     .DBL_dashboardnav_container{

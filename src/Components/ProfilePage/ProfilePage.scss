@@ -214,7 +214,7 @@
 
         .PR_Profile_details_container{
             @include flex;
-            justify-content: space-between;
+            
         }
         .PR_no_of_days_worked_container{
              @include flex;
@@ -223,7 +223,7 @@
              align-items: center;
              text-align: center;
              margin-top:40px;
-             margin-left:20px;
+             margin-left:50px;
 
             .PR_no_of_days_worked{
                 border-radius:100%;
@@ -278,12 +278,54 @@
             }
         }
 
+
+        .Pr_profile_button_container{
+            @include flex;
+            justify-content: center !important;
+            align-items: center !important;
+            margin-top: 20px;
+
+            .Employer_button{
+                border:none !important;
+                font-size: small !important;
+                font-weight: bold !important;
+                width: 200px !important;
+
+                &:hover {background: rgb(231, 230, 225) !important;
+                    
+                 } 
+            }
+
+            .Employer_button_one{
+                border:none !important;
+                background: rgb(231, 230, 225) !important;
+                font-size: small !important;
+                font-weight: bolder !important;
+                width: 200px !important;
+                    
+            }
+        }
+
+        .line_container{
+            @include flex;
+            justify-content: center;
+            align-items: center;
+
+            .line{
+                margin-top:-2px;
+                height: 2px;
+                width: 90%;
+               background-color:rgb(231, 230, 225) !important;
+            }
+        }  
+
         .PR_Employers{
             font-size:20px;
             font-weight: bolder;
             color: black !important;
             opacity: 0.7;
-            margin-top: -10px !important;
+            margin-top: 20px !important;
+            margin-left: 100px !important;
         }
 
         .Table_cellhead_container{
@@ -301,9 +343,13 @@
 
         .PR_Table{
             width:500px !important;
+            margin-left:100px;
+            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
     }
+
 
     .Animation{
         animation-name:search_animation;
