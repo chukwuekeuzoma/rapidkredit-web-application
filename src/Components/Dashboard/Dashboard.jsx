@@ -14,6 +14,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import PicThree from "../../images/carowhite4.png"
 import PicFour from "../../images/carowhite5.png"
 import PicFive from "../../images/carowhite6.png"
@@ -89,6 +90,7 @@ export default function Dashboard() {
 
   const [UserData, setUserData] = useState([])
   const [UserProfile, setUserProfile] = useState([])
+  const [UserCompanyRoles, setUserCompanyRoles] = useState([])
     
     let store = JSON.parse(localStorage.getItem("token"))
 
@@ -107,6 +109,7 @@ export default function Dashboard() {
         axios.get("users/get/data")
             .then(response => {
                 setUserProfile(JSON.parse(response.data.data).userProfile[0])
+                setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
             })
             .catch(e => console.log(e))
     }, [])
@@ -148,9 +151,9 @@ export default function Dashboard() {
 
                                     <option aria-label="None" value=""/>
                             
-                                    {rows.map((row, index) => (
-                                    <option key={index} value={row.name}>
-                                       {row.name}
+                                    {UserCompanyRoles.map((row, index) => (
+                                    <option key={index} value={row.company_name}>
+                                      {row.company_name}
                                     </option>
                                 ))}
                                 </Select>
@@ -190,7 +193,7 @@ export default function Dashboard() {
                         <br/>
                          <div className="Portfolio_circular">
                            <div className="Portfolio_inner">
-                               <div className="Portfolio_Numb"><span>0</span></div>
+                               <div className="Portfolio_Numb"><span>{UserCompanyRoles.length}</span></div>
                             </div>
                          </div>
                         <div style={{marginTop:"20px"}}>
@@ -203,15 +206,15 @@ export default function Dashboard() {
                                   </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                  {rows.map((row) => (
-                                    <TableRow key={row.name}>
+                                  {UserCompanyRoles.map((row) => (
+                                    <TableRow key={row.company_name}>
                                       <StyledTableCell component="th" scope="row">
                                       <div className="Table_cellhead_container" >
-                                          <img src={row.icon} alt="slideimage" className="Table_cell" />
-                                          <div>{row.name}</div>
+                                          {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
+                                          <div>{row.company_name}</div>
                                       </div>
                                       </StyledTableCell>
-                                      <StyledTableCell  align="right">{row.calories}</StyledTableCell>
+                                      <StyledTableCell  align="right">{row.days_worked_for}</StyledTableCell>
                                     </TableRow>
                                   ))}
                                 </TableBody>
@@ -257,16 +260,15 @@ export default function Dashboard() {
                                 </TableRow>
                               </TableHead>
                               <TableBody>
-                                {rows.map((row) => (
-                                  <TableRow key={row.name}>
+                                {UserCompanyRoles.map((row) => (
+                                  <TableRow key={row.company_id}>
                                     <StyledTableCell component="th" scope="row">
                                      <div className="Table_cellhead_container" >
-                                        <img src={row.icon} alt="slideimage" className="Table_cell" />
-                                        <div>{row.name}</div>
+                                        {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
+                                        <div>{row.company_name}</div>
                                      </div>
                                      </StyledTableCell>
-                                    <StyledTableCell>{row.calories}</StyledTableCell>
-                                    {/* <StyledTableCell>{row.fat}</StyledTableCell> */}
+                                    <StyledTableCell>{row.user_role === null?<div>None</div>:row.user_role}</StyledTableCell>
                                   </TableRow>
                                 ))}
                               </TableBody>

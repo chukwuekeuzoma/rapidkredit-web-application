@@ -356,7 +356,7 @@
       .Reset_password_paper{
         padding: 20px;
         height:auto;
-        width: 280px;
+        width: 500px;
         margin-left:100px;
         margin-bottom: 20px;
         margin-top: 20px;
@@ -364,7 +364,7 @@
       }
 
       .Reset_password_input{
-        margin-top:20px;
+        margin-top:5px;
         text-align: center;
 
         .Reset_register_textfield{
@@ -401,7 +401,7 @@
             width:100% !important;
             color: white !important;
             background:rgb(17, 17, 66) !important;
-            margin-top:20px;
+            margin-top:5px;
     
             :disabled{
                  filter: contrast(0.7) !important;

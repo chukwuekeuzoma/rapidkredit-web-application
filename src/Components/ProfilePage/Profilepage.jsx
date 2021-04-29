@@ -104,6 +104,7 @@ export default function Profilepage() {
     const [ProfileInfo, setProfileInfo] = useState("Employers")
     const [UserData, setUserData] = useState([])
     const [UserProfile, setUserProfile] = useState([])
+    const [UserCompanyRoles, setUserCompanyRoles] = useState([])
     const [ButtonClass, setButtonClass] = useState("EmployerButton")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
@@ -131,6 +132,7 @@ export default function Profilepage() {
             .then(response => {
                 setUserData(JSON.parse(response.data.data).user)
                 setUserProfile(JSON.parse(response.data.data).userProfile[0])
+                setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
             })
             .catch(e => console.log(e))
     }, [])
@@ -313,7 +315,7 @@ export default function Profilepage() {
                             <div className="PR_Profile_details_container">
                                 <div className="PR_no_of_days_worked_container">
                                     <div className="PR_no_of_days_worked">
-                                        <div className="PR_no_of_days_worked_content"><span>0</span></div>
+                                        <div className="PR_no_of_days_worked_content"><span>{UserCompanyRoles.length}</span></div>
                                     </div>
                                     <div className="PR_no_of_days_worked_content_one"><span>Total Number of<br />Organistion you work<br />for</span></div>
                                 </div>
@@ -335,16 +337,15 @@ export default function Profilepage() {
                                                             </TableRow>
                                                         </TableHead>
                                                         <TableBody>
-                                                            {rows.map((row) => (
-                                                                <TableRow key={row.name}>
+                                                            {UserCompanyRoles.map((row) => (
+                                                                <TableRow key={row.company_id}>
                                                                     <StyledTableCell component="th" scope="row">
                                                                         <div className="Table_cellhead_container" >
-                                                                            <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
-                                                                            <div>{row.name}</div>
+                                                                            {/* <img src={row.icon} alt="slideimage" className="PR_Table_cell" /> */}
+                                                                            <div>{row.company_name}</div>
                                                                         </div>
                                                                     </StyledTableCell>
-                                                                    <StyledTableCell>{row.calories}</StyledTableCell>
-                                                                    {/* <StyledTableCell>{row.fat}</StyledTableCell> */}
+                                                                    <StyledTableCell>{row.user_role === null?<div>None</div>:row.user_role}</StyledTableCell>
                                                                 </TableRow>
                                                             ))}
                                                         </TableBody>
@@ -392,7 +393,7 @@ export default function Profilepage() {
                                             (ProfileInfo === "Security" ?
                                                 <div>
                                                     <div className="PR_Employers">Reset Password</div>
-                                                    <Fade right duration={300}>
+                                                    <Fade big duration={1000}>
                                                         <Grid>
                                                             <Paper elevation={3} className="Reset_password_paper">
                                                                 {error && <Alert severity="error">{error}</Alert>}
