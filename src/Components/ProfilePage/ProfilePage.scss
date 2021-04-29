@@ -214,6 +214,11 @@
 
         .PR_Profile_details_container{
             @include flex;
+
+            .profile_center{
+               margin-left:50px;
+                
+            }
             
         }
         .PR_no_of_days_worked_container{
@@ -347,6 +352,62 @@
             margin-bottom: 20px;
             margin-top: 20px;
         }
+
+      .Reset_password_paper{
+        padding: 20px;
+        height:55vh;
+        width: 280px;
+        margin-left:100px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        position: relative;
+      }
+
+      .Reset_password_input{
+        margin-top:20px;
+        text-align: center;
+
+        .Reset_register_textfield{
+       
+            width: 100% !important;
+     
+            ::placeholder{
+                color:rgb(17, 17, 66) !important;
+            }
+        
+            label {
+                color: rgb(17, 17, 66) !important;
+            }
+        
+        }
+      }
+
+      .Reset_Password_field_container{
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+
+        .Reset_Password_field{
+            color: red !important;
+            font-size: 11px !important;
+            min-height:18px !important;
+            font-weight: bolder;
+        }
+      }
+
+      .Reset_password_Botton_container{
+    
+        .Reset_password_Button{
+            width:100% !important;
+            color: white !important;
+            background:rgb(17, 17, 66) !important;
+            margin-top:20px;
+    
+            :disabled{
+                 filter: contrast(0.7) !important;
+            }
+        }
+    }
 
     }
 

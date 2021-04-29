@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Fade from 'react-reveal/Fade'
 import "./ProfilePage.scss"
-import { Button } from '@material-ui/core';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
@@ -17,6 +16,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { Grid, Paper, TextField, Button } from '@material-ui/core';
+import { useFormik } from "formik"
+import * as yup from 'yup';
+import Alert from '@material-ui/lab/Alert';
 import PicThree from "../../images/carowhite4.png"
 import PicFour from "../../images/carowhite5.png"
 import PicFive from "../../images/carowhite6.png"
@@ -39,7 +42,7 @@ const useStyles = makeStyles({
         },
         '& .MuiOutlinedInput-root': {
             '& fieldset': {
-                borderColor: 'rgb(17, 17, 66) ',
+                borderColor: 'rgb(17, 17, 66)',
             },
             '&:hover': {
                 borderColor: 'rgb(17, 17, 66)',
@@ -54,11 +57,20 @@ const useStyles = makeStyles({
         minWidth: 120,
     },
 
-    Table: {
-        width: 400,
-    },
-
 })
+
+var strongRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
+
+
+const validationSchema = yup.object({
+    oldPassword: yup.string().matches(strongRegex, "password must contain uppercase,lowercase with num & 8 characters").required(),
+    newPassword: yup.string().matches(strongRegex, "password must contain uppercase,lowercase with num & 8 characters").required(),
+    confirmNewPassword: yup.string().when("newPassword", {
+        is: val => (val && val.length > 0 ? true : false),
+        then: yup.string().oneOf([yup.ref("newPassword")], "password does not match")
+    }),
+
+});
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -93,6 +105,8 @@ export default function Profilepage() {
     const [UserData, setUserData] = useState([])
     const [UserProfile, setUserProfile] = useState([])
     const [ButtonClass, setButtonClass] = useState("EmployerButton")
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
 
 
 
@@ -120,6 +134,29 @@ export default function Profilepage() {
             })
             .catch(e => console.log(e))
     }, [])
+
+    const onSubmit = async (values) => {
+        const { confirmNewPassword, ...rest } = values;
+        axios.patch(`users/update/`, rest)
+            .then(response => {
+                if (response.data.status === "success") {
+                    setSuccess(`${response.data.message}`)
+                    setError("")
+                };
+                if (response.data.status === "error") {
+                    setError(response.data.message)
+                    setSuccess("")
+                }
+                formik.resetForm();
+                // console.log(data.message)
+            })
+
+            .catch((error) => {
+                setError(error.response.data.message)
+                setSuccess("")
+                // console.error('Error:', error);
+            });
+    }
 
 
 
@@ -149,6 +186,19 @@ export default function Profilepage() {
     let lastName = UserData.last_name;
 
     const classes = useStyles();
+
+    const formik = useFormik({
+        initialValues: {
+            oldPassword: "",
+            newPassword: "",
+            confirmNewPassword: "",
+
+        },
+        onSubmit,
+        validateOnBlur: true,
+        validationSchema: validationSchema,
+
+    });
 
 
 
@@ -240,7 +290,7 @@ export default function Profilepage() {
 
                                 <Button variant="outlined" className={ButtonClass === "EmployerButton" ? "Employer_button_one" : "Employer_button"}
                                     onClick={EmployerchangeInfo}
-                                >Employer</Button>
+                                >Employers</Button>
 
 
                                 <Button variant="outlined" className={ButtonClass === "AccountinfoButton" ? "Employer_button_one" : "Employer_button"}
@@ -268,83 +318,169 @@ export default function Profilepage() {
                                     <div className="PR_no_of_days_worked_content_one"><span>Total Number of<br />Organistion you work<br />for</span></div>
                                 </div>
 
+                                <div className="profile_center">
 
-                                {ProfileInfo === "Employers" ?
-                                    <Fade big duration={1000}>
-                                        <div>
-                                            <div className="PR_Employers">
-                                                <span>Employers</span>
+                                    {ProfileInfo === "Employers" ?
+                                        <Fade big duration={1000}>
+                                            <div>
+                                                <div className="PR_Employers">
+                                                    <span>Employers</span>
+                                                </div>
+                                                <TableContainer className="PR_Table">
+                                                    <Table >
+                                                        <TableHead>
+                                                            <TableRow>
+                                                                <StyledTableCell>Organisation</StyledTableCell>
+                                                                <StyledTableCell>Role</StyledTableCell>
+                                                            </TableRow>
+                                                        </TableHead>
+                                                        <TableBody>
+                                                            {rows.map((row) => (
+                                                                <TableRow key={row.name}>
+                                                                    <StyledTableCell component="th" scope="row">
+                                                                        <div className="Table_cellhead_container" >
+                                                                            <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
+                                                                            <div>{row.name}</div>
+                                                                        </div>
+                                                                    </StyledTableCell>
+                                                                    <StyledTableCell>{row.calories}</StyledTableCell>
+                                                                    {/* <StyledTableCell>{row.fat}</StyledTableCell> */}
+                                                                </TableRow>
+                                                            ))}
+                                                        </TableBody>
+                                                    </Table>
+                                                </TableContainer>
                                             </div>
-                                            <TableContainer className="PR_Table">
-                                                <Table >
-                                                    <TableHead>
-                                                        <TableRow>
-                                                            <StyledTableCell>Organisation</StyledTableCell>
-                                                            <StyledTableCell>Role</StyledTableCell>
-                                                        </TableRow>
-                                                    </TableHead>
-                                                    <TableBody>
-                                                        {rows.map((row) => (
-                                                            <TableRow key={row.name}>
-                                                                <StyledTableCell component="th" scope="row">
-                                                                    <div className="Table_cellhead_container" >
-                                                                        <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
-                                                                        <div>{row.name}</div>
-                                                                    </div>
-                                                                </StyledTableCell>
-                                                                <StyledTableCell>{row.calories}</StyledTableCell>
-                                                                {/* <StyledTableCell>{row.fat}</StyledTableCell> */}
-                                                            </TableRow>
-                                                        ))}
-                                                    </TableBody>
-                                                </Table>
-                                            </TableContainer>
-                                        </div>
-                                    </Fade>
-                                    :
-                                    (ProfileInfo === "Accountinfo" ? 
-                                    <Fade big duration={1000}>
-                                       <div>
-                                           <div className="PR_Employers">Account Details</div>
-
-                                           <TableContainer className="PR_Table">
-                                                <Table >
-                                                    <TableHead>
-                                                        <TableRow>
-                                                            <StyledTableCell>Bank</StyledTableCell>
-                                                            <StyledTableCell>Account name</StyledTableCell>
-                                                            <StyledTableCell>Account No.</StyledTableCell>
-                                                        </TableRow>
-                                                    </TableHead>
-                                                    <TableBody>
-                                                        {rows.map((row) => (
-                                                            <TableRow key={row.name}>
-                                                                <StyledTableCell component="th" scope="row">
-                                                                    <div className="Table_cellhead_container" >
-                                                                        <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
-                                                                        <div>{row.name}</div>
-                                                                    </div>
-                                                                </StyledTableCell>
-                                                                <StyledTableCell>{row.calories}</StyledTableCell>
-                                                                <StyledTableCell>{row.fat}</StyledTableCell>
-                                                            </TableRow>
-                                                        ))}
-                                                    </TableBody>
-                                                </Table>
-                                            </TableContainer>
-
-                                         </div>
-                                       </Fade>
-                                           
-
+                                        </Fade>
                                         :
-                                        (ProfileInfo === "Security" ?
-                                          <div className="PR_Employers">Securityinfo</div>
+                                        (ProfileInfo === "Accountinfo" ?
+                                            <Fade big duration={1000}>
+                                                <div>
+                                                    <div className="PR_Employers">Account Details</div>
+
+                                                    <TableContainer className="PR_Table">
+                                                        <Table >
+                                                            <TableHead>
+                                                                <TableRow>
+                                                                    <StyledTableCell>Bank</StyledTableCell>
+                                                                    <StyledTableCell>Account name</StyledTableCell>
+                                                                    <StyledTableCell>Account No.</StyledTableCell>
+                                                                </TableRow>
+                                                            </TableHead>
+                                                            <TableBody>
+                                                                {rows.map((row) => (
+                                                                    <TableRow key={row.name}>
+                                                                        <StyledTableCell component="th" scope="row">
+                                                                            <div className="Table_cellhead_container" >
+                                                                                <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
+                                                                                <div>{row.name}</div>
+                                                                            </div>
+                                                                        </StyledTableCell>
+                                                                        <StyledTableCell>{row.calories}</StyledTableCell>
+                                                                        <StyledTableCell>{row.fat}</StyledTableCell>
+                                                                    </TableRow>
+                                                                ))}
+                                                            </TableBody>
+                                                        </Table>
+                                                    </TableContainer>
+
+                                                </div>
+                                            </Fade>
+
+
                                             :
-                                            <div></div>
+                                            (ProfileInfo === "Security" ?
+                                                <div>
+                                                    <div className="PR_Employers">Reset Password</div>
+                                                    <Fade right duration={300}>
+                                                        <Grid>
+                                                            <Paper elevation={3} className="Reset_password_paper">
+                                                                {error && <Alert severity="error">{error}</Alert>}
+                                                                {success && <Alert severity="success">{success}</Alert>}
+                                                                <form className={classes.root} onSubmit={formik.handleSubmit}>
+                                                                    <div className="Reset_password_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="Old Password"
+                                                                            placeholder="Old Password"
+                                                                            name="oldPassword"
+                                                                            type="password"
+                                                                            variant="outlined"
+                                                                            className="Reset_register_textfield"
+                                                                            value={formik.values.oldPassword}
+                                                                            onChange={formik.handleChange}
+                                                                            onBlur={formik.handleBlur}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="Reset_Password_field_container">
+                                                                        <span className="Reset_Password_field">
+                                                                            {formik.touched.oldPassword && formik.errors.oldPassword ? formik.errors.oldPassword : ""}
+                                                                        </span>
+                                                                    </div>
+                                                                    <div className="Reset_password_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="New Password"
+                                                                            placeholder="New Password"
+                                                                            name="newPassword"
+                                                                            type="password"
+                                                                            variant="outlined"
+                                                                            className="Reset_register_textfield"
+                                                                            value={formik.values.newPassword}
+                                                                            onChange={formik.handleChange}
+                                                                            onBlur={formik.handleBlur}
+                                                                        />
+                                                                    </div>
+
+                                                                    <div className="Reset_Password_field_container">
+                                                                        <span className="Reset_Password_field">
+                                                                            {formik.touched.newPassword && formik.errors.newPassword ? formik.errors.newPassword : ""}
+                                                                        </span>
+                                                                    </div>
+                                                                    <div className="Reset_password_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="Confirm New Password"
+                                                                            placeholder="Confirm New Password"
+                                                                            name="confirmNewPassword"
+                                                                            type="password"
+                                                                            variant="outlined"
+                                                                            className="Reset_register_textfield"
+                                                                            value={formik.values.confirmNewPassword}
+                                                                            onChange={formik.handleChange}
+                                                                            onBlur={formik.handleBlur}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="Reset_Password_field_container">
+                                                                        <span className="Reset_Password_field">
+                                                                            {formik.touched.confirmNewPassword && formik.errors.confirmNewPassword ? formik.errors.confirmNewPassword : ""}
+                                                                        </span>
+                                                                    </div>
+                                                                    <div className="Reset_password_Botton_container">
+                                                                        <Button variant="outlined" className="Reset_password_Button" disabled={!formik.isValid} type="submit">Save</Button>
+                                                                    </div>
+                                                                </form>
+                                                                {/* <div className="login_register_pas">
+                                                            <div>
+                                                                <span className="dont_have_pas">click here to...</span>
+                                                                <Link to={{pathname:"/Login"}} className="links"><span className="login_register_pas">Login</span></Link>
+                                                            </div>
+                                                            </div> */}
+
+                                                            </Paper>
+                                                        </Grid>
+                                                    </Fade>
+
+                                                </div>
+
+
+                                                :
+                                                <div></div>
+                                            )
                                         )
-                                    )
-                                }
+                                    }
+
+                                </div>
                                 {/* <div className="PR_input_container">
                                         <div>
                                             <input type="file" id="file"/>
