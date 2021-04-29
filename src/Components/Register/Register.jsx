@@ -149,7 +149,7 @@ export default function Register() {
                       <option aria-label="None" value="" />
 
                       {Companydata.map(({ id, company_name }, index) => (
-                        <option key={index} value={id}>
+                        <option key={index} value={id} >
                           {company_name}
                         </option>
                       ))}
