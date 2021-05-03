@@ -5,18 +5,18 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import LocalPhoneIcon from '@material-ui/icons/LocalPhone';
 import Employee from "../../images/employee.jpg"
+import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import Select from '@material-ui/core/Select';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { Grid, Paper, TextField, Button } from '@material-ui/core';
+import { Grid, Paper, TextField, Button,Dialog,Slide,DialogContent,DialogActions} from '@material-ui/core';
 import { useFormik } from "formik"
 import * as yup from 'yup';
 import Alert from '@material-ui/lab/Alert';
@@ -85,6 +85,10 @@ const StyledTableCell = withStyles((theme) => ({
     },
 }))(TableCell);
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
 
 
 function createData(icon, name, calories, fat) {
@@ -108,6 +112,11 @@ export default function Profilepage() {
     const [ButtonClass, setButtonClass] = useState("EmployerButton")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
+    const [open, setOpen] = useState(false)
+    const [Companydata, setCompanydata] = useState([])
+
+
+   
 
 
 
@@ -137,6 +146,12 @@ export default function Profilepage() {
             .catch(e => console.log(e))
     }, [])
 
+    useEffect(  async () => {
+        axios.get("companies")
+          .then(companydata => setCompanydata(companydata.data.data))
+          .catch(e => console.log(e))
+      }, [])
+
     const onSubmit = async (values) => {
         const { confirmNewPassword, ...rest } = values;
         axios.patch(`users/update/`, rest)
@@ -162,12 +177,6 @@ export default function Profilepage() {
 
 
 
-
-
-    // const handleChange = (e) => {
-    //     setProfileInfo(e.target.value)
-    // }
-
     const EmployerchangeInfo = () => {
         setProfileInfo("Employers")
         setButtonClass("EmployerButton")
@@ -184,7 +193,16 @@ export default function Profilepage() {
         setButtonClass("SecurityButton")
     }
 
-    let firstName = UserData.first_name
+
+    const handleClickOpen = () => {
+        setOpen(true);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+      };
+
+    let firstName = UserData.first_name;
     let lastName = UserData.last_name;
 
     const classes = useStyles();
@@ -211,40 +229,6 @@ export default function Profilepage() {
                 <Fade big duration={1000}>
                     <div className="Profile_container">
                         <h2>Profile</h2>
-                        {/* 
-                        <form className={classes.root}>
-                            <FormControl variant="outlined" className="PR_select_textfield" size="small">
-                                <InputLabel htmlFor="outlined-age-native-simple">
-                                    Profile Info
-                                </InputLabel>
-                                <Select
-                                    native
-                                    // value={state.age}
-                                    onChange={handleChange}
-                                    label="Profile Info"
-                                    inputProps={{
-                                        name: 'age',
-                                        id: 'outlined-age-native-simple',
-                                    }}
-                                >
-
-                                    <option aria-label="None" value="" />
-
-
-                                    <option value="Employers">
-                                        Employers
-                                    </option>
-                                    <option value="Accountinfo">
-                                        Account Info
-                                    </option>
-                                    <option value="Security">
-                                        Security
-                                    </option>
-
-                                </Select>
-
-                            </FormControl>
-                        </form> */}
                     </div>
                     <div className="PR_Grid_container">
                         <div className="PR_content_one">
@@ -345,7 +329,7 @@ export default function Profilepage() {
                                                                             <div>{row.company_name}</div>
                                                                         </div>
                                                                     </StyledTableCell>
-                                                                    <StyledTableCell>{row.user_role === null?<div>None</div>:row.user_role}</StyledTableCell>
+                                                                    <StyledTableCell>{row.user_role === null ? <div>None</div> : row.user_role}</StyledTableCell>
                                                                 </TableRow>
                                                             ))}
                                                         </TableBody>
@@ -356,7 +340,7 @@ export default function Profilepage() {
                                         :
                                         (ProfileInfo === "Accountinfo" ?
                                             <Fade big duration={1000}>
-                                                <div>
+                                                <div className="account_details_container">
                                                     <div className="PR_Employers">Account Details</div>
 
                                                     <TableContainer className="PR_Table">
@@ -384,6 +368,80 @@ export default function Profilepage() {
                                                             </TableBody>
                                                         </Table>
                                                     </TableContainer>
+                                                    <div>
+                                                        <Button variant="outlined" className="Add_account" onClick={handleClickOpen}>Add Account</Button>
+                                                    </div>
+                                                    <Dialog
+                                                        open={open}
+                                                        TransitionComponent={Transition}
+                                                        keepMounted
+                                                        onClose={handleClose}
+                                                        aria-labelledby="alert-dialog-slide-title"
+                                                        aria-describedby="alert-dialog-slide-description"
+                                                        
+                                                    >
+                                                     <DialogContent style={{width:"300px",height:"auto"}}>
+                                                        
+                                                                {/* {error && <Alert severity="error">{error}</Alert>}
+                                                                {success && <Alert severity="success">{success}</Alert>} */}
+                                                                <form className={classes.root}>
+                                                                <div className="account_select_input">
+                                                                    <FormControl variant="outlined" className="account_select_textfield" size="small">
+                                                                        <InputLabel htmlFor="outlined-age-native-simple">
+                                                                        Select Your Bank
+                                                                                            </InputLabel>
+                                                                        <Select
+                                                                        native
+                                                                        label=" Select Your Bank"
+                                                                        inputProps={{
+                                                                            name: 'companyId',
+
+                                                                        }}
+                                                                        >
+                                                                        <option aria-label="None" value="" />
+
+                                                                        {Companydata.map(({ id, company_name }, index) => (
+                                                                            <option key={index} value={id} >
+                                                                            {company_name}
+                                                                            </option>
+                                                                        ))}
+                                                                        </Select>
+                                                                    </FormControl>
+                                                                    </div>
+                                                                    <div className="account_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="Account Number"
+                                                                            placeholder="Account Number"
+                                                                            name="accountnumber"
+                                                                            type="phone"
+                                                                            variant="outlined"
+                                                                            className="account_textfield"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="account_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="Account Name"
+                                                                            placeholder="Account Name"
+                                                                            name="accountname"
+                                                                            type="name"
+                                                                            variant="outlined"
+                                                                            className="account_textfield"
+                                                                        />
+                                                                    </div>
+                                                                    <div className="account_Botton_container">
+                                                                        <Button variant="outlined" className="account_password_Button" type="submit">Add Account</Button>
+                                                                    </div>
+                                                                </form>
+                                                          
+                                                        </DialogContent>
+                                                        <DialogActions>
+                                                            <Button onClick={handleClose} variant="outlined">
+                                                                X
+                                                            </Button>
+                                                        </DialogActions>
+                                                    </Dialog>
 
                                                 </div>
                                             </Fade>
@@ -461,13 +519,6 @@ export default function Profilepage() {
                                                                         <Button variant="outlined" className="Reset_password_Button" disabled={!formik.isValid} type="submit">Save</Button>
                                                                     </div>
                                                                 </form>
-                                                                {/* <div className="login_register_pas">
-                                                            <div>
-                                                                <span className="dont_have_pas">click here to...</span>
-                                                                <Link to={{pathname:"/Login"}} className="links"><span className="login_register_pas">Login</span></Link>
-                                                            </div>
-                                                            </div> */}
-
                                                             </Paper>
                                                         </Grid>
                                                     </Fade>

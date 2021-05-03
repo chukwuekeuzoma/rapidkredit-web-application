@@ -192,6 +192,7 @@
                 .Profile_name{
                     font-size:20px !important;
                     font-weight: bolder;
+                    text-transform: capitalize !important;
                 }
 
                 .Profile_name_content{
@@ -219,6 +220,23 @@
                margin-left:50px;
                 
             }
+
+            .account_details_container{
+                position: relative;
+            }
+
+            .Add_account{
+                position: absolute;
+                top:0;
+                right:0;
+                text-transform: none;
+            }
+
+            // .account_dialog{
+            //     width:500px !important;
+            // }
+            
+           
             
         }
         .PR_no_of_days_worked_container{
@@ -432,4 +450,58 @@
           transition: 1s;
       }
 
+}
+
+// styling for the Dialog
+
+.account_select_input{
+    margin-top:10px;
+    text-align: center;
+
+
+    .account_select_textfield{
+        width: 100% !important;
+    
+        ::placeholder{
+            color:rgb(17, 17, 66)!important;
+        }
+    
+        label {
+            color: rgb(17, 17, 66)!important;
+        }
+     
+    }
+};
+
+.account_input{
+    margin-top:10px;
+    text-align: center;
+
+    .account_textfield{
+   
+        width: 100% !important;
+ 
+        ::placeholder{
+            color:rgb(17, 17, 66) !important;
+        }
+    
+        label {
+            color: rgb(17, 17, 66) !important;
+        }
+    
+    }
+  }
+  .account_Botton_container{
+    
+    .account_password_Button{
+        width:100% !important;
+        color: white !important;
+        background:rgb(17, 17, 66) !important;
+        margin-top:5px;
+        text-transform: none;
+
+        :disabled{
+             filter: contrast(0.7) !important;
+        }
+    }
 }
