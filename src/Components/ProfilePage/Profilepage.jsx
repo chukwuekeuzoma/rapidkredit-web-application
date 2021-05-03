@@ -142,8 +142,9 @@ export default function Profilepage() {
                 setUserData(JSON.parse(response.data.data).user)
                 setUserProfile(JSON.parse(response.data.data).userProfile[0])
                 setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
-            })
+            }) 
             .catch(e => console.log(e))
+                
     }, [])
 
     useEffect(  async () => {
@@ -151,6 +152,9 @@ export default function Profilepage() {
           .then(companydata => setCompanydata(companydata.data.data))
           .catch(e => console.log(e))
       }, [])
+
+
+ 
 
     const onSubmit = async (values) => {
         const { confirmNewPassword, ...rest } = values;
