@@ -44,10 +44,10 @@ function App() {
 
 
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(null)
 
   useEffect(() => {
-    setIsLoading(false)
+    setIsLoading(true)
   }, [])
 
 
@@ -69,7 +69,7 @@ function App() {
     //   </header>
     // </div>
 
-    <>{isLoading ? <Loading/> :
+    <>{!isLoading ? <Loading/> : isLoading &&
       <HashRouter>
         <div>
           <Switch>
@@ -92,7 +92,7 @@ function App() {
           </Switch>
         </div>
       </HashRouter>
-
+    
     }
     </>
 

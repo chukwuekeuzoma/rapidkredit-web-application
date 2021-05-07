@@ -5,6 +5,7 @@ import "./Login.scss"
 import RapidOne from "../../images/rapid.png"
 import {makeStyles} from '@material-ui/core/styles';
 import {Link,useHistory} from "react-router-dom"
+import Loading from "../LoadingPage/Loading"
 import Alert from '@material-ui/lab/Alert';
 import axios from "axios"
 
@@ -46,6 +47,7 @@ export default function () {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
+    const [Loader, setLoader] = useState(null)
 
 
     const history = useHistory();
@@ -66,16 +68,19 @@ export default function () {
             if(response.data.status === "success"){
               setSuccess(response.data.message)
               setError("")
+              setLoader(false)
               };
             if(response.data.status === "error"){
                 setError(response.data.message)
                 setSuccess("")
+                setLoader(false)
               }
             // console.log(response)
             history.push("/Dashboard")
           }).catch((error) => {
             setError(error.response.data.message)
             setSuccess("")
+            setLoader(false)
             // console.log('Error:', error);
           });
               
@@ -124,6 +129,7 @@ export default function () {
                            </div>
                             <div className="login_Botton_container">
                                <Button variant="outlined" className="login_Button"  type="submit">Login</Button>
+                               {Loader ? <Loading /> : null}
                             </div> 
                     </form>
                           

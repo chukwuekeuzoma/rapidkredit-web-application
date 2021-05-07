@@ -7,7 +7,7 @@ export default function Loading() {
     return (
         <>
             <div className="Loading_container">
-               {/* <div><img src={RapidOne} alt="load" className="Loding_icon" height="80px"/></div> */}
+               <div><img src={RapidOne} alt="load" className="Loding_icon" height="80px"/></div>
                 <CircularProgress color="secondary" />
                 <div><h1>Loading...</h1></div>
             </div>

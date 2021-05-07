@@ -112,15 +112,27 @@ export default function Profilepage() {
     const [ButtonClass, setButtonClass] = useState("EmployerButton")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
+    const [ErrorBankSent, setErrorBankSent] = useState("")
+    const [SuccessBankSent, setSucessBankSent] = useState("")
+    const [bankInfo, setbankInfo] = useState("")
+    const [accountNumber, setaccountNumber] = useState("")
     const [open, setOpen] = useState(false)
-    const [Companydata, setCompanydata] = useState([])
+    const [dialogOpen, setdialogOpen] = useState(false)
+    const [AccountNumber, setAccountNumber] = useState("")
+    const [AccountName, setAccountName] = useState("")
+    const [BankName, setBankName] = useState("")
+    const [BankList, setBankList] = useState([])
+    const [bankCode, setbankCode] = useState("")
 
+
+    let bankValues = {
+        bankInfo,
+        accountNumber
+    }
 
    
-
-
-
-
+   console.log(BankName)
+   console.log(bankCode)
 
 
     let store = JSON.parse(localStorage.getItem("token"))
@@ -148,13 +160,38 @@ export default function Profilepage() {
     }, [])
 
     useEffect(  async () => {
-        axios.get("companies")
-          .then(companydata => setCompanydata(companydata.data.data))
+        axios.post("bank-details/banks")
+          .then(response => setBankList(response.data.data))
           .catch(e => console.log(e))
       }, [])
 
 
- 
+   const bankSubmit = (e) =>{
+       e.preventDefault();
+       axios.post("bank-details/account-enquire",bankValues)
+       .then(response => {
+        if(response.data.status === "success"){
+          setSucessBankSent(response.data.message)
+          setErrorBankSent("")
+          };
+          if(response.data.status === "error"){
+            setErrorBankSent(response.data.message)
+             setSucessBankSent("")
+          }
+          setAccountName(response.data.data.AccountName)
+          setAccountNumber(response.data.data.AccountNumber)
+          setBankName(response.data.BankName)
+          setbankCode(response.data.data.bankCode)
+          setOpen(false)
+          setdialogOpen(true)
+          console.log(response.data.data)
+      })
+      .catch((error) => {
+        setErrorBankSent(error.response.data.message)
+        setSucessBankSent("")
+              // console.error('Error:', error);
+        });
+   }
 
     const onSubmit = async (values) => {
         const { confirmNewPassword, ...rest } = values;
@@ -198,13 +235,23 @@ export default function Profilepage() {
     }
 
 
-    const handleClickOpen = () => {
+      const handleClickOpen = () => {
         setOpen(true);
       };
     
       const handleClose = () => {
         setOpen(false);
       };
+
+    //   const handleClickOpenOne = () =>{
+    //       setdialogOpen(true)
+    //   }
+
+      const handleCloseOne = () =>{
+          setdialogOpen(false)
+      }
+
+
 
     let firstName = UserData.first_name;
     let lastName = UserData.last_name;
@@ -386,9 +433,9 @@ export default function Profilepage() {
                                                     >
                                                      <DialogContent style={{width:"300px",height:"auto"}}>
                                                         
-                                                                {/* {error && <Alert severity="error">{error}</Alert>}
-                                                                {success && <Alert severity="success">{success}</Alert>} */}
-                                                                <form className={classes.root}>
+                                                                {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
+                                                                {SuccessBankSent && <Alert severity="success">{SuccessBankSent}</Alert>}
+                                                                <form className={classes.root} onSubmit={bankSubmit}>
                                                                 <div className="account_select_input">
                                                                     <FormControl variant="outlined" className="account_select_textfield" size="small">
                                                                         <InputLabel htmlFor="outlined-age-native-simple">
@@ -398,15 +445,16 @@ export default function Profilepage() {
                                                                         native
                                                                         label=" Select Your Bank"
                                                                         inputProps={{
-                                                                            name: 'companyId',
+                                                                            name: 'bankInfo',
 
                                                                         }}
+                                                                        onChange={e =>  setbankInfo(e.target.value)}
                                                                         >
                                                                         <option aria-label="None" value="" />
 
-                                                                        {Companydata.map(({ id, company_name }, index) => (
-                                                                            <option key={index} value={id} >
-                                                                            {company_name}
+                                                                        {BankList.map(({BankName,BankCode}, index) => (
+                                                                            <option key={index} value={BankCode,BankName}>
+                                                                             {BankName}
                                                                             </option>
                                                                         ))}
                                                                         </Select>
@@ -417,25 +465,15 @@ export default function Profilepage() {
                                                                             size="small"
                                                                             label="Account Number"
                                                                             placeholder="Account Number"
-                                                                            name="accountnumber"
+                                                                            name="accountNumber"
                                                                             type="phone"
                                                                             variant="outlined"
                                                                             className="account_textfield"
-                                                                        />
-                                                                    </div>
-                                                                    <div className="account_input">
-                                                                        <TextField
-                                                                            size="small"
-                                                                            label="Account Name"
-                                                                            placeholder="Account Name"
-                                                                            name="accountname"
-                                                                            type="name"
-                                                                            variant="outlined"
-                                                                            className="account_textfield"
+                                                                            onChange={e =>  setaccountNumber(e.target.value)}
                                                                         />
                                                                     </div>
                                                                     <div className="account_Botton_container">
-                                                                        <Button variant="outlined" className="account_password_Button" type="submit">Add Account</Button>
+                                                                        <Button variant="outlined" className="account_password_Button" type="submit">Send</Button>
                                                                     </div>
                                                                 </form>
                                                           
@@ -446,6 +484,67 @@ export default function Profilepage() {
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
+                                                    <Dialog
+                                                        open={dialogOpen}
+                                                        TransitionComponent={Transition}
+                                                        keepMounted
+                                                        onClose={handleCloseOne}
+                                                        aria-labelledby="alert-dialog-slide-title"
+                                                        aria-describedby="alert-dialog-slide-description"
+                                                        
+                                                    >
+                                                     <DialogContent style={{width:"300px",height:"auto"}}>
+                                                        
+                                                                {/* {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
+                                                                {SuccessBankSent && <Alert severity="success">{SuccessBankSent}</Alert>} */}
+                                                                <form className={classes.root}>
+                                                                    <div className="account_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="Bank Name"
+                                                                            name="BankName"
+                                                                            type="name"
+                                                                            variant="outlined"
+                                                                            className="account_textfield"
+                                                                            value={BankName}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="account_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="Account Number"
+                                                                            name="accountNumber"
+                                                                            type="phone"
+                                                                            variant="outlined"
+                                                                            className="account_textfield"
+                                                                            value={AccountNumber}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="account_input">
+                                                                        <TextField
+                                                                            size="small"
+                                                                            label="Account Name"
+                                                                            name="accountName"
+                                                                            type="name"
+                                                                            variant="outlined"
+                                                                            className="account_textfield"
+                                                                            value={AccountName}
+                                                                        />
+                                                                    </div>
+                                                                    <div className="account_Botton_container">
+                                                                        <Button variant="outlined" className="account_password_Button" type="submit">Update Account</Button>
+                                                                    </div>
+                                                                </form>
+                                                          
+                                                        </DialogContent>
+                                                        <DialogActions>
+                                                            <Button onClick={handleCloseOne} variant="outlined">
+                                                                X
+                                                            </Button>
+                                                        </DialogActions>
+                                                    </Dialog>
+                                                   
+                                                    
 
                                                 </div>
                                             </Fade>
