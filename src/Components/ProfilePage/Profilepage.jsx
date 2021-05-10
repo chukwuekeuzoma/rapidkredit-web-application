@@ -175,6 +175,7 @@ export default function Profilepage() {
                   setErrorBankSent("")
                  if(!response.data.data.AccountName.length){
                     setaccountName("Loading...")  
+                    setErrorBankSent("")
                  }
                  if(response.data.status === "error"){
                     setErrorBankSent(response.data.message)
