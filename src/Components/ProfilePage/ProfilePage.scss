@@ -455,7 +455,7 @@
 // styling for the Dialog
 
 .account_select_input{
-    margin-top:10px;
+    margin-top:15px;
     text-align: center;
 
 
@@ -474,7 +474,7 @@
 };
 
 .account_input{
-    margin-top:10px;
+    margin-top:15px;
     text-align: center;
 
     .account_textfield{
@@ -497,7 +497,7 @@
         width:100% !important;
         color: white !important;
         background:rgb(17, 17, 66) !important;
-        margin-top:5px;
+        margin-top:15px;
         text-transform: none;
 
         :disabled{
@@ -505,3 +505,9 @@
         }
     }
 }
+
+.dialog_action_button{
+    background:rgb(231, 230, 225) !important;
+}
+
+
