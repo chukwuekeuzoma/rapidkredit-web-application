@@ -107,9 +107,8 @@ export default function Profilepage() {
     const [bankName, setbankName] = useState("")
     const [BankList, setBankList] = useState([])
     const [bankCode, setbankCode] = useState("")
-    const [BankName, setBankName] = useState("")
-    const [AccountName, setAccountName] = useState("")
-    const [AccountNumber,setAccountNumber] = useState("")
+    const [BankDetails, setBankDetails] = useState([])
+
 
 
     let bankValues = {
@@ -154,6 +153,14 @@ export default function Profilepage() {
     }, [])
 
     useEffect(async () => {
+        axios.get("users/bank/details")
+            .then(response => {
+                setBankDetails(response.data.data)
+            })
+            .catch(e => console.log(e))
+    }, [])
+
+    useEffect(async () => {
         axios.post("bank-details/banks")
             .then(response => setBankList(response.data.data))
             .catch(e => console.log(e))
@@ -166,7 +173,7 @@ export default function Profilepage() {
         if (accountNumber >= 10) {
             axios.post("bank-details/account-enquire", bankValues)
                 .then(response => {
-                    setaccountName(`Account Name: ${response.data.data.AccountName}`)
+                    setaccountName(response.data.data.AccountName)
                     setErrorBankSent("")
                     setbankCode(response.data.data.BankCode)
                     setbankName(response.data.BankName)
@@ -197,7 +204,6 @@ export default function Profilepage() {
                 if (response.data.status === "success") {
                     setSucessBankSent(response.data.message)
                     setErrorBankSentOne("")
-                    console.log(response.data)
                 };
                 if (response.data.status === "error") {
                     setErrorBankSentOne(response.data.message)
@@ -415,18 +421,19 @@ export default function Profilepage() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                               
+                                                                {BankDetails.map(({ bank_name, account_name, account_number }, index) => (
                                                                     <TableRow>
                                                                         <StyledTableCell component="th" scope="row">
+
                                                                             <div className="Table_cellhead_container" >
                                                                                 {/* <img src={row.icon} alt="slideimage" className="PR_Table_cell" /> */}
-                                                                                <div>{BankName}</div>
+                                                                                <div>{bank_name}</div>
                                                                             </div>
                                                                         </StyledTableCell>
-                                                                        <StyledTableCell>{AccountName}</StyledTableCell>
-                                                                        <StyledTableCell>{AccountNumber}</StyledTableCell>
+                                                                        <StyledTableCell>{account_name}</StyledTableCell>
+                                                                        <StyledTableCell>{account_number}</StyledTableCell>
                                                                     </TableRow>
-                                                               
+                                                                ))}
                                                             </TableBody>
                                                         </Table>
                                                     </TableContainer>
@@ -484,7 +491,7 @@ export default function Profilepage() {
                                                                 </div>
                                                                 <div className="alert">
                                                                     {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
-                                                                    {accountName && <Alert severity="info">{accountName}</Alert>}
+                                                                    {accountName && <Alert severity="info"><div>Account Name: {accountName}</div></Alert>}
                                                                 </div>
                                                                 <div className="account_Botton_container">
                                                                     <Button variant="outlined" className="account_password_Button" type="submit" disabled={!accountName}>Send</Button>
