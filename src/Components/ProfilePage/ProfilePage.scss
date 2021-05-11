@@ -501,7 +501,7 @@
         text-transform: none;
 
         :disabled{
-             filter: contrast(0.7) !important;
+             opacity:0.2 !important;
         }
     }
 }

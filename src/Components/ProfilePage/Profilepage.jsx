@@ -16,13 +16,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { Grid, Paper, TextField, Button,Dialog,Slide,DialogContent,DialogActions} from '@material-ui/core';
+import { Grid, Paper, TextField, Button, Dialog, Slide, DialogContent, DialogActions } from '@material-ui/core';
 import { useFormik } from "formik"
 import * as yup from 'yup';
 import Alert from '@material-ui/lab/Alert';
 import PicThree from "../../images/carowhite4.png"
-import PicFour from "../../images/carowhite5.png"
-import PicFive from "../../images/carowhite6.png"
 import axios from "axios"
 
 
@@ -87,20 +85,7 @@ const StyledTableCell = withStyles((theme) => ({
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
-  });
-
-
-
-function createData(icon, name, calories, fat) {
-    return { icon, name, calories, fat };
-}
-
-const rows = [
-    createData(PicThree, 'Eclair', 262, 16.0),
-    // createData(PicFour, 'Cupcake', 305, 3.7),
-    // createData(PicFive, 'Gingerbread', 356, 16.0),
-];
-
+});
 
 
 export default function Profilepage() {
@@ -113,26 +98,35 @@ export default function Profilepage() {
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
     const [ErrorBankSent, setErrorBankSent] = useState("")
+    const [ErrorBankSentOne, setErrorBankSentOne] = useState("")
     const [SuccessBankSent, setSucessBankSent] = useState("")
     const [bankInfo, setbankInfo] = useState("")
     const [accountNumber, setaccountNumber] = useState("")
     const [open, setOpen] = useState(false)
-    const [dialogOpen, setdialogOpen] = useState(false)
-    const [AccountNumber, setAccountNumber] = useState("")
     const [accountName, setaccountName] = useState("")
     const [bankName, setbankName] = useState("")
     const [BankList, setBankList] = useState([])
     const [bankCode, setbankCode] = useState("")
+    const [BankName, setBankName] = useState("")
+    const [AccountName, setAccountName] = useState("")
+    const [AccountNumber,setAccountNumber] = useState("")
 
- 
+
     let bankValues = {
         bankInfo,
         accountNumber
     }
 
-  
- 
-  
+    let bankData = {
+        accountName,
+        bankName,
+        accountNumber,
+        bankCode
+    }
+
+
+
+
 
 
     let store = JSON.parse(localStorage.getItem("token"))
@@ -154,73 +148,68 @@ export default function Profilepage() {
                 setUserData(JSON.parse(response.data.data).user)
                 setUserProfile(JSON.parse(response.data.data).userProfile[0])
                 setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
-            }) 
+            })
             .catch(e => console.log(e))
-                
+
     }, [])
 
-    useEffect(  async () => {
+    useEffect(async () => {
         axios.post("bank-details/banks")
-          .then(response => setBankList(response.data.data))
-          .catch(e => console.log(e))
-      }, [])
+            .then(response => setBankList(response.data.data))
+            .catch(e => console.log(e))
+    }, [])
 
 
-  
 
-    const keyUp = () =>{
-        if(accountNumber >= 10){
-            axios.post("bank-details/account-enquire",bankValues)
-             .then(response =>{setaccountName(`Account Name: ${response.data.data.AccountName}`)
-                  setErrorBankSent("")
-                 if(!response.data.data.AccountName.length){
-                    setaccountName("Loading...")  
+
+    const keyUp = () => {
+        if (accountNumber >= 10) {
+            axios.post("bank-details/account-enquire", bankValues)
+                .then(response => {
+                    setaccountName(`Account Name: ${response.data.data.AccountName}`)
                     setErrorBankSent("")
-                 }
-                 if(response.data.status === "error"){
-                    setErrorBankSent(response.data.message)
+                    setbankCode(response.data.data.BankCode)
+                    setbankName(response.data.BankName)
+                    if (!response.data.data.AccountName.length) {
+                        setaccountName("Loading...")
+                        setErrorBankSent("")
+                    }
+                    if (response.data.status === "error") {
+                        setErrorBankSent(response.data.message)
+                        setaccountName("")
+                    }
+                })
+                .catch((error) => {
+                    setErrorBankSent(error.response.data.message)
                     setaccountName("")
-                 }
-             })
-             .catch((error) => {
-                setErrorBankSent(error.response.data.message)
-                setaccountName("")
                     // console.error('Error:', error);
                 });
         }
 
     }
-    
 
 
-//    const bankSubmit = (e) =>{
-//        e.preventDefault();
-//        axios.post("bank-details/account-enquire",bankValues)
-//        .then(response => {
-//         if(response.data.status === "success"){
-//           setSucessBankSent(response.data.message)
-//           setErrorBankSent("")
-//           };
-//           if(response.data.status === "error"){
-//              setErrorBankSent(response.data.message)
-//              setSucessBankSent("")
-//              setOpen(true)
-//              setdialogOpen(false)
-//           }
-//           setaccountName(response.data.data.AccountName)
-//           setAccountNumber(response.data.data.AccountNumber)
-//           setbankName(response.data.BankName)
-//           setbankCode(response.data.data.BankCode)
-//           setOpen(false)
-//           setdialogOpen(true)
-//           console.log(response.data.data)
-//       })
-//       .catch((error) => {
-//         setErrorBankSent(error.response.data.message)
-//         setSucessBankSent("")
-//               // console.error('Error:', error);
-//         });
-//    }
+
+    const bankSubmit = (e) => {
+        e.preventDefault();
+        axios.post("bank-details/save", bankData)
+            .then(response => {
+                if (response.data.status === "success") {
+                    setSucessBankSent(response.data.message)
+                    setErrorBankSentOne("")
+                    console.log(response.data)
+                };
+                if (response.data.status === "error") {
+                    setErrorBankSentOne(response.data.message)
+                    setSucessBankSent("")
+                }
+            })
+            .catch((error) => {
+                setErrorBankSentOne(error.response.data.message)
+                setSucessBankSent("")
+                // console.error('Error:', error);
+            });
+    }
 
     const onSubmit = async (values) => {
         const { confirmNewPassword, ...rest } = values;
@@ -264,13 +253,13 @@ export default function Profilepage() {
     }
 
 
-      const handleClickOpen = () => {
+    const handleClickOpen = () => {
         setOpen(true);
-      };
-    
-      const handleClose = () => {
+    };
+
+    const handleClose = () => {
         setOpen(false);
-      };
+    };
 
 
 
@@ -426,18 +415,18 @@ export default function Profilepage() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {rows.map((row) => (
-                                                                    <TableRow key={row.name}>
+                                                               
+                                                                    <TableRow>
                                                                         <StyledTableCell component="th" scope="row">
                                                                             <div className="Table_cellhead_container" >
-                                                                                <img src={row.icon} alt="slideimage" className="PR_Table_cell" />
-                                                                                <div>{row.name}</div>
+                                                                                {/* <img src={row.icon} alt="slideimage" className="PR_Table_cell" /> */}
+                                                                                <div>{BankName}</div>
                                                                             </div>
                                                                         </StyledTableCell>
-                                                                        <StyledTableCell>{row.calories}</StyledTableCell>
-                                                                        <StyledTableCell>{row.fat}</StyledTableCell>
+                                                                        <StyledTableCell>{AccountName}</StyledTableCell>
+                                                                        <StyledTableCell>{AccountNumber}</StyledTableCell>
                                                                     </TableRow>
-                                                                ))}
+                                                               
                                                             </TableBody>
                                                         </Table>
                                                     </TableContainer>
@@ -451,127 +440,63 @@ export default function Profilepage() {
                                                         onClose={handleClose}
                                                         aria-labelledby="alert-dialog-slide-title"
                                                         aria-describedby="alert-dialog-slide-description"
-                                                        
+
                                                     >
-                                                     <DialogContent style={{width:"420px",height:"auto"}}>
-                                                                
-                                                                
-                                                                <form className={classes.root} onKeyUp={keyUp}>
-                                                                  <div className="account_select_input">
-                                                                        <FormControl variant="outlined" className="account_select_textfield" size="small">
-                                                                            <InputLabel htmlFor="outlined-age-native-simple">
+                                                        <DialogContent style={{ width: "420px", height: "auto" }}>
+                                                            {ErrorBankSentOne && <Alert severity="error">{ErrorBankSentOne}</Alert>}
+                                                            {SuccessBankSent && <Alert severity="success">{SuccessBankSent}</Alert>}
+                                                            <form className={classes.root} onKeyUp={keyUp} onSubmit={bankSubmit}>
+                                                                <div className="account_select_input">
+                                                                    <FormControl variant="outlined" className="account_select_textfield" size="small">
+                                                                        <InputLabel htmlFor="outlined-age-native-simple">
                                                                             Select Your Bank
                                                                                                 </InputLabel>
-                                                                            <Select
+                                                                        <Select
                                                                             native
                                                                             label=" Select Your Bank"
                                                                             inputProps={{
-                                                                                id:'bankInfo',
+                                                                                id: 'bankInfo',
 
                                                                             }}
-                                                                            onChange={e =>  setbankInfo(e.target.value)}
-                                                                            >
+                                                                            onChange={e => setbankInfo(e.target.value)}
+                                                                        >
                                                                             <option aria-label="None" value="" />
 
-                                                                            {BankList.map(({BankName,BankCode}, index) => (
+                                                                            {BankList.map(({ BankName, BankCode }, index) => (
                                                                                 <option key={index} value={`${BankCode},${BankName}`}>
-                                                                                {BankName}
+                                                                                    {BankName}
                                                                                 </option>
                                                                             ))}
-                                                                            </Select>
-                                                                        </FormControl>
-                                                                    </div>
-                                                                    <div className="account_input">
-                                                                        <TextField
-                                                                            size="small"
-                                                                            label="Account Number"
-                                                                            placeholder="Account Number"
-                                                                            id="accountNumber"
-                                                                            type="phone"
-                                                                            variant="outlined"
-                                                                            className="account_textfield"
-                                                                            onChange={e =>  setaccountNumber(e.target.value)}
-                                                                        />
-                                                                    </div>
-                                                                     <div className="alert">
-                                                                        {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
-                                                                        {accountName && <Alert severity="info">{accountName}</Alert>}
-                                                                     </div>
-                                                                    <div className="account_Botton_container">
-                                                                        <Button variant="outlined" className="account_password_Button" type="submit">Send</Button>
-                                                                    </div>
-                                                                </form>
-                                                                
-                                                          
+                                                                        </Select>
+                                                                    </FormControl>
+                                                                </div>
+                                                                <div className="account_input">
+                                                                    <TextField
+                                                                        size="small"
+                                                                        label="Account Number"
+                                                                        placeholder="Account Number"
+                                                                        id="accountNumber"
+                                                                        type="phone"
+                                                                        variant="outlined"
+                                                                        className="account_textfield"
+                                                                        onChange={e => setaccountNumber(e.target.value)}
+                                                                    />
+                                                                </div>
+                                                                <div className="alert">
+                                                                    {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
+                                                                    {accountName && <Alert severity="info">{accountName}</Alert>}
+                                                                </div>
+                                                                <div className="account_Botton_container">
+                                                                    <Button variant="outlined" className="account_password_Button" type="submit" disabled={!accountName}>Send</Button>
+                                                                </div>
+                                                            </form>
                                                         </DialogContent>
                                                         <DialogActions>
-                                                            <Button onClick={handleClose} variant="outlined" className="dialog_action_button">
+                                                            <Button onClick={handleClose} variant="outlined" className="dialog_action_button"  >
                                                                 X
                                                             </Button>
                                                         </DialogActions>
                                                     </Dialog>
-                                                    {/* <Dialog
-                                                        open={dialogOpen}
-                                                        TransitionComponent={Transition}
-                                                        keepMounted
-                                                        onClose={handleCloseOne}
-                                                        aria-labelledby="alert-dialog-slide-title"
-                                                        aria-describedby="alert-dialog-slide-description"
-                                                        
-                                                    >
-                                                     <DialogContent style={{width:"300px",height:"auto"}}>
-                                                        
-                                                                {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
-                                                                {SuccessBankSent && <Alert severity="success">{SuccessBankSent}</Alert>}
-                                                                <form className={classes.root}>
-                                                                    <div className="account_input">
-                                                                        <TextField
-                                                                            size="small"
-                                                                            label="Bank Name"
-                                                                            name="BankName"
-                                                                            type="name"
-                                                                            variant="outlined"
-                                                                            className="account_textfield"
-                                                                            value={bankName}
-                                                                        />
-                                                                    </div>
-                                                                    <div className="account_input">
-                                                                        <TextField
-                                                                            size="small"
-                                                                            label="Account Number"
-                                                                            name="accountNumber"
-                                                                            type="phone"
-                                                                            variant="outlined"
-                                                                            className="account_textfield"
-                                                                            value={AccountNumber}
-                                                                        />
-                                                                    </div>
-                                                                    <div className="account_input">
-                                                                        <TextField
-                                                                            size="small"
-                                                                            label="Account Name"
-                                                                            name="accountName"
-                                                                            type="name"
-                                                                            variant="outlined"
-                                                                            className="account_textfield"
-                                                                            value={accountName}
-                                                                        />
-                                                                    </div>
-                                                                    <div className="account_Botton_container">
-                                                                        <Button variant="outlined" className="account_password_Button" type="submit">Update Account</Button>
-                                                                    </div>
-                                                                </form>
-                                                          
-                                                        </DialogContent>
-                                                        <DialogActions>
-                                                            <Button onClick={handleCloseOne} variant="outlined" className="dialog_action_button">
-                                                                X
-                                                            </Button>
-                                                        </DialogActions>
-                                                    </Dialog>
-                                                    */}
-                                                    
-
                                                 </div>
                                             </Fade>
 
