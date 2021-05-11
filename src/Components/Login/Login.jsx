@@ -47,7 +47,7 @@ export default function () {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
-    const [Loader, setLoader] = useState(null)
+    // const [Loader, setLoader] = useState(false)
 
 
     const history = useHistory();
@@ -68,30 +68,30 @@ export default function () {
             if(response.data.status === "success"){
               setSuccess(response.data.message)
               setError("")
-              setLoader(false)
               };
             if(response.data.status === "error"){
                 setError(response.data.message)
                 setSuccess("")
-                setLoader(false)
+                
               }
             // console.log(response)
             history.push("/Dashboard")
           }).catch((error) => {
             setError(error.response.data.message)
             setSuccess("")
-            setLoader(false)
             // console.log('Error:', error);
           });
               
 
     }
 
+   
 
     const classes =  useStyles();
 
     return (
         <>
+        
             <div>
             <Fade left duration={300}>
               <Grid>
@@ -129,7 +129,6 @@ export default function () {
                            </div>
                             <div className="login_Botton_container">
                                <Button variant="outlined" className="login_Button"  type="submit">Login</Button>
-                               {Loader ? <Loading /> : null}
                             </div> 
                     </form>
                           
@@ -147,6 +146,7 @@ export default function () {
               </Grid>
                </Fade> 
             </div>
+         
         </>
     )
 }

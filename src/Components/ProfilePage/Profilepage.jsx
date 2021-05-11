@@ -171,7 +171,7 @@ export default function Profilepage() {
     const keyUp = () =>{
         if(accountNumber >= 10){
             axios.post("bank-details/account-enquire",bankValues)
-             .then(response =>{setaccountName(`Account Name:${response.data.data.AccountName}`)
+             .then(response =>{setaccountName(`Account Name: ${response.data.data.AccountName}`)
                   setErrorBankSent("")
                  if(!response.data.data.AccountName.length){
                     setaccountName("Loading...")  
@@ -493,8 +493,10 @@ export default function Profilepage() {
                                                                             onChange={e =>  setaccountNumber(e.target.value)}
                                                                         />
                                                                     </div>
+                                                                     <div className="alert">
                                                                         {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
-                                                                        {accountName && <Alert severity="success">{accountName}</Alert>}
+                                                                        {accountName && <Alert severity="info">{accountName}</Alert>}
+                                                                     </div>
                                                                     <div className="account_Botton_container">
                                                                         <Button variant="outlined" className="account_password_Button" type="submit">Send</Button>
                                                                     </div>
