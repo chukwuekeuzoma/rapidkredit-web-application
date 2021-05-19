@@ -177,7 +177,7 @@ export default function Profilepage() {
                     setErrorBankSent("")
                     setbankCode(response.data.data.BankCode)
                     setbankName(response.data.BankName)
-                    if (!response.data.data.AccountName.length) {
+                    if (!response.data.data.AccountName) {
                         setaccountName("Loading...")
                         setErrorBankSent("")
                     }
@@ -491,7 +491,7 @@ export default function Profilepage() {
                                                                 </div>
                                                                 <div className="alert">
                                                                     {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
-                                                                    {accountName && <Alert severity="info"><div>Account Name: {accountName}</div></Alert>}
+                                                                   {accountName && <Alert severity="info"><div>Account Name: {accountName}</div></Alert>} 
                                                                 </div>
                                                                 <div className="account_Botton_container">
                                                                     <Button variant="outlined" className="account_password_Button" type="submit" disabled={!accountName}>Send</Button>

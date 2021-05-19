@@ -14,21 +14,20 @@ export default function Navigation () {
 
    const classes = useStyles();
     
-    //  var lastScrollTop = 0;
-    //  var  navbar= document.getElementsByTagName("nav");
+     var lastScrollTop = 0;
+     var  navbar= document.getElementById("navBar");
 
-    //    useEffect(()=>{
-    //        window.addEventListener("scroll", function() {
-    //            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    //            if(scrollTop > lastScrollTop){
-    //                navbar.style.top="-120px";
-    //            }else{
-    //                navbar.style.top="0";
-    //            }
-    //            lastScrollTop = scrollTop;
-    //        })
-    //    },[])  
-    
+      
+         const martScroll = () => {
+               var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+               if(scrollTop > lastScrollTop){
+                   navbar.style.top="-120px";
+               }else{
+                   navbar.style.top="0";
+               }
+               lastScrollTop = scrollTop;
+           }
+  
       
 
 
@@ -40,7 +39,7 @@ export default function Navigation () {
          
     return (
         <>
-            <nav>
+            <nav id="navBar" onScroll={martScroll}>
                     <div className="nav_bar_Menu_icon">
                         <div onClick={Navchange}>
                             {Navbar ? <Clear className="icon_color--clear"/> : <Menu className="icon_color"/> }

@@ -44,32 +44,18 @@ function App() {
 
 
 
-  const [isLoading, setIsLoading] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
   }, [])
 
 
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-
-    <>{!isLoading ? <Loading/> : isLoading &&
+    <>{isLoading ? <Loading /> :
       <HashRouter>
         <div>
           <Switch>
@@ -79,20 +65,20 @@ function App() {
             <RouteWithLayout Layout={NavFooterLayout} path="/Employee" Component={Employee} />
             <RouteWithLayout Layout={NavFooterLayout} path="/Faqpage" Component={Faqpage} />
             <RouteWithLayout Layout={NavFooterLayout} path="/ContactUs" Component={ContactUs} />
-            <RouteWithLayout Layout={OrdinaryLayout}  path="/Login" Component={Login} />
+            <RouteWithLayout Layout={OrdinaryLayout} path="/Login" Component={Login} />
             <RouteWithLayout Layout={OrdinaryLayout} path="/Register" Component={Register} />
             <RouteWithLayout Layout={OrdinaryLayout} path="/Recoverpassword" Component={ForgotPasswordone} />
             <RouteWithLayout Layout={DashboardLayout} path="/Dashboard" Component={Dashboard} />
             <RouteWithLayout Layout={DashboardLayout} path="/Request" Component={RequestPage} />
             <RouteWithLayout Layout={DashboardLayout} path="/Settlement" Component={SettlementPage} />
             <RouteWithLayout Layout={DashboardLayout} path="/Profile" Component={ProfilePage} />
-            <RouteWithLayout Layout={OrdinaryLayout}  path="/Passwordreset/:token" Component={ForgotPasswordTwo} />
-            <RouteWithLayout Layout={OrdinaryLayout}  path="/Password/:token" Component={Password}/>
-           
+            <RouteWithLayout Layout={OrdinaryLayout} path="/Passwordreset/:token" Component={ForgotPasswordTwo} />
+            <RouteWithLayout Layout={OrdinaryLayout} path="/Password/:token" Component={Password} />
+
           </Switch>
         </div>
       </HashRouter>
-    
+
     }
     </>
 

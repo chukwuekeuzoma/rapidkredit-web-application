@@ -12,6 +12,13 @@ import {Link} from "react-router-dom"
 export default function DashboardLayout() {
     
     const [Active, setActive] = useState("");
+    const [value, setValue] = useState();
+
+    const reloadLogout = () => {
+        localStorage.clear()
+        setValue({});
+        // window.location.reload();
+    }
 
     return (
         <>
@@ -63,7 +70,7 @@ export default function DashboardLayout() {
                                 <span>Support<span style={{opacity:"0"}}>...............</span></span>
                             </div>
                         </div>
-                        <Link to="/" className="links"  onClick={() => localStorage.clear()} >
+                        <Link to="/" className="links"  onClick={reloadLogout} >
                             <div className="DBN_ExitToApp_container">
                                 <div className="DBN_ExitToAppIcon_container">
                                     <ExitToAppIcon className="ExitToAppIcon"/>
