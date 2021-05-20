@@ -2,15 +2,11 @@
 
 .Loading_container{
     @include flex;
-    justify-content:center;
-    align-items: center;
-    text-align: center;
-    background-image: url(../../images/desk-01.jpg) !important;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-    height: 90vh;
-    color: blueviolet !important;
+    justify-content:center !important;
+    align-items: center !important;
+    text-align: center !important;
+    height: 100vh;
+  
 
     img{
         padding-right:20px !important;

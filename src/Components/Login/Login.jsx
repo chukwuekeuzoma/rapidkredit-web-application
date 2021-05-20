@@ -62,6 +62,9 @@ export default function () {
       e.preventDefault();
       axios.post('auth/login/', values)
         .then( response =>{
+              if(localStorage.getItem("token")){
+                localStorage.removeItem("token")
+              }
               localStorage.setItem("token", JSON.stringify({
               token:response.data.data.token
             }))
