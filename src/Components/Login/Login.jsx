@@ -5,9 +5,10 @@ import "./Login.scss"
 import RapidOne from "../../images/rapid.png"
 import {makeStyles} from '@material-ui/core/styles';
 import {Link,useHistory} from "react-router-dom"
-import Loading from "../LoadingPage/Loading"
+// import Loading from "../LoadingPage/Loading"
 import Alert from '@material-ui/lab/Alert';
 import axios from "axios"
+import PulseLoader from "react-spinners/ClipLoader"
 
 
 
@@ -47,7 +48,7 @@ export default function () {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
-    // const [Loader, setLoader] = useState(false)
+    const [Loader, setLoader] = useState(false)
 
 
     const history = useHistory();
@@ -60,7 +61,9 @@ export default function () {
     
     const onSubmit = (e) => {
       e.preventDefault();
+      setLoader(true)
       axios.post('auth/login/', values)
+         
         .then( response =>{
               if(localStorage.getItem("token")){
                 localStorage.removeItem("token")
@@ -79,9 +82,11 @@ export default function () {
               }
             // console.log(response)
             history.push("/Dashboard")
+            setLoader(false)
           }).catch((error) => {
             setError(error.response.data.message)
             setSuccess("")
+            setLoader(false)
             // console.log('Error:', error);
           });
               
@@ -129,10 +134,12 @@ export default function () {
                                     className="login_textfield"
                                     onChange={e => setPassword(e.target.value)}
                                 />
-                           </div>
+                           </div>{
+                            Loader? <div className="progress_circular"><div><PulseLoader color={"rgb(17, 17, 66)"} size={30}/></div></div> 
+                            :
                             <div className="login_Botton_container">
                                <Button variant="outlined" className="login_Button"  type="submit">Login</Button>
-                            </div> 
+                            </div> }
                     </form>
                           
                           <div className="login_register">

@@ -11,6 +11,7 @@ import { useFormik } from "formik"
 import * as yup from 'yup';
 import axios from "axios"
 import Alert from '@material-ui/lab/Alert';
+import PulseLoader from "react-spinners/ClipLoader"
 
 
 
@@ -59,6 +60,7 @@ export default function ForgotPasswordone() {
     const [Companydata, setCompanydata] = useState([])
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
+    const [Loader, setLoader] = useState(false)
     
 
     useEffect(() => {
@@ -69,6 +71,7 @@ export default function ForgotPasswordone() {
 
     
     const onSubmit = async (values) =>{
+        setLoader(true)
         axios.post('auth/password/reset', values)
         .then(response => {
                 if(response.data.status === "success"){
@@ -80,11 +83,14 @@ export default function ForgotPasswordone() {
                     setSuccess("")
                   }
                   formik.resetForm();
+                  setLoader(false)
                   // console.log(data.data.message)
               })
+             
               .catch((error) => {
                       setError(error.response.data.message)
                       setSuccess("")
+                      setLoader(false)
                       // console.error('Error:', error);
                 });
       }
@@ -164,10 +170,12 @@ export default function ForgotPasswordone() {
                                         {formik.touched.email && formik.errors.email ? formik.errors.email : ""}
                                     </span>
                                 </div>
+                                {Loader?<div className="Forgotpassword_progress_circular"><div><PulseLoader color={"rgb(17, 17, 66)"} size={30}/></div></div>
+                                :
                                 <div className="register_Botton_container">
                                     <Button variant="outlined" className="register_Button" type="submit" disabled={!formik.isValid}>Submit</Button>
                                 </div>
-
+                                }
                             </form>
 
                         </Paper>

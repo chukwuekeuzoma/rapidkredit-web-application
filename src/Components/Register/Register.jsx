@@ -12,6 +12,7 @@ import { useFormik } from "formik"
 import * as yup from 'yup';
 import axios from "axios"
 import Alert from '@material-ui/lab/Alert';
+import PulseLoader from "react-spinners/ClipLoader"
 
 
 
@@ -67,34 +68,49 @@ export default function Register() {
   const [Companydata, setCompanydata] = useState([])
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
+  const [Loader, setLoader] = useState(false)
 
 
-  useEffect(  async () => {
+  useEffect(() => {
+
+    let mount = true
+
     axios.get("companies")
-      .then(companydata => setCompanydata(companydata.data.data))
+      .then(companydata => {
+        if (mount) {
+          setCompanydata(companydata.data.data)
+        };
+      })
       .catch(e => console.log(e))
-  }, [])
- 
 
-  const onSubmit = async (values) =>{
+    return () => {
+      mount = false
+    }
+  }, [])
+
+
+  const onSubmit = async (values) => {
+    setLoader(true)
     axios.post('auth/register/', values)
-    .then(response => {
-            if(response.data.status === "success"){
-              setSuccess(response.data.message)
-              setError("")
-              };
-              if(response.data.status === "error"){
-                setError(response.data.message)
-                setSuccess("")
-              }
-              formik.resetForm();
-              // console.log(data.data.message)
-          })
-          .catch((error) => {
-                  setError(error.response.data.message)
-                  setSuccess("")
-                  // console.error('Error:', error);
-            });
+      .then(response => {
+        if (response.data.status === "success") {
+          setSuccess(response.data.message)
+          setError("")
+        };
+        if (response.data.status === "error") {
+          setError(response.data.message)
+          setSuccess("")
+        }
+        formik.resetForm();
+        setLoader(false)
+        // console.log(data.data.message)
+      })
+      .catch((error) => {
+        setError(error.response.data.message)
+        setSuccess("")
+        setLoader(false)
+        // console.error('Error:', error);
+      });
   }
 
 
@@ -210,7 +226,7 @@ export default function Register() {
                 </div>
                 <div className="field_container">
                   <span className="field">
-                   {formik.touched.firstName && formik.errors.firstName ? formik.errors.firstName : ""}
+                    {formik.touched.firstName && formik.errors.firstName ? formik.errors.firstName : ""}
                   </span>
                 </div>
                 <div className="register_input_email">
@@ -286,17 +302,21 @@ export default function Register() {
                 </div>
                 <div className="field_container">
                   <span className="field">
-                   {formik.touched.phone && formik.errors.phone ? formik.errors.phone : ""}
+                    {formik.touched.phone && formik.errors.phone ? formik.errors.phone : ""}
                   </span>
                 </div>
+                {Loader?
+                  <div className="Register_progress_circular"><div><PulseLoader color={"rgb(17, 17, 66)"} size={30}/></div></div>
+                :
                 <div className="register_Botton_container">
                   <Button variant="outlined" className="register_Button" type="submit" disabled={!formik.isValid}>Register</Button>
                 </div>
+                }
               </form>
               <div className="login_register">
                 <div>
                   <span className="dont_have">Have an account?</span>
-                  <Link to={{pathname:"/Login"}} className="links"><span className="login_register">Login here</span></Link>
+                  <Link to={{ pathname: "/Login" }} className="links"><span className="login_register">Login here</span></Link>
                 </div>
               </div>
 

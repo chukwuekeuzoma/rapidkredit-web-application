@@ -17,7 +17,7 @@ export default function DashboardLayout() {
     const history = useHistory();
 
     const reloadLogout = () => {
-        localStorage.removeItem("token")
+         localStorage.removeItem("token")
          history.push("/")
          window.location.reload();
     
