@@ -14,11 +14,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import PicThree from "../../images/carowhite4.png"
-import PicFour from "../../images/carowhite5.png"
-import PicFive from "../../images/carowhite6.png"
 import axios from "axios"
+import PulseLoader from "react-spinners/ClipLoader"
 
 
 
@@ -91,6 +89,7 @@ export default function Dashboard() {
   const [UserData, setUserData] = useState([])
   const [UserProfile, setUserProfile] = useState([])
   const [UserCompanyRoles, setUserCompanyRoles] = useState([])
+  const [LoaderUser, setLoaderUser] = useState(false)
     
     let store = JSON.parse(localStorage.getItem("token"))
 
@@ -106,12 +105,23 @@ export default function Dashboard() {
     )
 
     useEffect(async () => {
+
+       let mountUser = true
+       setLoaderUser(true)
         axios.get("users/get/data")
             .then(response => {
                 setUserProfile(JSON.parse(response.data.data).userProfile[0])
                 setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
+                setLoaderUser(false)
             })
-            .catch(e => console.log(e))
+            .catch(e => {
+              setLoaderUser(false)
+              console.log(e)
+          })
+
+            return () => {
+              mountUser = false
+          }
     }, [])
 
 
@@ -168,15 +178,17 @@ export default function Dashboard() {
                         <div className="DB_Header">
                             <div className="DB_Header_content">
                               <span className="Numbers">Numbers of <br/> request</span>
-                              <span className="Numbers_one">{UserProfile.loan_count}</span>
+                              <span className="Numbers_one">{LoaderUser?<div className="DB_Profile_progress_circular"><div><PulseLoader color={"white"} size={25} /></div></div>
+                              :
+                              UserProfile.loan_count}</span>
                             </div>
                             <div  className="DB_Header_content_two">
                               <span className="Total">Total amount <br/> Requested</span>
-                              <span className="Total_one">N&nbsp;{UserProfile.amount_loaned}</span>
+                              <span className="Total_one">N&nbsp;{LoaderUser ? <PulseLoader color={"white"} size={25} />:UserProfile.amount_loaned}</span>
                             </div>
                             <div  className="DB_Header_content_one">
                               <span className="Avaluable">Available</span>
-                              <span className="Avaluable_one">N{UserProfile.monthly_balance}</span>
+                              <span className="Avaluable_one">N{LoaderUser ? <PulseLoader color={"white"} size={10}/>:UserProfile.monthly_balance}</span>
                               {UserProfile.monthly_balance === "0.00" ?
                                         <Button variant="outlined" className="DB_Header_Button">Unavailable</Button>
                                         :
@@ -225,7 +237,9 @@ export default function Dashboard() {
                     <div className="DB_content_three">
                          <div className="circular">
                               <div className="inner"></div>
-                              <div className="Numb">{UserProfile.days_worked_for}<div className="Days">Days(s)</div></div>
+                              <div className="Numb">
+                                {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={20}/>:UserProfile.days_worked_for}
+                              <div className="Days">Days(s)</div></div>
                                <div className="circle">
                                   <div className="Bar Left">
                                       <div className="Progress"></div>

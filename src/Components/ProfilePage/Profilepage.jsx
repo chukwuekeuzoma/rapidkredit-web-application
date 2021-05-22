@@ -22,6 +22,7 @@ import * as yup from 'yup';
 import Alert from '@material-ui/lab/Alert';
 import PicThree from "../../images/carowhite4.png"
 import axios from "axios"
+import PulseLoader from "react-spinners/ClipLoader"
 
 
 
@@ -108,7 +109,9 @@ export default function Profilepage() {
     const [BankList, setBankList] = useState([])
     const [bankCode, setbankCode] = useState("")
     const [BankDetails, setBankDetails] = useState([])
-
+    const [Loader, setLoader] = useState(false)
+    const [LoaderTwo, setLoaderTwo] = useState(false)
+    const [LoaderUser, setLoaderUser] = useState(false)
 
 
     let bankValues = {
@@ -142,53 +145,80 @@ export default function Profilepage() {
     )
 
     useEffect(async () => {
+
+        let mountUser = true
+        setLoaderUser(true)
         axios.get("users/get/data")
             .then(response => {
+                setLoaderUser(false)
                 setUserData(JSON.parse(response.data.data).user)
                 setUserProfile(JSON.parse(response.data.data).userProfile[0])
                 setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
             })
-            .catch(e => console.log(e))
+            .catch(e => {
+                setLoaderUser(false)
+                console.log(e)
+            })
+
+        return () => {
+            mountUser = false
+        }
 
     }, [])
 
     useEffect(async () => {
+
+        let mountBank = true
+
         axios.get("users/bank/details")
             .then(response => {
                 setBankDetails(response.data.data)
             })
-            .catch(e => console.log(e))
+            .catch(e => {
+                console.log(e)
+            })
+
+        return () => {
+            mountBank = false
+        }
     }, [])
 
     useEffect(async () => {
+
+        let mountBankDetails = true
+
         axios.post("bank-details/banks")
             .then(response => setBankList(response.data.data))
             .catch(e => console.log(e))
+
+        return () => {
+            mountBankDetails = false
+        }
     }, [])
 
 
 
 
     const keyUp = () => {
-        if (accountNumber >= 10) {
+        setLoader(true)
+        if (accountNumber != "") {
             axios.post("bank-details/account-enquire", bankValues)
                 .then(response => {
                     setaccountName(response.data.data.AccountName)
                     setErrorBankSent("")
+                    setLoader(false)
                     setbankCode(response.data.data.BankCode)
                     setbankName(response.data.BankName)
-                    if (!response.data.data.AccountName) {
-                        setaccountName("Loading...")
-                        setErrorBankSent("")
-                    }
                     if (response.data.status === "error") {
                         setErrorBankSent(response.data.message)
                         setaccountName("")
+                        setLoader(false)
                     }
                 })
                 .catch((error) => {
                     setErrorBankSent(error.response.data.message)
                     setaccountName("")
+                    setLoader(false)
                     // console.error('Error:', error);
                 });
         }
@@ -204,30 +234,37 @@ export default function Profilepage() {
                 if (response.data.status === "success") {
                     setSucessBankSent(response.data.message)
                     setErrorBankSentOne("")
+                    setOpen(false)
+                    window.location.reload();
                 };
                 if (response.data.status === "error") {
                     setErrorBankSentOne(response.data.message)
                     setSucessBankSent("")
+                    setOpen(true)
                 }
             })
             .catch((error) => {
                 setErrorBankSentOne(error.response.data.message)
                 setSucessBankSent("")
+                setOpen(true)
                 // console.error('Error:', error);
             });
     }
 
     const onSubmit = async (values) => {
+        setLoaderTwo(true)
         const { confirmNewPassword, ...rest } = values;
         axios.patch(`users/update/`, rest)
             .then(response => {
                 if (response.data.status === "success") {
                     setSuccess(`${response.data.message}`)
                     setError("")
+                    setLoaderTwo(false)
                 };
                 if (response.data.status === "error") {
                     setError(response.data.message)
                     setSuccess("")
+                    setLoaderTwo(false)
                 }
                 formik.resetForm();
                 // console.log(data.message)
@@ -236,6 +273,7 @@ export default function Profilepage() {
             .catch((error) => {
                 setError(error.response.data.message)
                 setSuccess("")
+                setLoaderTwo(false)
                 // console.error('Error:', error);
             });
     }
@@ -303,11 +341,15 @@ export default function Profilepage() {
                             <div className="PR_Header">
                                 <div className="PR_Header_content">
                                     <span className="PR_Numbers">Numbers of <br /> request</span>
-                                    <span className="PR_Numbers_one">{UserProfile.loan_count}</span>
+                                    <span className="PR_Numbers_one">{LoaderUser ? <div className="PR_Profile_progress_circular"><div><PulseLoader color={"white"} size={25} /></div></div>
+                                        :
+                                        UserProfile.loan_count}</span>
                                 </div>
                                 <div className="PR_Header_content_two">
                                     <span className="PR_Total">Total amount <br /> Requested</span>
-                                    <span className="PR_Total_one">N&nbsp;{UserProfile.amount_loaned}</span>
+                                    <span className="PR_Total_one">N&nbsp;{LoaderUser ? <PulseLoader color={"white"} size={25} />
+                                        :
+                                        UserProfile.amount_loaned}</span>
                                 </div>
                                 <div className="PR_Number_Days_container">
                                     <div className="PR_Days_container">
@@ -315,13 +357,18 @@ export default function Profilepage() {
                                         <CalendarTodayIcon className="PR_Icon" /><br />
                                     </div>
                                     <div className="PR_Days_container_two">
-                                        <div className="PR_Figures"><span>{UserProfile.days_worked_for}</span></div>
+                                        <div className="PR_Figures"><span>{LoaderUser ? <PulseLoader color={"white"} size={25} />
+                                            :
+                                            UserProfile.days_worked_for
+                                        }</span></div>
                                         <div className="PR_Date"><span>Feb<br />2021</span></div>
                                     </div>
                                 </div>
                                 <div className="PR_Header_content_one">
                                     <span className="PR_Avaluable">Available</span>
-                                    <span className="PR_Avaluable_one">N{UserProfile.monthly_balance}</span>
+                                    <span className="PR_Avaluable_one">N{LoaderUser ? <PulseLoader color={"white"} size={10} />
+                                        :
+                                        UserProfile.monthly_balance}</span>
                                     {UserProfile.monthly_balance === "0.00" ?
                                         <Button variant="outlined" className="PR_Header_Button">Unavailable</Button>
                                         :
@@ -335,10 +382,19 @@ export default function Profilepage() {
                             <div className="profile_content_container">
                                 <img src={Employee} alt="slideimage" className="PR_profile_image" />
                                 <div className="profile_content">
-                                    <div><span className="Profile_name">{firstName} {lastName}</span><br /><span className="Profile_name_content">Employer</span></div>
+                                    <div><span className="Profile_name">
+                                        {LoaderUser ? <PulseLoader color={"black"} size={20} /> : firstName}
+                                        &nbsp;
+                                        {LoaderUser ? <PulseLoader color={"black"} size={20} /> : lastName}
+                                    </span><br /><span className="Profile_name_content">Employer</span>
+                                    </div>
                                 </div>
-                                <div className="Profile_draft"><DraftsIcon /><br />Email<br />{UserProfile.user_email}</div>
-                                <div className="profile_phone"><LocalPhoneIcon /><br />Phone<br />{UserProfile.phone}</div>
+                                <div className="Profile_draft"><DraftsIcon /><br />Email<br />
+                                  {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.user_email}
+                                </div>
+                                <div className="profile_phone"><LocalPhoneIcon /><br />Phone<br />
+                                  {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.phone}
+                                </div>
                             </div>
                             <div className="Pr_profile_button_container" >
 
@@ -422,7 +478,7 @@ export default function Profilepage() {
                                                             </TableHead>
                                                             <TableBody>
                                                                 {BankDetails.map(({ bank_name, account_name, account_number }, index) => (
-                                                                    <TableRow>
+                                                                    <TableRow key={index}>
                                                                         <StyledTableCell component="th" scope="row">
 
                                                                             <div className="Table_cellhead_container" >
@@ -489,10 +545,13 @@ export default function Profilepage() {
                                                                         onChange={e => setaccountNumber(e.target.value)}
                                                                     />
                                                                 </div>
-                                                                <div className="alert">
-                                                                    {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
-                                                                   {accountName && <Alert severity="info"><div>Account Name: {accountName}</div></Alert>} 
-                                                                </div>
+                                                                {Loader ? <div className="Profile_progress_circular"><div><PulseLoader color={"rgb(17, 17, 66)"} size={30} /></div></div>
+                                                                    :
+                                                                    <div className="alert">
+                                                                        {ErrorBankSent && <Alert severity="error">{ErrorBankSent}</Alert>}
+                                                                        {accountName && <Alert severity="info"><div>Account Name: {accountName}</div></Alert>}
+                                                                    </div>
+                                                                }
                                                                 <div className="account_Botton_container">
                                                                     <Button variant="outlined" className="account_password_Button" type="submit" disabled={!accountName}>Send</Button>
                                                                 </div>
@@ -576,9 +635,12 @@ export default function Profilepage() {
                                                                             {formik.touched.confirmNewPassword && formik.errors.confirmNewPassword ? formik.errors.confirmNewPassword : ""}
                                                                         </span>
                                                                     </div>
-                                                                    <div className="Reset_password_Botton_container">
-                                                                        <Button variant="outlined" className="Reset_password_Button" disabled={!formik.isValid} type="submit">Save</Button>
-                                                                    </div>
+                                                                    {LoaderTwo ? <div className="Profile_progress_circular"><div><PulseLoader color={"rgb(17, 17, 66)"} size={30} /></div></div>
+                                                                        :
+                                                                        <div className="Reset_password_Botton_container">
+                                                                            <Button variant="outlined" className="Reset_password_Button" disabled={!formik.isValid} type="submit">Save</Button>
+                                                                        </div>
+                                                                    }
                                                                 </form>
                                                             </Paper>
                                                         </Grid>

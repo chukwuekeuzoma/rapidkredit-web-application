@@ -15,6 +15,7 @@ export default function DashboardLayout(props) {
 
     const remove = () => {
         localStorage.removeItem("token")
+        window.location.reload();
     }
 
     setTimeout(remove, time);

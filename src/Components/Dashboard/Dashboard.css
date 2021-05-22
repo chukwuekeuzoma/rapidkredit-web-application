@@ -77,6 +77,12 @@
     align-items: center;
 }
 
+.DB_Profile_progress_circular{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+}
+
 .DB_Header_content{
     display: flex;
     flex-direction: column;

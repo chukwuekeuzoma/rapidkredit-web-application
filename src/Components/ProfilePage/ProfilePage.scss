@@ -60,6 +60,12 @@
             font-weight: bolder;
         }
 
+        .PR_Profile_progress_circular{
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: flex-start !important;
+        }
+
         .PR_Header_content_two{
             display: flex;
             flex-direction: column;
@@ -155,6 +161,12 @@
                   color:white !important;
                   margin-right:-10px !important;
                   margin-top:5px;
+                }
+
+                .PR_Header_Profile_progress_circular{
+                    display: flex !important;
+                    justify-content: flex-start !important;
+                    align-items: flex-start !important; 
                 }
             
                 
@@ -512,4 +524,10 @@
 
 .alert{
     margin-top: 15px !important;
+}
+.Profile_progress_circular{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top:20px;
 }
