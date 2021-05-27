@@ -12,7 +12,7 @@ export default function Homapage() {
     return (
         <>
             <Navigation/>
-            <BodyOne/>
+             <BodyOne/> 
             <BodyTwo/>
             <BodyThree/>
             <BodyFour/>

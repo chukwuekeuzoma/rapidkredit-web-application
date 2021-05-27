@@ -105,7 +105,7 @@ export default function () {
               <Grid>
                  <Paper elevation={3} className="paper">
                     <div className="login_logo">
-                    <img src={RapidOne} alt="tw" height="50px"/>
+                    <Link to="/" className="links"><img src={RapidOne} alt="tw" height="50px"/></Link>
                     </div>
                     <div>
                       {error && <Alert severity="error">{error}</Alert>}

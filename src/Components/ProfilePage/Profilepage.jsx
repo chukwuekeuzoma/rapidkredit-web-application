@@ -23,6 +23,7 @@ import Alert from '@material-ui/lab/Alert';
 import PicThree from "../../images/carowhite4.png"
 import axios from "axios"
 import PulseLoader from "react-spinners/ClipLoader"
+import useForceUpdate from 'use-force-update';
 
 
 
@@ -112,7 +113,15 @@ export default function Profilepage() {
     const [Loader, setLoader] = useState(false)
     const [LoaderTwo, setLoaderTwo] = useState(false)
     const [LoaderUser, setLoaderUser] = useState(false)
+    
 
+    const d = new Date ()
+    const months =["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"]
+    const month = months[d.getMonth()]
+    const year = d.getFullYear()
+
+  
+    // const forceUpdate = useForceUpdate();
 
     let bankValues = {
         bankInfo,
@@ -128,7 +137,9 @@ export default function Profilepage() {
 
 
 
-
+    // const updateFunc = () => {
+    //     setUpdateNow(!updateNow)
+    //   }
 
 
     let store = JSON.parse(localStorage.getItem("token"))
@@ -146,7 +157,7 @@ export default function Profilepage() {
 
     useEffect(async () => {
 
-        let mountUser = true
+        // let mountUser = true
         setLoaderUser(true)
         axios.get("users/get/data")
             .then(response => {
@@ -160,15 +171,15 @@ export default function Profilepage() {
                 console.log(e)
             })
 
-        return () => {
-            mountUser = false
-        }
+        // return () => {
+        //     mountUser = false
+        // }
 
     }, [])
 
     useEffect(async () => {
 
-        let mountBank = true
+        // let mountBank = true
 
         axios.get("users/bank/details")
             .then(response => {
@@ -178,22 +189,22 @@ export default function Profilepage() {
                 console.log(e)
             })
 
-        return () => {
-            mountBank = false
-        }
+        // return () => {
+        //     mountBank = false
+        // }
     }, [])
 
     useEffect(async () => {
 
-        let mountBankDetails = true
+        // let mountBankDetails = true
 
         axios.post("bank-details/banks")
             .then(response => setBankList(response.data.data))
             .catch(e => console.log(e))
 
-        return () => {
-            mountBankDetails = false
-        }
+        // return () => {
+        //     mountBankDetails = false
+        // }
     }, [])
 
 
@@ -279,6 +290,9 @@ export default function Profilepage() {
     }
 
 
+    
+  
+
 
     const EmployerchangeInfo = () => {
         setProfileInfo("Employers")
@@ -310,6 +324,7 @@ export default function Profilepage() {
 
     let firstName = UserData.first_name;
     let lastName = UserData.last_name;
+    let Employer = UserData.is_employer;
 
     const classes = useStyles();
 
@@ -327,7 +342,9 @@ export default function Profilepage() {
     });
 
 
-
+  
+        
+      
 
     return (
         <>
@@ -361,7 +378,7 @@ export default function Profilepage() {
                                             :
                                             UserProfile.days_worked_for
                                         }</span></div>
-                                        <div className="PR_Date"><span>Feb<br />2021</span></div>
+                                        <div className="PR_Date"><span>{month}<br />{year}</span></div>
                                     </div>
                                 </div>
                                 <div className="PR_Header_content_one">
@@ -386,7 +403,13 @@ export default function Profilepage() {
                                         {LoaderUser ? <PulseLoader color={"black"} size={20} /> : firstName}
                                         &nbsp;
                                         {LoaderUser ? <PulseLoader color={"black"} size={20} /> : lastName}
-                                    </span><br /><span className="Profile_name_content">Employer</span>
+                                    </span>
+                                      <br />
+                                      {
+                                        Employer === false?<span className="Profile_name_content">None Staff</span>
+                                        :
+                                         <span className="Profile_name_content">Employer</span>
+                                      }
                                     </div>
                                 </div>
                                 <div className="Profile_draft"><DraftsIcon /><br />Email<br />
@@ -675,3 +698,5 @@ export default function Profilepage() {
         </>
     )
 }
+
+ 

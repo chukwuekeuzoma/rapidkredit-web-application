@@ -93,6 +93,11 @@ export default function Dashboard() {
     
     let store = JSON.parse(localStorage.getItem("token"))
 
+    const d = new Date ()
+    const months =["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"]
+    const month = months[d.getMonth()]
+    const year = d.getFullYear()
+
 
     axios.interceptors.request.use(
         config => {
@@ -255,9 +260,9 @@ export default function Dashboard() {
                              <div className="calander_icon">
                                   <CalendarTodayIcon/>
                                   <br/>
-                                    Feb
+                                    {month}
                                    <br/>
-                                   2021
+                                   {year} 
                              </div>
                          </div>
 

@@ -8,30 +8,51 @@ import "./Navigation.css"
 import {Menu, Clear } from '@material-ui/icons'
 
 
+
 // import { Component } from 'react'
 
 export default function Navigation () {
 
-   const classes = useStyles();
-    
-     var lastScrollTop = 0;
-     var  navbar= document.getElementById("navBar");
-
-      
-         const martScroll = () => {
-               var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-               if(scrollTop > lastScrollTop){
-                   navbar.style.top="-120px";
-               }else{
-                   navbar.style.top="0";
-               }
-               lastScrollTop = scrollTop;
-           }
-  
-      
-
-
     const [Navbar, setNavbar] = useState(false)
+    // const [ScroolPos, setScroolPos] = useState(0)
+    // const [Show, setShow] = useState(true)
+
+    // console.log(ScroolPos)
+    // console.log(Show)
+
+   const classes = useStyles();
+   
+
+
+   useEffect(() => {
+        window.addEventListener("scroll", handleScroll)
+    // return()=>{
+    //     window.removeEventListener("scroll", handleScroll)
+    //   }
+    }, [])
+
+
+
+   const handleScroll = () => {
+         var lastScrollTop = 100; 
+         const navBar = document.getElementById("navBar")
+         var scroolTop = window.pageYOffset || document.documentElement.scrollTop;
+         if(scroolTop > lastScrollTop){
+              navBar.style.top="-120px";
+         }else {
+            navBar.style.top="0"
+         }
+
+         lastScrollTop = scroolTop;
+
+        // console.log(document.body.getBoundingClientRect());
+        // setScroolPos(document.body.getBoundingClientRect().top);
+        // setShow(document.body.getBoundingClientRect().top > 0)
+   } 
+
+
+  
+    
 
     const Navchange = () => {
         setNavbar(!Navbar)
@@ -39,7 +60,7 @@ export default function Navigation () {
          
     return (
         <>
-            <nav id="navBar" onScroll={martScroll}>
+            <nav id="navBar">
                     <div className="nav_bar_Menu_icon">
                         <div onClick={Navchange}>
                             {Navbar ? <Clear className="icon_color--clear"/> : <Menu className="icon_color"/> }
@@ -126,6 +147,7 @@ export default function Navigation () {
                 </div>
             </nav>
         </>
+
     );
 
     // }

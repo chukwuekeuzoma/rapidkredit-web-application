@@ -23,6 +23,7 @@
     "react-spinners": "^0.10.6",
     "react-video-js-player": "^1.1.1",
     "styled-components": "^5.2.1",
+    "use-force-update": "^1.0.7",
     "web-vitals": "^1.1.0",
     "yup": "^0.32.9"
   },

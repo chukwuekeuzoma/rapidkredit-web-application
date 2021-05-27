@@ -5,6 +5,7 @@ import Fade from 'react-reveal/Fade'
 import { Link } from "react-router-dom"
 import { Grid,Paper,Button } from '@material-ui/core';
 import RapidOne from "../../../images/rapid.png"
+import useForceUpdate from 'use-force-update';
 
 
 
@@ -13,14 +14,26 @@ export default function DashboardLayout(props) {
     const Oneminute = 60000;
     let time = 10 * Oneminute;
 
+    const [updateNow, setUpdateNow] = useState(true); 
+    // const forceUpdate = useForceUpdate();
+
+    const updateFunc = () => {
+        setUpdateNow(!updateNow)
+      }
+
     const remove = () => {
         localStorage.removeItem("token")
         window.location.reload();
+        // updateFunc();
+        // forceUpdate();
+        
     }
 
     setTimeout(remove, time);
 
     let store = JSON.parse(localStorage.getItem("token"))
+
+
 
     return (
         <>
@@ -55,6 +68,9 @@ export default function DashboardLayout(props) {
             }
         </>
     )
+
 }
+
+
 
 
