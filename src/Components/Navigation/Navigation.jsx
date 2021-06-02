@@ -9,7 +9,6 @@ import {Menu, Clear } from '@material-ui/icons'
 
 
 
-// import { Component } from 'react'
 
 export default function Navigation () {
 
@@ -26,9 +25,9 @@ export default function Navigation () {
 
    useEffect(() => {
         window.addEventListener("scroll", handleScroll)
-    // return()=>{
-    //     window.removeEventListener("scroll", handleScroll)
-    //   }
+    return()=>{
+        window.removeEventListener("scroll", handleScroll)
+      }
     }, [])
 
 
