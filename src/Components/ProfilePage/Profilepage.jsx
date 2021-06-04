@@ -100,8 +100,7 @@ export default function Profilepage() {
     const [UserBankList, setUserBankList] = useState([])
     const [bankId, setbankId] = useState("")
     const [companyId, setcompanyId] = useState("")
-    const [userId,setuserId] = useState("")
-    // const [narration, setnarration] = useState("")
+    const [userId, setuserId] = useState("")
     const [amount, setamount] = useState("")
     const [ButtonClass, setButtonClass] = useState("EmployerButton")
     const [error, setError] = useState("")
@@ -114,7 +113,7 @@ export default function Profilepage() {
     const [open, setOpen] = useState(false)
     const [RequestOpen, setRequestOpen] = useState(false)
     const [RequestError, setRequestError] = useState("")
-    const [RequestSuccess,setRequestSuccess]= useState("")
+    const [RequestSuccess, setRequestSuccess] = useState("")
     const [accountName, setaccountName] = useState("")
     const [bankName, setbankName] = useState("")
     const [BankList, setBankList] = useState([])
@@ -125,16 +124,14 @@ export default function Profilepage() {
     const [LoaderUser, setLoaderUser] = useState(false)
     const [RequestLoader, setRequestLoader] = useState(false)
 
-    
 
-    const d = new Date ()
-    const months =["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"]
+
+    const d = new Date()
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
     const month = months[d.getMonth()]
     const year = d.getFullYear()
-    const displayTodaysDate = d.getDate()+"/"+month+"/"+d.getFullYear();
+    const displayTodaysDate = d.getDate() + "/" + month + "/" + d.getFullYear();
 
-  
-    // const forceUpdate = useForceUpdate();
 
     let bankValues = {
         bankInfo,
@@ -151,14 +148,12 @@ export default function Profilepage() {
     let firstName = UserData.first_name;
     let lastName = UserData.last_name;
     let Employer = UserData.is_employer;
-    // let UserId = UserData.id;
-    console.log(userId)
 
-    let narration =`${firstName} ${lastName} requested at ${displayTodaysDate}`
+    // console.log(narration)
+    let narration = `${firstName} ${lastName} requested at ${displayTodaysDate}`
 
-    console.log(narration)
 
-    let userRequest ={
+    let userRequest = {
         bankId,
         amount,
         companyId,
@@ -181,56 +176,56 @@ export default function Profilepage() {
     )
 
     useEffect(async () => {
+        let usersgetdata = true
         setLoaderUser(true)
-           axios.get("users/get/data")
+        axios.get("users/get/data")
             .then(response => {
-                setLoaderUser(false)
-                setUserData(JSON.parse(response.data.data).user)
-                setuserId(JSON.parse(response.data.data).user["id"])
-                setUserProfile(JSON.parse(response.data.data).userProfile[0])
-                setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
+                if (usersgetdata) {
+                    setLoaderUser(false)
+                    setUserData(JSON.parse(response.data.data).user)
+                    setuserId(JSON.parse(response.data.data).user["id"])
+                    setUserProfile(JSON.parse(response.data.data).userProfile[0])
+                    setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
+                }
             })
             .catch(e => {
-                setLoaderUser(false)
-                console.log(e)
+                if (usersgetdata) {
+                    setLoaderUser(false)
+                    console.log(e)
+                }
             })
+        return () => usersgetdata = false
     }, [])
-   
-   useEffect(async () => {
-            axios.get(`users/${userId}/companies`)
-            .then(response => setUserCompanyList(response.data.data))
-            .catch(e => console.log(e))
-   }, [])
 
-   useEffect(async () => {
-       axios.get("users/bank/details")
-           .then(response => setUserBankList(response.data.data))
-           .catch(e => console.log(e))
-   }, [])
+    useEffect(async () => {
+        let usersuseridcompanies = true
+        axios.get(`users/${userId}/companies`)
+            .then(response => { if (usersuseridcompanies) { setUserCompanyList(response.data.data) } })
+            .catch(e => { if (usersuseridcompanies) { console.log(e) } })
+        return () => usersuseridcompanies = false
+    }, [userId])
 
-   useEffect(async () => {
-       axios.get("users/bank/details")
-           .then(response => {
-               setBankDetails(response.data.data)
-           })
-           .catch(e => {
-               console.log(e)
-           })
-   }, [])
-
-   useEffect(async () => {
-           axios.post("bank-details/banks")
-           .then(response => setBankList(response.data.data))
-           .catch(e => console.log(e))
-   }, [])
-  
-   
+    useEffect(async () => {
+        let usersbankdetails = true
+        axios.get("users/bank/details")
+            .then(response => {
+                if (usersbankdetails) {
+                    setUserBankList(response.data.data)
+                    setBankDetails(response.data.data)
+                }
+            })
+            .catch(e => { if (usersbankdetails) { console.log(e) } })
+        return () => usersbankdetails = false
+    }, [])
 
 
-
-   
-
-
+    useEffect(async () => {
+        let bankdetailsbanks = true
+        axios.post("bank-details/banks")
+            .then(response => { if (bankdetailsbanks) { setBankList(response.data.data) } })
+            .catch(e => { if (bankdetailsbanks) { console.log(e) } })
+        return () => bankdetailsbanks = false
+    }, [])
 
 
     const keyUp = () => {
@@ -312,35 +307,35 @@ export default function Profilepage() {
             });
     }
 
-     
-       
-      const userRequestSubmit = async (e) => {
-         e.preventDefault();
-         setRequestLoader(true) 
-         axios.post("api/requests", userRequest)
+
+
+    const userRequestSubmit = async (e) => {
+        e.preventDefault();
+        setRequestLoader(true)
+        axios.post("requests", userRequest)
             .then(response => {
                 if (response.data.status === "success") {
                     setRequestSuccess(response.data.message)
                     setRequestError("")
-                    setRequestLoader(false) 
+                    setRequestLoader(false)
                 };
                 if (response.data.status === "error") {
                     setRequestError(response.data.message)
                     setRequestSuccess("")
-                    setRequestLoader(false) 
+                    setRequestLoader(false)
                 }
             })
             .catch((error) => {
                 setRequestError(error.response.data.message)
                 setRequestSuccess("")
-                setRequestLoader(false) 
+                setRequestLoader(false)
                 // console.error('Error:', error);
             });
 
-      }
+    }
 
-    
-  
+
+
 
 
     const EmployerchangeInfo = () => {
@@ -380,9 +375,9 @@ export default function Profilepage() {
 
 
 
-  
 
-   
+
+
 
     const classes = useStyles();
 
@@ -400,9 +395,9 @@ export default function Profilepage() {
     });
 
 
-  
-        
-      
+
+
+
 
     return (
         <>
@@ -443,99 +438,99 @@ export default function Profilepage() {
                                     <span className="PR_Avaluable">Available</span>
                                     <span className="PR_Avaluable_one">N{LoaderUser ? <PulseLoader color={"white"} size={10} />
                                         :
-                                        UserProfile.monthly_balance}</span>
-                                    {UserProfile.monthly_balance === "0.00" ?
+                                        UserProfile.loanable_amount}</span>
+                                    {UserProfile.loanable_amount === "0.00" ?
                                         <Button variant="outlined" className="PR_Header_Button">Unavailable</Button>
                                         :
                                         <Button variant="outlined" className="PR_Header_Button" onClick={handleRequestOPen}>REQUEST PAYOUT</Button>
                                     }
                                 </div>
-                                    <Dialog
-                                        open={RequestOpen}
-                                        TransitionComponent={Transition}
-                                        keepMounted
-                                        onClose={handleRequestClose}
-                                        aria-labelledby="alert-dialog-slide-title"
-                                        aria-describedby="alert-dialog-slide-description"
-                                    >
-                                        <DialogContent style={{ width: "420px", height: "auto" }}>
-                                            {RequestError && <Alert severity="error">{RequestError}</Alert>}
-                                            {RequestSuccess && <Alert severity="success">{RequestSuccess}</Alert>}
-                                            <form className={classes.root} onSubmit={userRequestSubmit}>
-                                                <div className="account_select_input">
-                                                    <FormControl variant="outlined" className="account_select_textfield" size="small">
-                                                        <InputLabel htmlFor="outlined-age-native-simple">
-                                                            Select Your Company
+                                <Dialog
+                                    open={RequestOpen}
+                                    TransitionComponent={Transition}
+                                    keepMounted
+                                    onClose={handleRequestClose}
+                                    aria-labelledby="alert-dialog-slide-title"
+                                    aria-describedby="alert-dialog-slide-description"
+                                >
+                                    <DialogContent style={{ width: "420px", height: "auto" }}>
+                                        {RequestError && <Alert severity="error">{RequestError}</Alert>}
+                                        {RequestSuccess && <Alert severity="success">{RequestSuccess}</Alert>}
+                                        <form className={classes.root} onSubmit={userRequestSubmit}>
+                                            <div className="account_select_input">
+                                                <FormControl variant="outlined" className="account_select_textfield" size="small">
+                                                    <InputLabel htmlFor="outlined-age-native-simple">
+                                                        Select Your Company
                                                                                 </InputLabel>
-                                                        <Select
-                                                            native
-                                                            label=" Select Your Company"
-                                                            inputProps={{
-                                                                id: 'companylist',
+                                                    <Select
+                                                        native
+                                                        label=" Select Your Company"
+                                                        inputProps={{
+                                                            id: 'companylist',
 
-                                                            }}
-                                                            onChange={e => setcompanyId(e.target.value)}
-                                                        >
-                                                            <option aria-label="None" value="" />
+                                                        }}
+                                                        onChange={e => setcompanyId(e.target.value)}
+                                                    >
+                                                        <option aria-label="None" value="" />
 
-                                                            {UserCompanyList.map(({ company_name, id }, index) => (
-                                                                <option key={index} value={id}>
-                                                                    {company_name}
-                                                                </option>
-                                                            ))}
-                                                        </Select>
-                                                    </FormControl>
-                                                </div>
-                                                <div className="account_select_input">
-                                                    <FormControl variant="outlined" className="account_select_textfield" size="small">
-                                                        <InputLabel htmlFor="outlined-age-native-simple">
-                                                            Select Your Bank
+                                                        {UserCompanyList.map(({ company_name, id }, index) => (
+                                                            <option key={index} value={id}>
+                                                                {company_name}
+                                                            </option>
+                                                        ))}
+                                                    </Select>
+                                                </FormControl>
+                                            </div>
+                                            <div className="account_select_input">
+                                                <FormControl variant="outlined" className="account_select_textfield" size="small">
+                                                    <InputLabel htmlFor="outlined-age-native-simple">
+                                                        Select Your Bank
                                                                                 </InputLabel>
-                                                        <Select
-                                                            native
-                                                            label=" Select Your Bank"
-                                                            inputProps={{
-                                                                id: 'bankInfo',
+                                                    <Select
+                                                        native
+                                                        label=" Select Your Bank"
+                                                        inputProps={{
+                                                            id: 'bankInfo',
 
-                                                            }}
-                                                            onChange={e => setbankId(e.target.value)}
-                                                        >
-                                                            <option aria-label="None" value="" />
+                                                        }}
+                                                        onChange={e => setbankId(e.target.value)}
+                                                    >
+                                                        <option aria-label="None" value="" />
 
-                                                            {UserBankList.map(({ account_number, bank_name, id }, index) => (
-                                                                <option key={index} value={id}>
-                                                                    {`${account_number}, ${bank_name}`}
-                                                                </option>
-                                                            ))}
-                                                        </Select>
-                                                    </FormControl>
+                                                        {UserBankList.map(({ account_number, bank_name, id }, index) => (
+                                                            <option key={index} value={id}>
+                                                                {`${account_number}, ${bank_name}`}
+                                                            </option>
+                                                        ))}
+                                                    </Select>
+                                                </FormControl>
+                                            </div>
+                                            <div className="account_input">
+                                                <TextField
+                                                    size="small"
+                                                    label="Amount"
+                                                    placeholder="Amount"
+                                                    id="amount"
+                                                    type="phone"
+                                                    variant="outlined"
+                                                    className="account_textfield"
+                                                    onChange={e => setamount(e.target.value)}
+                                                />
+                                            </div>
+                                            {RequestLoader ? <div className="Profile_progress_circular"><div><PulseLoader color={"rgb(17, 17, 66)"} size={30} /></div></div>
+                                                :
+                                                <div className="account_Botton_container">
+                                                    <Button variant="outlined" className="account_password_Button" type="submit" disabled={!bankId || !companyId || !amount}>Send</Button>
                                                 </div>
-                                                <div className="account_input">
-                                                    <TextField
-                                                        size="small"
-                                                        label="Amount"
-                                                        placeholder="Amount"
-                                                        id="amount"
-                                                        type="phone"
-                                                        variant="outlined"
-                                                        className="account_textfield"
-                                                        onChange={e => setamount(e.target.value)}
-                                                    />
-                                                </div>
-                                                {RequestLoader ? <div className="Profile_progress_circular"><div><PulseLoader color={"rgb(17, 17, 66)"} size={30} /></div></div>
-                                                    :
-                                                    <div className="account_Botton_container">
-                                                        <Button variant="outlined" className="account_password_Button" type="submit" disabled={!bankId || !companyId || !amount}>Send</Button>
-                                                    </div>
-                                                }
-                                            </form>
-                                        </DialogContent>
-                                        <DialogActions>
-                                            <Button onClick={handleRequestClose} variant="outlined" className="dialog_action_button"  >
-                                                X
+                                            }
+                                        </form>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={handleRequestClose} variant="outlined" className="dialog_action_button"  >
+                                            X
                                             </Button>
-                                        </DialogActions>
-                                    </Dialog>
+                                    </DialogActions>
+                                </Dialog>
                             </div>
                         </div>
                         <div className="PR_content_two">
@@ -548,19 +543,19 @@ export default function Profilepage() {
                                         &nbsp;
                                         {LoaderUser ? <PulseLoader color={"black"} size={20} /> : lastName}
                                     </span>
-                                      <br />
-                                      {
-                                        Employer === false?<span className="Profile_name_content">None Staff</span>
-                                        :
-                                         <span className="Profile_name_content">Employer</span>
-                                      }
+                                        <br />
+                                        {
+                                            Employer === false ? <span className="Profile_name_content">None Staff</span>
+                                                :
+                                                <span className="Profile_name_content">Employer</span>
+                                        }
                                     </div>
                                 </div>
                                 <div className="Profile_draft"><DraftsIcon /><br />Email<br />
-                                  {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.user_email}
+                                    {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.user_email}
                                 </div>
                                 <div className="profile_phone"><LocalPhoneIcon /><br />Phone<br />
-                                  {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.phone}
+                                    {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.phone}
                                 </div>
                             </div>
                             <div className="Pr_profile_button_container" >
@@ -843,4 +838,4 @@ export default function Profilepage() {
     )
 }
 
- 
+

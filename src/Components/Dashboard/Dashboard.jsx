@@ -71,17 +71,6 @@ const useStyles = makeStyles({
   }))(TableCell);
   
 
-  
-  function createData(icon,name, calories, fat) {
-    return {icon,name, calories,fat};
-  }
-  
-  const rows = [
-    createData(PicThree,'Eclair', 262, 16.0),
-    // createData(PicFour,'Cupcake', 305, 3.7),
-    // createData(PicFive,'Gingerbread', 356, 16.0),
-  ];
-
 
 export default function Dashboard() {
 
@@ -111,22 +100,23 @@ export default function Dashboard() {
 
     useEffect(async () => {
 
-       let mountUser = true
+      
        setLoaderUser(true)
+       let usersgetdata = true
         axios.get("users/get/data")
             .then(response => {
+              if(usersgetdata){
                 setUserProfile(JSON.parse(response.data.data).userProfile[0])
                 setUserCompanyRoles(JSON.parse(response.data.data).userProfile)
                 setLoaderUser(false)
-            })
+            }})
             .catch(e => {
+              if(usersgetdata){
               setLoaderUser(false)
               console.log(e)
-          })
-
-            return () => {
-              mountUser = false
-          }
+          }})
+          
+          return () => usersgetdata = false 
     }, [])
 
 
@@ -193,8 +183,8 @@ export default function Dashboard() {
                             </div>
                             <div  className="DB_Header_content_one">
                               <span className="Avaluable">Available</span>
-                              <span className="Avaluable_one">N{LoaderUser ? <PulseLoader color={"white"} size={10}/>:UserProfile.monthly_balance}</span>
-                              {UserProfile.monthly_balance === "0.00" ?
+                              <span className="Avaluable_one">N{LoaderUser ? <PulseLoader color={"white"} size={10}/>:UserProfile.loanable_amount}</span>
+                              {UserProfile.loanable_amount === "0.00" ?
                                         <Button variant="outlined" className="DB_Header_Button">Unavailable</Button>
                                         :
                                         <Button variant="outlined" className="DB_Header_Button">REQUEST PAYOUT</Button>
