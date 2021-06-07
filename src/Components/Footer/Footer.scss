@@ -1,7 +1,7 @@
 @import "../../scssMixin/mixin.scss";
 
 .footer_container{
-    background:rgb(17, 17, 66) ;
+    background:#05006A;
     color:white;
     @include flex;
     justify-content: space-around;
@@ -125,7 +125,7 @@
 
             .footer_email_img{
                 margin-right:20px;
-                background:rgb(94, 94, 170);
+                background:#392fff;
                 padding:5px;
                 border-radius:5px;
                 display: flex;
@@ -148,7 +148,7 @@
              
              .footer_social_container{
                 margin-right:10px !important;
-                background:rgb(94, 94, 170) ;
+                background:#392fff;
                 padding:5px;
                 border-radius:5px;
                 display: flex;

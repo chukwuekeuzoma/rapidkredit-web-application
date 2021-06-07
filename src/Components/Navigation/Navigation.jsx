@@ -43,10 +43,6 @@ export default function Navigation () {
          }
 
          lastScrollTop = scroolTop;
-
-        // console.log(document.body.getBoundingClientRect());
-        // setScroolPos(document.body.getBoundingClientRect().top);
-        // setShow(document.body.getBoundingClientRect().top > 0)
    } 
 
 

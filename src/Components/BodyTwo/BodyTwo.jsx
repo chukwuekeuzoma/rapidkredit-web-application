@@ -1,6 +1,5 @@
 import React from 'react'
 import "./BodyTwo.scss"
-import {ArrowDropDown} from '@material-ui/icons';
 import Earnbeforepayday from "../../images/earnbeforepayday.jpg"
 
 
@@ -29,7 +28,7 @@ export default function BodyTwo() {
                     </div>
                     <div className="learn_more_C">
                         <div className="learn_more">
-                            <span className="learn_more_two">learn more <ArrowDropDown className="Arrow_D"/></span>
+                            <span className="learn_more_two">learn more</span>
                         </div>
                     </div>
                 </div>

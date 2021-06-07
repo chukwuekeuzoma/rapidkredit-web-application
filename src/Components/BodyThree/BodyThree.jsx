@@ -1,5 +1,4 @@
 import React from 'react'
-import {ArrowDropDown} from '@material-ui/icons';
 import Employeewelness from "../../images/employeewelness.jpg";
 import "../BodyTwo/BodyTwo.scss";
 
@@ -23,7 +22,7 @@ export default function BodyThree() {
                     </div>
                     <div className="learn_more_C">
                         <div className="learn_more">
-                            <span className="learn_more_two">learn more <ArrowDropDown className="Arrow_D"/></span>
+                            <span className="learn_more_two">learn more</span>
                         </div>
                     </div>
                 </div>

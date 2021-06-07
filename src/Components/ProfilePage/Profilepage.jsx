@@ -118,11 +118,12 @@ export default function Profilepage() {
     const [bankName, setbankName] = useState("")
     const [BankList, setBankList] = useState([])
     const [bankCode, setbankCode] = useState("")
-    const [BankDetails, setBankDetails] = useState([])
+    // const [BankDetails, setBankDetails] = useState([])
     const [Loader, setLoader] = useState(false)
     const [LoaderTwo, setLoaderTwo] = useState(false)
     const [LoaderUser, setLoaderUser] = useState(false)
     const [RequestLoader, setRequestLoader] = useState(false)
+    // const [update, setupdate] = useState(true)
 
 
 
@@ -206,19 +207,18 @@ export default function Profilepage() {
     }, [userId])
 
     useEffect(async () => {
-        let usersbankdetails = true
+        let usersbankList = true
         axios.get("users/bank/details")
             .then(response => {
-                if (usersbankdetails) {
+                if (usersbankList) {
                     setUserBankList(response.data.data)
-                    setBankDetails(response.data.data)
+                    // setBankDetails(response.data.data)
                 }
             })
-            .catch(e => { if (usersbankdetails) { console.log(e) } })
-        return () => usersbankdetails = false
+            .catch(e => { if (usersbankList) { console.log(e) } })
+        return () => usersbankList = false
     }, [])
-
-
+    
     useEffect(async () => {
         let bankdetailsbanks = true
         axios.post("bank-details/banks")
@@ -264,6 +264,7 @@ export default function Profilepage() {
                     setSucessBankSent(response.data.message)
                     setErrorBankSentOne("")
                     setOpen(false)
+                    // setupdate(false)
                     window.location.reload();
                 };
                 if (response.data.status === "error") {
@@ -401,7 +402,7 @@ export default function Profilepage() {
 
     return (
         <>
-            <div>
+             <div>
                 <Fade big duration={1000}>
                     <div className="Profile_container">
                         <h2>Profile</h2>
@@ -629,7 +630,7 @@ export default function Profilepage() {
                                                 <div className="account_details_container">
                                                     <div className="PR_Employers">Account Details</div>
 
-                                                    <TableContainer className="PR_Table">
+                                                    <TableContainer className="PR_Table" >
                                                         <Table >
                                                             <TableHead>
                                                                 <TableRow>
@@ -639,7 +640,7 @@ export default function Profilepage() {
                                                                 </TableRow>
                                                             </TableHead>
                                                             <TableBody>
-                                                                {BankDetails.map(({ bank_name, account_name, account_number }, index) => (
+                                                                {UserBankList.map(({ bank_name, account_name, account_number }, index) => (
                                                                     <TableRow key={index}>
                                                                         <StyledTableCell component="th" scope="row">
 
