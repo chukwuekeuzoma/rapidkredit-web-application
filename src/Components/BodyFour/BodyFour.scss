@@ -50,20 +50,27 @@
         }
 
         .Register_body{
-              
             margin-left:200px;
             margin-top:30px;
+        }
+              
+       
+        .Register_body_two{
+            background:#392fff;
+            color: white;
+            padding:10px;
+            padding-left:30px;
+            padding-right: 30px;
+            border-radius:5px;
+            font-size: small;
+            cursor: pointer;
+            font-weight: bolder;
+            transition: 0.5s;
 
-            .Register_body_two{
-                background:#392fff;
-                color: white;
-                padding:10px;
-                padding-left:30px;
-                padding-right: 30px;
-                border-radius:5px;
-                font-size: small;
-                cursor: pointer;
-                font-weight: bolder;
+            &:hover{
+                background: white;
+                color: #392fff;
+                transition: 0.5s;
             }
         }
     }

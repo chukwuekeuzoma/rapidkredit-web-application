@@ -187,14 +187,22 @@
   margin-bottom:50px;
 
   .Emp_Register_two{
-    background:rgb(94, 94, 170);
+    background:#392fff;
     color: white;
     padding:10px;
     padding-left:30px;
     padding-right: 30px;
-    border-radius:20px;
+    border-radius:5px;
     font-size: small;
     cursor: pointer;
     font-weight: bolder;
+    transition: 0.5s;
+    border:1px solid #392fff;
+
+    &:hover{
+      background: white;
+      color: #392fff;
+      transition: 0.5s;
+    }
   }
 }

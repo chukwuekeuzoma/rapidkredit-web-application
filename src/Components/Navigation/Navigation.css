@@ -53,6 +53,10 @@ nav{
     cursor: pointer;
 }
 
+.Employee:hover{
+    color:#2fdfff;
+}
+
 .Employer{
     margin-top: 35px;
     margin-left: 30px;
@@ -60,6 +64,10 @@ nav{
     font-size: 15px;
     color: #434343;
     cursor: pointer;
+}
+
+.Employer:hover{
+    color:#2fdfff;
 }
 
 .Com_Fa_Lo_Re{
@@ -195,6 +203,9 @@ nav{
     color: #434343;
     cursor: pointer;
 }
+.Faq:hover{
+    color:#2fdfff;
+}
 
 .Login{
     margin-top: 35px;
@@ -203,8 +214,8 @@ nav{
 
    
 .Login_two{
-    background:white;
-    color: #392fff;
+    background:#392fff;
+    color:white ;
     padding:10px;
     padding-left:30px;
     padding-right: 30px;
@@ -214,17 +225,11 @@ nav{
     font-weight: bolder;
     transition: 0.5s;
     border:1px solid #392fff;
+  
 }
 .Login_two:hover{
-    background:#392fff;
-    color: white;
-    padding:10px;
-    padding-left:30px;
-    padding-right: 30px;
-    border-radius:5px;
-    font-size: small;
-    cursor: pointer;
-    font-weight: bolder;
+    background: white;
+    color: #392fff;
     transition: 0.5s;
 }
 
@@ -234,8 +239,8 @@ nav{
 }
 
 .Register_two{
-    background:white;
-    color: #392fff;
+    background:#392fff;
+    color:white;
     padding:10px;
     padding-left:30px;
     padding-right: 30px;
@@ -247,15 +252,8 @@ nav{
     border:1px solid #392fff;
 }
 .Register_two:hover{
-    background:#392fff;
-    color: white;
-    padding:10px;
-    padding-left:30px;
-    padding-right: 30px;
-    border-radius:5px;
-    font-size: small;
-    cursor: pointer;
-    font-weight: bolder;
+    background: white;
+    color: #392fff;
     transition: 0.5s;
 }
 

@@ -47,7 +47,10 @@ export default function ContactUs() {
                          <div className="contactus_picture"></div>
                     </div>
                     <div className="contactus_Earn_before">
-                        <h1>input will be placed here</h1>
+                        <div>
+                            <h2>Leave us a message</h2>
+
+                        </div>
                           
                     </div>
                 </div>

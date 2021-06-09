@@ -79,8 +79,11 @@
 
 
     .contactus_Earn_before{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
         margin-left:-400px;
-        margin-top:70px;
+        // margin-top:70px;
         color: rgb(17, 17, 66);
         font-weight: bold;
     }
