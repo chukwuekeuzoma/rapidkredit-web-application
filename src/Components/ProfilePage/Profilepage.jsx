@@ -264,7 +264,6 @@ export default function Profilepage() {
                     setSucessBankSent(response.data.message)
                     setErrorBankSentOne("")
                     setOpen(false)
-                    // setupdate(false)
                     window.location.reload();
                 };
                 if (response.data.status === "error") {

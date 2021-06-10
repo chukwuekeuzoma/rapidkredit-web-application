@@ -55,7 +55,7 @@
             position:absolute;
             height: 80px;
             width: 80px;
-            background: rgb(94, 94, 170);
+            background: #392fff;
             right: -50px;
             top:300px;
             border-radius:20px;
@@ -83,9 +83,39 @@
         justify-content: flex-start;
         align-items: flex-start;
         margin-left:-400px;
-        margin-top:50px;
         color: rgb(17, 17, 66);
         font-weight: bold;
+    }
+
+    .contact_field{
+        margin-top:15px;
+    
+        .contact_textfield{
+            width: 100% !important;
+    
+            ::placeholder{
+                color:#392fff;
+            }
+        
+            label {
+                color: #392fff;
+            }
+        
+        }
+    }
+
+    .contact_Botton_container{
+    
+        .contact_Button{
+            width:100% !important;
+            color: white !important;
+            background:#392fff;
+            margin-top:10px;
+    
+            :disabled{
+                 filter: contrast(0.7) !important;
+            }
+        }
     }
     
 
