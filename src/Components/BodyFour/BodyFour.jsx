@@ -19,12 +19,9 @@ export default function BodyFour() {
                         <div>
                             <Bounce right delay={2000} duration={1000}>
                                 <ol>
-                                    <li>J sdhbnihjn klm dh mdj m, dkmkm b h nljnmojnm df</li>
-                                    <li>J sdhbnihjn klm dh mdj m, dkmkm b h nljnmojnm df</li>
-                                    <li>J sdhbnihjn klm dh mdj m, dkmkm b h nljnmojnm df</li>
-                                    <li>J sdhbnihjn klm dh mdj m, dkmkm b h nljnmojnm df</li>
-                                    <li>J sdhbnihjn klm dh mdj m, dkmkm b h nljnmojnm df</li>
-                                    <li>J sdhbnihjn klm dh mdj m, dkmkm b h nljnmojnm df</li>
+                                    <li>An employee uses the Rapidkredit app to access their earned pay.</li>
+                                    <li>The employee chooses when they want to get paid on-demand — <br/>instant pay or on the next business day.</li>
+                                    <li>Rapidkredit funds and pays the employee, to whatever bank<br/>account or pay card they choose.</li>
                                 </ol>
                             </Bounce>
                         </div>

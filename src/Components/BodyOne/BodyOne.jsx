@@ -22,9 +22,9 @@ export default function BodyOne() {
                     </Bounce>
                     <Bounce right delay={3000} duration={1000}>
                         <div className="With_D_two">
-                            <span className="Withdraw_two">   Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit,<br />sed do eiusmod tempor
-                                incididunt ut labore<br />et dolore</span>
+                            <span className="Withdraw_two"> Rapidkredit gives employees access to their pay and tips when they need it,<br/>
+                                and the ability to plan — before payday arrives.<br />We reduce financial stress and increase financial stability.
+                            </span>
                         </div>
                     </Bounce>
                     <Bounce right delay={4000} duration={1000}>

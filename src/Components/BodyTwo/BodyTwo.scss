@@ -3,10 +3,6 @@
 .container_three{
   @include flex;
   justify-content:space-around;
-//   background-image: url(../../images/desk-01.jpg);
-//   background-repeat: no-repeat;
-//   background-position: 50% 40%;
-//   background-size:cover;
   margin-top:50px;
   margin-bottom:50px;
 
@@ -60,9 +56,10 @@
         @include flex;
         flex-direction: column;
         align-content: center;
+        
 
         .H_P_Loerm{
-            margin-top:50px;
+            margin-top:10px;
         
             .Lorem_H{
                 font-size:40px;
@@ -72,7 +69,7 @@
             .Lorem_p{
                 word-spacing:5px;
                 color: rgb(17, 17, 66);
-                font-weight: bold;
+                font-weight:400;
             }
         }
         

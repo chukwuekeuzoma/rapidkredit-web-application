@@ -12,14 +12,23 @@ export default function BodyThree() {
                 <div className="H_P_Loerm_contanier">
                     <Bounce left delay={1000} duration={1000}>
                         <div className="H_P_Loerm">
-                            <h2 className="Lorem_H">Lorem Ipsum</h2>
+                            <h2 className="Lorem_H">Employee Financial Wellness<br/>
+                               Rapidkredit helps your<br/> employees to budget<br/>smarter
+                            </h2>
                             <p className="Lorem_p">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing<br />elit,sed do eiusmod tempor
-                                incididunt ut<br />labore et dolore magna
-                                aliqua. Quis <br /> ipsum suspendisse ultrices
-                                gravida.Risus commodo viverra <br />maecenas
-                                accumsan lacus vel facilisis
+                                Employees who enroll can view and track<br/>
+                                their earnings as they work throughout the week,<br/> helping them to 
+                                plan for upcoming expenses and determine whether<br/> they need to pick up additional shifts.
+                                <br/>
+                                Employees can also opt-in to receive automatic
+                                  <br/>
+                                balance alerts every time earnings are <br/>
+                                 reported and their balance goes up.
+                                 <br/>
+                                 With Rapidkredit, workers have access to<br/>
+                                 a better budgeting tool,within the Rapidkredit app<br/>
+                                  to show funds that are coming in and going out.<br/> 
+                                 Employees will find this to be extremely useful,<br/>especially around the holidays.
                             </p>
                         </div>
                     </Bounce>

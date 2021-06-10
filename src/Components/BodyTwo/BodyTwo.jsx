@@ -20,14 +20,17 @@ export default function BodyTwo() {
                 <div className="H_P_Loerm_contanier">
                    <Bounce right delay={1000} duration={1000}>
                         <div className="H_P_Loerm">
-                        <h2 className="Lorem_H">Lorem Ipsum</h2>
+                        <h2 className="Lorem_H">Earn Before Payday</h2>
                             <p className="Lorem_p">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing<br/>elit,sed do eiusmod tempor
-                                incididunt ut<br/>labore et dolore magna
-                                aliqua. Quis <br/> ipsum suspendisse ultrices
-                                gravida.Risus commodo viverra <br/>maecenas
-                                accumsan lacus vel facilisis
+                                Rapidkredit gives your employees 100%<br/>access to their earned pay on any device,<br/>
+                                at any time.
+                                <br/>
+                                The lowest fees. No subscriptions. No confusion.<br/>
+                                Employees can instantly access their earned pay
+                                <br/>
+                                Or employees can receive funds on the next business day
+                                <br/>
+                                You choose who pays the fee: you, your employees<br/> or a combination of the two.
                             </p>
                         </div>
                     </Bounce>

@@ -30,6 +30,7 @@
         @include flex;
         justify-content:center;
         align-content: center;
+        text-align: center;
         margin-top:20px;
         margin-left:-100px;
 
@@ -41,6 +42,7 @@
                   color: white;
                   letter-spacing: 2px;
                   word-spacing: 2px;
+                //   text-align: center !important;
                 }
             }
         }
@@ -50,7 +52,6 @@
         }
 
         .Register_body{
-            margin-left:200px;
             margin-top:30px;
         }
               
