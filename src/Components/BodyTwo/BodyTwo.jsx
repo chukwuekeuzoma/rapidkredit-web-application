@@ -2,6 +2,7 @@ import React from 'react'
 import "./BodyTwo.scss"
 import Earnbeforepayday from "../../images/earnbeforepayday.jpg"
 import Bounce from 'react-reveal/Bounce';
+import { Link } from "react-router-dom"
 
 
 export default function BodyTwo() {
@@ -36,9 +37,11 @@ export default function BodyTwo() {
                     </Bounce>
                     <Bounce right delay={2000} duration={1000}>
                         <div className="learn_more_C">
-                            <div className="learn_more">
-                                <span className="learn_more_two">LEARN MORE</span>
-                            </div>
+                            <Link to={{ pathname: "/Employer" }} className="links">
+                                <div className="learn_more">
+                                    <span className="learn_more_two">LEARN MORE</span>
+                                </div>
+                            </Link>
                         </div>
                     </Bounce>
                 </div>

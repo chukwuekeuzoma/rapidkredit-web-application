@@ -5,6 +5,7 @@ import { Twitter, Instagram, Facebook, LinkedIn, Drafts } from '@material-ui/ico
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Bounce from 'react-reveal/Bounce';
+import { Link } from "react-router-dom"
 
 
 
@@ -47,10 +48,11 @@ export default function Footer() {
             <div className="footer_Rapid_logo"><img src={RapidTwo} alt="tw" height="65px" /></div>
             <div className="footer_Lorem">
               <span className="footer_Lorem_second">
-                Lorem ipsum dolor sit amet, consectetur<br />
-                                adipiscing elit, sed do eiusmod tempor<br />
-                                incididunt ut labore et dolore magna<br />
-                                aliqua. Quis ipsum suspendisse
+              At Rapidkredit, we’ve built a best-in-class, trusted,<br/>
+              first-of-its-kind technology platform that dynamically<br/>
+               changes how money moves — changing pay,<br/> 
+              for good. We have one singular objective – to build<br/>
+              a better financial system, one paycheck at a time.
                             </span>
             </div>
             <div className="footer_All_right">
@@ -62,8 +64,7 @@ export default function Footer() {
         <Bounce right delay={2000} duration={1000}>
           <div className="footer_list_tag_one">
             <ul>
-              <li>Company</li>
-              <li>About</li>
+              <Link to={{ pathname: "/Aboutpage" }} className="links"><li>About</li></Link>
               <li>Blog</li>
               <li>Careers</li>
               <li>Partners</li>
@@ -73,8 +74,8 @@ export default function Footer() {
           <div className="footer_list_tag_two">
             <ul>
               <li>Help</li>
-              <li>Faq</li>
-              <li>Contact us</li>
+              <Link to={{ pathname: "/Faqpage" }} className="links"><li>Faq</li></Link>
+              <Link to={{ pathname: "/ContactUs" }} className="links"><li>Contact us</li></Link>
               <li>Forum</li>
             </ul>
           </div>
@@ -83,9 +84,10 @@ export default function Footer() {
 
               <div className="subcribe">
                 <h3>Subcribe</h3>
-                <span className="subcribe_words">Lorem ipsum dolor sit amet, consectetur<br />
-                              adipiscing elit, sed do eiusmod tempor<br />
-                              incididunt ut labore et.<br /></span>
+                <span className="subcribe_words">Keep up on our always evolving<br/> 
+                product features and technology.<br/> Enter your e-mail and subscribe<br/>
+                to our newsletter for information on our<br/>
+                latest products and promo.</span>
               </div>
 
               <form className={classes.root}>

@@ -20,13 +20,11 @@ export default function Employee() {
                     <Bounce right delay={1000} duration={1000}>
                         <div className="Employee_Earn_before">
                             <h1>Earn Before<br />payday</h1>
-                            suspendisse ultri gravida.Risus commodo<br />
-                            facilisis Lorem. suspendisse ultrices suspendisse ultri gravida.<br />
-                            Risus commodo maecenas accumsan lacus vel facilisis Lorem.<br />
-                            facilisis Lorem. suspendisse ultrices suspendisse ultri gravida.<br />
-                            Risus commodo maecenas accumsan lacus vel facilisis Lorem.<br />
-                            facilisis Lorem. suspendisse ultrices suspendisse ultri gravida.<br />
-                            Risus commodo maecenas accumsan lacus vel facilisis Lorem.<br />
+                            Money in the right place at the right time —<br/>
+                            our product enables employees to view,<br/>
+                            access and use 100% of their money as they earn it,<br/> 
+                            with no changes to the way you run payroll. Fully accessible,<br/>
+                            accurate and compliant.
                         </div>
                     </Bounce>
                 </div>

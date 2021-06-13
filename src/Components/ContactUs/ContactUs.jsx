@@ -60,14 +60,8 @@ export default function ContactUs() {
             <div>
                 <Fade delay={1000} duration={1000}>
                     <div className="Contactus_container">
-                        <h1>Contact us</h1>
-                            suspendisse ultri gravida Risus commodo maecenas accumsan lacus vel facilisis Lorem.
-                            suspendisse ultrices<br />
-                            suspendisse ultri gravida.Risus commodo maecenas accumsan lacus vel facilisis Lorem.
-                            <br />
-                            suspendisse ultri gravida.Risus commodo maecenas accumsan lacus vel facilisis Lorem.
-                            <br />
-                            suspendisse ultri gravida.Risus commodo maecenas accumsan lacus vel.<br />
+                        <h1>How can we help you?</h1>
+                          We’re looking forward to connecting with you soon!
                     </div>
                 </Fade>
                 <div className="contactus_icon_container">
@@ -76,7 +70,7 @@ export default function ContactUs() {
                             <DraftsIcon className="contactus_icon" /><br />
                             <h3>Email</h3>
                             <span className="contactus_text">info@rapidkredit.com<br />
-                        support@rapidkredit.com</span>
+                            hello@rapidkredit.com</span>
                         </div>
                     </Bounce>
                     <Fade delay={1000} duration={1000}>
@@ -92,7 +86,8 @@ export default function ContactUs() {
                             <LocationOnIcon className="contactus_icon" /><br />
                             <h3>Location</h3>
                             <span className="contactus_text">8 providence, street<br />
-                        Lekki phase 1, Lagos NG</span>
+                        Lekki phase 1, Lagos NG<br/>
+                        Monday to Sunday 7:00am to 10:00pm</span>
                         </div>
                     </Bounce>
                 </div>

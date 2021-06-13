@@ -20,18 +20,18 @@ export default function Employer() {
                         <div className="Emp_H_P_Loerm">
                             <h2 className="Emp_Lorem_H">Lorem Ipsum</h2>
                             <p className="Emp_Lorem_p">
-                                Lorem ipsum dolor sit amet, consectetur
-                                <br />elit,sed do eiusmod tempor
-                                incididunt ut<br />labore et dolore magna
-                                aliqua. Quis ipsum<br /> suspendisse ultrices
-                                gravida.Risus commodo<br />maecenas
-                                accumsan lacus vel facilisis Lorem.
-                                <br />consectetur elit,sed do eiusmod
-                                adipiscing<br /> tempor
-                                incididunt ut labore et dolore magna<br />
-                                aliqua.Quis ipsum suspendisse ultrices<br />
-                                gravida.Risus commodo viverra <br />maecenas
-                                accumsan lacus vel facilisis.
+                                Employees can opt-in to receive automatic balance<br/>
+                                alerts every time earnings are reported<br/>
+                                and their balance goes up.<br/>
+                                For your employees, the RapidKredit solution means<br/>
+                                they can see how much money they’ve earned from any<br/>
+                                 device, at any time.<br/>
+                                The information they see is 100% accurate.<br/>
+                                Our continuous flow of capital allows us to fund all<br/>
+                                payments for your employees.<br/>
+                                For your company this means that we can seamlessly<br/>
+                                offer you all our services without any<br/>
+                                changes to your existing processes.
                             </p>
                         </div>
                     </div>

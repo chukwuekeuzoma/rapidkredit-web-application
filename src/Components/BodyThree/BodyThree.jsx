@@ -2,6 +2,7 @@ import React from 'react'
 import Employeewelness from "../../images/employeewelness.jpg";
 import "../BodyTwo/BodyTwo.scss";
 import Bounce from 'react-reveal/Bounce';
+import { Link } from "react-router-dom"
 
 
 export default function BodyThree() {
@@ -33,11 +34,13 @@ export default function BodyThree() {
                         </div>
                     </Bounce>
                     <Bounce left delay={2000} duration={1000}>
-                        <div className="learn_more_C">
-                            <div className="learn_more">
-                                <span className="learn_more_two">LEARN MORE</span>
+                       <Link to={{ pathname: "/Employee" }} className="links">
+                            <div className="learn_more_C">
+                                <div className="learn_more">
+                                    <span className="learn_more_two">LEARN MORE</span>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </Bounce>
                 </div>
                 <div className="manwithphone_container">
