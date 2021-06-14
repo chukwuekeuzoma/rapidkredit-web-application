@@ -64,6 +64,7 @@
         @include flex;
         flex-direction: column;
         align-content: center;
+        line-height:0.6cm;
 
         .Emp_H_P_Loerm{
             margin-top:50px;
@@ -113,6 +114,7 @@
   @include flex;
   justify-content:space-around;
   z-index: 2;
+  line-height:0.7cm;
 
   
 

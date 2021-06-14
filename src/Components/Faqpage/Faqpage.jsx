@@ -27,6 +27,18 @@ export default function Fagepage() {
         setAddIconLetter("AddIconLetterThree")
     }
 
+    const AddIconLetterChangeFour = () => {
+        setAddIconLetter("AddIconLetterFour")
+    }
+
+    const AddIconLetterChangeFive = () => {
+        setAddIconLetter("AddIconLetterFive")
+    }
+
+    const AddIconLetterChangeSix = () => {
+        setAddIconLetter("AddIconLetterSix")
+    }
+
 
 
     return (
@@ -96,6 +108,39 @@ export default function Fagepage() {
                             you need a bank account, prepaid debit card or payroll card so that Rapidkredit knows where to send your earned pay. Rapidkredit’s software 
                             requires you to have direct deposit for your paychecks. This allows us to transfer your earned pay into your account of choice whenever you request a transfer.
                             To get started, sign up here today!
+                        </span>
+                    </div>
+
+                    <div className="AddIcon_container">
+                        <div className="AddIcon"><AddIcon className="Icon_S" onClick={AddIconLetterChangeFour} /><b className="Icon_L">What are the steps to sign up for Rapidkredit?</b></div>
+                    </div>
+                    <div className={AddIconLetter === "AddIconLetterFour" ? "AddIcon_letter_container" : "AddIcon_letter_container_none"}>
+                        <span className="AddIcon_letter">
+                        When signing up for Rapidkredit, you will need to do the following:
+                        Visit rapidkredit.com
+                        Click “Register” (this is in black text at the top right-hand corner of your screen)
+                        On the new page that opens, enter your organization, your country, your name (as it appears to your employer), email address, username, and phone number.
+                        Verify your account activation with a link that will be sent to your email address or phone number, depending on which option you choose.
+                        </span>
+                    </div>
+
+                    <div className="AddIcon_container">
+                        <div className="AddIcon"><AddIcon className="Icon_S" onClick={AddIconLetterChangeFive} /><b className="Icon_L">How fast can I receive money?</b></div>
+                    </div>
+                    <div className={AddIconLetter === "AddIconLetterFive" ? "AddIcon_letter_container" : "AddIcon_letter_container_none"}>
+                        <span className="AddIcon_letter">
+                            With Rapidkredit, you can receive a transfer from your Pay Balance either instantly or on the next business day.
+                            Instantly – transfer your earnings immediately, no matter what time of day it is. This includes weekends and holidays, 24/7/365.
+                            Next Business Day – if you request a transfer before 5:30 p.m., you will receive your money on the next business day. If you complete the transfer request after 5:30 p.m. you will receive the transfer on the following business day.
+                        </span>
+                    </div>
+
+                    <div className="AddIcon_container">
+                        <div className="AddIcon"><AddIcon className="Icon_S" onClick={AddIconLetterChangeSix} /><b className="Icon_L">How much does it cost to sign up for Rapidkredit?</b></div>
+                    </div>
+                    <div className={AddIconLetter === "AddIconLetterSix" ? "AddIcon_letter_container" : "AddIcon_letter_container_none"}>
+                        <span className="AddIcon_letter">
+                           There is no cost to you, or to your company, when you sign up for Rapidkredit. You pay a small fee every time you make a transfer of your earned income to your bank account, debit card or payroll card.
                         </span>
                     </div>
                 </Fade>

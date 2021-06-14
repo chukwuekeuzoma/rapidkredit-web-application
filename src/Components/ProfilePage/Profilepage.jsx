@@ -90,7 +90,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 
+
+
+
 export default function Profilepage() {
+
+
 
     const [ProfileInfo, setProfileInfo] = useState("Employers")
     const [UserData, setUserData] = useState([])
@@ -123,7 +128,7 @@ export default function Profilepage() {
     const [LoaderTwo, setLoaderTwo] = useState(false)
     const [LoaderUser, setLoaderUser] = useState(false)
     const [RequestLoader, setRequestLoader] = useState(false)
-    // const [update, setupdate] = useState(true)
+    
 
 
 
@@ -318,6 +323,7 @@ export default function Profilepage() {
                     setRequestSuccess(response.data.message)
                     setRequestError("")
                     setRequestLoader(false)
+                    window.location.reload();
                 };
                 if (response.data.status === "error") {
                     setRequestError(response.data.message)
@@ -526,7 +532,7 @@ export default function Profilepage() {
                                         </form>
                                     </DialogContent>
                                     <DialogActions>
-                                        <Button onClick={handleRequestClose} variant="outlined" className="dialog_action_button"  >
+                                        <Button onClick={handleRequestClose} variant="outlined" className="dialog_action_button">
                                             X
                                             </Button>
                                     </DialogActions>

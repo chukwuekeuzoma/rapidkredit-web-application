@@ -2,6 +2,7 @@
   "projects": {
     "default": "rapidkredit-web-application",
     "hosting ": "rapidkredit-1c601",
-    "RapidKredit-web-application ": "rapidkredit-1c601"
+    "RapidKredit-web-application ": "rapidkredit-1c601",
+    "default ": "rapidkredit-web-application"
   }
 }
