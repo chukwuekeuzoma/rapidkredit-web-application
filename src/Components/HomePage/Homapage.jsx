@@ -16,7 +16,7 @@ export default function Homapage() {
             <BodyTwo/>
             <BodyThree/>
             <BodyFour/>
-            <ImageSlider/>
+            {/* <ImageSlider/> */}
             <Bodyfive/>
             <Footer/>  
         </>
