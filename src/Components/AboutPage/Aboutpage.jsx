@@ -31,7 +31,7 @@ export default function Aboutpage() {
                     </div> 
                     <Bounce right delay={1000} duration={1000}>
                         <div className="culture">
-                            <h1>Culture</h1>
+                            <h1>Our Culture</h1>
                             We are building a generational company,<br/>
                             one that we expect to be here for decades to come. Importantly,<br/>
                             each of us believes that the long-term success of our<br/>
