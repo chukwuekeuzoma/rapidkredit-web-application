@@ -34,55 +34,21 @@ export default function Employee() {
                 <Bounce left delay={2000} duration={1000}>
                     <div>
                         <ScheduleIcon className="Employee_Icon_Classes" />
-                        <h1>Timely & <br />
+                        <h1>Timely & 
                                 Convenient
                             </h1>
-                        <span>
-                            suspendisse ultri gravida.Risus commodo<br />
-                                suspendisse ultri gravida.Risus commodo<br />
-                                suspendisse ultri gravida.Risus commodo<br />
-                                suspendisse ultri gravida.Risus commodo<br />
-                                suspendisse ultri gravida.Risus commodo<br />
-                                suspendisse ultri gravida.Risus commodo<br />
-                                suspendisse ultri gravida.Risus commodo<br />
-                                suspendisse ultri gravida.Risus commodo<br />
-                        </span>
                     </div>
                 </Bounce>
                 <Fade delay={1000} duration={1000}>
                     <div>
                         <AttachMoneyIcon className="Employee_Icon_Classes" />
-                        <h1>Instant & <br />
-                            Credit
-                        </h1>
-                        <span>
-                            suspendisse ultri gravida.Risus commodo<br />
-                            suspendisse ultri gravida.Risus commodo<br />
-                            suspendisse ultri gravida.Risus commodo<br />
-                            suspendisse ultri gravida.Risus commodo<br />
-                            suspendisse ultri gravida.Risus commodo<br />
-                            suspendisse ultri gravida.Risus commodo<br />
-                            suspendisse ultri gravida.Risus commodo<br />
-                            suspendisse ultri gravida.Risus commodo<br />
-                        </span>
+                        <h1>Instant Credit</h1>
                     </div>
                 </Fade>
                 <Bounce right delay={2000} duration={1000}>
                     <div>
                         <TrendingUpIcon className="Employee_Icon_Classes" />
-                        <h1>Interest & <br />
-                        Credit
-                    </h1>
-                        <span>
-                            suspendisse ultri gravida.Risus commodo<br />
-                        suspendisse ultri gravida.Risus commodo<br />
-                        suspendisse ultri gravida.Risus commodo<br />
-                        suspendisse ultri gravida.Risus commodo<br />
-                        suspendisse ultri gravida.Risus commodo<br />
-                        suspendisse ultri gravida.Risus commodo<br />
-                        suspendisse ultri gravida.Risus commodo<br />
-                        suspendisse ultri gravida.Risus commodo<br />
-                        </span>
+                        <h1>Interest Free  </h1>
                     </div>
                 </Bounce>
             </div>

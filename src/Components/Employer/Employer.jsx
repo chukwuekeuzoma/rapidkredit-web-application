@@ -18,7 +18,7 @@ export default function Employer() {
                 <Bounce right delay={1000} duration={1000}>
                     <div className="Emp_H_P_Loerm_contanier">
                         <div className="Emp_H_P_Loerm">
-                            <h2 className="Emp_Lorem_H">Lorem Ipsum</h2>
+                            <h2 className="Emp_Lorem_H">Employee Financial Flexibility</h2>
                             <p className="Emp_Lorem_p">
                                 Employees can opt-in to receive automatic balance<br/>
                                 alerts every time earnings are reported<br/>
