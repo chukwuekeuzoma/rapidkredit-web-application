@@ -40,14 +40,19 @@ export default function Employer() {
             <div className="video_container">
                 <Bounce left delay={1000} duration={1000}>
                     <div>
-                        <h2 className="Ve_Lorem_H">Lorem Ipsum</h2>
+                        <h2 className="Ve_Lorem_H">Employee Financial Flexibility</h2>
                         <p className="ve_Lorem_p">
-                            Lorem ipsum dolor sit amet, consectetur
-                                    <br />elit,sed do eiusmod tempor
-                                    incididunt ut<br />labore et dolore magna
-                                    aliqua. Quis ipsum<br /> suspendisse ultrices
-                                    gravida.Risus commodo<br />maecenas
-                                    accumsan lacus vel facilisis Lorem.
+                                The Rapidkredit platform changes the way money moves <br/>
+                                between employer and employee — literally transforming <br/> 
+                                the way employee compensation system works in Nigeria.<br/>
+                                For your employees, the RapidKredit solution means they<br/>
+                                 can see how much money they’ve earned from any device, at any time.<br/>
+                                  The information they see is 100% accurate.<br/>
+                                Our open connectivity into the banking system gives your<br/>
+                                 employees instant access to their money, where they want, when they want.<br/>
+                                Finally, our continuous flow of capital allows us to fund all payments.<br/>
+                                 For your company this means that we can seamlessly offer you all our<br/>
+                                  services without any changes to your existing processes. Or headaches for you.<br/>
                             </p>
                     </div>
                 </Bounce>

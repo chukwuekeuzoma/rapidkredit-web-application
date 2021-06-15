@@ -110,7 +110,7 @@
 }
 
 .video_container{
-  margin-bottom:100px;
+  margin-bottom:50px;
   @include flex;
   justify-content:space-around;
   z-index: 2;
@@ -134,6 +134,7 @@
   .video-js{
     border-radius:20px;
     z-index: 2;
+    margin-top: 50px;
   }
 
 
