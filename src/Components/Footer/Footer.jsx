@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Footer.scss"
 import RapidTwo from "../../images/rapid2.png"
-import { Twitter, Instagram, Facebook, LinkedIn, Drafts } from '@material-ui/icons';
+import { Twitter, Instagram, Facebook, LinkedIn, Drafts, ArrowForward } from '@material-ui/icons';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Bounce from 'react-reveal/Bounce';
 import { Link } from "react-router-dom"
+import axios from "axios"
+
 
 
 
@@ -38,6 +40,23 @@ const useStyles = makeStyles({
 
 
 export default function Footer() {
+   
+   const [email, setemail] = useState("")
+
+   const onSubmit = (e) => {
+    e.preventDefault();
+    //  axios.post('subscribe/save', email)
+    //  .then(response => {
+    //   if (response.data.status === "success") {
+    //      alert("thanks for subcribing")
+    //   };
+    //  }).catch((error) => {
+    //     alert(error.response.data.message)
+     
+    // });
+  }
+
+
   const classes = useStyles();
 
   return (
@@ -89,18 +108,23 @@ export default function Footer() {
                 to our newsletter for information on our<br/>
                 latest products and promo.</span>
               </div>
-
-              <form className={classes.root}>
-                <TextField
-                  size="small"
-                  id="email"
-                  label="Email"
-                  placeholder="Email"
-                  type="email"
-                  variant="outlined"
-                  className="footer_email_text"
-                />
-              </form>
+              <div className="Footer_form">
+                  <form className={classes.root} onSubmit={onSubmit}>
+                    <TextField
+                      size="small"
+                      id="email"
+                      label="Email"
+                      placeholder="Email"
+                      type="email"
+                      variant="outlined"
+                      className="footer_email_text"
+                      onChange={ e => setemail(e.target.value)}
+                    />
+                  </form>
+                  <div onClick={onSubmit}>
+                     <ArrowForward className="arrow_forward"/> 
+                  </div>
+              </div>
             </div>
             <div className="footer_email">
               <div className="footer_email_img"><Drafts /></div>

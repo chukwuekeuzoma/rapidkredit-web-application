@@ -93,7 +93,7 @@ export default function Employer() {
                 </div>
                 <Link to={{ pathname: "/Register" }} className="links">
                     <div className="Emp_Register">
-                        <span className="Emp_Register_two">Register</span>
+                        <span className="Emp_Register_two">REGISTER</span>
                     </div>
                 </Link>
             </Bounce>

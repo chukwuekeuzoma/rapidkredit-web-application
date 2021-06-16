@@ -19,7 +19,7 @@ export default function Employee() {
                     </div>
                     <Bounce right delay={1000} duration={1000}>
                         <div className="Employee_Earn_before">
-                            <h1>Earn Before<br />payday</h1>
+                            <h1>Earn Before payday</h1>
                             Money in the right place at the right time —<br/>
                             our product enables employees to view,<br/>
                             access and use 100% of their money as they earn it,<br/> 

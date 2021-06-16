@@ -103,6 +103,15 @@
            
         }
 
+        .Footer_form{
+            @include flex;
+            align-items: center;
+        }
+        
+        .arrow_forward{
+            font-size:30px; 
+            cursor: pointer;
+        }
         
 
         .footer_location_icon{

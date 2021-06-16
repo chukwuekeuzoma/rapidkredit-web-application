@@ -29,7 +29,7 @@ export default function BodyFour() {
 
                         <Bounce left delay={2000} duration={1000}>
                             <Link to={{ pathname: "/Register" }} className="links">
-                                <div className="Register_body"><span className="Register_body_two">Register</span></div>
+                                <div className="Register_body"><span className="Register_body_two">REGISTER</span></div>
                             </Link>
                         </Bounce>
                     </div>
