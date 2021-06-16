@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Footer.scss"
 import RapidTwo from "../../images/rapid2.png"
 import { Twitter, Instagram, Facebook, LinkedIn, Drafts, ArrowForward } from '@material-ui/icons';
+// import {Button, Dialog, DialogContent, DialogActions } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Bounce from 'react-reveal/Bounce';
@@ -42,18 +43,23 @@ const useStyles = makeStyles({
 export default function Footer() {
    
    const [email, setemail] = useState("")
+  //  const [open, setOpen] = useState(false)
+
+   const value ={
+    email
+   }
 
    const onSubmit = (e) => {
     e.preventDefault();
-    //  axios.post('subscribe/save', email)
-    //  .then(response => {
-    //   if (response.data.status === "success") {
-    //      alert("thanks for subcribing")
-    //   };
-    //  }).catch((error) => {
-    //     alert(error.response.data.message)
+     axios.post("subscribe/save",value)
+     .then(response => {
+      if (response.data.status === "success") {
+         alert(response.data.message)
+      };
+     }).catch((error) => {
+        alert(error.response.data.message)
      
-    // });
+    });
   }
 
 
@@ -118,7 +124,7 @@ export default function Footer() {
                       type="email"
                       variant="outlined"
                       className="footer_email_text"
-                      onChange={ e => setemail(e.target.value)}
+                      onChange={e => setemail(e.target.value)}
                     />
                   </form>
                   <div onClick={onSubmit}>
