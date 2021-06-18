@@ -5,6 +5,7 @@
   justify-content:space-around;
   margin-top:50px;
   margin-bottom:50px;
+  
 
 
     .manwithphone_container{
@@ -108,4 +109,24 @@
             }
         }
      }
+}
+
+// Reposiveness  
+@include MQ(1050px){
+     
+    .container_three{ 
+        flex-direction: column !important;
+        justify-content:center !important;
+        align-items: center !important;
+        padding-left:10px !important;
+
+    }
+
+    .H_P_Loerm_contanier{
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+
+
 }

@@ -20,3 +20,13 @@
 
     
 }
+
+
+@include MQ(750px){
+
+    .Download_container{
+        @include flex;
+        flex-direction: column !important;
+    }
+
+}

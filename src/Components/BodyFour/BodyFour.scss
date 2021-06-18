@@ -11,6 +11,7 @@
      .How_c{
          @include flex;
          justify-content: center;
+         align-items: center;
         
          
         .How_c_sub{
@@ -30,32 +31,26 @@
         @include flex;
         justify-content:center;
         align-content: center;
-        
+        text-align: center;
         margin-top:20px;
-        margin-left:-100px;
 
         .order_list_container{
-            margin-left:8%;
-            // text-align: center;
+            text-align: center;
             ul{
                 li{
                   color: white;
                   letter-spacing: 2px;
                   word-spacing: 2px;
                   line-height:0.6cm;
-                //   text-align: center !important;
+                  text-align: center;
+                //   list-style: none;
                 }
             }
-        }
-        
-        .RapidTwo{
-            margin-left: 20px;
         }
 
         .Register_body{
             margin-top:30px;
             text-align: center;
-            margin-left: -80px;
         }
               
        
@@ -80,6 +75,50 @@
         }
 
      
+    }
+
+}
+
+// Responsiveness 
+
+@include MQ(1000px){
+    .container_Four{
+       text-align: center !important;
+       margin-top: 0px !important;
+    }
+
+    .order_list_container{
+        margin-left:0% !important;
+        text-align: center !important;
+        ul{
+            li{
+              color: white;
+              letter-spacing: 0px !important;
+              word-spacing: 0px !important;
+              line-height:0.6cm;
+              text-align: center !important;
+            }
+        }
+    }
+    
+    .order_container{
+        @include flex;
+        justify-content:center;
+        align-content: center;
+        
+        margin-top:20px;
+        margin-left:0px !important;
+    }
+
+    .Register_body{
+        margin-top:30px;
+        text-align: center;
+        margin-left: 0px !important;
+        
+    }
+
+    .How_c_sub{
+        margin-top: 100px !important;
     }
 
 }

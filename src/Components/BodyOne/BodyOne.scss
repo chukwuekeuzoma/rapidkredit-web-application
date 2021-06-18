@@ -39,7 +39,7 @@
                  
                     margin-top:10px;
                     line-height:0.6cm;
-                    text-align: right !important;
+                    text-align: right;
                      
                        .Withdraw_two{
                            color: white;
@@ -54,6 +54,43 @@
           
 
     }
+}
+
+// reponsiveness 
+@include MQ(690px){
+   .W_A_S{
+    @include flex;
+    flex-direction: column !important;
+    line-height: 50px !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    margin-left:10px;
+   
+
+    .With_D_two{
+        text-align:left !important;
+    }
+
+   }
+
+   .Withdraw{
+     font-size:40px !important;
+     letter-spacing: 0px !important;
+   
+    }
+
+    .As{
+      
+        font-size:40px !important;
+        letter-spacing: 0px !important;
+      
+    }
+
+    .With_D{
+        margin-top:20px !important;
+    }
+
+    
 }
 
 

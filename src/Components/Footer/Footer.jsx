@@ -41,25 +41,25 @@ const useStyles = makeStyles({
 
 
 export default function Footer() {
-   
-   const [email, setemail] = useState("")
+
+  const [email, setemail] = useState("")
   //  const [open, setOpen] = useState(false)
 
-   const value ={
+  const value = {
     email
-   }
+  }
 
-   const onSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-     axios.post("subscribe/save",value)
-     .then(response => {
-      if (response.data.status === "success") {
-         alert(response.data.message)
-      };
-     }).catch((error) => {
+    axios.post("subscribe/save", value)
+      .then(response => {
+        if (response.data.status === "success") {
+          alert(response.data.message)
+        };
+      }).catch((error) => {
         alert(error.response.data.message)
-     
-    });
+
+      });
   }
 
 
@@ -73,12 +73,12 @@ export default function Footer() {
             <div className="footer_Rapid_logo"><img src={RapidTwo} alt="tw" height="65px" /></div>
             <div className="footer_Lorem">
               <span className="footer_Lorem_second">
-              At Rapidkredit, we’ve built a best-in-class, trusted,<br/>
-              first-of-its-kind technology platform that dynamically<br/>
-               changes how money moves — changing pay,<br/> 
-              for good. We have one singular objective – to build<br/>
-              a better financial system, one paycheck at a time.
-                            </span>
+                At Rapidkredit, we’ve built a best-in-class, trusted,<br />
+                first-of-its-kind technology platform that dynamically<br />
+                changes how money moves — changing pay,<br />
+                for good. We have one singular objective – to build<br />
+                a better financial system, one paycheck at a time.
+              </span>
             </div>
             <div className="footer_All_right">
               <span className="footer_All_right_seond">@Rapidkredit 2021. All rights Reserved</span>
@@ -109,27 +109,27 @@ export default function Footer() {
 
               <div className="subcribe">
                 <h3>Subcribe</h3>
-                <span className="subcribe_words">Keep up on our always evolving<br/> 
-                product features and technology.<br/> Enter your e-mail and subscribe<br/>
-                to our newsletter for information on our<br/>
-                latest products and promo.</span>
+                <span className="subcribe_words">Keep up on our always evolving<br />
+                  product features and technology.<br /> Enter your e-mail and subscribe<br />
+                  to our newsletter for information on our<br />
+                  latest products and promo.</span>
               </div>
               <div className="Footer_form">
-                  <form className={classes.root} onSubmit={onSubmit}>
-                    <TextField
-                      size="small"
-                      id="email"
-                      label="Email"
-                      placeholder="Email"
-                      type="email"
-                      variant="outlined"
-                      className="footer_email_text"
-                      onChange={e => setemail(e.target.value)}
-                    />
-                  </form>
-                  <div onClick={onSubmit}>
-                     <ArrowForward className="arrow_forward"/> 
-                  </div>
+                <form className={classes.root} onSubmit={onSubmit}>
+                  <TextField
+                    size="small"
+                    id="email"
+                    label="Email"
+                    placeholder="Email"
+                    type="email"
+                    variant="outlined"
+                    className="footer_email_text"
+                    onChange={e => setemail(e.target.value)}
+                  />
+                </form>
+                <div onClick={onSubmit}>
+                  <ArrowForward className="arrow_forward" />
+                </div>
               </div>
             </div>
             <div className="footer_email">
@@ -154,6 +154,174 @@ export default function Footer() {
           </div>
         </Bounce>
       </div>
+
+      {/* medium screen */}
+
+      <div className="footer_container_two">
+        <div className="footer_Rapid_two">
+          <div className="footer_Rapid_logo_two"><img src={RapidTwo} alt="tw" height="65px" /></div>
+          <div className="footer_Lorem_two">
+            <span className="footer_Lorem_second_two">
+              At Rapidkredit, we’ve built a best-in-class, trusted,<br />
+              first-of-its-kind technology platform that dynamically<br />
+              changes how money moves — changing pay,<br />
+              for good. We have one singular objective – to build<br />
+              a better financial system, one paycheck at a time.
+            </span>
+          </div>
+          <div className="footer_All_right_two">
+            <span className="footer_All_right_seond_two">@Rapidkredit 2021. All rights Reserved</span>
+          </div>
+        </div>
+        <div className="footer_list_tag_res_one">
+          <ul>
+            <Link to={{ pathname: "/Aboutpage" }} className="links"><li>About</li></Link>
+            <li>Blog</li>
+            <li>Careers</li>
+            <li>Partners</li>
+            <li>Help</li>
+            <Link to={{ pathname: "/Faqpage" }} className="links"><li>Faq</li></Link>
+            <Link to={{ pathname: "/ContactUs" }} className="links"><li>Contact us</li></Link>
+            <li>Forum</li>
+          </ul>
+        </div>
+        <div className="footer_location_two">
+          <div className="footer_textfield_two">
+
+            <div className="subcribe_two">
+              <h3>Subcribe</h3>
+              <span className="subcribe_words_two">Keep up on our always evolving<br />
+                product features and technology.<br /> Enter your e-mail and subscribe<br />
+                to our newsletter for information on our<br />
+                latest products and promo.</span>
+            </div>
+            <div className="Footer_form_two">
+              <form className={classes.root} onSubmit={onSubmit}>
+                <TextField
+                  size="small"
+                  id="email"
+                  label="Email"
+                  placeholder="Email"
+                  type="email"
+                  variant="outlined"
+                  className="footer_email_text_two"
+                  onChange={e => setemail(e.target.value)}
+                />
+              </form>
+              <div onClick={onSubmit}>
+                <ArrowForward className="arrow_forward_two" />
+              </div>
+            </div>
+          </div>
+          <div className="footer_email_two">
+            <div className="footer_email_img_two"><Drafts /></div>
+            <div><span className="footer_email_link_two">Hello@rapidkredit.com</span></div>
+
+          </div>
+          <div className="footer_social_media_two">
+            <div className="footer_social_container_two">
+              <Twitter className="footer_social_two" />
+            </div>
+            <div className="footer_social_container_two">
+              <Instagram className="footer_social_two" />
+            </div>
+            <div className="footer_social_container_two">
+              <Facebook className="footer_social_two" />
+            </div>
+            <div className="footer_social_container_two">
+              <LinkedIn className="footer_social_two" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* smaller screen */}
+
+      <div className="footer_container_three">
+        <div className="footer_textfield_three">
+
+          <div className="subcribe_three">
+            <h2>Subcribe</h2>
+            <span className="subcribe_words_three">Keep up on our always evolving<br />
+              product features and technology.<br /> Enter your e-mail and subscribe<br />
+              to our newsletter for information on our<br />
+              latest products and promo.</span>
+          </div>
+          <div className="Footer_form_three">
+            <form className={classes.root} onSubmit={onSubmit}>
+              <TextField
+                size="small"
+                id="email"
+                label="Email"
+                placeholder="Email"
+                type="email"
+                variant="outlined"
+                className="footer_email_text_three"
+                onChange={e => setemail(e.target.value)}
+              />
+            </form>
+            <div onClick={onSubmit}>
+              <ArrowForward className="arrow_forward_three" />
+            </div>
+          </div>
+        </div>
+        <div className="footer_email_three">
+          <div className="footer_email_img_three"><Drafts /></div>
+          <div><span className="footer_email_link_three">Hello@rapidkredit.com</span></div>
+        </div>
+        <div className="footer_list_tag_res_two">
+            <div className= "smaller_ul_one">
+               <ul>
+                  <Link to={{ pathname: "/Aboutpage" }} className="links"><li>About</li></Link>
+                  <li>Blog</li>
+                  <li>Careers</li>
+                  <li>Partners</li>
+               </ul>
+            </div>
+            <div className= "smaller_ul_two">
+                <ul>
+                    <li>Help</li>
+                    <Link to={{ pathname: "/Faqpage" }} className="links"><li>Faq</li></Link>
+                    <Link to={{ pathname: "/ContactUs" }} className="links"><li>Contact us</li></Link>
+                    <li>Forum</li>
+                </ul>
+            </div>
+        </div>
+        <div className="footer_Rapid_logo_three"><img src={RapidTwo} alt="tw" height="65px" /></div>
+        <div className="footer_Lorem_three">
+            <span className="footer_Lorem_second_three">
+              At Rapidkredit, we’ve built a best-in-class, trusted,<br />
+              first-of-its-kind technology platform that dynamically<br />
+              changes how money moves — changing pay,<br />
+              for good. We have one singular objective – to build<br />
+              a better financial system, one paycheck at a time.
+            </span>
+        </div>
+
+        <div className="footer_social_media_three">
+            <div className="footer_social_container_three">
+              <Twitter className="footer_social_three" />
+            </div>
+            <div className="footer_social_container_three">
+              <Instagram className="footer_social_three" />
+            </div>
+            <div className="footer_social_container_three">
+              <Facebook className="footer_social_three" />
+            </div>
+            <div className="footer_social_container_three">
+              <LinkedIn className="footer_social_three" />
+            </div>
+        </div>
+
+        <div className="footer_All_right_three">
+            <span className="footer_All_right_seond_three">@Rapidkredit 2021. All rights Reserved</span>
+        </div>
+
+
+      </div>
+
+
+
     </>
   )
 }
