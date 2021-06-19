@@ -299,53 +299,85 @@ nav{
     }
 
     .Employee--mobile{
-        margin:50px;
-         font-weight: bolder;
-         font-size: 15px;
-         color: rgb(17, 17, 66);
-         cursor: pointer;
+        margin-top: 35px;
+        margin-left: 60px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: #434343;
+        cursor: pointer;
      }
+    
+    .Employee--mobile:hover{
+        color:#2fdfff;
+    }
 
      
      .Employer--mobile{
-        margin:50px;
+        margin-top: 35px;
+        margin-left: 60px;
         font-weight: bolder;
         font-size: 15px;
-        color: rgb(17, 17, 66);
+        color: #434343;
         cursor: pointer;
     } 
 
+    .Employer--mobile:hover{
+        color:#2fdfff;
+    }
+
+
+
     .Company--mobile{
-        margin:50px;
-         font-weight:bolder;
-         font-size:15px;
-         color: rgba(36, 36, 35, 0.452);
-         cursor: pointer;
+        margin-top: 35px;
+        margin-left: 60px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: #434343;
+        cursor: pointer;
      }
+
+     .Company--mobile:hover{
+        color:#2fdfff;
+    }
 
      
      .Faq--mobile{
-        margin:50px;
-          font-weight:bolder;
-          font-size:15px;
-          color: rgba(43, 43, 41, 0.452);
-          cursor: pointer;
+        margin-top: 35px;
+        margin-left: 60px;
+        font-weight: bolder;
+        font-size: 15px;
+        color: #434343;
+        cursor: pointer;
       }
+
+      .Faq--mobile--mobile:hover{
+        color:#2fdfff;
+       }
+
 
       .Login--mobile{
         margin:50px;
      }
 
      .Login_two--mobile{
-        background:rgb(94, 94, 170);
-        color: white;
+        background:#392fff;
+        color:white ;
         padding:10px;
         padding-left:30px;
         padding-right: 30px;
-        border-radius:20px;
+        border-radius:5px;
         font-size: small;
         cursor: pointer;
         font-weight: bolder;
+        transition: 0.5s;
+        border:1px solid #392fff;
+    }
+
+
+    .Login_two--mobile:hover{
+        background: white;
+        color: #392fff;
+        transition: 0.5s;
     }
 
     .Register--mobile{
@@ -353,15 +385,23 @@ nav{
     }
 
     .Register_two--mobile{
-        background:rgb(94, 94, 170);
-        color: white;
+        background:#392fff;
+        color:white ;
         padding:10px;
         padding-left:30px;
         padding-right: 30px;
-        border-radius:20px;
+        border-radius:5px;
         font-size: small;
         cursor: pointer;
         font-weight: bolder;
+        transition: 0.5s;
+        border:1px solid #392fff;
+    }
+
+    .Register_two--mobile:hover{
+        background: white;
+        color: #392fff;
+        transition: 0.5s;
     }
 
     .nav_bar_Menu_icon{

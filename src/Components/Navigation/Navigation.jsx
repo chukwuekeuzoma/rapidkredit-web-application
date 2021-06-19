@@ -131,14 +131,14 @@ export default function Navigation () {
                 </div>
                 
                 {/* mobile-screen */}
-                <div className="RapidOne--mobile"><img src={RapidOne} alt="tw" height="65px"/></div>  
+                <div className="RapidOne--mobile"><Link to="/" className="links"><img src={RapidOne} alt="tw" height="65px"/></Link></div>  
                 <div className={Navbar?"R_em_ep--mobile":"R_em_ep--mobile-none"}>
-                    <div className="Employee--mobile"><span>EMPLOYEE</span></div>
-                    <div className="Employer--mobile"><span>EMPLOYER</span></div>        
-                    <div className="Company--mobile"><span>Company</span></div>
-                    <div className="Faq--mobile"><span>FAQ</span></div>
-                    <div className="Login--mobile"><span className="Login_two--mobile">Login</span></div>
-                    <div className="Register--mobile"><span className="Register_two--mobile">Register</span></div>
+                    <div className="Employee--mobile"><Link to="/Employee" className="links"><span>EMPLOYEE</span></Link></div>
+                    <div className="Employer--mobile"><Link to="/Employer" className="links"><span>EMPLOYER</span></Link></div>        
+                    <div className="Company--mobile" ><span>Company</span></div>
+                    <div className="Faq--mobile"><Link to="/Faqpage" className="links"><span>FAQ</span></Link></div>
+                    <div className="Login--mobile"><Link to="Login" className="links"><span className="Login_two--mobile">Login</span></Link></div>
+                    <div className="Register--mobile"><Link to="Register" className="links"><span className="Register_two--mobile">Register</span></Link></div>
                 </div>
             </nav>
         </>
