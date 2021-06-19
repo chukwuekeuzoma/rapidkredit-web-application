@@ -77,19 +77,13 @@ export default function Employer() {
             <Bounce left delay={1000} duration={1000}>
                 <div className="time_convenient">
                     <h1>Time & Convenient</h1>
-                    <br /> suspendisse ultrices
-                    gravida.Risus commodo maecenas
-                    accumsan lacus vel facilisis Lorem.<br />
-                    suspendisse ultrices
-                    gravida.Risus commodo
-                    accumsan lacus vel facilisis Lorem.<br />
-                    suspendisse ultrices
-                    gravida.Risus
-                    accumsan lacus vel facilisis Lorem.<br />
-                    Lorem ipsum dolor sit amet, consectetur
-                    <br />elit,sed do eiusmod tempor
-                    incididunt ut<br />labore et dolore magna
-                    aliqua. Quis ipsum
+                             Rapidkredit endeavours to increase financial stability<br/> 
+                            platforms that will enable you to <br/>
+                            view, access and use 100% of your money as you earn it.<br/>
+                            We have a  highly responsive, simple,<br/>
+                            and a swift process which makes the overall<br/>
+                            experience seamless for our clients. No delays,<br/>
+                             no system changes- very convenient
                 </div>
                 <Link to={{ pathname: "/Register" }} className="links">
                     <div className="Emp_Register">

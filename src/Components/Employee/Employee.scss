@@ -66,13 +66,53 @@
 
 .Employee_Icon_container{
     @include flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
     background:#05006A;
     color: white !important;
-    padding: 50px;
+    padding: 20px;
     
 
     .Employee_Icon_Classes{
         font-size:80px !important;
     }
+
+    .text_aling_center_AttachMoneyIcon{
+         text-align: center !important;
+         width: 400px;
+         margin-bottom: 20px !important;
+          margin-top: 10px !important;
+          padding: 10px !important;
+    }
+
+    .text_aling_center_TrendingUpIcon{
+         text-align: center !important;
+         width: 400px;
+         margin-bottom: 20px !important;
+         padding: 10px !important;
+    }
+
+    .text_aling_center_scheduleIcon{
+        text-align: center !important;
+        margin-top: 20px;
+        width: 400px;
+        padding: 10px !important;
+    }
 }
+
+
+// responsiveness 
+
+@include MQ(950px){
+    .Employee_container{
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .Employee_Earn_before{
+        margin-left: 50px !important;
+    }
+
+}
+

@@ -72,6 +72,7 @@
             .Emp_Lorem_H{
                 font-size:40px;
                 color: rgb(17, 17, 66);
+                line-height: 1.5cm !important;
             }
             
             .Emp_Lorem_p{
@@ -122,6 +123,7 @@
     font-size:40px;
     color: rgb(17, 17, 66);
     z-index: 2 !important;
+    line-height: 1.5cm !important;
   }
 
   .ve_Lorem_p{
@@ -160,16 +162,17 @@
 
   .kredit{
     top:-400px;
-    padding-left: 0px;
-    margin-left: 0px;
-    font-size:35.0vw;
+    // padding-left: 0px !important;
+    margin-left: 0px !important;
+    font-size:36.0vw;
     width:100vw;
     color: #2fdfff;
     opacity: 0.4;
     font-weight: bold;
     position: absolute;
-    left:-37px;
     right:0px;
+    overflow: hidden;
+    text-overflow: clip;
    
   }
 
@@ -209,4 +212,28 @@
       transition: 0.5s;
     }
   }
+}
+
+@include MQ(1100px){
+    .Emp_container_three{
+       flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px !important;
+    }
+   
+
+    .video_container{
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 10px !important;
+      margin-bottom:0px !important;
+    }
+
+    .kredit_container{
+        .kredit{
+          top:0px !important;
+        }
+    }
+
+    
 }
