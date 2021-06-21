@@ -34,6 +34,23 @@ export default function Employer() {
                                 changes to your existing processes.
                             </p>
                         </div>
+                        <div className="Emp_H_P_Loerm_mobile">
+                            <h2 className="Emp_Lorem_H_mobile">Employee Financial Flexibility</h2>
+                            <p className="Emp_Lorem_p_mobile">
+                                Employees can opt-in to receive automatic balance
+                                alerts every time earnings are reported
+                                and their balance goes up.
+                                For your employees, the RapidKredit solution means
+                                they can see how much money they’ve earned from any
+                                 device, at any time.
+                                The information they see is 100% accurate.
+                                Our continuous flow of capital allows us to fund all
+                                payments for your employees.
+                                For your company this means that we can seamlessly
+                                offer you all our services without any
+                                changes to your existing processes.
+                            </p>
+                        </div>
                     </div>
                 </Bounce>
             </div>
@@ -53,6 +70,22 @@ export default function Employer() {
                                 Finally, our continuous flow of capital allows us to fund all payments.<br/>
                                  For your company this means that we can seamlessly offer you all our<br/>
                                   services without any changes to your existing processes. Or headaches for you.<br/>
+                            </p>
+                    </div>
+                    <div>
+                        <h2 className="Ve_Lorem_H_mobile">Employee Financial Flexibility</h2>
+                        <p className="ve_Lorem_p_mobile">
+                                The Rapidkredit platform changes the way money moves 
+                                between employer and employee — literally transforming
+                                the way employee compensation system works in Nigeria.
+                                For your employees, the RapidKredit solution means they
+                                 can see how much money they’ve earned from any device, at any time.
+                                  The information they see is 100% accurate.
+                                Our open connectivity into the banking system gives your
+                                 employees instant access to their money, where they want, when they want.
+                                Finally, our continuous flow of capital allows us to fund all payments.
+                                 For your company this means that we can seamlessly offer you all our
+                                  services without any changes to your existing processes. Or headaches for you.
                             </p>
                     </div>
                 </Bounce>
@@ -83,6 +116,16 @@ export default function Employer() {
                             We have a  highly responsive, simple,<br/>
                             and a swift process which makes the overall<br/>
                             experience seamless for our clients. No delays,<br/>
+                             no system changes- very convenient
+                </div>
+                <div className="time_convenient_mobile">
+                    <h1>Time & Convenient</h1>
+                             Rapidkredit endeavours to increase financial stability
+                            platforms that will enable you to
+                            view, access and use 100% of your money as you earn it.
+                            We have a  highly responsive, simple,
+                            and a swift process which makes the overall
+                            experience seamless for our clients. No delays,
                              no system changes- very convenient
                 </div>
                 <Link to={{ pathname: "/Register" }} className="links">

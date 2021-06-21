@@ -21,7 +21,7 @@ export default function BodyTwo() {
                 <div className="H_P_Loerm_contanier">
                    <Bounce right delay={1000} duration={1000}>
                         <div className="H_P_Loerm">
-                        <h2 className="Lorem_H">Earn Before Payday</h2>
+                           <h2 className="Lorem_H">Earn Before Payday</h2>
                             <p className="Lorem_p">
                                 Rapidkredit gives your employees 100%<br/>access to their earned pay on any device,<br/>
                                 at any time.
@@ -32,6 +32,17 @@ export default function BodyTwo() {
                                 Or employees can receive funds on the next business day
                                 <br/>
                                 You choose who pays the fee: you, your employees<br/> or a combination of the two.
+                            </p>
+                        </div>
+                        <div className="H_P_Loerm_mobile_P">
+                           <h2 className="Lorem_H_mobile_P">Earn Before Payday</h2>
+                            <p className="Lorem_p_mobile_P">
+                                Rapidkredit gives your employees 100% access to their earned pay on any device,
+                                at any time.
+                                The lowest fees. No subscriptions. No confusion.
+                                Employees can instantly access their earned pay
+                                Or employees can receive funds on the next business day
+                                You choose who pays the fee: you, your employees or a combination of the two.
                             </p>
                         </div>
                     </Bounce>

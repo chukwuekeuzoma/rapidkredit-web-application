@@ -75,6 +75,10 @@
                 line-height: 0.6cm;
             }
         }
+
+        .H_P_Loerm_mobile_P{
+            display:none;
+        }
         
         .learn_more_C{
             @include flex;
@@ -126,7 +130,30 @@
         justify-content: center !important;
         align-items: center !important;
     }
+}
 
+// responsive for text
 
+@include MQ(600px){
+    .H_P_Loerm{
+        display: none;
+    }
 
+    .H_P_Loerm_mobile_P{
+        display: block !important;
+        margin-top:10px;
+        padding: 10px;
+    
+        .Lorem_H_mobile_P{
+            font-size:40px;
+            color: rgb(17, 17, 66);
+        }
+        
+        .Lorem_p_mobile_P{
+            word-spacing:5px;
+            color: rgb(17, 17, 66);
+            font-weight:400;
+            line-height: 0.6cm;
+        }
+    }
 }

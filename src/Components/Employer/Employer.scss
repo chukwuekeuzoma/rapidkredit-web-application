@@ -66,6 +66,10 @@
         align-content: center;
         line-height:0.6cm;
 
+        .Emp_H_P_Loerm_mobile{
+          display: none;
+        }
+
         .Emp_H_P_Loerm{
             margin-top:50px;
         
@@ -82,42 +86,24 @@
             }
         }
         
-        .Emp_learn_more_C{
-            @include flex;
-            justify-content: flex-end;
-            margin-top: 50px;
-            margin-right: 20px;
-
-            .Emp_learn_more_two{
-                background:rgb(94, 94, 170);
-                color: white;
-                padding:20px;
-                padding-left:30px;
-                padding-right: 50px;
-                border-radius:30px;
-                cursor: pointer;
-                font-weight:400;
-                position: relative;
-                font-size: small;
-
-                .Emp_Arrow_D{
-                  position: absolute;
-                  font-size: 40px !important;
-                  top: 9px !important;
-                }
-            }
-        }
      }
 }
 
 .video_container{
+  margin-top: -100px;
   margin-bottom:50px;
   @include flex;
   justify-content:space-around;
   z-index: 2;
   line-height:0.7cm;
 
-  
+  .Ve_Lorem_H_mobile{
+    display: none;
+  }
+
+  .ve_Lorem_p_mobile{
+    display: none;
+  }
 
   .Ve_Lorem_H{
     font-size:40px;
@@ -186,6 +172,9 @@
   margin-top:150px;
   line-height: 0.7cm;
 }
+.time_convenient_mobile{
+  display: none;
+}
 
 .Emp_Register{
 
@@ -214,6 +203,8 @@
   }
 }
 
+//Responsiveness 
+
 @include MQ(1100px){
     .Emp_container_three{
        flex-direction: column !important;
@@ -236,4 +227,71 @@
     }
 
     
+}
+
+// responsive for text 
+@include MQ(600px){
+     .time_convenient{
+        display: none !important;
+     }
+  
+    .time_convenient_mobile{
+      display: block !important;
+      padding: 10px;
+      text-align: center;
+      color: rgb(17, 17, 66);
+      font-weight:400;
+      margin-bottom:30px;
+      margin-top:150px;
+      line-height: 0.7cm;
+    }
+     
+
+    .Emp_H_P_Loerm{
+      display: none;
+    }
+    .Emp_H_P_Loerm_mobile{
+      display:  block !important;
+      margin-top:50px;
+      padding-left: 10px;
+  
+      .Emp_Lorem_H_mobile{
+          font-size:40px;
+          color: rgb(17, 17, 66);
+          line-height: 1.5cm !important;
+      }
+      
+      .Emp_Lorem_p_mobile{
+          word-spacing:5px;
+          color: rgb(17, 17, 66);
+          font-weight:400;
+      }
+  }
+
+  .Ve_Lorem_H{
+    display: none;
+  }
+
+  .ve_Lorem_p{
+    display: none;
+  }
+
+  .Ve_Lorem_H_mobile{
+    display: block !important;
+    padding-left: 10px;
+    font-size:40px;
+    color: rgb(17, 17, 66);
+    z-index: 2 !important;
+    line-height: 1.5cm !important;
+  }
+
+  .ve_Lorem_p_mobile{
+    display: block !important;
+    padding-left: 10px;
+    word-spacing:5px;
+    color: rgb(17, 17, 66);
+    font-weight:400;
+    z-index: 2 !important;
+  }
+  
 }

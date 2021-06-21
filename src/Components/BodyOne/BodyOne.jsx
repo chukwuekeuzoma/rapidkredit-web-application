@@ -26,6 +26,11 @@ export default function BodyOne() {
                                 and the ability to plan — before payday arrives.<br />We reduce financial stress and increase financial stability.
                             </span>
                         </div>
+                        <div className="With_D_two_mobile">
+                            <span className="Withdraw_two_mobile"> Rapidkredit gives employees access to their pay and tips when they need it,
+                                and the ability to plan — before payday arrives.We reduce financial stress and increase financial stability.
+                            </span>
+                        </div>
                     </Bounce>
                     <Bounce right delay={4000} duration={1000}>
                         <div>

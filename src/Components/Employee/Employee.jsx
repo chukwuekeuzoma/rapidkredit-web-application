@@ -28,6 +28,16 @@ export default function Employee() {
                                 accurate and compliant.
                             </div>
                         </div>
+                        <div className="Employee_Earn_before_mobile">
+                            <div>
+                                <h1>Earn Before payday</h1>
+                                Money in the right place at the right time —
+                                our product enables employees to view,
+                                access and use 100% of their money as they earn it,
+                                with no changes to the way you run payroll. Fully accessible,
+                                accurate and compliant.
+                            </div>
+                        </div>
                     </Bounce>
                 </div>
 
@@ -40,12 +50,12 @@ export default function Employee() {
                                 Convenient
                             </h1>
 
-                            Rapidkredit endeavours to increase financial stability<br/> 
-                            for you by creating platforms that will enable you to <br/>
-                            view, access and use 100% of your money as you earn it.<br/>
-                            We have a  highly responsive, simple,<br/>
-                            and a swift process which makes the overall<br/>
-                            experience seamless for our clients. No delays,<br/>
+                            Rapidkredit endeavours to increase financial stability 
+                            for you by creating platforms that will enable you to
+                            view, access and use 100% of your money as you earn it.
+                            We have a  highly responsive, simple,
+                            and a swift process which makes the overall
+                            experience seamless for our clients. No delays,
                              no system changes- very convenient.
                     </div>
                 </Bounce>
@@ -53,10 +63,10 @@ export default function Employee() {
                     <div className="text_aling_center_AttachMoneyIcon">
                         <AttachMoneyIcon className="Employee_Icon_Classes" />
                         <h1>Instant Credit</h1>
-                        Rapidkredit gives you instant access to your earned pay.<br/> 
-                        This means that you choose when you want to get paid.<br/> 
-                        You can get instant access to your earned income or<br/>
-                        receive it on the next business day<br/>
+                        Rapidkredit gives you instant access to your earned pay. 
+                        This means that you choose when you want to get paid.
+                        You can get instant access to your earned income or
+                        receive it on the next business day
                          when you choose to use Rapidkredit
                     </div>
                 </Fade>
@@ -64,9 +74,9 @@ export default function Employee() {
                     <div className="text_aling_center_TrendingUpIcon">
                         <TrendingUpIcon className="Employee_Icon_Classes" />
                         <h1>Interest Free  </h1>
-                          Our platform enables you to be fully compliant while<br/> 
-                          providing a hassle free, efficient and<br/>
-                           cost effective experience. We change the way money moves with<br/>
+                          Our platform enables you to be fully compliant while
+                          providing a hassle free, efficient and
+                           cost effective experience. We change the way money moves with
                             no interest rate and with no changes to your payroll process
 
                     </div>

@@ -58,6 +58,10 @@
         font-weight:400;
         line-height:0.6cm;
     }
+
+    .Employee_Earn_before_mobile{
+        display: none;
+    }
     
 
   
@@ -71,7 +75,8 @@
     align-items: center;
     background:#05006A;
     color: white !important;
-    padding: 20px;
+    padding: 10px;
+    height:auto;
     
 
     .Employee_Icon_Classes{
@@ -79,10 +84,9 @@
     }
 
     .text_aling_center_AttachMoneyIcon{
-         text-align: center !important;
+          text-align: center !important;
          width: 400px;
-         margin-bottom: 20px !important;
-          margin-top: 10px !important;
+          margin-bottom: 20px !important;
           padding: 10px !important;
     }
 
@@ -95,7 +99,6 @@
 
     .text_aling_center_scheduleIcon{
         text-align: center !important;
-        margin-top: 20px;
         width: 400px;
         padding: 10px !important;
     }
@@ -114,5 +117,25 @@
         margin-left: 50px !important;
     }
 
+    .Employee_Earn_before_mobile{
+        margin-left: 50px !important;
+    }
+
+}
+
+// responsive fro text 
+
+@include MQ(600px){
+    .Employee_Earn_before{
+    display: none;
+    }
+
+  .Employee_Earn_before_mobile{
+    display: block !important;
+    margin-top:70px;
+    color: rgb(17, 17, 66);
+    font-weight:400;
+    line-height:0.6cm
+  }
 }
 

@@ -46,6 +46,10 @@
                            
                        }
                 }  
+
+                .With_D_two_mobile{
+                    display: none;
+                }
       .Botton--one{
           border: 1px solid white !important;
           color: white !important;
@@ -91,6 +95,29 @@
     }
 
     
+}
+
+// responsive for text
+
+@include MQ(600px){
+
+    .With_D_two{
+        display: none;
+    }
+
+   
+
+    .With_D_two_mobile{
+        display: block !important;
+        margin-top:10px;
+        line-height:0.6cm;
+        text-align: left !important;
+         
+           .Withdraw_two_mobile{
+               color: white;
+               
+           }
+    }
 }
 
 

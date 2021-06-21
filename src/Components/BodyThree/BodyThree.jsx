@@ -41,6 +41,23 @@ export default function BodyThree() {
                                 Employees will find this to be extremely useful,<br />especially around the holidays.
                             </p>
                         </div>
+                        <div className="H_P_Loerm_mobile_P">
+                            <h2 className="Lorem_H_mobile_P">Employee Financial Wellness<br />
+                                Rapidkredit helps your<br /> employees to budget<br />smarter
+                            </h2>
+                            <p className="Lorem_p_mobile_P">
+                                Employees who enroll can view and track
+                                their earnings as they work throughout the week, helping them to
+                                plan for upcoming expenses and determine whether they need to pick up additional shifts.
+                                Employees can also opt-in to receive automatic
+                                balance alerts every time earnings are
+                                reported and their balance goes up.
+                                With Rapidkredit, workers have access to
+                                a better budgeting tool,within the Rapidkredit app
+                                to show funds that are coming in and going out.
+                                Employees will find this to be extremely useful,especially around the holidays.
+                            </p>
+                        </div>
                     </Bounce>
                     <Bounce left delay={2000} duration={1000}>
                         <Link to={{ pathname: "/Employee" }} className="links">
