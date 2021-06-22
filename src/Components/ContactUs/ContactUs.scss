@@ -6,6 +6,7 @@
     font-weight:400;
     margin-bottom:30px;
     margin-top:80px;
+    padding: 20px;
 }
 
 .contactus_icon_container{
@@ -13,6 +14,7 @@
     justify-content:space-around;
     margin-top:150px;
     margin-bottom:100px;
+  
 
     .contactus_icon{
         color:rgb(17, 17, 66) !important;
@@ -82,7 +84,6 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        margin-left:-400px;
         color: rgb(17, 17, 66);
         font-weight:400;
     }
@@ -121,4 +122,31 @@
 
   
 
+}
+
+// Responsiveness
+
+@include MQ(600px){
+    .contactus_icon_container{
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: none !important;
+        margin-top: 50px !important;
+        margin-bottom:50px !important;
+    }
+
+    .contactus_info{
+        text-align: center !important;
+        margin-top: 20px !important;
+    }
+
+}
+
+@include MQ(750px){
+    .contactus_log_container{
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: none !important;
+    }
+     
 }

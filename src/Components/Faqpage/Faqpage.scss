@@ -60,14 +60,22 @@
                 line-height:0.6cm;
             }
 
+            .Faq_mobile{
+                display: none;
+            }
+
         }
 
+        .AddIcon_main_container{
+            margin-top:-40px;
+        }
 
         .AddIcon_container{
             @include flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 5px;
+           
             
             
             .AddIcon{
@@ -138,5 +146,44 @@
     }
     to{
        opacity:1;
+    }
+}
+
+
+// Responsivness 
+
+@include MQ(650px){
+    .Icon_L{
+        width: 330px !important;
+    }
+
+    
+    .AddIcon_letter{
+        width: 345px !important;
+    }
+}
+
+@include MQ(1085px){
+   
+    .Faq{
+        display: none;
+    }
+     
+
+    .Faq_mobile{
+        display:block !important;
+        color: rgb(17, 17, 66);
+        font-weight:400;
+        line-height:0.6cm;
+        text-align: center;
+        margin-top:50px;
+        padding: 20px;
+    }
+
+    .Faq_container{
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: none !important;
+        
     }
 }

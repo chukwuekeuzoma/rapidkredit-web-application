@@ -9,6 +9,10 @@
     line-height:0.6cm;
 }
 
+.Aboutus_container_mobile{
+    display:none;
+}
+
 .Culture_container{
     @include flex;
     justify-content:space-around;
@@ -69,6 +73,55 @@
         line-height:0.6cm;
     }
 
+    .culture_mobile{
+        display: none;
+    }
+
   
 
 }
+
+// Responsive for text
+
+@include MQ(700px){
+    .Aboutus_container{
+        display: none;
+    }
+
+    .Aboutus_container_mobile{
+        display: block !important;
+        padding: 10px;
+        text-align: center;
+        color: rgb(17, 17, 66);
+        font-weight:400;
+        margin-bottom:30px;
+        margin-top:80px;
+        line-height:0.6cm;
+    }
+}
+
+// Responsive 
+
+@include MQ(1050px){
+
+    .Culture_container{
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: none !important;
+    }
+
+    .culture{
+        display: none;
+    }
+
+    .culture_mobile{
+        display: block !important;
+        text-align: center;
+        padding: 20px;
+        margin-top:70px;
+        color: rgb(17, 17, 66);
+        font-weight:400;
+        line-height:0.6cm;
+    }
+}
+

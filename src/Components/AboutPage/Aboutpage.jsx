@@ -22,6 +22,18 @@ export default function Aboutpage() {
                         the playing field and treats each and every participant equally. One that is fluid,<br/>
                         efficient and delivers a better experience for everyone.
                     </div>
+                    <div className="Aboutus_container_mobile">
+                        <h1>About us</h1>
+                        At Rapidkredit, we’ve created a platform that does so much more than give employees
+                        access to their earnings in real-time. Our platform forever changes the way money
+                        moves between employer and employee, between merchant and shopper,
+                        between financial institution and customer. Now money moves faster and smoother,
+                        and benefits each participant equally.
+                        Our mission is to change the financial system by rewriting the invisible rules of money.
+                        We are not just creating a platform that transforms payday, we are creating one that levels
+                        the playing field and treats each and every participant equally. One that is fluid,
+                        efficient and delivers a better experience for everyone.
+                    </div>
                 </Fade>
                 <div className="Culture_container">
                     <div className="Culture_picture_container">
@@ -38,6 +50,15 @@ export default function Aboutpage() {
                             company is 100% dependent on the success of our people,<br/>
                             a collection of high-performing individuals who bring diverse experiences,<br/>
                             perspectives and backgrounds to carry out our mission.<br/>
+                        </div>
+                        <div className="culture_mobile">
+                            <h1>Our Culture</h1>
+                            We are building a generational company,
+                            one that we expect to be here for decades to come. Importantly,
+                            each of us believes that the long-term success of our
+                            company is 100% dependent on the success of our people,
+                            a collection of high-performing individuals who bring diverse experiences,
+                            perspectives and backgrounds to carry out our mission.
                         </div>
                     </Bounce>
                 </div>
