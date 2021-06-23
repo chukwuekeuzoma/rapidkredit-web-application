@@ -344,7 +344,6 @@ nav{
     .Company--mobile:hover .box_mobile{
           display: block;
           position: absolute;
-          color: #434343;
           left: 120px;
           top: 0px;
           background: white;
@@ -358,6 +357,11 @@ nav{
 
     .options_mobile{
         padding: 20px;
+        color: #434343;
+    }
+
+    .options_mobile:hover{
+        color:#2fdfff;
     }
 
     .box_mobile{
