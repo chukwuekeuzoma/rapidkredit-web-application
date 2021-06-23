@@ -135,7 +135,15 @@ export default function Navigation () {
                 <div className={Navbar?"R_em_ep--mobile":"R_em_ep--mobile-none"}>
                     <div className="Employee--mobile"><Link to="/Employee" className="links"><span>EMPLOYEE</span></Link></div>
                     <div className="Employer--mobile"><Link to="/Employer" className="links"><span>EMPLOYER</span></Link></div>        
-                    <div className="Company--mobile" ><span>Company</span></div>
+                    <div className="Company--mobile" ><span>Company</span>
+                        <div className="box_mobile">
+                        <Link to="Aboutpage" className="links"><div className="options_mobile">About us</div></Link>
+                            <div className="options_mobile">Privacy Policy</div>
+                            <div className="options_mobile">Terms&Condition</div>
+                            <div className="options_mobile">Legal</div>
+                            <Link to="ContactUs" className="links"><div className="options_mobile">Contact us</div></Link>
+                        </div>
+                    </div>
                     <div className="Faq--mobile"><Link to="/Faqpage" className="links"><span>FAQ</span></Link></div>
                     <div className="Login--mobile"><Link to="Login" className="links"><span className="Login_two--mobile">Login</span></Link></div>
                     <div className="Register--mobile"><Link to="Register" className="links"><span className="Register_two--mobile">Register</span></Link></div>
