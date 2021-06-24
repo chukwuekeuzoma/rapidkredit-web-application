@@ -24,10 +24,10 @@ import PulseLoader from "react-spinners/ClipLoader"
 const useStyles = makeStyles({
     root: {
             '& label.Mui-focused': {
-                color: 'rgb(17, 17, 66)',
+                color: '#392fff',
               },
               '& .MuiInputBase-root': {
-                color: 'rgb(17, 17, 66)'
+                color: '#392fff'
                },
                '&.MuiTextField-root label' :{
                 top: 8,
@@ -35,13 +35,13 @@ const useStyles = makeStyles({
               },
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: 'rgb(17, 17, 66) ',
+                  borderColor: '#392fff ',
                 },
                 '&:hover': {
-                  borderColor: 'rgb(17, 17, 66)',
+                  borderColor: '#392fff',
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: 'rgb(17, 17, 66)',
+                  borderColor: '#392fff',
                 },
                
               },

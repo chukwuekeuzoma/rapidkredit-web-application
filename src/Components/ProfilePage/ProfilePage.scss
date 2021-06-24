@@ -6,7 +6,7 @@
     align-items: center;
 
     h2{
-        color:rgb(17, 17, 66);
+        color:#05006A;
     }
 
     .PR_select_textfield{
@@ -33,7 +33,7 @@
     .PR_content_one{
         grid-column: 1/13;
         grid-row:1/2;
-        background:rgb(17, 17, 66) !important;
+        background:#05006A !important;
         height:120px;
         border-radius:5px;
 
@@ -402,11 +402,11 @@
             width: 100% !important;
      
             ::placeholder{
-                color:rgb(17, 17, 66) !important;
+                color:#392fff  !important;
             }
         
             label {
-                color: rgb(17, 17, 66) !important;
+                color: #392fff  !important;
             }
         
         }
@@ -430,7 +430,7 @@
         .Reset_password_Button{
             width:100% !important;
             color: white !important;
-            background:rgb(17, 17, 66) !important;
+            background:#392fff  !important;
             margin-top:5px;
     
             :disabled{

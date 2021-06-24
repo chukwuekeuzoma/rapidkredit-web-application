@@ -5,7 +5,7 @@
 }
 
 .Dashboard_container h2{
-    color:rgb(17, 17, 66);
+    color:#05006A;
 }
 
 .Dashboard_select_textfield{
@@ -15,11 +15,11 @@
 }
 
 .Dashboard_select_textfield::placeholder{
-    color:rgb(17, 17, 66)!important;
+    color:#392fff!important;
 }
 
 .Dashboard_select_textfield label{
-    color: rgb(17, 17, 66)!important;
+    color: #392fff!important;
 }
 
 .DB_Grid_container{
@@ -32,7 +32,7 @@
 .DB_content_one{
     grid-column: 1/10;
     grid-row:1/2;
-    background:rgb(17, 17, 66) !important;
+    background:#05006A!important;
     height:120px;
     border-radius:5px;
     position: relative;
@@ -141,7 +141,7 @@
 
 .DB_Header_Button{
     width:100% !important;
-    color: rgb(17, 17, 66) !important;
+    color: #05006A !important;
     background:#2fdfff !important;
     font-weight: bolder !important ;
     margin-top:10px !important;
@@ -178,7 +178,7 @@
     text-align: center;
     font-size: 40px;
     font-weight: bolder;
-    color:rgb(17, 17, 66);
+    color:#05006A;
 
 }
 
@@ -201,7 +201,7 @@
     width:100%;
     border-radius:100%;
     clip: rect(0px,50px,100px, 0px);
-    background:rgb(17, 17, 66) ;
+    background:#05006A ;
   
 }
 
@@ -229,14 +229,14 @@
 .Calander_Number{
     font-size:10px;
     font-weight: bold;
-    color:rgb(17, 17, 66) !important;
+    color:#05006A!important;
     padding-right:60px;
 }
 
 .calander_icon{
     font-size: 10px !important;
     font-weight: bold !important;
-    color:rgb(17, 17, 66) !important;
+    color:#05006A !important;
 }
 
 @keyframes left{
@@ -312,7 +312,7 @@
 }
 
 .Portfolio_Numb{
-    color:rgb(17, 17, 66) !important;
+    color:#05006A !important;
     font-size:30px;
     font-weight: bolder;
 }

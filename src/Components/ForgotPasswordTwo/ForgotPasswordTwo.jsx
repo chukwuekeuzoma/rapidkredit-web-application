@@ -15,10 +15,10 @@ import axios from "axios"
 const useStyles = makeStyles({
     root: {
         '& label.Mui-focused': {
-            color: 'rgb(94, 94, 170)',
+            color: '#392fff',
         },
         '& .MuiInputBase-root': {
-            color: 'rgb(94, 94, 170)'
+            color: '#392fff'
         },
         '&.MuiTextField-root label': {
             top: 8,
@@ -26,13 +26,13 @@ const useStyles = makeStyles({
         },
         '& .MuiOutlinedInput-root': {
             '& fieldset': {
-                borderColor: 'rgb(94, 94, 170)',
+                borderColor: '#392fff',
             },
             '&:hover': {
-                borderColor: 'rgb(94, 94, 170))',
+                borderColor: '#392fff',
             },
             '&.Mui-focused fieldset': {
-                borderColor: 'rgb(94, 94, 170)',
+                borderColor: '#392fff',
             },
 
         },
