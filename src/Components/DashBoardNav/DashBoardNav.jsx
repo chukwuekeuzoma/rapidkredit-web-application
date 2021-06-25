@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import "./DashBoardNav.scss"
 import RapidOne from "../../images/rapid.png"
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import {Menu, Clear } from '@material-ui/icons'
 import CallReceivedIcon from '@material-ui/icons/CallReceived';
 import RedeemIcon from '@material-ui/icons/Redeem';
 import PersonIcon from '@material-ui/icons/Person';
@@ -12,7 +13,7 @@ import {Link,useHistory} from "react-router-dom"
 export default function DashboardLayout() {
     
     const [Active, setActive] = useState("");
-  
+    const [Navbar, setNavbar] = useState(false)
    
     const history = useHistory();
 
@@ -22,6 +23,11 @@ export default function DashboardLayout() {
          window.location.reload();
     
     }
+
+    const Navchange = () => {
+        setNavbar(!Navbar)
+    }
+       
 
     return (
         <>
@@ -83,6 +89,21 @@ export default function DashboardLayout() {
                    </div>
                 </div>
             </div>
+            <div className="DBN_navigation">
+                    <div className="DBN_Rapidone_mobile">
+                        
+                        <img src={RapidOne} alt="tw" height="65px"/>
+                    </div>
+                    <div className="nav_bar_Menu_icon_mobile">
+                        <div onClick={Navchange}>
+                            {Navbar ? <Clear className="icon_color--clear_mobile"/> : <Menu className="icon_color_mobile"/> }
+                        </div>
+                    </div>
+                    <div className={Navbar?"DBN_nav_bar_mobile":"DBN_nav_bar_mobile-none"}>
+                        <h1>Martins</h1>
+                    </div>
+            </div>
+            
         </>
     )
 }

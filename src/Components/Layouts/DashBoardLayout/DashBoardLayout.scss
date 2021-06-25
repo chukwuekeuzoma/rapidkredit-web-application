@@ -9,6 +9,7 @@
     .DBL_dashboardnav_container{
         width: 20vw;
         transition: inherit;
+        z-index: 3;
     }
 
     .DBL_children_container{
@@ -17,6 +18,7 @@
         margin-right:30px;
         margin-bottom:60px;
         width: 80vw;
+        z-index: 1;
     }
 }
 
@@ -44,6 +46,17 @@
         color: white !important;
         background:#392fff !important;
       
+    }
+}
+
+
+@include MQ(1227px){
+    .DBL_children_container{
+        width:100vw !important;
+    }
+
+    .DBL_dashboardnav_container{
+        width:0vw !important;
     }
 }
 

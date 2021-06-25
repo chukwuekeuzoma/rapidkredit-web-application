@@ -12,7 +12,7 @@ import useForceUpdate from 'use-force-update';
 export default function DashboardLayout(props) {
 
     const Oneminute = 60000;
-    let time = 10 * Oneminute;
+    let time = 200 * Oneminute;
 
     const [updateNow, setUpdateNow] = useState(true); 
     // const forceUpdate = useForceUpdate();
