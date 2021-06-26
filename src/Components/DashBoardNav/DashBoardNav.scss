@@ -47,7 +47,7 @@
                 padding:10px;
                 transition:0.3s;
             }
-
+ 
             .DBN_icon_container_select_active{
                 background:#05006A !important;
                 color:#2fdfff !important;
@@ -224,20 +224,94 @@
   box-shadow: -2px 10px 8px 0px rgba(50, 50, 53, 0.75);
  }
 
- .DBN_nav_bar_mobile-none{
-  display: block !important;
-  position:absolute;
-  top:12vh;
-  left:-600px;
-  width: 50vw;
-  height:88vh;
-  z-index:3;
-  background: white;
-  opacity:1;
-  transition:1s;
-  border-bottom-right-radius:30px;
-  box-shadow: -2px 10px 8px 0px rgba(50, 50, 53, 0.75);
-}
+  .DBN_icon_container_mobile{
+     display: flex;
+     flex-direction: column;
+     align-items: center !important;
+  }
+
+  .DBN_nav_bar_mobile-none{
+    display: block !important;
+    position:absolute;
+    top:12vh;
+    left:-600px;
+    width: 50vw;
+    height:88vh;
+    z-index:3;
+    background: white;
+    opacity:1;
+    transition:1s;
+    border-bottom-right-radius:30px;
+    box-shadow: -2px 10px 8px 0px rgba(50, 50, 53, 0.75);
+  }
+    .DBN_icon_container_select_mobile{
+      @include flex;
+      justify-content: center;
+      align-items: center;
+      margin-top:20px;
+      cursor: pointer;
+      padding:10px;
+      border-radius:10px;
+      width:auto;
+     
+
+    .DBN_c_mobile{
+      @include flex;
+      justify-content: center;
+      align-items: center;
+      padding-right:30px;
+    }
+  }
+
+  .DBN_icon_container_select_mobile:hover{
+    background:#05006A !important;
+    color:#2fdfff !important;
+    padding:10px;
+    transition:0.3s;
+  }
+
+  .DBN_icon_container_select_active_mobile{
+    background:#05006A !important;
+    color:#2fdfff !important;
+    padding:10px;
+    transition:0.3s;
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    cursor: pointer;
+    padding:10px;
+    border-radius:10px;
+    width:auto;
+    
+
+    .DBN_c_mobile{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        padding-right:30px;
+    }    
+  }
+
+  .DashboardIcon_mobile{
+    padding-right:20px !important;
+  }
+
+  .CallReceivedIcon_mobile{
+    padding-right:20px !important;
+  }
+
+  .RedeemIcon_mobile{
+      padding-right:20px !important;
+  }
+
+  .PersonIcon_mobile{
+      padding-right:20px !important;
+  }
+
+
+
+
 }
 
 /* Animations */
