@@ -80,6 +80,27 @@ export default function SettlementPage() {
                     </div>
                 </Fade>
             </div>
+            {/* mobile */}
+            <div>
+                <Fade big  duration={1000}>
+                    <div className="ST_Grid_container_mobile">
+                        <div className="ST_content_one_mobile">
+
+                        </div>
+                        <div className="ST_content_two_mobile">
+
+                        </div>
+                        <div className="ST_content_three_mobile"> 
+
+                        </div>
+                        <div className="ST_content_four_mobile">
+
+                        </div>
+                        
+                    </div>
+                </Fade>
+            </div>
+
         </>
     )
 }

@@ -25,8 +25,8 @@
 .DB_Grid_container{
     display: grid;
     gap:10px;
-    grid-template-columns:repeat(12,1fr);
-    grid-template-rows:repeat(4,minmax(150,auto));
+    /* grid-template-columns:repeat(12,1fr);
+    grid-template-rows:repeat(4,minmax(150,auto)); */
 }
 
 .DB_content_one{
@@ -315,6 +315,76 @@
     color:#05006A !important;
     font-size:30px;
     font-weight: bolder;
+}
+
+.DB_Grid_container_mobile{
+    display: none;
+}
+
+/* resposivness */
+
+@media screen and (max-width:915px) {
+    .DB_Grid_container{
+        display: none;
+    }
+
+    .DB_Grid_container_mobile{
+        display: grid !important;
+        gap:10px;
+    }
+
+    .DB_content_one_mobile{
+        grid-column: 1/6;
+        grid-row:1/2;
+        background:#05006A!important;
+        height:120px;
+        border-radius:5px;
+        position: relative;
+    }
+    .DB_content_two_mobile{
+        grid-column: 6/13;
+        grid-row:1/2;
+        background:#05006A!important;
+        height:120px;
+        border-radius:5px;
+        position: relative;
+    }
+    .DB_content_three_mobile{
+        grid-column: 1/13;
+        grid-row:2/3;
+        background:#05006A!important;
+        height:120px;
+        border-radius:5px;
+        position: relative;
+    }
+
+    .DB_content_four_mobile{
+        grid-column: 1/13;
+        grid-row:3/4;
+        background:white!important;
+        height:120px;
+        border-radius:5px;
+        position: relative;
+    }
+
+    .DB_content_five_mobile{
+        grid-column: 1/13;
+        grid-row:4/5;
+        background:white!important;
+        height:120px;
+        border-radius:5px;
+        position: relative;
+    }
+
+    .DB_content_six_mobile{
+        grid-column: 1/13;
+        grid-row:5/6;
+        background:white!important;
+        height:120px;
+        border-radius:5px;
+        position: relative;
+    }
+
 }
 
 

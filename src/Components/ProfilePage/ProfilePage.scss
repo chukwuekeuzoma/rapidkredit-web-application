@@ -15,11 +15,11 @@
     }
     
     .PR_select_textfield::placeholder{
-        color:rgb(17, 17, 66)!important;
+        color:#392fff!important;
     }
     
     .PR_select_textfield label{
-        color: rgb(17, 17, 66)!important;
+        color: #392fff !important;
     }
 }
 
@@ -27,8 +27,8 @@
 .PR_Grid_container{
     display: grid;
     gap:10px;
-    grid-template-columns:repeat(12,1fr);
-    grid-template-rows:repeat(4,minmax(150,auto));
+    // grid-template-columns:repeat(12,1fr);
+    // grid-template-rows:repeat(4,minmax(150,auto));
 
     .PR_content_one{
         grid-column: 1/13;
@@ -107,7 +107,7 @@
 
         .PR_Header_Button{
             width:100% !important;
-            color: rgb(17, 17, 66) !important;
+            color: #05006A !important;
             background:#2fdfff !important;
             font-weight: bolder;
             margin-top:10px !important;
@@ -216,12 +216,12 @@
 
         .Profile_draft{
             font-size: smaller !important;
-            color: rgb(17, 17, 66) !important;
+            color: #05006A!important;
         }
 
         .profile_phone{
             font-size: smaller !important;
-            color: rgb(17, 17, 66) !important;
+            color: #05006A !important;
         }
 
 
@@ -271,7 +271,7 @@
                 justify-content: center;
 
                 .PR_no_of_days_worked_content{
-                    color:rgb(17, 17, 66) !important;
+                    color:#05006A !important;
                     font-size:20px;
                     font-weight: bolder;
                 }
@@ -309,7 +309,7 @@
                 font-size:smaller !important;
                 font-weight: bolder;
                 margin-top:10px;
-                color:rgb(17, 17, 66) !important;
+                color:#05006A !important;
             }
         }
 
@@ -475,11 +475,11 @@
         width: 100% !important;
     
         ::placeholder{
-            color:rgb(17, 17, 66)!important;
+            color:#392fff!important;
         }
     
         label {
-            color: rgb(17, 17, 66)!important;
+            color: #392fff!important;
         }
      
     }
@@ -494,11 +494,11 @@
         width: 100% !important;
  
         ::placeholder{
-            color:rgb(17, 17, 66) !important;
+            color:#392fff !important;
         }
     
         label {
-            color: rgb(17, 17, 66) !important;
+            color: #392fff !important;
         }
     
     }
@@ -508,7 +508,7 @@
     .account_password_Button{
         width:100% !important;
         color: white !important;
-        background:rgb(17, 17, 66) !important;
+        background:#392fff !important;
         margin-top:15px;
         text-transform: none;
 
@@ -530,4 +530,69 @@
     justify-content: center !important;
     align-items: center !important;
     margin-top:20px;
+}
+
+.PR_Grid_container_mobile{
+    display: none;
+}
+
+//Responsiveness 
+
+@include MQ(915px){
+    .PR_Grid_container{
+        display: none;
+    }
+
+    .PR_Grid_container_mobile{
+        display: grid !important;
+        gap:10px;
+
+        .PR_content_one_mobile{
+            grid-column: 1/13;
+            grid-row:1/2;
+            background:white !important;
+            height:120px;
+            border-radius:5px;
+    
+        }
+
+        .PR_content_two_mobile{
+            grid-column: 1/13;
+            grid-row:2/3;
+            background:white !important;
+            height:120px;
+            border-radius:5px;
+        }
+
+        .PR_content_three_mobile{
+            grid-column: 1/13;
+            grid-row:3/4;
+            background:white !important;
+            height:120px;
+            border-radius:5px;
+        }
+
+        .PR_content_four_mobile{
+            grid-column: 1/6;
+            grid-row:4/5;
+            background:#05006A !important;
+            height:120px;
+            border-radius:5px;
+        }
+
+        .PR_content_five_mobile{
+            grid-column: 6/13;
+            grid-row:4/5;
+            background:#05006A !important;
+            height:120px;
+            border-radius:5px;
+        }
+        .PR_content_six_mobile{
+            grid-column: 1/13;
+            grid-row:5/6;
+            background:white !important;
+            height:120px;
+            border-radius:5px;
+        }
+    }
 }

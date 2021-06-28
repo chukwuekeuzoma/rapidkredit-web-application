@@ -89,6 +89,7 @@ export default function DashboardLayout() {
                     </div>
                 </div>
             </div>
+            {/* mobile */}
             <div className="DBN_navigation">
                 <div className="DBN_Rapidone_mobile">
 

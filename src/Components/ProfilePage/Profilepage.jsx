@@ -840,6 +840,31 @@ export default function Profilepage() {
                     </div>
                 </Fade>
             </div>
+            {/* mobile  */}
+            <Fade big duration={1000}>
+                <div>
+                    <div className="PR_Grid_container_mobile">
+                        <div className="PR_content_one_mobile">
+
+                        </div>
+                        <div className="PR_content_two_mobile">
+
+                        </div>
+                        <div className="PR_content_three_mobile">
+
+                        </div>
+                         <div className="PR_content_four_mobile">
+
+                         </div>
+                         <div className="PR_content_five_mobile">
+
+                         </div>
+                         <div className="PR_content_six_mobile">
+
+                         </div>
+                    </div>
+                </div>
+            </Fade>
         </>
     )
 }

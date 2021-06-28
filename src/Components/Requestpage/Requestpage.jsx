@@ -84,6 +84,25 @@ export default function Requestpage() {
                     </div>               
                 </div>
             </Fade>
+            <div>
+                <div className="RQ_Grid_container_mobile">
+                   <div className="RQ_content_one_mobile">
+
+                   </div>
+                   <div className="RQ_content_two_mobile">
+
+                   </div>
+                   <div className="RQ_content_three_mobile">
+
+                   </div>
+                   <div className="RQ_content_four_mobile">
+
+                   </div>
+                   <div className="RQ_content_five_mobile">
+
+                   </div>
+                </div>
+            </div>
         </>
      )
 }
