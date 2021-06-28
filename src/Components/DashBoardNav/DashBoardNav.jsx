@@ -101,23 +101,54 @@ export default function DashboardLayout() {
                 </div>
                 <div className={Navbar ? "DBN_nav_bar_mobile" : "DBN_nav_bar_mobile-none"}>
                     <div className="DBN_icon_container_mobile">
-                        <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
-                            <div className="DBN_c_mobile">
-                                <DashboardIcon className="DashboardIcon_mobile" />
-                                <span>Dashboard</span>
+                        <Link to="Dashboard" className="links">
+                            <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
+                                <div className="DBN_c_mobile">
+                                    <DashboardIcon className="DashboardIcon_mobile" />
+                                    <span>Dashboard</span>
+                                </div>
                             </div>
-                        </div>
-                        <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
-                            <div className="DBN_c_mobile">
-                                <CallReceivedIcon className="CallReceivedIcon_mobile"/>
-                                <span className="Requests">Requests<span style={{ opacity: "0" }}>....</span></span>
+                        </Link>
+                        <Link  to="Request" className="links">
+                            <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
+                                <div className="DBN_c_mobile">
+                                    <CallReceivedIcon className="CallReceivedIcon_mobile"/>
+                                    <span className="Requests">Requests<span style={{ opacity: "0" }}>....</span></span>
+                                </div>
                             </div>
-                        </div>
-                        <div></div>
-                        <div></div>
+                        </Link>
+                        <Link  to="Settlement" className="links">
+                            <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
+                                <div className="DBN_c_mobile">
+                                    <RedeemIcon className="RedeemIcon_mobile" />
+                                    <span>Settlements</span>
+                                </div>
+                            </div>
+                        </Link>
+                        <Link  to="Profile" className="links">
+                            <div onClick={() => setActive("PersonIcon")} className={Active === "PersonIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
+                                    <div className="DBN_c_mobile">
+                                        <PersonIcon className="PersonIcon_mobile" />
+                                        <span>Profile<span style={{ opacity: "0" }}>...........</span></span>
+                                    </div>
+                            </div>
+                        </Link>
                     </div>
-                    <div>
-
+                    <div className="DBN_logout_container_mobile">
+                        <div>
+                            <div className="DBN_HelpOutline_container_mobile">
+                                <div className="DBN_HelpOutlineIcon_container_mobile">
+                                    <HelpOutlineIcon className="HelpOutlineIcon_mobile"/>
+                                    <span>Support<span style={{ opacity: "0" }}>...............</span></span>
+                                </div>
+                            </div>
+                            <div className="DBN_ExitToApp_container_mobile" onClick={reloadLogout}>
+                                <div className="DBN_ExitToAppIcon_container_mobile">
+                                    <ExitToAppIcon className="ExitToAppIcon_mobile" />
+                                    <span>Logout<span style={{ opacity: "0" }}>................</span></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

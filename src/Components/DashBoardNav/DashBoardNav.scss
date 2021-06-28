@@ -308,7 +308,72 @@
   .PersonIcon_mobile{
       padding-right:20px !important;
   }
+   
+  .DBN_logout_container_mobile{
+        @include flex;
+        justify-content:center;
+        // align-items:flex-end;
+        margin-top: 150px;
 
+        .DBN_HelpOutline_container_mobile{
+          @include flex;
+          justify-content: center;
+          align-items: center;
+          width:150px;
+          padding:10px;
+          margin-left:50px;
+          cursor: pointer;
+          margin-top:10px;
+        }
+
+        .DBN_HelpOutlineIcon_container_mobile{
+          @include flex;
+          justify-content: center;
+          align-items: center;
+          padding-right:50px;
+          color: black !important;
+          opacity: 0.5;
+
+              .HelpOutlineIcon_mobile{
+                  padding-right:20px !important;
+              }
+          }
+
+          .DBN_HelpOutlineIcon_container_mobile:hover{
+              opacity: 0.9;
+              transition:0.3s;
+          }
+
+
+        .DBN_ExitToApp_container_mobile{
+          @include flex;
+          justify-content: center;
+          align-items: center;
+          width:150px;
+          padding:10px;
+          margin-left:50px;
+          cursor: pointer;
+          margin-top:10px;
+        }
+
+        .DBN_ExitToAppIcon_container_mobile{
+          @include flex;
+          justify-content: center;
+          align-items: center;
+          padding-right:50px;
+          color:black !important;
+          opacity: 0.5;
+
+          .ExitToAppIcon_mobile{
+              padding-right:20px !important;
+          }
+        }
+
+        .DBN_ExitToAppIcon_container_mobile:hover{
+          opacity: 0.9;
+          transition:0.3s;
+        }
+}
 
 
 
