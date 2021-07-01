@@ -545,14 +545,18 @@
 
     .PR_Grid_container_mobile{
         display: grid !important;
-        gap:10px;
+        gap:5px;
 
         .PR_content_one_mobile{
             grid-column: 1/13;
             grid-row:1/2;
             background:white !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
+            display: flex;
+            padding: 20px;
+            justify-content:space-around;
+            align-items: center;
     
         }
 
@@ -560,39 +564,466 @@
             grid-column: 1/13;
             grid-row:2/3;
             background:white !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
         }
 
         .PR_content_three_mobile{
             grid-column: 1/13;
             grid-row:3/4;
-            background:white !important;
-            height:120px;
+            background:#05006A !important;
+            height:auto;
             border-radius:5px;
+            padding: 10px;
         }
 
         .PR_content_four_mobile{
             grid-column: 1/6;
             grid-row:4/5;
             background:#05006A !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
         }
 
         .PR_content_five_mobile{
             grid-column: 6/13;
             grid-row:4/5;
             background:#05006A !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
         }
         .PR_content_six_mobile{
             grid-column: 1/13;
             grid-row:5/6;
+            background:#05006A !important;
+            height:auto;
+            padding: 20px;
+            border-radius:5px;
+            display: flex;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+
+        .PR_content_seven_mobile{
+            grid-column: 1/13;
+            grid-row:6/7;
             background:white !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
         }
     }
+
+    .PR_no_of_days_worked_mobile{
+        border-radius:100%;
+        height: 50px;
+        width: 50px;
+        border:3px solid #2fdfff;
+        text-align: center;
+        @include flex;
+        align-items: center;
+        justify-content: center;
+
+        .PR_no_of_days_worked_content_mobile{
+            color:#05006A !important;
+            font-size:20px;
+            font-weight: bolder;
+        }
+    }
+    .PR_no_of_days_worked_content_one_mobile{
+         font-size:smaller !important;
+         font-weight: bolder;
+         opacity: 0.6;
+         margin-top:10px;
+         margin-left: -10px;
+         text-align: center;
+        
+        //  width: 100px;
+    }
+
+    .PR_profile_image_mobile{
+        border-radius: 100%;
+        height:100px;
+        width:100px;
+    }
+
+    .profile_content_mobile{
+        // @include flex;
+        // justify-content: space-around;
+        margin-left: 1px;
+
+        .Profile_name_mobile{
+            font-size:13px !important;
+            font-weight: bolder;
+            text-transform: capitalize !important;
+        }
+
+        .Profile_name_content_mobile{
+            font-size: smaller;
+        }
+
+    }
+
+    .Profile_draft_mobile{
+        font-size: smaller !important;
+        color: #05006A!important;
+    }
+
+    .profile_phone_mobile{
+        font-size: smaller !important;
+        color: #05006A !important;
+    }
+    
+
+    .PR_Number_Days_container_mobile{
+        @include flex;
+        flex-direction:column;
+        justify-content:space-around !important;
+        justify-content: center;
+        
+       
+        
+
+        .PR_Days_container_mobile{
+            @include flex;
+            justify-content: space-around !important;
+            justify-content: center;
+            margin-top:14px !important;
+            // padding-left: 50px;
+        
+            .PR_Icon_mobile_container{
+                margin-left: -80px !important;
+            }
+           .PR_Icon_mobile{
+             color:#2fdfff !important;
+             margin-top:5px !important;
+           }
+
+            .PR_Number_of_days_mobile{
+                color:#2fdfff !important;
+                margin-left:-18px !important;
+            } 
+        }
+    
+
+        .PR_Days_container_two_mobile{
+            @include flex;
+            justify-content: space-around !important;
+            justify-content: center;
+    
+           .PR_Figures_mobile{
+            color:white !important;
+            font-size:40px;
+            // margin-right:50px !important;
+            font-weight: bolder;
+            // padding-left: 20px;
+           }
+
+            .PR_Date_mobile{
+              color:white !important;
+              margin-top:5px;
+            }
+
+            .PR_Header_Profile_progress_circular_mobile{
+                display: flex !important;
+                justify-content: flex-start !important;
+                align-items: flex-start !important; 
+            }
+        
+            
+        }
+    }
+
+    .PR_Header_content_mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .PR_Numbers_mobile{
+        color:#2fdfff;
+    }
+
+    .PR_Numbers_one_mobile{
+        color:white;
+        font-size:20px;
+        font-weight: bolder;
+    }
+
+    .PR_Profile_progress_circular_mobile{
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    .PR_Header_content_two_mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .PR_Total_mobile{
+        color:#2fdfff;
+    }
+    
+    .PR_Total_one_mobile{
+        color:white;
+        font-size:20px;
+        font-weight: bolder;
+    }
+
+    .PR_Avaluable_mobile{
+        color:#2fdfff;
+    }
+    
+    .PR_Avaluable_one_mobile{
+        color:white;
+        font-weight: bolder;
+        font-size:20px;
+    }
+
+    .PR_Header_Button_mobile{
+        width:80% !important;
+        color: #05006A !important;
+        background:#2fdfff !important;
+        font-weight: bolder !important;
+        margin-top:10px !important; 
+        
+    }
+
+    // dialog mobile style
+    .account_select_input_mobile{
+        margin-top:15px;
+        text-align: center;
+    
+    
+        .account_select_textfield_mobile{
+            width: 100% !important;
+        
+            ::placeholder{
+                color:#392fff!important;
+            }
+        
+            label {
+                color: #392fff!important;
+            }
+         
+        }
+    };
+    
+    .account_input_mobile{
+        margin-top:15px;
+        text-align: center;
+    
+        .account_textfield_mobile{
+       
+            width: 100% !important;
+     
+            ::placeholder{
+                color:#392fff !important;
+            }
+        
+            label {
+                color: #392fff !important;
+            }
+        
+        }
+      }
+      .account_Botton_container_mobile{
+        
+        .account_password_Button_mobile{
+            width:100% !important;
+            color: white !important;
+            background:#392fff !important;
+            margin-top:15px;
+            text-transform: none;
+    
+            :disabled{
+                 opacity:0.2 !important;
+            }
+        }
+    }
+    
+    .dialog_action_button_mobile{
+        background:rgb(231, 230, 225) !important;
+    }
+    
+    .alert_mobile{
+        margin-top: 15px !important;
+        font-size: 12px;
+    }
+
+    .account_name_alert{
+        font-size: 12px;
+    }
+
+
+    .Profile_progress_circular_mobile{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top:20px;
+    }
+
+    .alert_mobile{
+        margin-top: 15px !important;
+    }
+
+    .Pr_profile_button_container_mobile{
+        @include flex;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 20px;
+
+        .Employer_button_mobile{
+            border:none !important;
+            font-size: 60% !important;
+            font-weight: bold !important;
+            width: 30vw !important;
+
+            &:hover {background: rgb(231, 230, 225) !important;
+                
+             } 
+        }
+
+        .Employer_button_one_mobile{
+            border:none !important;
+            background: rgb(231, 230, 225) !important;
+            font-size: 60% !important;
+            font-weight: bolder !important;
+            width: 30vw !important;
+                
+        }
+    }
+
+    .line_container_mobile{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+
+        .line_mobile{
+            margin-top:-2px;
+            height: 2px;
+            width: 90%;
+           background-color:rgb(231, 230, 225) !important;
+        }
+    }  
+
+    // .profile_center_mobile{
+    //     margin-left:50px;
+         
+    //  }
+
+     .account_details_container_mobile{
+         position: relative;
+     }
+
+     .Add_account_mobile{
+         position: absolute !important;
+         top:0 !important;
+         right:20px !important;
+         text-transform: none;
+         font-size: 10px !important;
+     }
+
+     .PR_Employers_mobile{
+        font-size:20px;
+        font-weight: bolder;
+        color: black !important;
+        opacity: 0.7;
+        margin-top: 20px !important;
+        margin-left: 20px !important;
+    }
+
+    .Table_cellhead_container_mobile{
+        display: flex;
+        align-items: center;
+    }
+    
+    .PR_Table_cell_mobile{
+        border-radius: 100%;
+        height:20px;
+        width:20px;
+        margin-right:10px;
+        margin-bottom:3px;
+    }
+
+    .PR_Table_mobile{
+        width:auto !important;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .Reset_password_paper_mobile_container{
+        display: flex;
+        justify-content: center;
+    }
+
+  .Reset_password_paper_mobile{
+    padding: 10px;
+    height:auto;
+    width:100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .Reset_password_input_mobile{
+    margin-top:5px;
+    text-align: center;
+
+    .Reset_register_textfield_mobile{
+   
+        width: 100% !important;
+ 
+        ::placeholder{
+            color:#392fff  !important;
+        }
+    
+        label {
+            color: #392fff  !important;
+        }
+    
+    }
+  }
+
+  .Reset_Password_field_container_mobile{
+    width: 250px !important;
+    display: flex !important;
+    flex-direction: column !important;
+
+
+    .Reset_Password_field_mobile{
+        color: red !important;
+        font-size: 11px !important;
+        min-height:18px !important;
+        font-weight: bolder;
+    }
+  }
+
+  .Reset_password_Botton_container_mobile{
+        display: flex;
+        justify-content: center;
+    .Reset_password_Button_mobile{
+        width:100% !important;
+        color: white !important;
+        background:#392fff  !important;
+        margin-top:5px;
+
+        :disabled{
+             filter: contrast(0.7) !important;
+        }
+    }
+  } 
+
+
 }
