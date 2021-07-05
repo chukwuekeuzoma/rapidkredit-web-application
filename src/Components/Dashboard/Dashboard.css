@@ -321,6 +321,55 @@
     display: none;
 }
 
+/* dialog style */
+
+.account_select_input{
+    margin-top:15px;
+    text-align: center;
+}
+
+.account_select_textfield{
+    width: 100% !important;
+}
+
+.account_select_textfield::placeholder, label{
+    color:#392fff!important;
+}
+
+.account_input{
+    margin-top:15px;
+    text-align: center;
+}
+
+.account_textfield::placeholder, label{
+    color:#392fff !important;
+}
+
+.account_password_Button{
+    width:100% !important;
+    color: white !important;
+    background:#392fff !important;
+    margin-top:15px;
+    text-transform: none;
+}
+
+.dialog_action_button{
+    background:rgb(231, 230, 225) !important;
+}
+
+.alert{
+    margin-top: 15px !important;
+}
+.Profile_progress_circular{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top:20px;
+}
+
+
+
+
 /* resposivness */
 
 @media screen and (max-width:915px) {
@@ -337,34 +386,50 @@
         grid-column: 1/6;
         grid-row:1/2;
         background:#05006A!important;
-        height:120px;
+        height:auto;
+        padding: 20px;
         border-radius:5px;
         position: relative;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     .DB_content_two_mobile{
         grid-column: 6/13;
         grid-row:1/2;
         background:#05006A!important;
-        height:120px;
+        height:auto;
         border-radius:5px;
         position: relative;
+        padding: 20px;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     .DB_content_three_mobile{
         grid-column: 1/13;
         grid-row:2/3;
         background:#05006A!important;
-        height:120px;
+        height:auto;
         border-radius:5px;
         position: relative;
+        padding: 20px;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     .DB_content_four_mobile{
         grid-column: 1/13;
         grid-row:3/4;
         background:white!important;
-        height:120px;
+        height:auto;
         border-radius:5px;
         position: relative;
+        padding: 20px;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     .DB_content_five_mobile{
@@ -384,6 +449,207 @@
         border-radius:5px;
         position: relative;
     }
+
+    .DB_Header_content_mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .Numbers_mobile{
+        color:#2fdfff;
+    }
+
+    .Numbers_one_mobile{
+        color:white;
+        font-size:20px;
+        font-weight: bolder;
+    }
+
+    .DB_Profile_progress_circular_mobile{
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    .DB_Header_content_two_mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .Total_mobile{
+        color:#2fdfff;
+    }
+    
+    .Total_one_mobile{
+        color:white;
+        font-size:20px;
+        font-weight: bolder;
+    }
+    
+    .Avaluable_mobile{
+        color:#2fdfff;
+    }
+    
+    .Avaluable_one_mobile{
+        color:white;
+        font-weight: bolder;
+        font-size:20px;
+    }
+
+    .DB_Header_Button_mobile{
+        width:80% !important;
+        color: #05006A !important;
+        background:#2fdfff !important;
+        font-weight: bolder !important;
+        margin-top:10px !important; 
+        
+    }
+
+    /* dialog for mobile styling */
+
+    .account_select_input_mobile{
+        margin-top:15px;
+        text-align: center;
+    }
+
+    .account_select_textfield_mobile{
+        width: 100% !important;
+    }
+
+    .account_select_textfield_mobile::placeholder, label{
+        color:#392fff!important;
+    }
+
+    .account_input_mobile{
+        margin-top:15px;
+        text-align: center;
+    }
+
+    .account_textfield_mobile{
+        width: 100% !important;
+    }
+
+    .account_textfield_mobile::placeholder, label{
+        color:#392fff!important;
+    }
+
+    .account_password_Button_mobile{
+        width:100% !important;
+        color: white !important;
+        background:#392fff !important;
+        margin-top:15px;
+        text-transform: none;
+    }
+
+    .dialog_action_button_mobile{
+        background:rgb(231, 230, 225) !important;
+    }
+
+    .Profile_progress_circular_mobile{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top:20px;
+    }
+    /* ..... */
+
+
+    .circular_mobile{
+        position: relative;
+        height:100px;
+        width:100px;
+        transform: scale(1.4);
+        margin-top: 20px;
+    }
+    
+    
+    .circular_mobile .inner_mobile{
+        position: absolute;
+        z-index:6;
+        top:50%;
+        left:50%;
+        height:80px;
+        width:80px;
+        margin:-40px 0 0 -40px;
+        background: white;
+        box-shadow:0 0px 0 rgba(0,0,0,0.2);
+        border-radius:100%;
+    }
+    
+    .circular_mobile .Numb_mobile{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bolder;
+        color:#05006A;
+    
+    }
+    
+    .Days_mobile{
+        font-size:10px !important;
+        font-weight: lighter !important;
+    }
+    .circular_mobile .Bar_mobile{
+        position: absolute;
+        height:100%;
+        width:100%;
+        border-radius:100%;
+        clip: rect(0px,100px,100px, 50px);
+        background: #2fdfff;
+    }
+    
+    .circle_mobile .Bar_mobile .Progress_mobile{
+        position: absolute;
+        height:100%;
+        width:100%;
+        border-radius:100%;
+        clip: rect(0px,50px,100px, 0px);
+        background:#05006A ;
+      
+    }
+    
+    .circle_mobile .Left_mobile .Progress_mobile{
+        z-index: 1;
+        animation:left 4s linear both;
+    }
+    
+    .circle_mobile .Right_mobile{
+        z-index: 3;
+        transform: rotate(180deg);
+    }
+    
+    .circle_mobile .Right_mobile .Progress_mobile{
+        animation:right 4s linear both;
+        animation-delay: 4s;
+    }
+    
+    .Calander_mobile{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;    
+    }
+    
+    .Calander_Number_mobile{
+        font-size:10px;
+        font-weight: bold;
+        color:#05006A!important;
+        padding-right:60px;
+    }
+    
+    .calander_icon_mobile{
+        font-size: 10px !important;
+        font-weight: bold !important;
+        color:#05006A !important;
+    }
+    
+
+   
 
 }
 
