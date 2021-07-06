@@ -436,18 +436,26 @@
         grid-column: 1/13;
         grid-row:4/5;
         background:white!important;
-        height:120px;
+        height:auto;
         border-radius:5px;
         position: relative;
+        padding: 20px;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     .DB_content_six_mobile{
         grid-column: 1/13;
         grid-row:5/6;
         background:white!important;
-        height:120px;
+        height:auto;
         border-radius:5px;
         position: relative;
+        padding: 20px;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     .DB_Header_content_mobile{
@@ -646,6 +654,58 @@
         font-size: 10px !important;
         font-weight: bold !important;
         color:#05006A !important;
+    }
+
+    .Portfolio_mobile{
+        color: black !important;
+        text-align: center;
+        margin-top:20px;
+    }
+    
+    .Total_num_mobile{
+        font-size: smaller !important;
+        font-weight: bolder;
+        opacity: 0.5 !important;
+    }
+    
+    .Portfolio_one_mobile{
+        font-weight: bolder !important;
+        font-size:23px;
+        opacity: 0.7 !important;
+    }
+    
+    .Portfolio_circular_mobile{
+        display:  flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .Portfolio_inner_mobile{
+        border-radius:100%;
+        height: 80px;
+        width: 80px;
+        border:3px solid #2fdfff;
+        text-align: center;
+        display:  flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .Portfolio_Numb_mobile{
+        color:#05006A !important;
+        font-size:30px;
+        font-weight: bolder;
+    }
+    
+    .Position_mobile{
+        margin-top:20px;
+        margin-bottom:10px;
+        font-size:23px;
+        font-weight: bolder;
+        color: black !important;
+        opacity: 0.7;
     }
     
 

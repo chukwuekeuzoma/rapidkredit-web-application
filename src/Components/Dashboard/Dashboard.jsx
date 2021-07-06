@@ -581,38 +581,99 @@ export default function Dashboard() {
             </Dialog>
 
             <div className="DB_content_four_mobile">
-                  <div className="circular_mobile">
-                    <div className="inner_mobile"></div>
-                    <div className="Numb_mobile">
-                      {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.days_worked_for}
-                      <div className="Days_mobile">Days(s)</div></div>
-                    <div className="circle_mobile">
-                      <div className="Bar_mobile Left_mobile">
-                        <div className="Progress_mobile"></div>
-                      </div>
-                      <div className="Bar_mobile Right_mobile">
-                        <div className="Progress_mobile"></div>
-                      </div>
-                    </div>
+              <div className="circular_mobile">
+                <div className="inner_mobile"></div>
+                <div className="Numb_mobile">
+                  {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.days_worked_for}
+                  <div className="Days_mobile">Days(s)</div></div>
+                <div className="circle_mobile">
+                  <div className="Bar_mobile Left_mobile">
+                    <div className="Progress_mobile"></div>
                   </div>
-                  <div className="Calander_mobile">
-                    <div className="Calander_Number_mobile"><span>Number of days you've
-                      <br />worked<br />This month</span></div>
-                    <div className="calander_icon_mobile">
-                      <CalendarTodayIcon />
-                      <br />
-                      {month}
-                      <br />
-                      {year}
-                    </div>
+                  <div className="Bar_mobile Right_mobile">
+                    <div className="Progress_mobile"></div>
                   </div>
-               
+                </div>
+              </div>
+              <div className="Calander_mobile">
+                <div className="Calander_Number_mobile"><span>Number of days you've
+                  <br />worked<br />This month</span></div>
+                <div className="calander_icon_mobile">
+                  <CalendarTodayIcon />
+                  <br />
+                  {month}
+                  <br />
+                  {year}
+                </div>
+              </div>
+
 
             </div>
             <div className="DB_content_five_mobile">
+              <div className="Portfolio_mobile">
+                <span className="Portfolio_one_mobile">Portfolio</span><br />
+                <span className="Total_num_mobile">Total Number of Organisation you work for</span>
+              </div>
+              <br />
+              <div className="Portfolio_circular_mobile">
+                <div className="Portfolio_inner_mobile">
+                  <div className="Portfolio_Numb_mobile"><span>{UserCompanyRoles.length}</span></div>
+                </div>
+              </div>
+              <div style={{ marginTop: "20px" }}>
+                <TableContainer className={classes.table}>
+                  <Table className={classes.table}>
+                    <TableHead >
+                      <TableRow>
+                        <StyledTableCell>Organisation</StyledTableCell>
+                        <StyledTableCell align="right">Number of days worked</StyledTableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {UserCompanyRoles.map((row) => (
+                        <TableRow key={row.company_name}>
+                          <StyledTableCell component="th" scope="row">
+                            <div className="Table_cellhead_container" >
+                              {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
+                              <div>{row.company_name}</div>
+                            </div>
+                          </StyledTableCell>
+                          <StyledTableCell align="right">{row.days_worked_for}</StyledTableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </div>
 
             </div>
             <div className="DB_content_six_mobile">
+              <div className="Position_mobile"><span>Positions(s)</span></div>
+              <TableContainer className={classes.table}>
+                <Table className={classes.table}>
+                  <TableHead >
+                    <TableRow>
+                      <StyledTableCell>Organisation</StyledTableCell>
+                      <StyledTableCell>Role</StyledTableCell>
+                      {/* <StyledTableCell>Employer&nbsp;ID</StyledTableCell> */}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {UserCompanyRoles.map((row) => (
+                      <TableRow key={row.company_id}>
+                        <StyledTableCell component="th" scope="row">
+                          <div className="Table_cellhead_container" >
+                            {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
+                            <div>{row.company_name}</div>
+                          </div>
+                        </StyledTableCell>
+                        <StyledTableCell>{row.user_role === null ? <div>None</div> : row.user_role}</StyledTableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
 
             </div>
           </div>
