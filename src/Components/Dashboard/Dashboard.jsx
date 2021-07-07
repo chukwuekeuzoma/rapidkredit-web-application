@@ -103,7 +103,7 @@ export default function Dashboard() {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
   const month = months[d.getMonth()]
   const year = d.getFullYear()
-  const displayTodaysDate = d.getDate() + "/" + month + "/" + d.getFullYear();
+  const displayTodaysDate = `${d.getDate()} ${month} ${d.getFullYear()}`
 
   let firstName = UserData.first_name;
   let lastName = UserData.last_name;
@@ -633,7 +633,7 @@ export default function Dashboard() {
                       {UserCompanyRoles.map((row) => (
                         <TableRow key={row.company_name}>
                           <StyledTableCell component="th" scope="row">
-                            <div className="Table_cellhead_container" >
+                            <div className="Table_cellhead_container_mobile" >
                               {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
                               <div>{row.company_name}</div>
                             </div>
@@ -649,6 +649,7 @@ export default function Dashboard() {
             </div>
             <div className="DB_content_six_mobile">
               <div className="Position_mobile"><span>Positions(s)</span></div>
+              <div>
               <TableContainer className={classes.table}>
                 <Table className={classes.table}>
                   <TableHead >
@@ -662,7 +663,7 @@ export default function Dashboard() {
                     {UserCompanyRoles.map((row) => (
                       <TableRow key={row.company_id}>
                         <StyledTableCell component="th" scope="row">
-                          <div className="Table_cellhead_container" >
+                          <div className="Table_cellhead_container_mobile" >
                             {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
                             <div>{row.company_name}</div>
                           </div>
@@ -673,6 +674,7 @@ export default function Dashboard() {
                   </TableBody>
                 </Table>
               </TableContainer>
+              </div>
 
 
             </div>

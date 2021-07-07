@@ -166,7 +166,77 @@
 .RQ_Grid_container_mobile{
     display: none;
 }
+// styling for the Dialog
 
+    .account_select_input{
+        margin-top:15px;
+        text-align: center;
+
+
+        .account_select_textfield{
+            width: 100% !important;
+        
+            ::placeholder{
+                color:#392fff!important;
+            }
+        
+            label {
+                color: #392fff!important;
+            }
+        
+        }
+    };
+
+    .account_input{
+        margin-top:15px;
+        text-align: center;
+
+        .account_textfield{
+    
+            width: 100% !important;
+    
+            ::placeholder{
+                color:#392fff !important;
+            }
+        
+            label {
+                color: #392fff !important;
+            }
+        
+        }
+    }
+    .account_Botton_container{
+        
+        .account_password_Button{
+            width:100% !important;
+            color: white !important;
+            background:#392fff !important;
+            margin-top:15px;
+            text-transform: none;
+
+            :disabled{
+                opacity:0.2 !important;
+            }
+        }
+    }
+
+    .dialog_action_button{
+        background:rgb(231, 230, 225) !important;
+    }
+
+    .alert{
+        margin-top: 15px !important;
+    }
+    .Profile_progress_circular{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top:20px;
+    }
+
+// ...
+
+// Responsiveness
 
 @include MQ(915px){
     .RQ_Grid_container{
@@ -181,8 +251,9 @@
             grid-column: 1/13;
             grid-row:1/2;
             background:#05006A !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
+            padding: 10px;
        
         }
 
@@ -222,5 +293,58 @@
        
         }
 
+    }
+
+    .RQ_Number_Days_container_mobile{
+        @include flex;
+        flex-direction:column;
+        justify-content:space-around !important;
+        justify-content: center;
+        
+       
+        
+
+        .RQ_Days_container_mobile{
+            @include flex;
+            justify-content: space-around !important;
+            justify-content: center;
+            margin-top:14px !important;
+            
+            .RQ_Icon_mobile_container{
+                margin-left: -80px !important;
+            }
+
+           .RQ_Icon_mobile{
+                color:#2fdfff !important;
+                margin-top:5px !important;
+           }
+
+            .RQ_Number_of_days_mobile{
+                color:#2fdfff !important;
+                margin-left:-18px !important;
+            }
+        }
+    
+
+        .RQ_Days_container_two_mobile{
+            @include flex;
+            justify-content: space-around !important;
+            justify-content: center;
+            
+           .RQ_Figures_mobile{
+            color:white !important;
+            font-size:40px;
+            // margin-right:50px !important;
+            font-weight: bolder;
+            // padding-left: 20px;
+           }
+
+            .RQ_Date_mobile{
+                color:white !important;
+                margin-top:5px;
+            }
+        
+            
+        }
     }
 }

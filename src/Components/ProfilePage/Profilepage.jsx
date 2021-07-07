@@ -138,8 +138,7 @@ export default function Profilepage() {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
     const month = months[d.getMonth()]
     const year = d.getFullYear()
-    const displayTodaysDate = d.getDate() + "/" + month + "/" + d.getFullYear();
-
+    const displayTodaysDate = `${d.getDate()} ${month} ${d.getFullYear()}`
 
     let bankValues = {
         bankInfo,
