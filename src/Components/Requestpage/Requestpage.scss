@@ -261,8 +261,11 @@
             grid-column: 1/6;
             grid-row:2/3;
             background:#05006A !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
        
         }
 
@@ -270,8 +273,11 @@
             grid-column: 6/13;
             grid-row:2/3;
             background:#05006A !important;
-            height:120px;
+            height:auto;
             border-radius:5px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
        
         }
 
@@ -279,8 +285,12 @@
             grid-column: 1/13;
             grid-row:3/4;
             background:#05006A !important;
-            height:120px;
+            height:auto;
+            padding: 20px;
             border-radius:5px;
+            display: flex;
+            flex-direction: column !important;
+            align-items: center !important;
        
         }
 
@@ -288,7 +298,7 @@
             grid-column: 1/13;
             grid-row:4/5;
             background:white !important;
-            height:220px;
+            height:auto;
             border-radius:5px;
        
         }
@@ -347,4 +357,138 @@
             
         }
     }
+
+
+    .RQ_Header_content_mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .RQ_Numbers_mobile{
+        color:#2fdfff;
+    }
+
+    .RQ_Numbers_one_mobile{
+        color:white;
+        font-size:20px;
+        font-weight: bolder;
+    }
+
+    .RQ_Profile_progress_circular_mobile{
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    .RQ_Header_content_two_mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .RQ_Total_mobile{
+        color:#2fdfff;
+    }
+    
+    .RQ_Total_one_mobile{
+        color:white;
+        font-size:20px;
+        font-weight: bolder;
+    }
+
+    .RQ_Avaluable_mobile{
+        color:#2fdfff;
+    }
+    
+    .RQ_Avaluable_one_mobile{
+        color:white;
+        font-weight: bolder;
+        font-size:20px;
+    }
+
+    .RQ_Header_Button_mobile{
+        width:80% !important;
+        color: #05006A !important;
+        background:#2fdfff !important;
+        font-weight: bolder !important;
+        margin-top:10px !important; 
+        
+    }
+
+    // dialog mobile style
+    .account_select_input_mobile{
+        margin-top:15px;
+        text-align: center;
+    
+    
+        .account_select_textfield_mobile{
+            width: 100% !important;
+        
+            ::placeholder{
+                color:#392fff!important;
+            }
+        
+            label {
+                color: #392fff!important;
+            }
+         
+        }
+    };
+    
+    .account_input_mobile{
+        margin-top:15px;
+        text-align: center;
+    
+        .account_textfield_mobile{
+       
+            width: 100% !important;
+     
+            ::placeholder{
+                color:#392fff !important;
+            }
+        
+            label {
+                color: #392fff !important;
+            }
+        
+        }
+      }
+      .account_Botton_container_mobile{
+        
+        .account_password_Button_mobile{
+            width:100% !important;
+            color: white !important;
+            background:#392fff !important;
+            margin-top:15px;
+            text-transform: none;
+    
+            :disabled{
+                 opacity:0.2 !important;
+            }
+        }
+    }
+    
+    .dialog_action_button_mobile{
+        background:rgb(231, 230, 225) !important;
+    }
+    
+    .alert_mobile{
+        margin-top: 15px !important;
+        font-size: 12px;
+    }
+
+    .account_name_alert{
+        font-size: 12px;
+    }
+
+
+    .Profile_progress_circular_mobile{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top:20px;
+    }
+
+    // ....
 }
