@@ -7,7 +7,7 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 export default function SettlementPage() {
     const columns = [
-        { field: 'id', headerName: 'S/N', width: 70 },
+        { field: 'id', headerName: 'No.', width: 70 },
         { field: 'requestId', headerName: 'Request ID', width: 100 },
         { field: 'amount', headerName: 'Amount', width: 100 },
         // {
