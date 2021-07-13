@@ -1,0 +1,38 @@
+@import "../../scssMixin/mixin.scss";
+
+.ARQ_container{
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2{
+        color:#05006A;
+    }
+}
+
+
+
+.ARQ_Grid_container{
+    display: grid;
+    gap:10px;
+    grid-template-columns:repeat(12,1fr);
+    grid-template-rows:repeat(4,minmax(150,auto));
+
+    .ARQ_content_one{
+        grid-column: 1/13;
+        grid-row:1/2;
+        background:#05006A !important;
+        height:120px;
+        border-radius:5px;
+    }
+}
+
+
+.ARQ_content_two{
+    grid-column:1/13;
+    grid-row:2/13;
+    background:white !important;
+    height:320px;
+    border-radius:5px;
+
+}

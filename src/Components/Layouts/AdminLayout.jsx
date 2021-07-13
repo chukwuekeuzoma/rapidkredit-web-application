@@ -1,16 +1,16 @@
+// this is a duplicate of the DashboardLayout
+
 import React, {useState} from 'react'
-import DashBoardNav from "../../DashBoardNav/DashBoardNav"
-import "./DashBoardLayout.scss"
+import "./DashBoardLayout/DashboardLayout.scss"
 import Fade from 'react-reveal/Fade'
 import { Link } from "react-router-dom"
 import { Grid,Paper,Button } from '@material-ui/core';
 import RapidOne from "../../../images/rapid.png"
-// import useForceUpdate from 'use-force-update';
+import AdminNav from  "../AdminNav/AdminNav"
 
 
-
-export default function DashboardLayout(props) {
-
+export default function AdminLayout(props) {
+     
     const Oneminute = 60000;
     let time = 10 * Oneminute;
 
@@ -34,15 +34,15 @@ export default function DashboardLayout(props) {
     let store = JSON.parse(localStorage.getItem("token"))
 
 
-
     return (
         <>
-            {
+          <div>
+          {
                 store && store.token ?
                     <div className="dashboardlayout_container">
                         <Fade left duration={1000}>
                             <div className="DBL_dashboardnav_container">
-                                <DashBoardNav />
+                                <AdminNav />
                             </div>
                         </Fade>
                         <div className="DBL_children_container">
@@ -66,11 +66,8 @@ export default function DashboardLayout(props) {
                         </Grid>
                     </Fade>
             }
+                
+          </div>
         </>
-    )
-
+    );
 }
-
-
-
-
