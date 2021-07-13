@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./AdminSettlement.scss"
 
-import React from 'react';
+
 
 export default function AdminSettlement(props) {
     return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./AdminRequest.scss"
 
-import React from 'react';
+
 
 export default function AdminRequest(props) {
     return (

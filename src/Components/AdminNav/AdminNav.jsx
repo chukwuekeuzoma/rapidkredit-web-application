@@ -40,35 +40,35 @@ export default function AdminNav() {
                         <img src={RapidOne} alt="tw" height="50px" />
                     </div>
                     <div className="DBN_icon_container">
-                        <Link to="Dashboard" className="links">
+                        <Link to="Adminhome" className="links">
                             <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
                                     <DashboardIcon className="DashboardIcon" />
-                                    <span>Home</span>
+                                    <span>Home<span style={{ opacity: "0" }}>.............</span></span>
                                 </div>
                             </div>
                         </Link>
-                        <Link to="Request" className="links">
+                        <Link to="Adminemployers" className="links">
                             <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
                                     <CallReceivedIcon className="CallReceivedIcon" />
-                                    <span className="Requests">Employers<span style={{ opacity: "0" }}>....</span></span>
+                                    <span className="Requests">Employers<span style={{ opacity: "0" }}>.....</span></span>
                                 </div>
                             </div>
                         </Link>
-                        <Link to="Settlement" className="links">
+                        <Link to="Adminrequest" className="links">
                             <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
                                     <RedeemIcon className="RedeemIcon" />
-                                    <span>Request</span>
+                                    <span>Request<span style={{ opacity: "0" }}>........</span></span>
                                 </div>
                             </div>
                         </Link>
-                        <Link to="Profile" className="links">
+                        <Link to="Adminsettlement" className="links">
                             <div onClick={() => setActive("PersonIcon")} className={Active === "PersonIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
                                     <PersonIcon className="PersonIcon" />
-                                    <span className="Profile">Settlements<span style={{ opacity: "0" }}>...........</span></span>
+                                    <span className="Profile">Settlements</span>
                                 </div>
                             </div>
                         </Link>
@@ -105,35 +105,35 @@ export default function AdminNav() {
                 </div>
                 <div className={Navbar ? "DBN_nav_bar_mobile" : "DBN_nav_bar_mobile-none"}>
                     <div className="DBN_icon_container_mobile">
-                        <Link to="Dashboard" className="links">
+                        <Link to="Adminhome" className="links">
                             <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
                                     <DashboardIcon className="DashboardIcon_mobile" />
-                                    <span>Home</span>
+                                    <span>Home<span style={{ opacity: "0" }}>.............</span></span>
                                 </div>
                             </div>
                         </Link>
-                        <Link  to="Request" className="links">
+                        <Link  to="Adminemployers" className="links">
                             <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
                                     <CallReceivedIcon className="CallReceivedIcon_mobile"/>
-                                    <span className="Requests">Employers<span style={{ opacity: "0" }}>....</span></span>
+                                    <span className="Requests">Employers<span style={{ opacity: "0" }}>.....</span></span>
                                 </div>
                             </div>
                         </Link>
-                        <Link  to="Settlement" className="links">
+                        <Link  to="Adminrequest" className="links">
                             <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
                                     <RedeemIcon className="RedeemIcon_mobile" />
-                                    <span>Request</span>
+                                    <span>Request<span style={{ opacity: "0" }}>........</span></span>
                                 </div>
                             </div>
                         </Link>
-                        <Link  to="Profile" className="links">
+                        <Link  to="Adminsettlement" className="links">
                             <div onClick={() => setActive("PersonIcon")} className={Active === "PersonIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                     <div className="DBN_c_mobile">
                                         <PersonIcon className="PersonIcon_mobile" />
-                                        <span>Settlements<span style={{ opacity: "0" }}>...........</span></span>
+                                        <span className="Profile">Settlements</span>
                                     </div>
                             </div>
                         </Link>

@@ -1,11 +1,11 @@
 // this is a duplicate of the DashboardLayout
 
 import React, {useState} from 'react'
-import "./DashBoardLayout/DashboardLayout.scss"
+import "./DashBoardLayout/DashBoardLayout.scss"
 import Fade from 'react-reveal/Fade'
 import { Link } from "react-router-dom"
 import { Grid,Paper,Button } from '@material-ui/core';
-import RapidOne from "../../../images/rapid.png"
+import RapidOne from "../../images/rapid.png"
 import AdminNav from  "../AdminNav/AdminNav"
 
 

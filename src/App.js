@@ -21,6 +21,11 @@ import ForgotPasswordone from "./Components/ForgotPasswordPageOne/ForgotPassword
 import ForgotPasswordTwo from "./Components/ForgotPasswordTwo/ForgotPasswordTwo"
 import Loading from "./Components/LoadingPage/Loading"
 import Password from "./Components/PasswordPage/Password"
+import AdminHome from "./Components/AdminHome/AdminHome"
+import AdminEmployers from "./Components/AdminEmployers/AdminEmployers"
+import AdminSettlement from './Components/AdimSettlement/AdminSettlement'
+import AdminRequest from './Components/AdminRequest/AdminRequest'
+import AdminLayout from "./Components/Layouts/AdminLayout"
 
 
 
@@ -74,7 +79,10 @@ function App() {
             <RouteWithLayout Layout={DashboardLayout} path="/Profile" Component={ProfilePage} />
             <RouteWithLayout Layout={OrdinaryLayout} path="/Passwordreset/:token" Component={ForgotPasswordTwo} />
             <RouteWithLayout Layout={OrdinaryLayout} path="/Password/:token" Component={Password} />
-
+            <RouteWithLayout Layout={AdminLayout} path="/Adminhome" Component={AdminHome} />
+            <RouteWithLayout Layout={AdminLayout} path="/Adminemployers" Component={AdminEmployers} />
+            <RouteWithLayout Layout={AdminLayout} path="/Adminsettlement" Component={AdminSettlement} />
+            <RouteWithLayout Layout={AdminLayout} path="/Adminrequest" Component={AdminRequest} />
           </Switch>
         </div>
       </HashRouter>
