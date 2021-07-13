@@ -8,7 +8,7 @@ export default function AdminSettlement(props) {
         <>
             <div>
                 <div className="AST_container">
-                    <h2>Settlement</h2>
+                    <h2>Settlements</h2>
                 </div>
                 <div className="AST_Grid_container">
                     <div className="AST_content_one">

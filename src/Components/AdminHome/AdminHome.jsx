@@ -9,9 +9,7 @@ export default function AdminHome(props) {
         </div>
         <div className="ADH_Grid_container">
              <div className="ADH_content_one">
-                
-             </div>
-             <div className="ADH_content_two">
+                 
                 
              </div>
             

@@ -3,11 +3,11 @@
 import React, { useState } from 'react'
 import "../DashBoardNav/DashBoardNav.scss"
 import RapidOne from "../../images/rapid.png"
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import { Menu, Clear } from '@material-ui/icons'
-import CallReceivedIcon from '@material-ui/icons/CallReceived';
-import RedeemIcon from '@material-ui/icons/Redeem';
-import PersonIcon from '@material-ui/icons/Person';
+import HouseIcon from '@material-ui/icons/House';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import PaymentIcon from '@material-ui/icons/Payment';
+import ReplyIcon from '@material-ui/icons/Reply';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Link, useHistory } from "react-router-dom"
@@ -43,7 +43,7 @@ export default function AdminNav() {
                         <Link to="Adminhome" className="links">
                             <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
-                                    <DashboardIcon className="DashboardIcon" />
+                                    <HouseIcon className="DashboardIcon" />
                                     <span>Home<span style={{ opacity: "0" }}>.............</span></span>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@ export default function AdminNav() {
                         <Link to="Adminemployers" className="links">
                             <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
-                                    <CallReceivedIcon className="CallReceivedIcon" />
+                                    <SupervisorAccountIcon className="CallReceivedIcon" />
                                     <span className="Requests">Employers<span style={{ opacity: "0" }}>.....</span></span>
                                 </div>
                             </div>
@@ -59,15 +59,15 @@ export default function AdminNav() {
                         <Link to="Adminrequest" className="links">
                             <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
-                                    <RedeemIcon className="RedeemIcon" />
-                                    <span>Request<span style={{ opacity: "0" }}>........</span></span>
+                                    <ReplyIcon className="RedeemIcon" />
+                                    <span>Request<span style={{ opacity: "0" }}>.........</span></span>
                                 </div>
                             </div>
                         </Link>
                         <Link to="Adminsettlement" className="links">
                             <div onClick={() => setActive("PersonIcon")} className={Active === "PersonIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
-                                    <PersonIcon className="PersonIcon" />
+                                    <PaymentIcon className="PersonIcon" />
                                     <span className="Profile">Settlements</span>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@ export default function AdminNav() {
                         <Link to="Adminhome" className="links">
                             <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
-                                    <DashboardIcon className="DashboardIcon_mobile" />
+                                    <HouseIcon className="DashboardIcon_mobile" />
                                     <span>Home<span style={{ opacity: "0" }}>.............</span></span>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@ export default function AdminNav() {
                         <Link  to="Adminemployers" className="links">
                             <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
-                                    <CallReceivedIcon className="CallReceivedIcon_mobile"/>
+                                    <SupervisorAccountIcon className="CallReceivedIcon_mobile"/>
                                     <span className="Requests">Employers<span style={{ opacity: "0" }}>.....</span></span>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@ export default function AdminNav() {
                         <Link  to="Adminrequest" className="links">
                             <div onClick={() => setActive("RedeemIcon")} className={Active === "RedeemIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
-                                    <RedeemIcon className="RedeemIcon_mobile" />
+                                    <ReplyIcon className="RedeemIcon_mobile" />
                                     <span>Request<span style={{ opacity: "0" }}>........</span></span>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@ export default function AdminNav() {
                         <Link  to="Adminsettlement" className="links">
                             <div onClick={() => setActive("PersonIcon")} className={Active === "PersonIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                     <div className="DBN_c_mobile">
-                                        <PersonIcon className="PersonIcon_mobile" />
+                                        <PaymentIcon className="PersonIcon_mobile" />
                                         <span className="Profile">Settlements</span>
                                     </div>
                             </div>

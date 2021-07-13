@@ -20,21 +20,14 @@
     grid-template-columns:repeat(12,1fr);
     grid-template-rows:repeat(4,minmax(150,auto));
 
-    .ADH_content_one{
-        grid-column: 1/13;
-        grid-row:1/2;
-        background:#05006A !important;
-        height:120px;
-        border-radius:5px;
-    }
 }
 
 
-.ADH_content_two{
+.ADH_content_one{
     grid-column:1/13;
-    grid-row:2/13;
+    grid-row:1/13;
     background:white !important;
-    height:320px;
+    height:500px;
     border-radius:5px;
 
 }
