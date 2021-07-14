@@ -109,7 +109,7 @@ export default function AdminNav() {
                             <div onClick={() => setActive("DashboardIcon")} className={Active === "DashboardIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
                                     <HouseIcon className="DashboardIcon_mobile" />
-                                    <span>Home<span style={{ opacity: "0" }}>.............</span></span>
+                                    <span>Home<span style={{ opacity: "0" }}>...........</span></span>
                                 </div>
                             </div>
                         </Link>
@@ -117,7 +117,7 @@ export default function AdminNav() {
                             <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active_mobile" : "DBN_icon_container_select_mobile"}>
                                 <div className="DBN_c_mobile">
                                     <SupervisorAccountIcon className="CallReceivedIcon_mobile"/>
-                                    <span className="Requests">Employers<span style={{ opacity: "0" }}>.....</span></span>
+                                    <span className="Requests">Employers<span style={{ opacity: "0" }}>...</span></span>
                                 </div>
                             </div>
                         </Link>

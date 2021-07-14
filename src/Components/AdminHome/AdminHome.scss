@@ -27,7 +27,100 @@
     grid-column:1/13;
     grid-row:1/13;
     background:white !important;
-    height:500px;
+    height:auto;
     border-radius:5px;
+    padding: 20px;
+
+    .ADH_box_container{
+        @include flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    
+    }
+
+    .ADH_box_one{
+        height: 100px;
+        width: 300px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: #05006A;
+        border-radius:20px;
+        box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        text-align: center;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ADH_box_num{
+        font-size: 20px;
+        color: #2fdfff;
+        font-weight: bolder;
+    }
+    
+    .ADH_box_text{
+        font-size: 20px;
+        color: #2fdfff;
+        font-weight: bolder;
+    }
+    .ADH_box_two{
+        height: 100px;
+        width: 300px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: #05006A;
+        border-radius:20px;
+        box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        text-align: center;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ADH_box_container_two{
+        @include flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    
+    }
+
+    .ADH_box_three{
+        height: 100px;
+        width: 300px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: #05006A;
+        border-radius:20px;
+        box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        text-align: center;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ADH_box_four{
+        height: 100px;
+        width: 300px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background: #05006A;
+        border-radius:20px;
+        box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -webkit-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        -moz-box-shadow: 4px 10px 75px -6px rgba(0,0,0,0.78);
+        text-align: center;
+        @include flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
 }
