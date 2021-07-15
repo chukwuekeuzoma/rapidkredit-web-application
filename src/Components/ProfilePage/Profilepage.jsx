@@ -233,7 +233,8 @@ export default function Profilepage() {
         return () => bankdetailsbanks = false
     }, [])
 
-
+   
+    
     const keyUp = () => {
         setLoader(true)
         if (accountNumber != "") {
@@ -712,9 +713,9 @@ export default function Profilepage() {
                                                                         >
                                                                             <option aria-label="None" value="" />
 
-                                                                            {BankList.map(({ BankName, BankCode }, index) => (
-                                                                                <option key={index} value={`${BankCode},${BankName}`}>
-                                                                                    {BankName}
+                                                                            {BankList.map(({  name, code }, index) => (
+                                                                                <option key={index} value={`${code},${name}`}>
+                                                                                    {name}
                                                                                 </option>
                                                                             ))}
                                                                         </Select>
@@ -1150,9 +1151,9 @@ export default function Profilepage() {
                                                                     >
                                                                         <option aria-label="None" value="" />
 
-                                                                        {BankList.map(({ BankName, BankCode }, index) => (
-                                                                            <option key={index} value={`${BankCode},${BankName}`}>
-                                                                                {BankName}
+                                                                        {BankList.map(({ bankName, bankCode }, index) => (
+                                                                            <option key={index} value={`${bankCode},${bankName}`}>
+                                                                                {bankName}
                                                                             </option>
                                                                         ))}
                                                                     </Select>

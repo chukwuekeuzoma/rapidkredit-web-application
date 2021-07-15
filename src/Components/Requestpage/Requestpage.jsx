@@ -55,9 +55,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function Requestpage() {
 
     const columns = [
-        { field: 'id', headerName: 'No.', width: 70 },
-        { field: 'requestId', headerName: 'Request ID', width: 100 },
-        { field: 'amount', headerName: 'Amount', width: 100 },
+        { field: 'id', headerName: 'No.', width: 75 },
+        { field: 'requestId', headerName: 'Request ID', width: 125 },
+        { field: 'amount', headerName: 'Amount', width: 120 },
         // {
         //     field: 'age',
         //     headerName: 'Age',
@@ -76,7 +76,7 @@ export default function Requestpage() {
     ];
 
     const rows = [
-        { id: 1, requestId: 'none', amount: 'none'},
+        // { id: 1, requestId: 'none', amount: 'none'},
         // { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
         // { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
         // { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },

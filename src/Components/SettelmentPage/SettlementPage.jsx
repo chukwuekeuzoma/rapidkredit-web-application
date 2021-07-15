@@ -2,14 +2,14 @@ import * as React from 'react';
 import Fade from 'react-reveal/Fade'
 import "./SettlementPage.scss"
 import { DataGrid } from '@material-ui/data-grid';
-import {Button } from '@material-ui/core';
+// import {Button } from '@material-ui/core';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 export default function SettlementPage() {
     const columns = [
-        { field: 'id', headerName: 'No.', width: 70 },
-        { field: 'requestId', headerName: 'Request ID', width: 100 },
-        { field: 'amount', headerName: 'Amount', width: 100 },
+        { field: 'id', headerName: 'No.', width: 75 },
+        { field: 'requestId', headerName: 'Request ID', width: 125 },
+        { field: 'amount', headerName: 'Amount', width: 120 },
         // {
         //   field: 'age',
         //   headerName: 'Age',
@@ -28,7 +28,7 @@ export default function SettlementPage() {
       ];
       
       const rows = [
-        { id: 1, requestId: 'none', amount: 'none'},
+        // { id: 1, requestId: 'none', amount: 'none'},
       ];
 
 
