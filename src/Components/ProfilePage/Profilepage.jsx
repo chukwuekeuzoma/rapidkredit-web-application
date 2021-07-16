@@ -143,7 +143,8 @@ export default function Profilepage() {
     let bankValues = {
         bankInfo,
         accountNumber
-    }
+    } 
+    //  console.log(bankValues )
 
     let bankData = {
         accountName,
@@ -227,7 +228,7 @@ export default function Profilepage() {
 
     useEffect(async () => {
         let bankdetailsbanks = true
-        axios.post("bank-details/banks")
+        axios.get("bank-details/banks")
             .then(response => { if (bankdetailsbanks) { setBankList(response.data.data) } })
             .catch(e => { if (bankdetailsbanks) { console.log(e) } })
         return () => bankdetailsbanks = false
@@ -238,7 +239,7 @@ export default function Profilepage() {
     const keyUp = () => {
         setLoader(true)
         if (accountNumber != "") {
-            axios.post("bank-details/account-enquire", bankValues)
+            axios.get("bank-details/account-enquire", bankValues)
                 .then(response => {
                     setaccountName(response.data.data.AccountName)
                     setErrorBankSent("")
@@ -536,7 +537,7 @@ export default function Profilepage() {
                                                     size="small"
                                                     label="Amount"
                                                     placeholder="Amount"
-                                                    id="amount"
+                                                    // id="amount"
                                                     type="phone"
                                                     variant="outlined"
                                                     className="account_textfield"
