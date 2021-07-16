@@ -516,10 +516,10 @@ export default function Profilepage() {
                                                     <Select
                                                         native
                                                         label=" Select Your Bank"
-                                                        inputProps={{
-                                                            id: 'bankInfo',
+                                                        // inputProps={{
+                                                        //     id: 'bankInfo',
 
-                                                        }}
+                                                        // }}
                                                         onChange={e => setbankId(e.target.value)}
                                                     >
                                                         <option aria-label="None" value="" />
