@@ -92,7 +92,7 @@
           @include flex;
           justify-content:center;
           align-items:flex-end;
-          margin-top: 80px;
+          margin-top: 60px;
 
           .DBN_HelpOutline_container{
             @include flex;
@@ -314,7 +314,7 @@
         @include flex;
         justify-content:center;
         // align-items:flex-end;
-        margin-top: 70px;
+        margin-top:15px;
 
         .DBN_HelpOutline_container_mobile{
           @include flex;
