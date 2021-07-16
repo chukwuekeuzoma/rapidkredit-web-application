@@ -546,7 +546,7 @@ export default function Profilepage() {
                                                     size="small"
                                                     label="Amount"
                                                     placeholder="Amount"
-                                                    id="amount"
+                                                    // id="amount"
                                                     type="phone"
                                                     variant="outlined"
                                                     className="account_textfield"
