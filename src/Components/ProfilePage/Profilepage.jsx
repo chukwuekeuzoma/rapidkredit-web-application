@@ -125,8 +125,6 @@ export default function Profilepage() {
     const [bankName, setbankName] = useState("")
     const [BankList, setBankList] = useState([])
     const [bankCode, setbankCode] = useState("")
-    const [currency, setcurrency] = useState("")
-    const [type, settype] = useState("")
     // const [BankDetails, setBankDetails] = useState([])
     const [Loader, setLoader] = useState(false)
     const [LoaderTwo, setLoaderTwo] = useState(false)
@@ -142,20 +140,17 @@ export default function Profilepage() {
     const year = d.getFullYear()
     const displayTodaysDate = `${d.getDate()} ${month} ${d.getFullYear()}`
 
-    let bankValues ={
-        accountNumber,
-        bankInfo}
-          
-    
-    console.log(bankValues)
-    
+    let bankValues = {
+        bankInfo,
+        accountNumber
+    } 
+     console.log(bankValues )
+
     let bankData = {
         accountName,
         bankName,
         accountNumber,
-        bankCode,
-        currency,
-        type
+        bankCode
     }
 
     let firstName = UserData.first_name;
@@ -234,11 +229,7 @@ export default function Profilepage() {
     useEffect(async () => {
         let bankdetailsbanks = true
         axios.get("bank-details/banks")
-            .then(response => { if (bankdetailsbanks) 
-                { setBankList(response.data.data)
-                    setcurrency(response.data.data.currency)
-                    settype(response.data.data.type)
-                 } })
+            .then(response => { if (bankdetailsbanks) { setBankList(response.data.data) } })
             .catch(e => { if (bankdetailsbanks) { console.log(e) } })
         return () => bankdetailsbanks = false
     }, [])
@@ -246,9 +237,10 @@ export default function Profilepage() {
    
     
     const keyUp = () => {
-        setLoader(true)
-        if (accountNumber != "") {
-            axios.get("bank-details/account-enquire",bankValues)
+        
+        if (bankInfo != "" && accountNumber.length >= 10) {
+            setLoader(true);
+            axios.get("bank-details/account-enquire", bankValues)
                 .then(response => {
                     setaccountName(response.data.data.AccountName)
                     setErrorBankSent("")
@@ -501,10 +493,10 @@ export default function Profilepage() {
                                                     <Select
                                                         native
                                                         label=" Select Your Company"
-                                                        inputProps={{
-                                                            id: 'companylist',
+                                                        // inputProps={{
+                                                        //     id: 'companylist',
 
-                                                        }}
+                                                        // }}
                                                         onChange={e => setcompanyId(e.target.value)}
                                                     >
                                                         <option aria-label="None" value="" />
@@ -715,15 +707,15 @@ export default function Profilepage() {
                                                                         <Select
                                                                             native
                                                                             label=" Select Your Bank"
-                                                                            inputProps={{
-                                                                                id: 'bankInfo',
+                                                                            // inputProps={{
+                                                                            //     id: 'bankInfo',
 
-                                                                            }}
+                                                                            // }}
                                                                             onChange={e => setbankInfo(e.target.value)}
                                                                         >
                                                                             <option aria-label="None" value="" />
 
-                                                                            {BankList.map(({  code, name }, index) => (
+                                                                            {BankList.map(({  name, code }, index) => (
                                                                                 <option key={index} value={`${code},${name}`}>
                                                                                     {name}
                                                                                 </option>
@@ -736,7 +728,7 @@ export default function Profilepage() {
                                                                         size="small"
                                                                         label="Account Number"
                                                                         placeholder="Account Number"
-                                                                        id="accountNumber"
+                                                                        // id="accountNumber"
                                                                         type="phone"
                                                                         variant="outlined"
                                                                         className="account_textfield"
@@ -977,10 +969,10 @@ export default function Profilepage() {
                                             <Select
                                                 native
                                                 label=" Select Your Company"
-                                                inputProps={{
-                                                    id: 'companylist',
+                                                // inputProps={{
+                                                //     id: 'companylist',
 
-                                                }}
+                                                // }}
                                                 onChange={e => setcompanyId(e.target.value)}
                                             >
                                                 <option aria-label="None" value="" />
@@ -1001,10 +993,10 @@ export default function Profilepage() {
                                             <Select
                                                 native
                                                 label=" Select Your Bank"
-                                                inputProps={{
-                                                    id: 'bankInfo',
+                                                // inputProps={{
+                                                //     id: 'bankInfo',
 
-                                                }}
+                                                // }}
                                                 onChange={e => setbankId(e.target.value)}
                                             >
                                                 <option aria-label="None" value="" />
@@ -1022,7 +1014,7 @@ export default function Profilepage() {
                                             size="small"
                                             label="Amount"
                                             placeholder="Amount"
-                                            id="amount"
+                                            // id="amount"
                                             type="phone"
                                             variant="outlined"
                                             className="account_textfield_mobile"
@@ -1153,10 +1145,10 @@ export default function Profilepage() {
                                                                     <Select
                                                                         native
                                                                         label=" Select Your Bank"
-                                                                        inputProps={{
-                                                                            id: 'bankInfo',
+                                                                        // inputProps={{
+                                                                        //     id: 'bankInfo',
 
-                                                                        }}
+                                                                        // }}
                                                                         onChange={e => setbankInfo(e.target.value)}
                                                                     >
                                                                         <option aria-label="None" value="" />
@@ -1174,7 +1166,7 @@ export default function Profilepage() {
                                                                     size="small"
                                                                     label="Account Number"
                                                                     placeholder="Account Number"
-                                                                    id="accountNumber"
+                                                                    // id="accountNumber"
                                                                     type="phone"
                                                                     variant="outlined"
                                                                     className="account_textfield_mobile"
