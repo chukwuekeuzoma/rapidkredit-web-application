@@ -125,6 +125,8 @@ export default function Profilepage() {
     const [bankName, setbankName] = useState("")
     const [BankList, setBankList] = useState([])
     const [bankCode, setbankCode] = useState("")
+    const [currency, setcurrency] = useState("")
+    const [type, settype] = useState("")
     // const [BankDetails, setBankDetails] = useState([])
     const [Loader, setLoader] = useState(false)
     const [LoaderTwo, setLoaderTwo] = useState(false)
@@ -140,17 +142,20 @@ export default function Profilepage() {
     const year = d.getFullYear()
     const displayTodaysDate = `${d.getDate()} ${month} ${d.getFullYear()}`
 
-    let bankValues = {
-        bankInfo,
-        accountNumber
-    } 
-    //  console.log(bankValues )
-
+    let bankValues ={
+        accountNumber,
+        bankInfo}
+          
+    
+    console.log(bankValues)
+    
     let bankData = {
         accountName,
         bankName,
         accountNumber,
-        bankCode
+        bankCode,
+        currency,
+        type
     }
 
     let firstName = UserData.first_name;
@@ -229,7 +234,11 @@ export default function Profilepage() {
     useEffect(async () => {
         let bankdetailsbanks = true
         axios.get("bank-details/banks")
-            .then(response => { if (bankdetailsbanks) { setBankList(response.data.data) } })
+            .then(response => { if (bankdetailsbanks) 
+                { setBankList(response.data.data)
+                    setcurrency(response.data.data.currency)
+                    settype(response.data.data.type)
+                 } })
             .catch(e => { if (bankdetailsbanks) { console.log(e) } })
         return () => bankdetailsbanks = false
     }, [])
@@ -239,7 +248,7 @@ export default function Profilepage() {
     const keyUp = () => {
         setLoader(true)
         if (accountNumber != "") {
-            axios.get("bank-details/account-enquire", bankValues)
+            axios.get("bank-details/account-enquire",bankValues)
                 .then(response => {
                     setaccountName(response.data.data.AccountName)
                     setErrorBankSent("")
@@ -714,7 +723,7 @@ export default function Profilepage() {
                                                                         >
                                                                             <option aria-label="None" value="" />
 
-                                                                            {BankList.map(({  name, code }, index) => (
+                                                                            {BankList.map(({  code, name }, index) => (
                                                                                 <option key={index} value={`${code},${name}`}>
                                                                                     {name}
                                                                                 </option>
@@ -1152,9 +1161,9 @@ export default function Profilepage() {
                                                                     >
                                                                         <option aria-label="None" value="" />
 
-                                                                        {BankList.map(({ bankName, bankCode }, index) => (
-                                                                            <option key={index} value={`${bankCode},${bankName}`}>
-                                                                                {bankName}
+                                                                        {BankList.map(({ name, code }, index) => (
+                                                                            <option key={index} value={`${code},${name}`}>
+                                                                                {name}
                                                                             </option>
                                                                         ))}
                                                                     </Select>
