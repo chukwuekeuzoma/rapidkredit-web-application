@@ -26,6 +26,7 @@ import AdminEmployers from "./Components/AdminEmployers/AdminEmployers"
 import AdminSettlement from './Components/AdimSettlement/AdminSettlement'
 import AdminRequest from './Components/AdminRequest/AdminRequest'
 import AdminLayout from "./Components/Layouts/AdminLayout"
+import AdminAddEmployer from "./Components/AdminAddEmployer/AdminAddEmployer"
 
 
 
@@ -83,6 +84,7 @@ function App() {
             <RouteWithLayout Layout={AdminLayout} path="/Adminemployers" Component={AdminEmployers} />
             <RouteWithLayout Layout={AdminLayout} path="/Adminsettlement" Component={AdminSettlement} />
             <RouteWithLayout Layout={AdminLayout} path="/Adminrequest" Component={AdminRequest} />
+            <RouteWithLayout Layout={AdminLayout} path="/Adminaddemployer" Component={AdminAddEmployer} />
           </Switch>
         </div>
       </HashRouter>

@@ -57,8 +57,8 @@ export default function AdminNav() {
                                 </div>
                             </div>
                         </Link>
-                        <Link to="Adminemployers" className="links">
-                            <div onClick={() => setActive("CallReceivedIcon")} className={Active === "CallReceivedIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
+                        <Link to="Adminaddemployer" className="links">
+                            <div onClick={() => setActive("personAddIcon")} className={Active === "personAddIcon" ? "DBN_icon_container_select_active" : "DBN_icon_container_select"}>
                                 <div className="DBN_c">
                                     <PersonAddIcon className="CallReceivedIcon" />
                                     <span className="Requests">Add Employer<span style={{ opacity: "0" }}></span></span>
