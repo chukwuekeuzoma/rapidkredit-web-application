@@ -17,22 +17,66 @@
     gap:10px;
     grid-template-columns:repeat(12,1fr);
     grid-template-rows:repeat(4,minmax(150,auto));
-
-    .AAE_content_one{
-        grid-column: 1/13;
-        grid-row:1/2;
-        background:#05006A !important;
-        height:150px;
-        border-radius:5px;
-    }
 }
 
 
-.AAE_content_two{
+.AAE_content_one{
     grid-column:1/13;
-    grid-row:2/13;
+    grid-row:1/13;
     background:white !important;
-    height:320px;
+    height:520px;
     border-radius:5px;
+    @include flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
 
+.AAE_Paper{
+    padding: 20px;
+    height:auto;
+    width: 280px;
+}
+
+.AAE_input_email{
+    margin-top:20px;
+    text-align: center;
+
+
+   .AAE_textfield{
+       // input{
+       //     height:5px;
+       // }
+       
+       width: 100% !important;
+
+       ::placeholder{
+           color:#392fff !important;
+       }
+   
+       label {
+           color:#392fff  !important;
+       }
+   
+   }
+};
+
+.AAE_Botton_container{
+    margin-top:20px;
+
+    .AAE_Button{
+        width:100% !important;
+        color: white !important;
+        background:#392fff !important;
+    }
+
+ 
+}
+
+.AAE_Password{
+    font-size:30px;
+    font-weight: bolder;
+    color: black !important;
+    opacity: 0.7;
+    margin-bottom: 20px !important;
 }

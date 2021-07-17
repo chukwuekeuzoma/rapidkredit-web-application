@@ -242,11 +242,11 @@ export default function Profilepage() {
             setLoader(true);
             axios.get("bank-details/account-enquire", bankValues)
                 .then(response => {
-                    setaccountName(response.data.data.account_Name)
+                    setaccountName(response.data.data.accountName)
                     setErrorBankSent("")
                     setLoader(false)
-                    setbankCode(response.data.data.BankCode)
-                    setbankName(response.data.BankName)
+                    setbankCode(response.data.data.bankCode)
+                    setbankName(response.data.data.bankName)
                     if (response.data.status === "error") {
                         setErrorBankSent(response.data.message)
                         setaccountName("")
