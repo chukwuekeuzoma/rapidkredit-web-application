@@ -242,7 +242,7 @@ export default function Profilepage() {
             setLoader(true);
             axios.get("bank-details/account-enquire", bankValues)
                 .then(response => {
-                    setaccountName(response.data.data.AccountName)
+                    setaccountName(response.data.data.account_Name)
                     setErrorBankSent("")
                     setLoader(false)
                     setbankCode(response.data.data.BankCode)
