@@ -14,7 +14,7 @@ export default function AdminHome(props) {
                          <div>
                               <span>
                                 
-                                  <span className="ADH_box_num"> 5 </span>
+                                  <span className="ADH_box_num"> 0 </span>
                                     <br/>
                                     <span className="ADH_box_text"> Employers </span>
 
@@ -25,7 +25,7 @@ export default function AdminHome(props) {
                            <div>
                               <span>
                                 
-                                  <span className="ADH_box_num"> 352 </span>
+                                  <span className="ADH_box_num"> 0 </span>
                                     <br/>
                                     <span className="ADH_box_text"> Employees </span>
 

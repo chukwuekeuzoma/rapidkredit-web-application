@@ -88,13 +88,13 @@ export default function AdminNav() {
                             <div className="DBN_HelpOutline_container">
                                 <div className="DBN_HelpOutlineIcon_container">
                                     <HelpOutlineIcon className="HelpOutlineIcon" />
-                                    <span>Support<span style={{ opacity: "0" }}>...............</span></span>
+                                    <span>Support<span style={{ opacity: "0" }}>...........</span></span>
                                 </div>
                             </div>
                             <div className="DBN_ExitToApp_container" onClick={reloadLogout}>
                                 <div className="DBN_ExitToAppIcon_container">
                                     <ExitToAppIcon className="ExitToAppIcon" />
-                                    <span>Logout<span style={{ opacity: "0" }}>..................</span></span>
+                                    <span>Logout<span style={{ opacity: "0" }}>.............</span></span>
                                 </div>
                             </div>
                         </div>

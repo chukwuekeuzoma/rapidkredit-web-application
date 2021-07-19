@@ -12,7 +12,7 @@ import AdminNav from  "../AdminNav/AdminNav"
 export default function AdminLayout(props) {
      
     const Oneminute = 60000;
-    let time = 200 * Oneminute;
+    let time = 10 * Oneminute;
 
     const [updateNow, setUpdateNow] = useState(true); 
     // const forceUpdate = useForceUpdate();

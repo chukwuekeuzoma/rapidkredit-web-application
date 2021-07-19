@@ -24,6 +24,13 @@
         background:#05006A !important;
         height:120px;
         border-radius:5px;
+        @include flex;
+        justify-content: space-around;
+        align-items: center;
+
+        h2{
+            color: #2fdfff;
+        }
     }
 }
 

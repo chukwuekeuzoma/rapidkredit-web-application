@@ -45,7 +45,8 @@ export default function AdminSettlement(props) {
                 </div>
                 <div className="AST_Grid_container">
                     <div className="AST_content_one">
-                        
+                        <div><h2>Numbers of Settlements</h2></div>
+                        <div><h2>0</h2></div>
                     </div>
                     <div className="AST_content_two">
                         <div style={{ height: 320, width: '100%' }}>

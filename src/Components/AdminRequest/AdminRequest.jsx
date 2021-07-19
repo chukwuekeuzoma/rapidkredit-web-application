@@ -43,7 +43,8 @@ export default function AdminRequest(props) {
                 </div>
                 <div className="ARQ_Grid_container">
                     <div className="ARQ_content_one">
-                        
+                        <div><h2>Numbers of Requests</h2></div>
+                        <div><h2>0</h2></div>
                     </div>
                     <div className="ARQ_content_two">
                         <div style={{ height: 320, width: '100%' }}>

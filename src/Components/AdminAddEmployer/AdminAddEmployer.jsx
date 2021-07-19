@@ -85,7 +85,7 @@ export default function AdminAddEmployer(props) {
                                         />
                                     </div>
                                     <div className="AAE_Botton_container">
-                                           <Button variant="outlined" className="AAE_Button">Login</Button>
+                                           <Button variant="outlined" className="AAE_Button">Add Employer</Button>
                                     </div>
                                  </form>
 

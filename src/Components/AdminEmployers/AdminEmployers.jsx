@@ -38,7 +38,8 @@ export default function AdminEmployers(props) {
            </div>
             <div className="AEP_Grid_container">
                 <div className="AEP_content_one">
-                    
+                    <div className="AEP_Employer"><h2>Numbers of Employers</h2></div>
+                    <div className="AEP_Num"><h2>0</h2></div>
                 </div>
                 <div className="AEP_content_two">
                     <div style={{ height: 320, width: '100%' }}>
