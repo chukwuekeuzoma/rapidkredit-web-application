@@ -52,8 +52,8 @@ const useStyles = makeStyles({
 
 
 const validationSchema = yup.object({
-  firstName: yup.string().min(4, "Pls enter your real name").required("First name required"),
-  lastName: yup.string().min(4, "Pls enter your real name").required("Last name required"),
+  firstName: yup.string().min(2, "Pls enter your real name").required("First name required"),
+  lastName: yup.string().min(2, "Pls enter your real name").required("Last name required"),
   email: yup.string().email("Pls enter a valid email address").required(),
   username: yup.string().min(4, "Pls enter your username").required("username required"),
   companyId: yup.string().required("Pls select a company"),
