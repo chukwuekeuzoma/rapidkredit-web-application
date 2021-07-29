@@ -68,7 +68,7 @@ export default function Register() {
   const [Companydata, setCompanydata] = useState([])
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
-  const [Loader, setLoader] = useState(false)
+  
 
 
   useEffect(() => {
