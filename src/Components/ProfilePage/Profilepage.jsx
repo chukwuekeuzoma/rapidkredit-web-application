@@ -23,7 +23,6 @@ import Alert from '@material-ui/lab/Alert';
 // import PicThree from "../../images/carowhite4.png"
 import axios from "axios"
 import PulseLoader from "react-spinners/ClipLoader"
-const qs = require('qs');
 // import useForceUpdate from 'use-force-update';
 
 
@@ -173,21 +172,7 @@ export default function Profilepage() {
 
 
     let store = JSON.parse(localStorage.getItem("token"))
-    var bearer = `Bearer ${store.token}`
 
-    // const defaultOptions = {
-    //     headers: {
-    //       'Content-Type': 'application/x-www-form-urlencoded',
-    //     },
-    //   };
-
-    //   let instance = axios.create(defaultOptions)
-
-    //   instance.interceptors.request.use(function (config) {
-    //     const token = localStorage.getItem('token');
-    //     config.headers.authorization =  `Bearer ${store.token}` 
-    //     return config;
-    //   });
 
 
     axios.interceptors.request.use(
@@ -255,47 +240,13 @@ export default function Profilepage() {
         return () => bankdetailsbanks = false
     }, [])
 
-
-    // const requestOptions = {
-    //     method: 'GET',
-    //     headers: { 
-    //       'Authorization': bearer,
-    //      'Content-Type': 'application/x-www-form-urlencoded' },
-    //     body: JSON.stringify({bankValues})
-    // };
-     
-//     const keyUp = () => {
-//     if (bankInfo != "" && accountNumber.length >= 10) {
-//         setLoader(true);
-    
-//     fetch('https://rapidkredit.herokuapp.com/api/bank-details/account-enquire', requestOptions)
-//     .then(response => {
-//         setaccountName(response.data.accountName)
-//         setErrorBankSent("")
-//         setLoader(false)
-//         setbankCode(response.data.bankCode)
-//         setbankName(response.data.bankName)
-//         if (response.data.status === "error") {
-//             setErrorBankSent(response.data.message)
-//             setaccountName("")
-//             setLoader(false)
-//         }
-//     }) 
-//     .catch((error) => {
-//         setErrorBankSent(error.response.data.message)
-//         setaccountName("")
-//         setLoader(false)
-//         // console.error('Error:', error);
-//     });
-//    }
-// }
     
     const keyUp = () => {
         
         if (bankInfo != "" && accountNumber.length >= 10) {
             setLoader(true);
            
-            axios.get("bank-details/account-enquire",bankValues)
+            axios.post("bank-details/account-enquire",bankValues)
                 .then(response => {
                     setaccountName(response.data.data.accountName)
                     setErrorBankSent("")
