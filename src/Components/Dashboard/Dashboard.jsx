@@ -128,7 +128,7 @@ export default function Dashboard() {
     }
   )
 
-  useEffect(async () => {
+  useEffect(() => {
     let usersbankList = true
     axios.get("users/bank/details")
       .then(response => {
@@ -142,7 +142,7 @@ export default function Dashboard() {
   }, [])
 
 
-  useEffect(async () => {
+  useEffect(() => {
 
 
     setLoaderUser(true)
@@ -167,7 +167,7 @@ export default function Dashboard() {
     return () => usersgetdata = false
   }, [])
 
-  useEffect(async () => {
+  useEffect(() => {
     let usersuseridcompanies = true
     axios.get(`users/${userId}/companies`)
       .then(response => { if (usersuseridcompanies) { setUserCompanyList(response.data.data) } })
@@ -176,7 +176,7 @@ export default function Dashboard() {
   }, [userId])
 
 
-  const userRequestSubmit = async (e) => {
+  const userRequestSubmit = (e) => {
     e.preventDefault();
     setRequestLoader(true)
     axios.post("requests", userRequest)

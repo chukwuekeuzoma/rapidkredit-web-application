@@ -69,7 +69,7 @@ export default function Password() {
     
     
 
-    const onSubmit = async (values) => {
+    const onSubmit = (values) => {
            const {confirmPassword, ...rest} = values;
          axios.post(`auth/register/accept/${token}`,rest)
                 .then(response  => {

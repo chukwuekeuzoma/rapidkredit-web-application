@@ -187,7 +187,7 @@ export default function Profilepage() {
     )
 
 
-    useEffect(async () => {
+    useEffect(() => {
         let usersgetdata = true
         setLoaderUser(true)
         axios.get("users/get/data")
@@ -210,7 +210,7 @@ export default function Profilepage() {
     }, [])
 
 
-    useEffect(async () => {
+    useEffect(() => {
         let usersuseridcompanies = true
         axios.get(`users/${userId}/companies`)
             .then(response => { if (usersuseridcompanies) { setUserCompanyList(response.data.data) } })
@@ -219,7 +219,7 @@ export default function Profilepage() {
     }, [userId])
 
 
-    useEffect(async () => {
+    useEffect(() => {
         let usersbankList = true
         axios.get("users/bank/details")
             .then(response => {
@@ -233,7 +233,7 @@ export default function Profilepage() {
     }, [])
 
 
-    useEffect(async () => {
+    useEffect(() => {
         let bankdetailsbanks = true
         axios.get("bank-details/banks")
             .then(response => { if (bankdetailsbanks) { setBankList(response.data.data) } })
@@ -296,7 +296,7 @@ export default function Profilepage() {
             });
     }
 
-    const onSubmit = async (values) => {
+    const onSubmit =  (values) => {
         setLoaderTwo(true)
         const { confirmNewPassword, ...rest } = values;
         axios.patch(`users/update/`, rest)
@@ -325,7 +325,7 @@ export default function Profilepage() {
 
 
 
-    const userRequestSubmit = async (e) => {
+    const userRequestSubmit = (e) => {
         e.preventDefault();
         setRequestLoader(true)
         axios.post("requests", userRequest)

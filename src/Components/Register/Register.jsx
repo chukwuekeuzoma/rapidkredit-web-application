@@ -90,7 +90,7 @@ export default function Register() {
   }, [])
 
 
-  const onSubmit = async (values) => {
+  const onSubmit = (values) => {
     setLoader(true)
     axios.post('auth/register/', values)
       .then(response => {
