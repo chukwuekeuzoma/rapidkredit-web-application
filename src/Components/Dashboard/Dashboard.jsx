@@ -221,6 +221,10 @@ export default function Dashboard() {
     setRequestOpenMobile(false)
   }
 
+  const Numb = document.querySelector(".Numb");
+
+  
+
 
 
   return (
@@ -412,7 +416,8 @@ export default function Dashboard() {
               <div className="inner"></div>
               <div className="Numb">
                 {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={20} /> : UserProfile.days_worked_for}
-                <div className="Days">Days(s)</div></div>
+                <div className="Days">Days(s)</div>
+              </div>
               <div className="circle">
                 <div className="Bar Left">
                   <div className="Progress"></div>
@@ -650,30 +655,30 @@ export default function Dashboard() {
             <div className="DB_content_six_mobile">
               <div className="Position_mobile"><span>Positions(s)</span></div>
               <div>
-              <TableContainer className={classes.table}>
-                <Table className={classes.table}>
-                  <TableHead >
-                    <TableRow>
-                      <StyledTableCell>Organisation</StyledTableCell>
-                      <StyledTableCell>Role</StyledTableCell>
-                      {/* <StyledTableCell>Employer&nbsp;ID</StyledTableCell> */}
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {UserCompanyRoles.map((row) => (
-                      <TableRow key={row.company_id}>
-                        <StyledTableCell component="th" scope="row">
-                          <div className="Table_cellhead_container_mobile" >
-                            {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
-                            <div>{row.company_name}</div>
-                          </div>
-                        </StyledTableCell>
-                        <StyledTableCell>{row.user_role === null ? <div>None</div> : row.user_role}</StyledTableCell>
+                <TableContainer className={classes.table}>
+                  <Table className={classes.table}>
+                    <TableHead >
+                      <TableRow>
+                        <StyledTableCell>Organisation</StyledTableCell>
+                        <StyledTableCell>Role</StyledTableCell>
+                        {/* <StyledTableCell>Employer&nbsp;ID</StyledTableCell> */}
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                      {UserCompanyRoles.map((row) => (
+                        <TableRow key={row.company_id}>
+                          <StyledTableCell component="th" scope="row">
+                            <div className="Table_cellhead_container_mobile" >
+                              {/* <img src={row.icon} alt="slideimage" className="Table_cell" /> */}
+                              <div>{row.company_name}</div>
+                            </div>
+                          </StyledTableCell>
+                          <StyledTableCell>{row.user_role === null ? <div>None</div> : row.user_role}</StyledTableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
               </div>
 
 

@@ -130,9 +130,9 @@ export default function Profilepage() {
     const [LoaderTwo, setLoaderTwo] = useState(false)
     const [LoaderUser, setLoaderUser] = useState(false)
     const [RequestLoader, setRequestLoader] = useState(false)
-    
 
-    
+
+
 
 
     const d = new Date()
@@ -144,7 +144,7 @@ export default function Profilepage() {
     const bankValues = {
         bankInfo,
         accountNumber
-    } 
+    }
 
     console.log(bankValues)
 
@@ -241,13 +241,13 @@ export default function Profilepage() {
         return () => bankdetailsbanks = false
     }, [])
 
-    
+
     const keyUp = () => {
-        
+
         if (bankInfo != "" && accountNumber.length >= 10) {
             setLoader(true);
-           
-            axios.post("bank-details/account-enquire",bankValues)
+
+            axios.post("bank-details/account-enquire", bankValues)
                 .then(response => {
                     setaccountName(response.data.data.accountName)
                     setErrorBankSent("")
@@ -296,7 +296,7 @@ export default function Profilepage() {
             });
     }
 
-    const onSubmit =  (values) => {
+    const onSubmit = (values) => {
         setLoaderTwo(true)
         const { confirmNewPassword, ...rest } = values;
         axios.patch(`users/update/`, rest)
@@ -722,7 +722,7 @@ export default function Profilepage() {
                                                                         >
                                                                             <option aria-label="None" value="" />
 
-                                                                            {BankList.map(({  name, code }, index) => (
+                                                                            {BankList.map(({ name, code }, index) => (
                                                                                 <option key={index} value={`${code},${name}`}>
                                                                                     {name}
                                                                                 </option>
@@ -909,7 +909,7 @@ export default function Profilepage() {
                             </div>
                         </div>
                         <div className="PR_content_three_mobile">
-                            <div className="PR_Number_Days_container_mobile">  
+                            <div className="PR_Number_Days_container_mobile">
                                 <div className="PR_Days_container_mobile">
                                     <div className="PR_Number_of_days_mobile"><span>Number of<br /> of Days worked</span></div>
                                     <div className="PR_Icon_mobile_container">
@@ -1090,7 +1090,7 @@ export default function Profilepage() {
                                                                 </StyledTableCell>
                                                                 <StyledTableCell>{row.user_role === null ? <div>None</div> : row.user_role}</StyledTableCell>
                                                             </TableRow>
-                                                         ))}
+                                                        ))}
                                                     </TableBody>
                                                 </Table>
                                             </TableContainer>

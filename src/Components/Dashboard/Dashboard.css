@@ -241,13 +241,13 @@
 
 @keyframes left{
     100%{
-       transform: rotate(100deg);
+       transform: rotate(180deg);
     }
 }
 
 /* @keyframes right{
-    60%{
-       transform: rotate(180deg);
+    100%{
+       transform: rotate(60deg);
     }
 } */
 
