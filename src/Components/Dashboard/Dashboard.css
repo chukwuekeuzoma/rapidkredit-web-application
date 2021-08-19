@@ -207,7 +207,8 @@
 
 .circle .Left .Progress{
     z-index: 1;
-    animation:left 4s linear both;
+    animation:left 2678400s linear both;
+    animation-iteration-count: infinite;
 }
 
 .circle .Right {
@@ -216,8 +217,9 @@
 }
 
 .circle .Right .Progress{
-    animation:right 4s linear both;
-    animation-delay: 4s;
+    animation:right 2678400s linear both;
+    animation-delay: 2678400s;
+    animation-iteration-count: infinite;
 }
 
 .Calander{
@@ -245,11 +247,11 @@
     }
 }
 
-/* @keyframes right{
+@keyframes right{
     100%{
-       transform: rotate(60deg);
+       transform: rotate(180deg);
     }
-} */
+}
 
 .Position{
     margin-top:20px;

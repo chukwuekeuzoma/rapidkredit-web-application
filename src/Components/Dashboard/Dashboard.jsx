@@ -590,7 +590,8 @@ export default function Dashboard() {
                 <div className="inner_mobile"></div>
                 <div className="Numb_mobile">
                   {LoaderUser ? <PulseLoader color={"rgb(17, 17, 66)"} size={10} /> : UserProfile.days_worked_for}
-                  <div className="Days_mobile">Days(s)</div></div>
+                  <div className="Days_mobile">Days(s)</div>
+                </div>
                 <div className="circle_mobile">
                   <div className="Bar_mobile Left_mobile">
                     <div className="Progress_mobile"></div>
