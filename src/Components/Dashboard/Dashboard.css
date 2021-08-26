@@ -626,7 +626,8 @@
     
     .circle_mobile .Left_mobile .Progress_mobile{
         z-index: 1;
-        animation:left 4s linear both;
+        animation:left 8400s linear both;
+        animation-iteration-count: infinite;
     }
     
     .circle_mobile .Right_mobile{
@@ -635,8 +636,9 @@
     }
     
     .circle_mobile .Right_mobile .Progress_mobile{
-        animation:right 4s linear both;
-        animation-delay: 4s;
+        animation:right 8400s linear both;
+        animation-delay: 8400s;
+        animation-iteration-count: infinite;
     }
     
     .Calander_mobile{
