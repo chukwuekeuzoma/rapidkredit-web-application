@@ -218,19 +218,23 @@ export default function Profilepage() {
         return () => usersuseridcompanies = false
     }, [userId])
 
+  
+    const BankUserList = async() =>{
+        try{
+        let response = await axios.get("users/bank/details");
+        setUserBankList(response.data.data)
+        } catch (e){
+            console.log(e)
+        }
+    }
 
-    useEffect(() => {
+    useEffect(() =>{
         let usersbankList = true
-        axios.get("users/bank/details")
-            .then(response => {
-                if (usersbankList) {
-                    setUserBankList(response.data.data)
-                    // setBankDetails(response.data.data)
-                }
-            })
-            .catch(e => { if (usersbankList) { console.log(e) } })
+        if (usersbankList) {
+            BankUserList();
+        }
         return () => usersbankList = false
-    }, [])
+    },[])
 
 
     useEffect(() => {
@@ -280,7 +284,7 @@ export default function Profilepage() {
                     setSucessBankSent(response.data.message)
                     setErrorBankSentOne("")
                     setOpen(false)
-                    window.location.reload();
+                    BankUserList();
                 };
                 if (response.data.status === "error") {
                     setErrorBankSentOne(response.data.message)
