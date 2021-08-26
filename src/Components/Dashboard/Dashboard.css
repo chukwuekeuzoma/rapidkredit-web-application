@@ -207,7 +207,7 @@
 
 .circle .Left .Progress{
     z-index: 1;
-    animation:left 2678400s linear both;
+    animation:left 8400s linear both;
     animation-iteration-count: infinite;
 }
 
@@ -217,8 +217,8 @@
 }
 
 .circle .Right .Progress{
-    animation:right 2678400s linear both;
-    animation-delay: 2678400s;
+    animation:right 8400s linear both;
+    animation-delay: 8400s;
     animation-iteration-count: infinite;
 }
 

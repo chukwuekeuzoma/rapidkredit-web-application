@@ -4,50 +4,25 @@ import {useStyles} from "./NavigationCss"
 import RapidOne from "../../images/rapid.png"
 import {Link} from "react-router-dom"
 import "./Navigation.css"
-// import classnames from "classnames"
 import {Menu, Clear } from '@material-ui/icons'
+import {Slide, useScrollTrigger} from '@material-ui/core';
 
 
 
-
-export default function Navigation () {
-
-    const [Navbar, setNavbar] = useState(false)
-    // const [ScroolPos, setScroolPos] = useState(0)
-    // const [Show, setShow] = useState(true)
-
-    // console.log(ScroolPos)
-    // console.log(Show)
-
-   const classes = useStyles();
-   
+function HideOnScroll(props) {
+    const { children, window} = props;
+    const trigger = useScrollTrigger({ target: window ? window() : undefined });
+    return (
+      <Slide appear={false} direction="down" in={!trigger}>
+        {children}
+      </Slide>
+    );
+  }
 
 
-   useEffect(() => {
-        window.addEventListener("scroll", handleScroll)
-    return()=>{
-        window.removeEventListener("scroll", handleScroll)
-      }
-    }, [])
+export default function Navigation (props) {
 
-
-
-   const handleScroll = () => {
-         var lastScrollTop = 100; 
-         const navBar = document.getElementById("navBar")
-         var scroolTop = window.pageYOffset || document.documentElement.scrollTop;
-         if(scroolTop > lastScrollTop){
-              navBar.style.top="-120px";
-         }else {
-            navBar.style.top="0"
-         }
-
-         lastScrollTop = scroolTop;
-   } 
-
-
-  
-    
+    const [Navbar, setNavbar] = useState(false)   
 
     const Navchange = () => {
         setNavbar(!Navbar)
@@ -55,6 +30,7 @@ export default function Navigation () {
          
     return (
         <>
+         <HideOnScroll {...props}>
             <nav id="navBar">
                     <div className="nav_bar_Menu_icon">
                         <div onClick={Navchange}>
@@ -149,6 +125,7 @@ export default function Navigation () {
                     <div className="Register--mobile"><Link to="Register" className="links"><span className="Register_two--mobile">Register</span></Link></div>
                 </div>
             </nav>
+            </HideOnScroll>
         </>
 
     );

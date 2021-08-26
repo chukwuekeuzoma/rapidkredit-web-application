@@ -146,7 +146,7 @@ export default function Profilepage() {
         accountNumber
     }
 
-    console.log(bankValues)
+    // console.log(bankValues)
 
     let bankData = {
         accountName,
